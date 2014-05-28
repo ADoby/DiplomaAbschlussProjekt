@@ -5,7 +5,7 @@ public class UIMasterPanel : UIRect
 {
     void OnGUI()
     {
-        UpdateChildren();
+        UpdateUI();
         Draw();
     }
 

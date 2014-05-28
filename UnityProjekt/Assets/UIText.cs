@@ -2,11 +2,15 @@
 
 public class UIText : UIRect
 {
-    public string Text;
+    public bool ShowBackground = false;
+    public string Text = "";
 
     public override void Draw()
     {
-        GUI.Label(rect, Text);
+        if (ShowBackground)
+            GUI.Box(absoluteRect, "");
+
+        GUI.Label(absoluteRect, Text);
     }
 }
 

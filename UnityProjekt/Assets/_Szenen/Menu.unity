@@ -151,6 +151,56 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!1 &1043970965
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1043970966}
+  - 114: {fileID: 1043970967}
+  m_Layer: 0
+  m_Name: UIText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1043970966
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1043970965}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2086035571}
+--- !u!114 &1043970967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1043970965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b258bf0c597f90b449d271ebe1f625ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  position:
+    normalized: 1
+    Value: {x: 0, y: 0}
+  size:
+    normalized: 0
+    Value: {x: 26, y: 20}
+  HorizontalAnchor: 1
+  VerticalAnchor: 0
+  HorizontalAlignment: 1
+  VerticalAlignment: 0
+  ShowBackground: 0
+  Text: Text
 --- !u!1 &1312698030
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,7 +296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1605606221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,12 +308,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 690b4274d4b67e24fac9db34e13bb063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1000
-    height: 1000
+  position:
+    normalized: 0
+    Value: {x: 0, y: 0}
+  size:
+    normalized: 1
+    Value: {x: 1, y: 1}
+  HorizontalAnchor: 0
+  VerticalAnchor: 0
+  HorizontalAlignment: 0
+  VerticalAlignment: 0
 --- !u!4 &1605606222
 Transform:
   m_ObjectHideFlags: 0
@@ -301,7 +355,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1043970966}
   m_Father: {fileID: 1605606222}
 --- !u!114 &2086035572
 MonoBehaviour:
@@ -314,9 +369,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a42256d8dd94664c8a8c814a8fc92c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 100
-    height: 100
+  position:
+    normalized: 1
+    Value: {x: .0500000007, y: .0500000007}
+  size:
+    normalized: 1
+    Value: {x: .899999976, y: .899999976}
+  HorizontalAnchor: 0
+  VerticalAnchor: 0
+  HorizontalAlignment: 0
+  VerticalAlignment: 0

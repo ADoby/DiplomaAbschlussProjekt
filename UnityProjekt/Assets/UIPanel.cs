@@ -7,7 +7,7 @@ public class UIPanel : UIRect
 
     public override void Draw()
     {
-        GUI.Box(rect, content);
+        GUI.Box(absoluteRect, content);
         DrawChildren();
     }
 }
