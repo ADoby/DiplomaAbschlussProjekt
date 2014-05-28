@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class MenuManager : MonoBehaviour
+[ExecuteInEditMode]
+public class SimpleMenuManager : MonoBehaviour
 {
 
     #region Singleton
 
-    private static MenuManager instance;
+    private static SimpleMenuManager instance;
 
-    public static MenuManager Instance
+    public static SimpleMenuManager Instance
     {
         get
         {
@@ -26,7 +26,7 @@ public class MenuManager : MonoBehaviour
     private MenuState currentMenuState;
 
 	void Start () {
-        currentMenuState = new MainMenuState();
+        OpenMenu();
 	}
 	
 	void Update () {
@@ -36,8 +36,13 @@ public class MenuManager : MonoBehaviour
 
     void OnGUI()
     {
+        if (instance == null)
+            instance = this;
+
         if (currentMenuState != null)
             currentMenuState.OnGUI();
+        else
+            OpenMenu();
     }
 
     public void SwitchMenuState(MenuState newMenuState)

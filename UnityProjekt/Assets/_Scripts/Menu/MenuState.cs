@@ -8,12 +8,12 @@ public abstract class MenuState
 
     protected void SwitchToState(MenuState newMenuState)
     {
-        MenuManager.Instance.SwitchMenuState(newMenuState);
+        SimpleMenuManager.Instance.SwitchMenuState(newMenuState);
     }
 
     protected void CloseMenu()
     {
-        MenuManager.Instance.CloseMenu();
+        SimpleMenuManager.Instance.CloseMenu();
     }
 
     protected void ExitGame()
