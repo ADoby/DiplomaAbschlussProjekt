@@ -18,28 +18,28 @@ public class SettingsMenu : MenuState
 
     public SettingsMenu()
     {
-        masterPanel = new UIMasterPanel();
-        masterPanel.Position = new UIPosition() { Value = new Vector2(0, 0), normalized = true };
-        masterPanel.Size = new UISize() { Value = new Vector2(1, 1), normalized = true };
+        masterPanel = new GameObject().AddComponent<UIMasterPanel>();
+        masterPanel.SetPosition(0, 0, true);
+        masterPanel.SetSize(1, 1, true);
         masterPanel.ShowBox = false;
 
-        waitingForInputPanel = new UIPanel();
-        waitingForInputPanel.Position = new UIPosition() { Value = new Vector2(0, 0), normalized = true };
-        waitingForInputPanel.Size = new UISize() { Value = new Vector2(1, 1), normalized = true };
+        waitingForInputPanel = new GameObject().AddComponent<UIPanel>();
+        waitingForInputPanel.SetPosition(0, 0, true);
+        waitingForInputPanel.SetSize(1, 1, true);
         waitingForInputPanel.content = "Waiting for Input";
         waitingForInputPanel.ShowBox = false;
 
-        inputPanel = new UIPanel();
-        inputPanel.Position = new UIPosition() { Value = new Vector2(0, 0), normalized = true };
-        inputPanel.Size = new UISize() { Value = new Vector2(1, 1), normalized = true };
+        inputPanel = new GameObject().AddComponent<UIPanel>();
+        inputPanel.SetPosition(0, 0, true);
+        inputPanel.SetSize(1, 1, true);
         inputPanel.content = "Input Manager";
 
         masterPanel.AddChild(inputPanel);
         masterPanel.AddChild(waitingForInputPanel);
 
-        UIButton backButton = new UIButton();
-        backButton.Position = new UIPosition() { Value = new Vector2(5, 5), normalized = false };
-        backButton.Size = new UISize() { Value = new Vector2(120, 25), normalized = false };
+        UIButton backButton = new GameObject().AddComponent<UIButton>();
+        backButton.SetPosition(5, 5, false);
+        backButton.SetSize(120, 25, false);
 
         backButton.HorizontalAnchor = HorizontalAnchorPoint.LEFT;
         backButton.VerticalAnchor = VerticalAnchorPoint.BOTTOM;
@@ -58,9 +58,9 @@ public class SettingsMenu : MenuState
         {
             float PanelHeight = 50;
 
-            UIPanel InputInfoHolderPanel = new UIPanel();
-            InputInfoHolderPanel.Position = new UIPosition() { Value = new Vector2(0, positionY), normalized = false };
-            InputInfoHolderPanel.Size = new UISize() { Value = new Vector2(250, PanelHeight), normalized = false };
+            UIPanel InputInfoHolderPanel = new GameObject().AddComponent<UIPanel>();
+            InputInfoHolderPanel.SetPosition(0, positionY, false);
+            InputInfoHolderPanel.SetSize(250, PanelHeight, false);
 
             InputInfoHolderPanel.HorizontalAnchor = HorizontalAnchorPoint.CENTER;
             InputInfoHolderPanel.HorizontalAlignment = HorizontalAnchorPoint.CENTER;
@@ -70,9 +70,8 @@ public class SettingsMenu : MenuState
             inputPanel.AddChild(InputInfoHolderPanel);
 
             //Label
-            UIText inputLabel = new UIText();
-            inputLabel.Position = new UIPosition() { Value = new Vector2(0, 0), normalized = false };
-            inputLabel.Size = new UISize() { Value = new Vector2(100, 25), normalized = false };
+            UIText inputLabel = new GameObject().AddComponent<UIText>();
+            inputLabel.SetSize(100, 25, false);
 
             inputLabel.HorizontalAnchor = HorizontalAnchorPoint.LEFT;
             inputLabel.VerticalAnchor = VerticalAnchorPoint.BOTTOM;
@@ -84,9 +83,9 @@ public class SettingsMenu : MenuState
             InputInfoHolderPanel.AddChild(inputLabel);
 
 
-            inputButton = new UIButton();
-            inputButton.Position = new UIPosition() { Value = new Vector2(80, 0), normalized = false };
-            inputButton.Size = new UISize() { Value = new Vector2(120, 25), normalized = false };
+            inputButton = new GameObject().AddComponent<UIButton>();
+            inputButton.SetPosition(80, 0, false);
+            inputButton.SetSize(120, 25, false);
 
             inputButton.HorizontalAnchor = HorizontalAnchorPoint.LEFT;
             inputButton.VerticalAnchor = VerticalAnchorPoint.BOTTOM;
@@ -99,9 +98,8 @@ public class SettingsMenu : MenuState
             InputInfoHolderPanel.AddChild(inputButton);
 
 
-            UIButton resetButton = new UIButton();
-            resetButton.Position = new UIPosition() { Value = new Vector2(0, 0), normalized = false };
-            resetButton.Size = new UISize() { Value = new Vector2(25, 25), normalized = false };
+            UIButton resetButton = new GameObject().AddComponent<UIButton>();
+            resetButton.SetSize(25, 25, false);
 
             resetButton.HorizontalAnchor = HorizontalAnchorPoint.RIGHT;
             resetButton.VerticalAnchor = VerticalAnchorPoint.BOTTOM;

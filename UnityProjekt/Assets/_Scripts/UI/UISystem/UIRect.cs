@@ -21,28 +21,64 @@ public enum VerticalAnchorPoint
 public class UIPosition
 {
     public bool normalized = false;
-    public Vector2 Value;
+    public Vector2 Value = Vector2.zero;
+
+    public UIPosition(float x, float y, bool normalized)
+    {
+        this.normalized = normalized;
+        Value.x = x;
+        Value.y = y;
+    }
+
+    public void SetPosition(float x, float y)
+    {
+        Value.x = x;
+        Value.y = y;
+    }
 }
 [System.Serializable]
 public class UISize
 {
     public bool normalized = false;
-    public Vector2 Value;
+    public Vector2 Value = Vector2.zero;
+
+    public UISize(float x, float y, bool normalized)
+    {
+        this.normalized = normalized;
+        Value.x = x;
+        Value.y = y;
+    }
+
+    public void SetSize(float x, float y)
+    {
+        Value.x = x;
+        Value.y = y;
+    }
 }
 
 #endregion
 
 [System.Serializable]
-public class UIRect
+public class UIRect : MonoBehaviour
 {
 
     #region Public Member
-
     
     public bool Visible = true;
     public bool ShowBackground = false;
-    public UIPosition Position;
-    public UISize Size;
+    public UIPosition Position = new UIPosition(0, 0, false);
+    public UISize Size = new UISize(0, 0, false);
+
+    public void SetPosition(float x, float y, bool normalized)
+    {
+        Position.SetPosition(x, y);
+        Position.normalized = normalized;
+    }
+    public void SetSize(float x, float y, bool normalized)
+    {
+        Size.SetSize(x, y);
+        Size.normalized = normalized;
+    }
 
     public HorizontalAnchorPoint HorizontalAnchor;
     public VerticalAnchorPoint VerticalAnchor;
@@ -54,7 +90,7 @@ public class UIRect
 
     #region Protected Member
 
-    protected bool active = true;
+    protected bool uiActive = true;
     protected Rect absoluteRect;
 
     #endregion
@@ -88,19 +124,51 @@ public class UIRect
         return children;
     }
 
+    public void AddChild(UIRect newChild)
+    {
+        children.Add(newChild);
+        if (newChild.parent == null)
+        {
+            newChild.parent = this;
+        }
+        else
+        {
+            newChild.parent.RemoveChild(newChild);
+            newChild.parent = this;
+        }
+
+        if (newChild.transform != null && transform != null)
+        {
+            newChild.transform.parent = transform;
+        }
+    }
+
+    public void RemoveChild(UIRect oldChild)
+    {
+        if (children.Contains(oldChild))
+            children.Remove(oldChild);
+    }
+
     public void UpdateChildren()
     {
-        /*children.Clear();
+        children.Clear();
         foreach (Transform child in transform)
         {
             UIRect childRect = child.GetComponent<UIRect>();
             if (childRect)
             {
-                children.Add(childRect);
+                AddChild(childRect);
                 childRect.UpdateChildren();
             }
         }
-        */
+    }
+
+    protected void DrawChildren()
+    {
+        foreach (var child in children)
+        {
+            child.Draw();
+        }
     }
 
     #endregion
@@ -115,7 +183,7 @@ public class UIRect
 
     public void Draw()
     {
-        if (!active)
+        if (!uiActive)
         {
             GUI.enabled = false;
         }
@@ -132,7 +200,7 @@ public class UIRect
         }
             
 
-        if (!active)
+        if (!uiActive)
         {
             GUI.enabled = true;
         }
@@ -144,7 +212,7 @@ public class UIRect
 
     public void SetActive(bool newActive, bool recursive)
     {
-        active = newActive;
+        uiActive = newActive;
         if (recursive)
         {
             foreach (var child in children)
@@ -175,26 +243,6 @@ public class UIRect
         {
             child.UpdateUI();
         }
-    }
-
-    public void AddChild(UIRect newChild)
-    {
-        children.Add(newChild);
-        if (newChild.parent == null)
-        {
-            newChild.parent = this;
-        }
-        else
-        {
-            newChild.parent.RemoveChild(newChild);
-            newChild.parent = this;
-        }
-    }
-
-    public void RemoveChild(UIRect oldChild)
-    {
-        if (children.Contains(oldChild))
-            children.Remove(oldChild);
     }
 
     #endregion
@@ -284,19 +332,6 @@ public class UIRect
         {
             absoluteRect.width *= width;
             absoluteRect.height *= height;
-        }
-    }
-
-    protected void UpdateAnchor()
-    {
-
-    }
-
-    protected void DrawChildren()
-    {
-        foreach (var child in children)
-        {
-            child.Draw();
         }
     }
 
