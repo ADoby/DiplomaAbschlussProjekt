@@ -322,8 +322,6 @@ public class InputController : MonoBehaviour{
         "TriggersR_1"
     };
 
-    public bool opened = false;
-
     private bool waitForInput = false;
     public bool IsWaitingForInput
     {
@@ -400,45 +398,50 @@ public class InputController : MonoBehaviour{
         }
     }
 
+    public bool CheckForInput()
+    {
+        for (int i = 0; i < 430; i++) // 430 is number of keys currently. Unity 4.3.4
+        {
+            //Ignore default joystick Buttons, which lead to every joystick
+            if (i >= 330 && i <= 349)
+                continue;
+
+            if (Input.GetKeyDown((KeyCode)i))
+            {
+                ChangeInfoKey((KeyCode)i);
+                return true;
+            }
+        }
+        foreach (string item in unityButtonInputs)
+        {
+            if (Input.GetButtonDown(item))
+            {
+                ChangeInfoButton(item);
+                return true;
+            }
+        }
+        foreach (string item in unityAxisInputs)
+        {
+            if (Input.GetAxis(item) != 0)
+            {
+                ChangeInfoAxis(item);
+                return true;
+            }
+        }
+        for (int i = 0; i < 3; i++)
+        {
+            if (Input.GetMouseButtonDown(i))
+            {
+                ChangeInfoMouse(i);
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 	// Update is called once per frame
 	public void Update () {
-        if (waitForInput)
-            {
-                for (int i = 0; i < 430; i++) // 430 is number of keys currently. Unity 4.3.4
-                {
-                    //Ignore default joystick Buttons, which lead to every joystick
-                    if (i >= 330 && i <= 349)
-                        continue;
-
-                    if (Input.GetKeyDown((KeyCode)i))
-                    {
-                        ChangeInfoKey((KeyCode)i);
-                    }
-                }
-                foreach (string item in unityButtonInputs)
-                {
-                    if (Input.GetButtonDown(item))
-                    {
-                        ChangeInfoButton(item);
-                    }
-                }
-                foreach (string item in unityAxisInputs)
-                {
-                    if (Input.GetAxis(item) != 0)
-                    {
-                        ChangeInfoAxis(item);
-                    }
-                }
-                for (int i = 0; i < 3; i++)
-                {
-                    if (Input.GetMouseButtonDown(i))
-                    {
-                        ChangeInfoMouse(i);
-                    }
-                }
-            }
-        
-        
         foreach (var item in InputInfos)
         {
             item.Update(); //Some Inputs need this to check for "clicked" state
@@ -447,52 +450,11 @@ public class InputController : MonoBehaviour{
 
     void Awake()
     {
-        instance = this;
+        Instance = this;
     }
 
-    void OpenI()
-    {
-        opened = true;
-        GameEventHandler.TriggerOnPause();
-    }
-    void CloseI()
-    {
-        opened = false;
-        GameEventHandler.TriggerOnResume();
-    }
-    public bool WantsToCloseI()
-    {
-        return (!waitForInput);
-    }
-    public static bool WantsToClose()
-    {
-        return Instance.WantsToCloseI();
-    }
+    public static InputController Instance;
 
-    private static InputController instance;
-    public static InputController Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = new InputController();
-            }
-            return instance;
-        }
-    }
-    public static bool IsOpened()
-    {
-        return Instance.opened;
-    }
-    public static void Open()
-    {
-        Instance.OpenI();
-    }
-    public static void Close()
-    {
-        Instance.CloseI();
-    }
     public static float GetValue(string ActionName)
     {
         return Instance.GetValueI(ActionName);
@@ -543,55 +505,15 @@ public class InputController : MonoBehaviour{
         return actionToInfo[ActionName].Clicked();
     }
 
-    void OnGUIOld()
-    {
-        if (opened)
-        {
-            GUIStyle area = new GUIStyle(GUI.skin.window);
-            float width = 0.8f;
-            float height = 0.8f;
-
-            GUILayout.BeginArea(new Rect((1f - width) / 2f * Screen.width, (1f - height) / 2f * Screen.height, width * Screen.width, height * Screen.height), area);
-
-            if (GUILayout.Button("Close Game"))
-            {
-                Application.Quit();
-            }
-
-            if (GUILayout.Button("Reset Player Health + Position"))
-            {
-                InputController.Close();
-                GameEventHandler.TriggerReset();
-            }
-
-            if (GUILayout.Button("Reset Inputs"))
-            {
-                ResetInputs();
-            }
-
-            if (waitForInput)
-            {
-                GUILayout.Label("Waiting for Input");
-            }
-            else
-            {
-                foreach (var item in InputInfos)
-                {
-                    if (GUILayout.Button(item.Action + " : " + item.GetInfo()))
-                    {
-                        waitForInput = true;
-                        clickedInfo = item;
-                    }
-                }
-            }
-
-            GUILayout.EndArea();
-        }
-    }
-
     public void RebindKey(InputInfo item)
     {
         waitForInput = true;
         clickedInfo = item;
+    }
+
+    public void DeleteKeyBind(InputInfo item)
+    {
+        clickedInfo = item;
+        ChangeInfoButton("None");
     }
 }

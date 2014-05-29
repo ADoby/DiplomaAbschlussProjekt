@@ -32,12 +32,15 @@ public class UISize
 
 #endregion
 
-public abstract class UIRect : MonoBehaviour
+[System.Serializable]
+public class UIRect
 {
 
     #region Public Member
 
+    
     public bool Visible = true;
+    public bool ShowBackground = false;
     public UIPosition Position;
     public UISize Size;
 
@@ -50,7 +53,8 @@ public abstract class UIRect : MonoBehaviour
     #endregion
 
     #region Protected Member
-    
+
+    protected bool active = true;
     protected Rect absoluteRect;
 
     #endregion
@@ -61,7 +65,7 @@ public abstract class UIRect : MonoBehaviour
 
     protected void UpdateParent()
     {
-        Transform currentTransform = transform;
+        /*Transform currentTransform = transform;
         do
         {
             currentTransform = currentTransform.parent;
@@ -70,6 +74,7 @@ public abstract class UIRect : MonoBehaviour
 
             parent = currentTransform.GetComponent<UIRect>();
         } while (parent == null);
+        */
     }
 
     #endregion
@@ -78,9 +83,14 @@ public abstract class UIRect : MonoBehaviour
 
     protected List<UIRect> children = new List<UIRect>();
 
+    public List<UIRect> GetChildren()
+    {
+        return children;
+    }
+
     public void UpdateChildren()
     {
-        children.Clear();
+        /*children.Clear();
         foreach (Transform child in transform)
         {
             UIRect childRect = child.GetComponent<UIRect>();
@@ -90,18 +100,60 @@ public abstract class UIRect : MonoBehaviour
                 childRect.UpdateChildren();
             }
         }
+        */
     }
 
     #endregion
 
 
-    #region Abstract Functions
+    #region Virtual Functions
 
-    abstract public void Draw();
+    public virtual void DrawMe() 
+    { 
+        //Override me
+    }
+
+    public void Draw()
+    {
+        if (!active)
+        {
+            GUI.enabled = false;
+        }
+            
+
+        if (ShowBackground)
+        {
+            GUI.Box(absoluteRect, "");
+        }
+
+        if (Visible)
+        {
+            DrawMe();
+        }
+            
+
+        if (!active)
+        {
+            GUI.enabled = true;
+        }
+    }
 
     #endregion
 
     #region Public Functions
+
+    public void SetActive(bool newActive, bool recursive)
+    {
+        active = newActive;
+        if (recursive)
+        {
+            foreach (var child in children)
+            {
+                child.SetActive(newActive, recursive);
+            }
+        }
+
+    }
 
     public void UpdateHierarchy()
     {
@@ -117,6 +169,7 @@ public abstract class UIRect : MonoBehaviour
     public void UpdateUI()
     {
         UpdateRect();
+        Draw();
 
         foreach (var child in children)
         {

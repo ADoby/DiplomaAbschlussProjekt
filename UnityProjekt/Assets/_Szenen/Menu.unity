@@ -235,7 +235,6 @@ MonoBehaviour:
   - R_YAxis_1
   - TriggersL_1
   - TriggersR_1
-  opened: 0
 --- !u!4 &675760613
 Transform:
   m_ObjectHideFlags: 0

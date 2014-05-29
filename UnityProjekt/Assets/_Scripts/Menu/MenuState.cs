@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 
-public abstract class MenuState
+[System.Serializable]
+public class MenuState
 {
-    public abstract void Update();
+    public virtual void Update() { }
 
-    public abstract void OnGUI();
+    public virtual void OnGUI() { }
 
     protected void SwitchToState(MenuState newMenuState)
     {

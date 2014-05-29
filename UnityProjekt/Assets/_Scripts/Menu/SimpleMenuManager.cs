@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-[ExecuteInEditMode]
 public class SimpleMenuManager : MonoBehaviour
 {
 
@@ -23,7 +22,7 @@ public class SimpleMenuManager : MonoBehaviour
 
     #endregion
 
-    private MenuState currentMenuState;
+    public MenuState currentMenuState;
 
 	void Start () {
         OpenMenu();

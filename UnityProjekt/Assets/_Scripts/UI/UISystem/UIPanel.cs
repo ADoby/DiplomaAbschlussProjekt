@@ -1,17 +1,14 @@
 ﻿using UnityEngine;
 
-[ExecuteInEditMode]
+[System.Serializable]
 public class UIPanel : UIRect
 {
     public bool ShowBox = true;
-    protected string content = "";
+    public string content = "";
 
-    public override void Draw()
+    public override void DrawMe()
     {
-        if (Visible)
-        {
-            if(ShowBox) GUI.Box(absoluteRect, content);
-            DrawChildren();
-        }
+        if (ShowBox)
+            GUI.Box(absoluteRect, content);
     }
 }

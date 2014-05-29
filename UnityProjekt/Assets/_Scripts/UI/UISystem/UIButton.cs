@@ -1,22 +1,17 @@
 ﻿using UnityEngine;
 
+[System.Serializable]
 public class UIButton : UIRect
 {
     public string Text = "";
 
-    public GameObject MessageReciever;
-    public string MethodName = "";
+    public UIButtonCallback buttonCallback;
 
-    public override void Draw()
+    public override void DrawMe()
     {
-        if (Visible)
+        if (GUI.Button(absoluteRect, Text) && buttonCallback != null)
         {
-            if (GUI.Button(absoluteRect, Text) && MessageReciever != null && MethodName.Equals("") == false)
-            {
-                MessageReciever.SendMessage(MethodName);
-            }
+            buttonCallback.CallBack();
         }
-
-
     }
 }

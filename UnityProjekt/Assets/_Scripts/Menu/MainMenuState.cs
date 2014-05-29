@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 
+[System.Serializable]
 public class MainMenuState : MenuState
 {
-    private const float ButtonWidth = 100f, ButtonHeight = 20f;
+    public float ButtonWidth = 100f, ButtonHeight = 20f;
 
     public override void Update()
     {
