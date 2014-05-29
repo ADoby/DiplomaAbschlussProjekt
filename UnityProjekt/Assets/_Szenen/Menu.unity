@@ -138,6 +138,115 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 846884941}
+--- !u!1 &675760611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 675760613}
+  - 114: {fileID: 675760612}
+  m_Layer: 0
+  m_Name: InputController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &675760612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 675760611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e45832305877e749b676202bf51122f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InputInfos:
+  - Action: 1_LEFT
+    ActionType: 2
+    InputType: 0
+    key: 97
+    mouseButtonID: 0
+    inputString: 
+  - Action: 1_RIGHT
+    ActionType: 2
+    InputType: 0
+    key: 100
+    mouseButtonID: 0
+    inputString: 
+  - Action: 1_JUMP
+    ActionType: 0
+    InputType: 0
+    key: 32
+    mouseButtonID: 0
+    inputString: 
+  - Action: 1_SKILL1
+    ActionType: 0
+    InputType: 0
+    key: 49
+    mouseButtonID: 0
+    inputString: 
+  - Action: 1_SKILL2
+    ActionType: 0
+    InputType: 0
+    key: 50
+    mouseButtonID: 0
+    inputString: 
+  - Action: 1_SKILL3
+    ActionType: 0
+    InputType: 0
+    key: 51
+    mouseButtonID: 0
+    inputString: 
+  - Action: 1_SKILL4
+    ActionType: 0
+    InputType: 0
+    key: 52
+    mouseButtonID: 0
+    inputString: 
+  - Action: ESCAPE
+    ActionType: 0
+    InputType: 0
+    key: 27
+    mouseButtonID: 0
+    inputString: 
+  - Action: LEVELUP
+    ActionType: 0
+    InputType: 0
+    key: 102
+    mouseButtonID: 0
+    inputString: 
+  - Action: 1_CROUCH
+    ActionType: 0
+    InputType: 0
+    key: 115
+    mouseButtonID: 0
+    inputString: 
+  unityButtonInputs: []
+  unityAxisInputs:
+  - Mouse ScrollWheel
+  - L_XAxis_1
+  - L_YAxis_1
+  - R_XAxis_1
+  - R_YAxis_1
+  - TriggersL_1
+  - TriggersR_1
+  opened: 0
+--- !u!4 &675760613
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 675760611}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &846884939
 GameObject:
   m_ObjectHideFlags: 0

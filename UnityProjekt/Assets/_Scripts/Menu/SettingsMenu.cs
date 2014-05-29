@@ -51,7 +51,6 @@ public class SettingsMenu : MenuState
                 if (GUILayout.Button(item.Action + " : " + item.GetInfo()))
                 {
                     InputController.Instance.RebindKey(item);
-                    
                 }
             }
         }

@@ -212,7 +212,7 @@ public class InputInfo
     }
 }
 
-public class InputController {
+public class InputController : MonoBehaviour{
 
     public InputInfo[] InputInfos =
     {
@@ -402,9 +402,7 @@ public class InputController {
 
 	// Update is called once per frame
 	public void Update () {
-        if (opened)
-        {
-            if (waitForInput)
+        if (waitForInput)
             {
                 for (int i = 0; i < 430; i++) // 430 is number of keys currently. Unity 4.3.4
                 {
@@ -439,7 +437,7 @@ public class InputController {
                     }
                 }
             }
-        }
+        
         
         foreach (var item in InputInfos)
         {
