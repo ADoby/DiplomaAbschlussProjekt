@@ -16,12 +16,12 @@ public class MainMenuState : MenuState
 
         if (GUITools.CenteredButton(0, -30, ButtonWidth, ButtonHeight, "Start Game"))
         {
-            SwitchToState(new StartGameMenuState());
+            SwitchToState<StartGameMenuState>();
         }
 
         if (GUITools.CenteredButton(0, 0, ButtonWidth, ButtonHeight, "Settings"))
         {
-            SwitchToState(new SettingsMenu());
+            SwitchToState<SettingsMenu>();
         }
 
         if (GUITools.CenteredButton(0, 30, ButtonWidth, ButtonHeight, "Exit Game"))

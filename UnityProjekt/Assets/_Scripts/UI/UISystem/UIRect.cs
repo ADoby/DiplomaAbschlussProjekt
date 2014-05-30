@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEditor;
 
 #region Enum and Class Definitions
 
@@ -149,10 +150,23 @@ public class UIRect : MonoBehaviour
             children.Remove(oldChild);
     }
 
+    public int ChildCount = 0;
+
     public void UpdateChildren()
     {
         children.Clear();
-        foreach (Transform child in transform)
+
+        UIRect[] newChildren = GetComponentsInChildren<UIRect>();
+
+        foreach (var child in newChildren)
+        {
+            if (child != this)
+            {
+                AddChild(child);
+                child.UpdateChildren();
+            }
+        }
+        /*foreach (Transform child in transform)
         {
             UIRect childRect = child.GetComponent<UIRect>();
             if (childRect)
@@ -160,7 +174,8 @@ public class UIRect : MonoBehaviour
                 AddChild(childRect);
                 childRect.UpdateChildren();
             }
-        }
+        }*/
+        ChildCount = children.Count;
     }
 
     protected void DrawChildren()

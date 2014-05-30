@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+using System.Collections.Generic;
+
 public class SimpleMenuManager : MonoBehaviour
 {
 
@@ -24,7 +26,10 @@ public class SimpleMenuManager : MonoBehaviour
 
     public MenuState currentMenuState;
 
+    private Dictionary<string, MenuState> initiatedMenuStates;
+
 	void Start () {
+        initiatedMenuStates = new Dictionary<string, MenuState>();
         OpenMenu();
 	}
 	
@@ -44,14 +49,23 @@ public class SimpleMenuManager : MonoBehaviour
             OpenMenu();
     }
 
-    public void SwitchMenuState(MenuState newMenuState)
+    public void SwitchMenuState<T>()
+        where T : MenuState, new()
     {
-        currentMenuState = newMenuState;
+        if (initiatedMenuStates.ContainsKey(typeof(T).ToString()))
+        {
+            currentMenuState = initiatedMenuStates[typeof(T).ToString()];
+        }
+        else
+        {
+            currentMenuState = new T();
+            initiatedMenuStates.Add(typeof(T).ToString(), currentMenuState);
+        }
     }
 
     public void OpenMenu()
     {
-        currentMenuState = new MainMenuState();
+        SwitchMenuState<MainMenuState>();
     }
 
     public void CloseMenu()

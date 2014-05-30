@@ -118,7 +118,7 @@ public class SettingsMenu : MenuState
 
     public void OnBackButtonClicked(UIButton button)
     {
-        SwitchToState(new MainMenuState());
+        SwitchToState<MainMenuState>();
     }
 
     public void OnDeleteInputButtonClicked(UIButton button, InputInfo info)

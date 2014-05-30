@@ -23,7 +23,7 @@
 
         if (GUITools.CenteredButton(0, 30, 100, 20, "Back"))
         {
-            SwitchToState(new MainMenuState());
+            SwitchToState<MainMenuState>();
         }
     }
 }

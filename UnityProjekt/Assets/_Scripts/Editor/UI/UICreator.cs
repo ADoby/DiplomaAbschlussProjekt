@@ -1,0 +1,41 @@
+﻿using UnityEngine;
+using System.Collections;
+using UnityEditor;
+
+public class UICreator : Editor{
+
+    [MenuItem("SimpleUI/Create/UIEditorPanel")]
+    private static void CreateUIEditorPanel()
+    {
+        CreateObject<UIEditorPanel>();
+    }
+
+    [MenuItem("SimpleUI/Create/UIPanel")]
+    private static void CreateUIPanel()
+    {
+        CreateObject<UIPanel>();
+    }
+
+    [MenuItem("SimpleUI/Create/UIText")]
+    private static void CreateUIText()
+    {
+        CreateObject<UIText>();
+    }
+
+    [MenuItem("SimpleUI/Create/UIButton")]
+    private static void CreateUIButton()
+    {
+        CreateObject<UIButton>();
+    }
+
+    private static void CreateObject<T>() where T : MonoBehaviour
+    {
+        GameObject go = new GameObject();
+        go.name = typeof(T).ToString();
+        go.AddComponent<T>();
+        if (Selection.activeTransform)
+        {
+            go.transform.parent = Selection.activeTransform;
+        }
+    }
+}

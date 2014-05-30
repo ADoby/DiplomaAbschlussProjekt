@@ -7,9 +7,10 @@ public class MenuState
 
     public virtual void OnGUI() { }
 
-    protected void SwitchToState(MenuState newMenuState)
+    protected void SwitchToState<T>()
+        where T : MenuState, new()
     {
-        SimpleMenuManager.Instance.SwitchMenuState(newMenuState);
+        SimpleMenuManager.Instance.SwitchMenuState<T>();
     }
 
     protected void CloseMenu()
