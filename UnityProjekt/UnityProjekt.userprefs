@@ -1,8 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="G:\Programmieren\SVN\Zero\trunk\unity-zero\Assets\EndPortal.cs">
     <Files>
-      <File FileName="G:\Programmieren\SVN\Zero\trunk\unity-zero\Assets\EndPortal.cs" Line="10" Column="6" />
+      <File FileName="Assets\Resources\_Scripts\GameManager.cs" Line="1" Column="1" />
+      <File FileName="G:\Programmieren\SVN\Zero\trunk\unity-zero\Assets\EndPortal.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

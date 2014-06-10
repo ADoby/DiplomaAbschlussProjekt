@@ -120,6 +120,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 661827179}
+  - 114: {fileID: 661827180}
   m_Layer: 0
   m_Name: Singleplayer
   m_TagString: Untagged
@@ -138,6 +139,17 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 846884941}
+--- !u!114 &661827180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 661827178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659bc7ce24df3b24684b98a5bdfee370, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &675760611
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,6 +285,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9451de58450fe41ab4244b75b32ff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SinglePlayer: {fileID: 0}
+  MultiPlayer: {fileID: 0}
 --- !u!4 &846884941
 Transform:
   m_ObjectHideFlags: 0

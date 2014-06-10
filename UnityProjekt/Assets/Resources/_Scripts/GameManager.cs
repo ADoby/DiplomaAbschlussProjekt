@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour {
 
     #endregion
 
+    public GameState SinglePlayer;
+    public GameState MultiPlayer;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -34,11 +37,11 @@ public class GameManager : MonoBehaviour {
 
     public void StartSingleplayerGame()
     {
-
+        SinglePlayer.StartGame();
     }
 
     public void StartMultiplayerGame()
     {
-
+        MultiPlayer.StartGame();
     }
 }
