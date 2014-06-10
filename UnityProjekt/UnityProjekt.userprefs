@@ -1,9 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\Gridders-School-Project\UnityProject\Assets\Resources\Shader\VertexColor.shader">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="G:\Programmieren\SVN\Zero\trunk\unity-zero\Assets\EndPortal.cs">
     <Files>
-      <File FileName="..\..\Gridders-School-Project\UnityProject\Assets\Resources\Shader\VertexColor.shader" Line="28" Column="18" />
-      <File FileName="..\..\..\..\Downloads\$relief_correct_silhouettes_181.shader" Line="74" Column="34" />
+      <File FileName="G:\Programmieren\SVN\Zero\trunk\unity-zero\Assets\EndPortal.cs" Line="10" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
