@@ -3,6 +3,9 @@ using System.Collections;
 
 public class GameState : MonoBehaviour {
 
+
+    public string LevelName;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -16,5 +19,18 @@ public class GameState : MonoBehaviour {
     public void StartGame()
     {
 
+    }
+    public void StartGame(string levelName)
+    {
+        LevelName = levelName;
+    }
+
+    IEnumerator LoadLevel()
+    {
+        AsyncOperation async = Application.LoadLevelAdditiveAsync(LevelName);
+        yield return async;
+        Debug.Log("Loading complete");
+
+        var controller = Object.FindObjectOfType<GameController>();
     }
 }
