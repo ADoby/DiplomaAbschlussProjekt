@@ -118,10 +118,7 @@ public class PlayerClass
         skillRunning = false;
         foreach (PlayerSkill skill in playerSkills)
         {
-            if (skill.Running())
-            {
-                skillRunning = true;
-            }
+            skillRunning = skill.Running();
         }
 
         foreach (PlayerSkill skill in playerSkills)
@@ -226,7 +223,6 @@ public class PlayerClass
     //while the thing runs
     public virtual bool UseSkill(int skillID, ref bool grounded) 
     {
-        grounded = false;
         if (playerSkills[skillID].isReady())
         {
             playerSkills[skillID].Do(this);

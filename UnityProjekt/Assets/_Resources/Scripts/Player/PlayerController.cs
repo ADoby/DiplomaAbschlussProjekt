@@ -2,14 +2,6 @@
 using System.Collections;
 using System;
 
-public enum PlayerState
-{
-    STANDING,
-    MOVING,
-    USINGSKILL,
-    COUNT
-}
-
 public class PlayerController : MonoBehaviour {
 
     public int playerID = 0;
@@ -43,7 +35,6 @@ public class PlayerController : MonoBehaviour {
     public LayerMask GroundCheckLayer;
 
     //Private:
-    public PlayerState currentState;
     public Vector2 currentVelocity;
     public Vector2 currentInput;
     public bool grounded;
@@ -51,6 +42,7 @@ public class PlayerController : MonoBehaviour {
     public bool crouching = false;
 
     public Vector2 lastVelocity = Vector2.zero;
+    public float minUpMotionForExtraJump = 0.2f;
 
 	// On Start we ask our selfs if we are the owner
     // of this object, if not, deactivate the script
@@ -66,7 +58,6 @@ public class PlayerController : MonoBehaviour {
     {
         playerClass.Init(transform);
 
-        currentState = PlayerState.STANDING;
         currentVelocity = Vector2.zero;
         currentInput = Vector2.zero;
         grounded = false;
@@ -114,27 +105,6 @@ public class PlayerController : MonoBehaviour {
         playerClass.Update();
 
         TryUseSkill();
-        
-        switch (currentState)
-        {
-            case PlayerState.STANDING:
-                Standing();
-                break;
-            case PlayerState.MOVING:
-                Moving();
-                break;
-            case PlayerState.USINGSKILL:
-                UsingSkill();
-                break;
-            case PlayerState.COUNT:
-            //Should not happen
-            default:
-                //Should not happen
-                throw new ArgumentOutOfRangeException();
-        }
-
-        //We did change the velocity probably
-        rigidbody2D.velocity = currentVelocity;
 	}
 
     public void OnResume()
@@ -153,8 +123,6 @@ public class PlayerController : MonoBehaviour {
         return (playerID + 1).ToString();
     }
 
-    
-
     void LateUpdate()
     {
         if (Game.Paused)
@@ -163,6 +131,15 @@ public class PlayerController : MonoBehaviour {
         currentVelocity = rigidbody2D.velocity;
 
         playerClass.LateUpdate();
+
+        if (playerClass.SkillRunning)
+        {
+            UsingSkill();
+        }
+        else
+        {
+            Moving();
+        }
 
         //if (anim)
             //anim.SetFloat("Speed", Mathf.Abs(currentVelocity.x));
@@ -178,13 +155,13 @@ public class PlayerController : MonoBehaviour {
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
+
+        //We did change the velocity probably
+        rigidbody2D.velocity = currentVelocity;
     }
 
     public void LevelUp()
     {
-
-        //LevelUpGUI.OpenPlayer(this);
-
         //Do Cool Effekt LOL
         level++;
         prevNeededExperience = neededExperience;
@@ -220,48 +197,25 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    private void Standing()
-    {
-        Move();
-
-        grounded = CheckGround();
-        CheckUp();
-
-        TryJump();
-
-        if (currentVelocity.magnitude > 0.1f)
-        {
-            currentState = PlayerState.MOVING;
-        }
-
-        Gravity();
-    }
-
     //We change the currentVelocity based on currentInput;
     private void Moving()
     {
         Move();
 
         grounded = CheckGround();
-        CheckUp();
+        if (CheckUp() && grounded)
+        {
+            //Squashed (Dead?)
+        }
 
         TryJump();
-        
-        if (currentVelocity.magnitude < 0.1f)
-        {
-            currentState = PlayerState.STANDING;
-        }
 
         Gravity();
     }
 
     private void UsingSkill()
     {
-        if (!playerClass.SkillRunning)
-        {
-            currentState = PlayerState.MOVING;
-            playerClass.damageImune = false;
-        }
+        
     }
 
     //new One with AREA
@@ -272,7 +226,10 @@ public class PlayerController : MonoBehaviour {
             //If we move upwards not grounded
             return false;
         }
-        bool grounded = Physics2D.OverlapArea(transform.position - transform.right * playerClass.playerWidth * _half, transform.position + transform.right * playerClass.playerWidth * _half + (-Vector3.up * playerClass.footHeight), GroundCheckLayer.value);
+
+        Debug.DrawLine(transform.position - transform.right * playerClass.playerWidth * _half, transform.position + transform.right * playerClass.playerWidth * _half + (-Vector3.up * playerClass.footHeight));
+
+        bool grounded = Physics2D.OverlapArea(transform.position - transform.right * playerClass.playerWidth * _half, transform.position + transform.right * playerClass.playerWidth * _half + (-Vector3.up * playerClass.footHeight), GroundCheckLayer);
         if (grounded)
         {
             if (!this.grounded)
@@ -284,18 +241,18 @@ public class PlayerController : MonoBehaviour {
         return grounded;
     }
 
-    private void CheckUp()
+    private bool CheckUp()
     {
-        if (currentVelocity.y > minUpMotionForExtraJump)
+        if (currentVelocity.y > 0)
         {
-            if (Physics2D.OverlapArea(transform.position - transform.right * playerClass.playerWidth * _half + transform.up * playerClass.playerHeight, transform.position + transform.right * playerClass.playerWidth * _half + Vector3.up * playerClass.playerHeight + (Vector3.up * playerClass.footHeight), GroundCheckLayer.value))
+            if (Physics2D.OverlapArea(transform.position - transform.right * playerClass.playerWidth * _half + transform.up * playerClass.playerHeight, transform.position + transform.right * playerClass.playerWidth * _half + Vector3.up * playerClass.playerHeight + Vector3.up * playerClass.footHeight, GroundCheckLayer))
             {
                 currentVelocity.y = 0;
+                return true;
             }
         }
+        return false;
     }
-
-    public float minUpMotionForExtraJump = 0.2f;
 
     private bool TryJump()
     {
@@ -307,6 +264,7 @@ public class PlayerController : MonoBehaviour {
         else if (InputController.GetDown(PlayerID() + JumpInput) && currentVelocity.y > minUpMotionForExtraJump)
         {
             currentVelocity.y += playerClass.GetAttributeValue(AttributeType.MOREJUMPPOWER) * Time.deltaTime;
+            return true;
         }
         return false;
     }
@@ -373,6 +331,7 @@ public class PlayerController : MonoBehaviour {
 
     public void AddMoney(int amount)
     {
+        if (amount < 0) return;
         Money += amount;
     }
 }
