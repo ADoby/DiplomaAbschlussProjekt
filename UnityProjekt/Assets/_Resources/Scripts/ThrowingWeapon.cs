@@ -49,7 +49,7 @@ public class ThrowingWeapon : MonoBehaviour {
     public void SetPlayer(PlayerController playerControl)
     {
         player = playerControl;
-        detonateTimer = detonateTime * playerControl.playerClass.GetAttributeValue(AttributeType.ATTACKSPEED);
+        detonateTimer = detonateTime * playerControl.PlayerClass.GetAttributeValue(AttributeType.ATTACKSPEED);
     }
 
     public void SetDirection(Vector2 p_direction)

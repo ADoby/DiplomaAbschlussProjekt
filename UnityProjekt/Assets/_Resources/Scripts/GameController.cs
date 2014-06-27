@@ -19,4 +19,6 @@ public class GameController : MonoBehaviour {
     {
 	    
 	}
+
+    public static Vector3 SpawnPosition;
 }

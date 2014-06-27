@@ -37,4 +37,9 @@ public class EnemieBase : MonoBehaviour {
         }
         
     }
+
+    public void Hit(Vector3 position)
+    {
+        GameObjectPool.Instance.Spawn("Blood", position, Quaternion.identity);
+    }
 }

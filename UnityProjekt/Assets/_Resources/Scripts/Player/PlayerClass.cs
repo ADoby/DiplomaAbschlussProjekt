@@ -20,7 +20,7 @@ public class Attribute
     public string Name = "Name";
     public float Value = 0f;
     public float ValuePerLevel = 0f;
-    public float valueMultiply = 1.0f;
+    private float valueMultiply = 1.0f;
     public float ValueMultiply { get { return valueMultiply; } }
 
     public float ValuePerSkillPoint = 0f;
@@ -60,8 +60,7 @@ public class Attribute
     }
 }
 
-[System.Serializable]
-public class PlayerClass
+public class PlayerClass : MonoBehaviour
 {
     public string Name = "KlassenName";
     public string Description = "Beschreibung";
@@ -83,9 +82,9 @@ public class PlayerClass
 
     //Leben
     public float Health = 0.0f;
-    
-    private bool skillRunning = false;
-    public bool SkillRunning { get { return skillRunning; } protected set { skillRunning = value; } }
+
+    private int skillsRunning = 0;
+    public bool SkillRunning { get { return (skillsRunning > 0); } }
 
     [Range(0f, 4f)]
     public float GravityMultiply = 3.0f;
@@ -107,7 +106,7 @@ public class PlayerClass
 
     public Vector2 overrideVelocity = Vector2.zero;
 
-    public PlayerController playerControl;
+    public PlayerController playerControl { get; protected set; }
 
     public int skillPoints = 0;
 
@@ -115,12 +114,6 @@ public class PlayerClass
 
     public virtual void Update()
     {
-        skillRunning = false;
-        foreach (PlayerSkill skill in playerSkills)
-        {
-            skillRunning = skill.Running();
-        }
-
         foreach (PlayerSkill skill in playerSkills)
         {
             skill.UpdateSkill(this);
@@ -140,11 +133,32 @@ public class PlayerClass
         }
     }
 
-    public virtual void Init(Transform player)
+    public virtual void Init(PlayerController playerControl)
     {
-        this.playerTransform = player;
+        playerTransform = playerControl.transform;
+        this.playerControl = playerControl;
+
+        
+    }
+
+    public void ResetPlayerClass()
+    {
         Health = GetAttributeValue(AttributeType.HEALTH);
         skillPoints = 0;
+    }
+
+    public void SkillFinished(PlayerSkill skill)
+    {
+        if (skill.PreventsMovement)
+            playerControl.RemoveSkillPreventingMovement();
+        if (skill.PreventsDamage)
+            playerControl.RemoveSkillMakingImune();
+        if (skill.MovesPlayer)
+            playerControl.RemoveSkillOverridingMovement();
+        if (skill.PreventsUsingSkills)
+            playerControl.RemoveSkillPreventingSkillUsement();
+
+        skillsRunning--;
     }
 
     public void LevelUp()
@@ -154,6 +168,7 @@ public class PlayerClass
         {
             attribute.LevelUp();
         }
+        UpdateAttributes();
     }
 
     public void SkillUpAttribute(int id)
@@ -221,18 +236,28 @@ public class PlayerClass
 
     //Grounded is used to make the player stop controlling and no gravity
     //while the thing runs
-    public virtual bool UseSkill(int skillID, ref bool grounded) 
+    public virtual bool UseSkill(int skillID)
     {
-        if (playerSkills[skillID].isReady())
-        {
-            playerSkills[skillID].Do(this);
+        PlayerSkill skill = playerSkills[skillID];
 
-            if (playerSkills[skillID].skillRunTime > 0)
+        if (skill.IsReady())
+        {
+            skill.Do(this);
+
+            if (skill.SkillRunTime > 0)
             {
-                skillRunning = true;
+                skillsRunning++;
             }
-            damageImune = playerSkills[skillID].makesDamageImune;
-            grounded = skillRunning;
+
+            if (skill.PreventsMovement)
+                playerControl.AddSkillPreventingMovement();
+            if (skill.PreventsDamage)
+                playerControl.AddSkillMakingImune();
+            if (skill.MovesPlayer)
+                playerControl.AddSkillOverridingMovement();
+            if (skill.PreventsUsingSkills)
+                playerControl.AddSkillPreventingSkillUsement();
+
             return true;
         }
         

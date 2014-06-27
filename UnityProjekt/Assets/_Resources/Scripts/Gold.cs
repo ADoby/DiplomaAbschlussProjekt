@@ -35,7 +35,7 @@ public class Gold : MonoBehaviour {
             speed = Mathf.Clamp(speed, 0, maxSpeed);
 
             worldCollider.enabled = false;
-            Vector3 diff = (transform.position - Game.mainPlayer.position);
+            Vector3 diff = (transform.position - GameManager.Instance.MainPlayer.transform.position);
             transform.position -= diff.normalized * Time.deltaTime * speed;
         }
     }

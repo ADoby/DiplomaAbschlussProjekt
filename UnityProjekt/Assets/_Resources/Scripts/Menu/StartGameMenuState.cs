@@ -11,13 +11,13 @@
 
         if (GUITools.CenteredButton(0, -30, 100, 20, "Singleplayer"))
         {
-            GameManager.Instance.StartSingleplayerGame();
+            StartSinglePlayerGame();
             CloseMenu();
         }
 
         if (GUITools.CenteredButton(0, 0, 100, 20, "Multiplayer Test"))
         {
-            GameManager.Instance.StartMultiplayerGame();
+            StartMultiplayer();
             CloseMenu();
         }
 
@@ -25,6 +25,16 @@
         {
             SwitchToState<MainMenuState>();
         }
+    }
+
+    private void StartSinglePlayerGame()
+    {
+        
+    }
+
+    private void StartMultiplayer() 
+    { 
+        
     }
 }
 

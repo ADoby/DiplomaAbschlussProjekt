@@ -22,7 +22,7 @@ public class BasicAttack : PlayerSkill
 
         //Shoot Or Something
         Vector3 position = new Vector3(ShootingPosition.x * player.playerTransform.localScale.x, ShootingPosition.y, 0);
-        if (player.playerControl.crouching)
+        if (player.playerControl.Crouching)
         {
             position = new Vector3(CrouchShootingPosition.x * player.playerTransform.localScale.x, CrouchShootingPosition.y, 0);
         }

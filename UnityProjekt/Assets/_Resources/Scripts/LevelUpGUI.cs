@@ -83,7 +83,7 @@ public class LevelUpGUI : MonoBehaviour {
             }
             GUILayout.EndHorizontal();
 
-            GUILayout.Label("Skill Points: " + player.playerClass.skillPoints.ToString());
+            GUILayout.Label("Skill Points: " + player.PlayerClass.skillPoints.ToString());
 
             GUILayout.Box("", GUILayout.Height(1));
 
@@ -91,19 +91,19 @@ public class LevelUpGUI : MonoBehaviour {
             {
                 GUILayout.BeginHorizontal();
 
-                GUILayout.Label(player.playerClass.GetAttribute(i).Name);
+                GUILayout.Label(player.PlayerClass.GetAttribute(i).Name);
                 GUILayout.FlexibleSpace();
-                if (GUILayout.Button("Add " + player.playerClass.GetAttribute(i).ValuePerSkillPoint))
+                if (GUILayout.Button("Add " + player.PlayerClass.GetAttribute(i).ValuePerSkillPoint))
                 {
-                    player.playerClass.SkillUpAttribute(i);
-                    if (player.playerClass.skillPoints == 0)
+                    player.PlayerClass.SkillUpAttribute(i);
+                    if (player.PlayerClass.skillPoints == 0)
                     {
                         CloseI();
                         return;
                     }
                 }
                 GUILayout.EndHorizontal();
-                GUILayout.Label("Current Value: " + player.playerClass.GetAttributeValue(i).ToString());
+                GUILayout.Label("Current Value: " + player.PlayerClass.GetAttributeValue(i).ToString());
 
                 GUILayout.Box("", GUILayout.Height(1));
             }

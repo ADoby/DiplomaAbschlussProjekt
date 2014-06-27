@@ -14,14 +14,14 @@ public class InGameGUI : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        if (!Game.Paused)
+        if (!GameManager.Instance.GamePaused)
         {
             for (int i = 0; i < playerList.Length; i++)
             {
                 PlayerController item = playerList[i];
 
-                currentExperienceGUI[i] = Mathf.Lerp(currentExperienceGUI[i], item.currentExperience, experienceChange * Time.deltaTime);
-                currentHealthGUI[i] = Mathf.Lerp(currentHealthGUI[i], item.playerClass.Health, healthChange * Time.deltaTime);
+                currentExperienceGUI[i] = Mathf.Lerp(currentExperienceGUI[i], item.CurrentExperience, experienceChange * Time.deltaTime);
+                currentHealthGUI[i] = Mathf.Lerp(currentHealthGUI[i], item.PlayerClass.Health, healthChange * Time.deltaTime);
             }
             if (InputController.GetClicked("LEVELUP"))
             {
@@ -58,16 +58,16 @@ public class InGameGUI : MonoBehaviour {
             PlayerController item = playerList[i];
 
             GUILayout.BeginHorizontal();
-            GUILayout.Label(string.Format("{0} LvL:{1}", item.Name, item.level.ToString()));
+            GUILayout.Label(string.Format("{0} LvL:{1}", item.Name, item.Level.ToString()));
             GUILayout.Label(string.Format("Money: {0}", item.Money.ToString()));
             if (spawner)
             {
                 GUILayout.Label(string.Format("Difficulty: {0}", spawner.timedValue.ToString()));
             }
             GUILayout.EndHorizontal();
-            GUILayout.HorizontalSlider(currentExperienceGUI[i], item.prevNeededExperience, item.neededExperience);
-            GUILayout.Label("Health: " + item.playerClass.Health.ToString() + " of " + item.playerClass.GetAttributeValue(AttributeType.HEALTH));
-            GUILayout.HorizontalSlider(currentHealthGUI[i], 0f, item.playerClass.GetAttributeValue(AttributeType.HEALTH));
+            GUILayout.HorizontalSlider(currentExperienceGUI[i], item.PrevNeededExperience, item.NeededExperience);
+            GUILayout.Label("Health: " + item.PlayerClass.Health.ToString() + " of " + item.PlayerClass.GetAttributeValue(AttributeType.HEALTH));
+            GUILayout.HorizontalSlider(currentHealthGUI[i], 0f, item.PlayerClass.GetAttributeValue(AttributeType.HEALTH));
         }
         
         GUILayout.EndArea();

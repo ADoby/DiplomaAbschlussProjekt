@@ -14,7 +14,7 @@ GameObject:
   - 212: {fileID: 21200000}
   - 23: {fileID: 2300000}
   - 33: {fileID: 3300000}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32,6 +32,7 @@ Transform:
   m_LocalScale: {x: .100000001, y: .100000001, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!23 &2300000
 Renderer:
   m_ObjectHideFlags: 0
@@ -50,9 +51,8 @@ Renderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 0
-  m_SortingOrder: 0
   m_SortingLayerID: 0
+  m_SortingOrder: 0
 --- !u!33 &3300000
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -69,8 +69,8 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_GravityScale: 0
-  m_FixedAngle: 0
+  m_GravityScale: .200000003
+  m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 1
   m_SleepingMode: 1
@@ -99,9 +99,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   damage: 10
-  speed: 30
+  speed: 40
   poolName: Bullet
   hitEffektPoolName: BulletExplosion
+  DespawnTime: 5
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -120,9 +121,8 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 0
-  m_SortingOrder: 0
   m_SortingLayerID: 0
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0c9c2fbcce9c16741a15a8f187778eee, type: 3}
   m_Color: {r: .483672142, g: .834856987, b: .926470578, a: 1}
 --- !u!1001 &100100000

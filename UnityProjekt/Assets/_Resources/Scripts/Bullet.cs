@@ -15,16 +15,47 @@ public class Bullet : MonoBehaviour {
 
     public string hitEffektPoolName;
 
-    void LateUpdate()
+    public float DespawnTime = 10.0f;
+    private float _despawnTimer = 0.0f;
+
+    private Vector3 savedVelocity = Vector3.zero;
+
+    void Awake()
     {
-        if (Game.Paused)
+        GameEventHandler.OnPause += OnPause;
+        GameEventHandler.OnResume += OnResume;
+    }
+
+    void FixedUpdate()
+    {
+        if (GameManager.Instance.GamePaused)
+            return;
+
+        //rigidbody2D.velocity = direction * speed * Time.fixedDeltaTime;
+
+        _despawnTimer += Time.fixedDeltaTime;
+        if (_despawnTimer >= DespawnTime)
         {
-            rigidbody2D.velocity = Vector2.zero;
+            Explode(null, Vector3.zero);
         }
-        else
-        {
-            rigidbody2D.velocity = direction * speed;
-        }
+        
+    }
+
+    public void OnPause()
+    {
+        savedVelocity = rigidbody2D.velocity;
+        rigidbody2D.velocity = Vector2.zero;
+    }
+
+    public void OnResume()
+    {
+        rigidbody2D.velocity = savedVelocity;
+    }
+
+    //Invoked from GameObjectPool
+    public void Reset()
+    {
+        _despawnTimer = 0;
     }
 
     public void SetDamage(float p_damage)
@@ -40,28 +71,26 @@ public class Bullet : MonoBehaviour {
     public void SetDirection(Vector2 p_direction)
     {
         direction = p_direction;
-    }
-
-    void OnTriggerEnter2D(Collider2D info)
-    {
-        Explode(info.gameObject);
+        rigidbody2D.velocity = direction*speed;
     }
 
     void OnCollisionEnter2D(Collision2D info)
     {
-        Explode(info.gameObject);
+        Explode(info.gameObject, info.contacts[0].point);
     }
 
-    private void Explode(GameObject other)
+    private void Explode(GameObject other, Vector3 position)
     {
         if (other && other.GetComponent<EnemieController>())
         {
             other.GetComponent<EnemieController>().Damage(damage);
+            other.GetComponent<EnemieController>().Hit(position);
             GameEventHandler.TriggerDamageDone(player, damage);
         }
         else if (other && other.GetComponent<EnemieBase>())
         {
             other.GetComponent<EnemieBase>().Damage(damage);
+            other.GetComponent<EnemieBase>().Hit(position);
             GameEventHandler.TriggerDamageDone(player, damage);
         }
 
@@ -69,9 +98,7 @@ public class Bullet : MonoBehaviour {
         //Effekt
         GameObjectPool.Instance.Spawn(hitEffektPoolName, transform.position, Quaternion.identity);
 
-        GameObjectPool.Instance.Spawn("Blood", transform.position, Quaternion.identity);
-
-
+        rigidbody2D.velocity = Vector2.zero;
         GameObjectPool.Instance.Despawn(poolName, gameObject);
     }
 }

@@ -121,7 +121,7 @@ public class EnemieController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        if (Game.Paused)
+        if (GameManager.Instance.GamePaused)
             return;
 
         if (target)
@@ -221,7 +221,7 @@ public class EnemieController : MonoBehaviour {
 
     void LateUpdate()
     {
-        if (Game.Paused)
+        if (GameManager.Instance.GamePaused)
             return;
 
         rigidbody2D.velocity = new Vector2(currentSpeed, rigidbody2D.velocity.y);
@@ -364,5 +364,10 @@ public class EnemieController : MonoBehaviour {
     public void SetDamage(float newDamage)
     {
         MyDamage = newDamage;
+    }
+
+    public void Hit(Vector3 position)
+    {
+        GameObjectPool.Instance.Spawn("Blood", position, Quaternion.identity);
     }
 }

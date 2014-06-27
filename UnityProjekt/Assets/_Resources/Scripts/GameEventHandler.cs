@@ -15,9 +15,28 @@ public class GameEventHandler : MonoBehaviour {
     public static event GameEvent Reset;
     public static event GameEvent EnemieDied;
 
+    public delegate void CoopEvent(PlayerController player, string message);
+    public static event CoopEvent PlayerLeft;
+    public static event CoopEvent PlayerJoined;
+
     public delegate void CameraMovedEvent(Vector2 direction);
     public static event CameraMovedEvent CameraMoved;
 
+    public static void TriggerPlayerJoined(PlayerController player, string message)
+    {
+        if (PlayerJoined != null)
+        {
+            PlayerJoined(player, message);
+        }
+    }
+
+    public static void TriggerPlayerLeft(PlayerController player, string message)
+    {
+        if (PlayerLeft != null)
+        {
+            PlayerLeft(player, message);
+        }
+    }
 
     public static void TriggerCameraMoved(Vector2 direction)
     {

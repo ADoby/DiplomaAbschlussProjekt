@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using System.Collections;
 
 public class GameManager : MonoBehaviour {
@@ -11,6 +12,9 @@ public class GameManager : MonoBehaviour {
     {
         get
         {
+            if(!instance)
+                instance = FindObjectOfType<GameManager>();
+
             return instance;
         }
     }
@@ -18,30 +22,75 @@ public class GameManager : MonoBehaviour {
     void Awake()
     {
         instance = this;
+
+        GameEventHandler.OnPause += OnPause;
+        GameEventHandler.OnResume += OnResume;
     }
 
     #endregion
 
-    public GameState SinglePlayer;
-    public GameState MultiPlayer;
+    public Transform SpawnPosition;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
+    public List<PlayerController> Players;
+
+    public void AddPlayer(PlayerController player)
+    {
+        if (!Players.Contains(player))
+        {
+            Players.Add(player);
+
+            GameEventHandler.TriggerPlayerJoined(player, player.Name);
+        }
+    }
+
+    public void RemovePlayer(PlayerController player)
+    {
+        if (Players.Contains(player))
+        {
+            Players.Remove(player);
+
+            GameEventHandler.TriggerPlayerLeft(player, player.Name);
+        }
+    }
+
+    public PlayerController MainPlayer
+    {
+        get
+        {
+            if (Players.Count > 0)
+                return Players[0];
+
+            return null;
+        }
+
+        set
+        {
+            if (Players.Count == 0)
+                Players.Add(value);
+            else
+                Players[0] = value;
+        }
+    }
+
+    public bool GamePaused = false;
+
+    public static Vector3 GetSpawnPosition()
+    {
+        return Instance.SpawnPosition.position;
+    }
+
+    public void OnPause()
+    {
+        GamePaused = true;
+    }
+
+    public void OnResume()
+    {
+        GamePaused = false;
+    }
 	
 	// Update is called once per frame
 	void Update () {
 	
 	}
-
-    public void StartSingleplayerGame()
-    {
-        SinglePlayer.StartGame();
-    }
-
-    public void StartMultiplayerGame()
-    {
-        MultiPlayer.StartGame();
-    }
 }

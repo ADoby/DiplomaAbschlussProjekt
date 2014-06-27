@@ -1,187 +1,221 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 using System.Collections;
 using System;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
 
-    public int playerID = 0;
-
-    //Something
-    private float _half = 0.5f;
-
-    public Animator anim;
-
+    #region Public Members
+    public int PlayerId = 0;
     public string Name = "Player1";
+    public int Money = 0;
 
-    [SerializeField]
-    public PlayerClass playerClass;
+    public PlayerClass PlayerClass;
 
     [Range(0f, 1.0f)]
-    public float minMovement = 0.1f;
+    public float MinXMovement = 0.1f;
 
-    public int level;
-    public float currentExperience = 0f;
-    public float prevNeededExperience = 0;
-    public float neededExperience = 100f;
-    public float neededExperienceMultPerLevel = 1.5f;
+    public float PrevNeededExperience = 0;
+    public float NeededExperience = 100f;
+    public float NeededExperienceMultPerLevel = 1.5f;
     public float ExperiencePerDamageDone = 2.0f;
+    public float MinUpMotionForExtraJump = 0.2f;
 
-    public string   JumpInput   = "_JUMP", 
-                    Skill1Input = "_SKILL1", 
-                    Skill2Input = "_SKILL2", 
-                    Skill3Input = "_SKILL3", 
+    public string JumpInput = "_JUMP",
+                    Skill1Input = "_SKILL1",
+                    Skill2Input = "_SKILL2",
+                    Skill3Input = "_SKILL3",
                     Skill4Input = "_SKILL4";
 
     public LayerMask GroundCheckLayer;
 
-    //Private:
-    public Vector2 currentVelocity;
-    public Vector2 currentInput;
-    public bool grounded;
+    public bool Crouching { get { return _crouching; } }
 
-    public bool crouching = false;
+    #endregion
 
-    public Vector2 lastVelocity = Vector2.zero;
-    public float minUpMotionForExtraJump = 0.2f;
+    #region Private Member
+    private Animator _animator;
 
-	// On Start we ask our selfs if we are the owner
-    // of this object, if not, deactivate the script
-	void Start () {
+    public int Level { get; protected set; }
+    public float CurrentExperience { get; protected set; }
+    private Vector2 _currentVelocity;
+    private Vector2 _currentInput;
+    public bool Grounded;
 
-        if (this.enabled)
+    private bool _crouching = false;
+
+    private Vector2 _savedVelocity = Vector2.zero;
+
+    public int _skillMakesImune = 0;
+    private bool Imune { get { return _skillMakesImune > 0; } }
+    public int _skillPreventsMovement = 0;
+    private bool CanMove { get { return _skillPreventsMovement == 0; } }
+    public int _skillOverridesMovement = 0;
+    private bool MovedBySkill { get { return _skillOverridesMovement > 0; } }
+    public int _skillPreventsSkillUsement = 0;
+    private bool CanUseSkill { get { return _skillPreventsSkillUsement == 0; } }
+
+    //Some Const used
+    private const float Half = 0.5f;
+
+    #endregion
+
+    void Awake()
+    {
+        _animator = GetComponent<Animator>();
+        if (!GameManager.Instance.MainPlayer)
         {
-            Init();
+            GameManager.Instance.MainPlayer = this;
         }
+    }
+
+	void Start () 
+    {
+        Init();
 	}
 
     private void Init()
     {
-        playerClass.Init(transform);
-
-        currentVelocity = Vector2.zero;
-        currentInput = Vector2.zero;
-        grounded = false;
+        PlayerClass.Init(this);
 
         GameEventHandler.OnDamageDone += DamageDone;
         GameEventHandler.OnPause += OnPause;
         GameEventHandler.OnResume += OnResume;
         GameEventHandler.Reset += OnReset;
 
-        playerClass.playerControl = this;
-
-        StartPos = transform.position;
+        ResetPlayer();
     }
 
-    private Vector3 StartPos = Vector3.zero;
+    private void ResetPlayer()
+    {
+        _currentVelocity = Vector2.zero;
+        _currentInput = Vector2.zero;
+        Grounded = false;
+
+        PlayerClass.Health = PlayerClass.GetAttributeValue(AttributeType.HEALTH);
+
+        //Back to SpawnPoint
+        transform.position = GameManager.GetSpawnPosition();
+
+        PlayerClass.ResetPlayerClass();
+    }
 
     public void OnReset()
     {
-        playerClass.Health = playerClass.GetAttributeValue(AttributeType.HEALTH);
-        transform.position = StartPos;
-
+        ResetPlayer();
     }
 
 	// Update is called once per frame
 	void Update () {
-        if (Game.Paused)
+        if (GameManager.Instance.GamePaused)
             return;
 
-        currentInput.x = Mathf.Abs(InputController.GetValue(PlayerID() + "_RIGHT")) - Mathf.Abs(InputController.GetValue(PlayerID() + "_LEFT"));
+	    if (CanMove)
+	    {
+	        _currentInput.x = Mathf.Abs(InputController.GetValue(PlayerID() + "_RIGHT")) -
+	                         Mathf.Abs(InputController.GetValue(PlayerID() + "_LEFT"));
 
-        if (InputController.GetDown(PlayerID() + "_CROUCH"))
-        {
-            crouching = true;
-        }
-        else
-        {
-            crouching = false;
-        }
+	        _crouching = InputController.GetDown(PlayerID() + "_CROUCH");
 
-        if (anim)
-        {
-            anim.SetBool("Crouching", crouching);
-        }
+	        if (_animator)
+	            _animator.SetBool("Crouching", _crouching);
+	    }
+	    else
+	    {
+	        _currentInput.x = 0;
+	    }
 
-        playerClass.Update();
+        PlayerClass.Update();
 
-        TryUseSkill();
+        if (CanUseSkill)
+            TryUseSkill();
 	}
 
     public void OnResume()
     {
-        rigidbody2D.velocity = lastVelocity;
+        rigidbody2D.velocity = _savedVelocity;
     }
 
     public void OnPause()
     {
-        lastVelocity = rigidbody2D.velocity;
+        _savedVelocity = rigidbody2D.velocity;
         rigidbody2D.velocity = Vector2.zero;
     }
 
     public string PlayerID()
     {
-        return (playerID + 1).ToString();
+        return (PlayerId + 1).ToString();
     }
 
     void LateUpdate()
     {
-        if (Game.Paused)
+        if (GameManager.Instance.GamePaused)
             return;
 
-        currentVelocity = rigidbody2D.velocity;
+        _currentVelocity = rigidbody2D.velocity;
 
-        playerClass.LateUpdate();
+        PlayerClass.LateUpdate();
 
-        if (playerClass.SkillRunning)
-        {
-            UsingSkill();
-        }
-        else
+        if (CanMove)
         {
             Moving();
         }
 
-        //if (anim)
-            //anim.SetFloat("Speed", Mathf.Abs(currentVelocity.x));
+        if(MovedBySkill)
+        {
+            //Add Velocity from skill in player look direction
+            _currentVelocity = PlayerClass.overrideVelocity * transform.localScale.x;
+        }
 
-        if (playerClass.overrideVelocity != Vector2.zero)
-            currentVelocity = playerClass.overrideVelocity * transform.localScale.x; //localScale means look direction
+        UpdateLookDirection();
 
-        if (currentVelocity.x < 0 && transform.localScale.x == 1)
+        UpdateAnimator();
+
+        rigidbody2D.velocity = _currentVelocity;
+    }
+
+    private void UpdateLookDirection()
+    {
+        if (_currentVelocity.x < 0 && transform.localScale.x == 1)
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
-        else if (currentVelocity.x > 0 && transform.localScale.x == -1)
+        else if (_currentVelocity.x > 0 && transform.localScale.x == -1)
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
+    }
 
-        //We did change the velocity probably
-        rigidbody2D.velocity = currentVelocity;
+    private void UpdateAnimator()
+    {
+        //if (anim)
+        //anim.SetFloat("Speed", Mathf.Abs(currentVelocity.x));
+
     }
 
     public void LevelUp()
     {
         //Do Cool Effekt LOL
-        level++;
-        prevNeededExperience = neededExperience;
-        neededExperience *= neededExperienceMultPerLevel;
+        Level++;
+        PrevNeededExperience = NeededExperience;
+        NeededExperience *= NeededExperienceMultPerLevel;
 
         //Level UP
-        playerClass.LevelUp();
-        playerClass.UpdateAttributes();
+        PlayerClass.LevelUp();
     }
 
     public void Damage(float damage)
     {
-        if (!playerClass.damageImune)
+        if (!PlayerClass.damageImune)
         {
-            playerClass.Health -= damage;
+            PlayerClass.Health -= damage;
         }
         
-        if (playerClass.Health <= 0)
+        if (PlayerClass.Health <= 0)
         {
             //Dead
+            ResetPlayer();
         }
     }
 
@@ -189,21 +223,20 @@ public class PlayerController : MonoBehaviour {
     {
         if (player == this)
         {
-            currentExperience += ExperiencePerDamageDone * damage;
+            CurrentExperience += ExperiencePerDamageDone * damage;
         }
-        if (currentExperience >= neededExperience)
+        if (CurrentExperience >= NeededExperience)
         {
             LevelUp();
         }
     }
 
-    //We change the currentVelocity based on currentInput;
     private void Moving()
     {
         Move();
 
-        grounded = CheckGround();
-        if (CheckUp() && grounded)
+        Grounded = CheckGround();
+        if (CheckUp() && Grounded)
         {
             //Squashed (Dead?)
         }
@@ -213,41 +246,36 @@ public class PlayerController : MonoBehaviour {
         Gravity();
     }
 
-    private void UsingSkill()
-    {
-        
-    }
-
     //new One with AREA
     private bool CheckGround()
     {
-        if (currentVelocity.y > minUpMotionForExtraJump)
+        if (_currentVelocity.y > MinUpMotionForExtraJump)
         {
             //If we move upwards not grounded
             return false;
         }
 
-        Debug.DrawLine(transform.position - transform.right * playerClass.playerWidth * _half, transform.position + transform.right * playerClass.playerWidth * _half + (-Vector3.up * playerClass.footHeight));
+        Debug.DrawLine(transform.position - transform.right * PlayerClass.playerWidth * Half, transform.position + transform.right * PlayerClass.playerWidth * Half + (-Vector3.up * PlayerClass.footHeight));
 
-        bool grounded = Physics2D.OverlapArea(transform.position - transform.right * playerClass.playerWidth * _half, transform.position + transform.right * playerClass.playerWidth * _half + (-Vector3.up * playerClass.footHeight), GroundCheckLayer);
+        bool grounded = Physics2D.OverlapArea(transform.position - transform.right * PlayerClass.playerWidth * Half, transform.position + transform.right * PlayerClass.playerWidth * Half + (-Vector3.up * PlayerClass.footHeight), GroundCheckLayer);
         if (grounded)
         {
-            if (!this.grounded)
+            if (!Grounded)
             {
-                currentVelocity.y = 0;
+                _currentVelocity.y = 0;
             }
-            playerClass.ResetJump();
+            PlayerClass.ResetJump();
         }
         return grounded;
     }
 
     private bool CheckUp()
     {
-        if (currentVelocity.y > 0)
+        if (_currentVelocity.y > 0)
         {
-            if (Physics2D.OverlapArea(transform.position - transform.right * playerClass.playerWidth * _half + transform.up * playerClass.playerHeight, transform.position + transform.right * playerClass.playerWidth * _half + Vector3.up * playerClass.playerHeight + Vector3.up * playerClass.footHeight, GroundCheckLayer))
+            if (Physics2D.OverlapArea(transform.position - transform.right * PlayerClass.playerWidth * Half + transform.up * PlayerClass.playerHeight, transform.position + transform.right * PlayerClass.playerWidth * Half + Vector3.up * PlayerClass.playerHeight + Vector3.up * PlayerClass.footHeight, GroundCheckLayer))
             {
-                currentVelocity.y = 0;
+                _currentVelocity.y = 0;
                 return true;
             }
         }
@@ -256,14 +284,15 @@ public class PlayerController : MonoBehaviour {
 
     private bool TryJump()
     {
-        if (InputController.GetClicked(PlayerID() + JumpInput) && playerClass.Jump(grounded))
+        if (InputController.GetClicked(PlayerID() + JumpInput) && PlayerClass.Jump(Grounded))
         {
             Jump();
             return true;
         }
-        else if (InputController.GetDown(PlayerID() + JumpInput) && currentVelocity.y > minUpMotionForExtraJump)
+        
+        if (InputController.GetDown(PlayerID() + JumpInput) && _currentVelocity.y > MinUpMotionForExtraJump)
         {
-            currentVelocity.y += playerClass.GetAttributeValue(AttributeType.MOREJUMPPOWER) * Time.deltaTime;
+            _currentVelocity.y += PlayerClass.GetAttributeValue(AttributeType.MOREJUMPPOWER) * Time.fixedDeltaTime;
             return true;
         }
         return false;
@@ -271,9 +300,6 @@ public class PlayerController : MonoBehaviour {
 
     private bool TryUseSkill()
     {
-        if (playerClass.SkillRunning)
-            return false;
-
         //Check Input for skill usement
         if (InputController.GetDown(PlayerID() + Skill1Input) && UseSkill(0))
         {
@@ -296,42 +322,71 @@ public class PlayerController : MonoBehaviour {
 
     private void Move()
     {
-        currentVelocity.x = Mathf.Lerp(currentVelocity.x, playerClass.GetAttributeValue(AttributeType.MAXMOVESPEED) * currentInput.x, Time.deltaTime * playerClass.GetAttributeValue(AttributeType.MOVEMENTCHANGE));
+        _currentVelocity.x = Mathf.Lerp(_currentVelocity.x, PlayerClass.GetAttributeValue(AttributeType.MAXMOVESPEED) * _currentInput.x, Time.deltaTime * PlayerClass.GetAttributeValue(AttributeType.MOVEMENTCHANGE));
     }
 
     private void Jump()
     {
-        currentVelocity.y += playerClass.GetAttributeValue(AttributeType.JUMPPOWER);
+        _currentVelocity.y += PlayerClass.GetAttributeValue(AttributeType.JUMPPOWER);
     }
 
     private bool UseSkill(int skillID)
     {
-        bool result = playerClass.UseSkill(skillID, ref grounded);
-        if (grounded)
-        {
-            currentState = PlayerState.USINGSKILL;
-        }
+        bool result = PlayerClass.UseSkill(skillID);
         return result;
     }
 
     private void Gravity()
     {
-        if (!grounded)
+        if (!Grounded)
         {
-            currentVelocity += Physics2D.gravity * playerClass.GravityMultiply * Time.deltaTime;
-        }
-        else
-        {
-            //Damit wir nicht über dem Boden fliegen
-            //currentVelocity.y -= Time.deltaTime;
+            _currentVelocity += Physics2D.gravity * PlayerClass.GravityMultiply * Time.fixedDeltaTime;
         }
     }
-
-    public int Money = 0;
 
     public void AddMoney(int amount)
     {
         if (amount < 0) return;
         Money += amount;
+    }
+
+    public void AddSkillPreventingSkillUsement()
+    {
+        _skillPreventsSkillUsement++;
+    }
+
+    public void AddSkillPreventingMovement()
+    {
+        _skillPreventsMovement++;
+    }
+
+    public void AddSkillOverridingMovement()
+    {
+        _skillOverridesMovement++;
+    }
+
+    public void AddSkillMakingImune()
+    {
+        _skillMakesImune++;
+    }
+
+    public void RemoveSkillPreventingSkillUsement()
+    {
+        _skillPreventsSkillUsement--;
+    }
+
+    public void RemoveSkillPreventingMovement()
+    {
+        _skillPreventsMovement--;
+    }
+
+    public void RemoveSkillOverridingMovement()
+    {
+        _skillOverridesMovement--;
+    }
+
+    public void RemoveSkillMakingImune()
+    {
+        _skillMakesImune--;
     }
 }
