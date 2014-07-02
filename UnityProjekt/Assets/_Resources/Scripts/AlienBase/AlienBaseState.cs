@@ -7,21 +7,27 @@ public class AlienBaseState
 
     public string Name = "BaseState";
 
-    private AlienBase myBase;
-
     public float startTime = 0.0f, endTime = 0.0f;
 
     public float healthBonus = 0.0f;
     private float timer = 0.0f;
+
+    private AlienBase myBase;
 
     public float currentTime
     {
         get { return timer + startTime; }
     }
 
-    public AlienBaseState(AlienBase owner)
+    public AlienBaseState(AlienBase value)
     {
-        myBase = owner;
+        myBase = value;
+    }
+
+    public void Reset()
+    {
+        timer = 0;
+
     }
 
     public bool Update()

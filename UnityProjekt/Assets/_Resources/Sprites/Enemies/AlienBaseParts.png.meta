@@ -49,8 +49,8 @@ TextureImporter:
         y: 2000
         width: 36
         height: 33
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: AlienBaseParts_1
       rect:
@@ -130,7 +130,7 @@ TextureImporter:
         width: 107
         height: 114
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: AlienBaseParts_9
       rect:
@@ -140,7 +140,7 @@ TextureImporter:
         width: 1269
         height: 713
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: AlienBaseParts_10
       rect:
