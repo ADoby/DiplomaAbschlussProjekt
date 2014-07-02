@@ -45,10 +45,11 @@ MonoBehaviour:
   maxTime: 0
   startTime: 0
   endTime: 1
-  scaleStart: {x: 0, y: 0, z: 0}
-  scaleEnd: {x: 1, y: 1, z: 1}
+  startScale: {x: 0, y: 0, z: 0}
+  endScale: {x: 1, y: 1, z: 1}
   currentTime: 0
   currentBaseStateIndex: 0
+  manualUserScale: 0
 --- !u!212 &21200002
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -61,14 +62,14 @@ SpriteRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: 3583dcfd005158347bc7ee028fba1317, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 15
   m_Sprite: {fileID: 21300012, guid: 3ae48280cbd068447b40ce5b2e92d421, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000

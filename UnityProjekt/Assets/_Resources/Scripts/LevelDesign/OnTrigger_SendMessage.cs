@@ -9,7 +9,7 @@ public class OnTrigger_SendMessage : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other && other.gameObject && Tools.IsInLayerMask(other.gameObject, triggeredMask))
+        if (other && other.gameObject && SomeTools.IsInLayerMask(other.gameObject, triggeredMask))
         {
             go.SendMessage(SendMessageString, SendMessageOptions.DontRequireReceiver);
         }

@@ -17,6 +17,13 @@ public class AlienBaseState
     public float currentTime
     {
         get { return timer + startTime; }
+        set
+        {
+            if (value <= endTime && value >= startTime)
+            {
+                timer = value;
+            }
+        }
     }
 
     public AlienBaseState(AlienBase value)

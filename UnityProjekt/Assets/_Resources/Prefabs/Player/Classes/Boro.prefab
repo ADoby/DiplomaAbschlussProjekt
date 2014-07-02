@@ -90,7 +90,7 @@ MonoBehaviour:
   footHeight: .100000001
   MaxJumpCount: 1
   overrideVelocity: {x: 0, y: 0}
-  skillPoints: 1
+  skillPoints: 0
   damageImune: 0
 --- !u!1001 &100100000
 Prefab:

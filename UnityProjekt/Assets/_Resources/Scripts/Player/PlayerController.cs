@@ -61,6 +61,8 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
+    public Transform SpotlightTransform;
+
     void Awake()
     {
         _animator = GetComponent<Animator>();
@@ -185,6 +187,13 @@ public class PlayerController : MonoBehaviour
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
+
+        if (SpotlightTransform)
+        {
+            SpotlightTransform.localRotation = Quaternion.Euler(new Vector3(SpotlightTransform.localRotation.eulerAngles.x,
+            transform.localScale.x * 90, SpotlightTransform.localRotation.eulerAngles.z));
+        }
+        
     }
 
     private void UpdateAnimator()

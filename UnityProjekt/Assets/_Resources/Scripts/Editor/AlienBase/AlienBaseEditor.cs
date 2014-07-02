@@ -101,6 +101,8 @@ public class AlienBaseEditor : Editor
         myTarget.minNeededTime = EditorGUILayout.FloatField("Min Time", myTarget.minNeededTime);
         myTarget.maxNeededTime = EditorGUILayout.FloatField("Max Time", myTarget.maxNeededTime);
 
+        myTarget.StartUpTime = EditorGUILayout.Slider("StartUpTime", myTarget.StartUpTime, myTarget.minNeededTime, myTarget.maxNeededTime);
+
         GUILayout.Space(10);
 
         GUILayout.Label("Base States:");
@@ -154,6 +156,11 @@ public class AlienBaseEditor : Editor
 
         if (myTarget.currentTime > myTarget.EndTime)
             myTarget.currentTime = myTarget.EndTime;
+
+        if (myTarget.StartUpTime < myTarget.StartTime)
+            myTarget.StartUpTime = myTarget.StartTime;
+        if (myTarget.StartUpTime > myTarget.EndTime)
+            myTarget.StartUpTime = myTarget.EndTime;
     }
 
     private void UpdateStateList()
@@ -209,6 +216,8 @@ public class AlienBaseEditor : Editor
 
         state.Name = EditorGUILayout.TextField(state.Name);
 
+        EditorGUILayout.LabelField(myTarget.transform.childCount.ToString());
+
         state.healthBonus = EditorGUILayout.IntSlider("HealthBonus", (int)state.healthBonus, 0, 300);
 
         EditorGUILayout.MinMaxSlider(new GUIContent("Start/End Time"), ref state.startTime, ref state.endTime, myTarget.minNeededTime, myTarget.maxNeededTime);
@@ -222,20 +231,20 @@ public class AlienBaseEditor : Editor
 
         if (GUI.changed)
         {
-
-            if (state.endTime > myTarget.maxNeededTime)
-                myTarget.maxNeededTime = state.endTime;
             if (state.startTime < 0)
                 state.startTime = 0;
-            if (state.startTime < myTarget.minNeededTime)
-                myTarget.minNeededTime = state.startTime;
 
             if (currentStateIndex == 0)
             {
+                state.startTime = myTarget.minNeededTime;
+                if(myTarget.StateCount == 1)
+                    state.endTime = myTarget.maxNeededTime;
+
                 UpdateStateTimeAfter(currentStateIndex);
             }
             else if (currentStateIndex + 1 == myTarget.StateOrder.Count)
             {
+                state.endTime = myTarget.maxNeededTime;
                 UpdateStateTimeBefore(currentStateIndex);
             }
             else if (currentStateIndex > 0 || currentStateIndex < myTarget.StateOrder.Count - 1)
