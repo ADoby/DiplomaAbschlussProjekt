@@ -19,27 +19,27 @@ public class SettingsMenu : MenuState
     public SettingsMenu()
     {
         masterPanel = new GameObject().AddComponent<UIMasterPanel>();
-        masterPanel.SetPosition(0, 0, true);
-        masterPanel.SetSize(1, 1, true);
+        masterPanel.SetRelativePosition(0, 0);
+        masterPanel.SetRelativeSize(1, 1);
         masterPanel.ShowBox = false;
 
         waitingForInputPanel = new GameObject().AddComponent<UIPanel>();
-        waitingForInputPanel.SetPosition(0, 0, true);
-        waitingForInputPanel.SetSize(1, 1, true);
+        waitingForInputPanel.SetRelativePosition(0, 0);
+        waitingForInputPanel.SetRelativeSize(1, 1);
         waitingForInputPanel.content = "Waiting for Input";
         waitingForInputPanel.ShowBox = false;
 
         inputPanel = new GameObject().AddComponent<UIPanel>();
-        inputPanel.SetPosition(0, 0, true);
-        inputPanel.SetSize(1, 1, true);
+        inputPanel.SetRelativePosition(0, 0);
+        inputPanel.SetRelativeSize(1, 1);
         inputPanel.content = "Input Manager";
 
         masterPanel.AddChild(inputPanel);
         masterPanel.AddChild(waitingForInputPanel);
 
         UIButton backButton = new GameObject().AddComponent<UIButton>();
-        backButton.SetPosition(5, 5, false);
-        backButton.SetSize(120, 25, false);
+        backButton.SetAbsolutePosition(5, 5);
+        backButton.SetAbsoluteSize(120, 25);
 
         backButton.HorizontalAnchor = HorizontalAnchorPoint.LEFT;
         backButton.VerticalAnchor = VerticalAnchorPoint.BOTTOM;
@@ -47,7 +47,7 @@ public class SettingsMenu : MenuState
 
         backButton.Text = "Back";
 
-        backButton.buttonCallback = new SimpleButtonCallback(OnBackButtonClicked, backButton);
+        backButton.OnButtonClicked += OnBackButtonClicked;
 
         masterPanel.AddChild(backButton);
 
@@ -59,8 +59,8 @@ public class SettingsMenu : MenuState
             float PanelHeight = 50;
 
             UIPanel InputInfoHolderPanel = new GameObject().AddComponent<UIPanel>();
-            InputInfoHolderPanel.SetPosition(0, positionY, false);
-            InputInfoHolderPanel.SetSize(250, PanelHeight, false);
+            InputInfoHolderPanel.SetAbsolutePosition(0, positionY);
+            InputInfoHolderPanel.SetAbsoluteSize(250, PanelHeight);
 
             InputInfoHolderPanel.HorizontalAnchor = HorizontalAnchorPoint.CENTER;
             InputInfoHolderPanel.HorizontalAlignment = HorizontalAnchorPoint.CENTER;
@@ -71,7 +71,7 @@ public class SettingsMenu : MenuState
 
             //Label
             UIText inputLabel = new GameObject().AddComponent<UIText>();
-            inputLabel.SetSize(100, 25, false);
+            inputLabel.SetAbsoluteSize(100, 25);
 
             inputLabel.HorizontalAnchor = HorizontalAnchorPoint.LEFT;
             inputLabel.VerticalAnchor = VerticalAnchorPoint.BOTTOM;
@@ -84,8 +84,8 @@ public class SettingsMenu : MenuState
 
 
             inputButton = new GameObject().AddComponent<UIButton>();
-            inputButton.SetPosition(80, 0, false);
-            inputButton.SetSize(120, 25, false);
+            inputButton.SetAbsolutePosition(80, 0);
+            inputButton.SetAbsoluteSize(120, 25);
 
             inputButton.HorizontalAnchor = HorizontalAnchorPoint.LEFT;
             inputButton.VerticalAnchor = VerticalAnchorPoint.BOTTOM;
@@ -93,13 +93,13 @@ public class SettingsMenu : MenuState
 
             inputButton.Text = item.GetInfo();
 
-            inputButton.buttonCallback = new InputButtonCallback(OnInputButtonClicked, inputButton, item);
+            inputButton.Callback = new InputButtonCallback(OnInputButtonClicked, inputButton, item);
 
             InputInfoHolderPanel.AddChild(inputButton);
 
 
             UIButton resetButton = new GameObject().AddComponent<UIButton>();
-            resetButton.SetSize(25, 25, false);
+            resetButton.SetAbsoluteSize(25, 25);
 
             resetButton.HorizontalAnchor = HorizontalAnchorPoint.RIGHT;
             resetButton.VerticalAnchor = VerticalAnchorPoint.BOTTOM;
@@ -108,7 +108,7 @@ public class SettingsMenu : MenuState
 
             resetButton.Text = "X";
 
-            resetButton.buttonCallback = new InputButtonCallback(OnDeleteInputButtonClicked, inputButton, item);
+            resetButton.Callback = new InputButtonCallback(OnDeleteInputButtonClicked, inputButton, item);
 
             InputInfoHolderPanel.AddChild(resetButton);
 

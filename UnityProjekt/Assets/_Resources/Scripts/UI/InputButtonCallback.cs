@@ -1,7 +1,7 @@
 ﻿
 public delegate void InputButtonClicked(UIButton button, InputInfo info);
 
-public class InputButtonCallback : UIButtonCallback
+public class InputButtonCallback : UIDefaultCallback
 {
     private InputButtonClicked callBackMethod;
 
@@ -15,7 +15,7 @@ public class InputButtonCallback : UIButtonCallback
         this.info = info;
     }
 
-    public override void CallBack()
+    public override void CallBack(UIRect sender)
     {
         callBackMethod(button, info);
     }

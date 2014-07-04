@@ -234,7 +234,9 @@ public class InputController : MonoBehaviour{
 
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
+        Instance = this;
+
         resetInfo = (InputInfo[])InputInfos.Clone();
 
         bool save = false;
@@ -286,6 +288,7 @@ public class InputController : MonoBehaviour{
         }
 	}
 
+    [ContextMenu("ResetInputs")]
     public void ResetInputs()
     {
         InputInfos = (InputInfo[])resetInfo.Clone();
@@ -398,8 +401,23 @@ public class InputController : MonoBehaviour{
         }
     }
 
+    public InputInfo GetInfo(string action)
+    {
+        foreach (var inputInfo in InputInfos)
+        {
+            if (inputInfo.Action == action)
+            {
+                return inputInfo;
+            }
+        }
+        return null;
+    }
+
     public bool CheckForInput()
     {
+        if (clickedInfo == null || !waitForInput)
+            return true;
+
         for (int i = 0; i < 430; i++) // 430 is number of keys currently. Unity 4.3.4
         {
             //Ignore default joystick Buttons, which lead to every joystick
@@ -447,11 +465,6 @@ public class InputController : MonoBehaviour{
             item.Update(); //Some Inputs need this to check for "clicked" state
         }
 	}
-
-    void Awake()
-    {
-        Instance = this;
-    }
 
     public static InputController Instance;
 
@@ -509,6 +522,24 @@ public class InputController : MonoBehaviour{
     {
         waitForInput = true;
         clickedInfo = item;
+    }
+
+    public void RebindKey(string inputString)
+    {
+        foreach (var inputInfo in InputInfos)
+        {
+            if (inputInfo.Action == inputString)
+            {
+                waitForInput = true;
+                clickedInfo = inputInfo;
+            }
+        }
+    }
+
+    public void CancelRebind()
+    {
+        waitForInput = false;
+        clickedInfo = null;
     }
 
     public void DeleteKeyBind(InputInfo item)

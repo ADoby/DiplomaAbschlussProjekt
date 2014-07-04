@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 [System.Serializable]
 [ExecuteInEditMode]
@@ -92,7 +93,9 @@ public class AlienBase : MonoBehaviour
                 currentPart.endTime = currentPart.startTime +
                                       hirarchy.ProzentPerPart * (currentPart.maxTime - currentPart.minTime);
 
+#if UNITY_EDITOR
                 EditorUtility.SetDirty(currentPart);
+#endif
             }
 
             if (hirarchy.IsLast)

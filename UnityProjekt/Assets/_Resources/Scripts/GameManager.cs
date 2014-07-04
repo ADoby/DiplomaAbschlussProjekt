@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using System.Collections;
 
@@ -29,46 +30,170 @@ public class GameManager : MonoBehaviour {
 
     #endregion
 
+    public int currentPlayerSelectingClass = 0;
+
+    public UIButton[] slotButtons;
+
     public Transform SpawnPosition;
 
-    public List<PlayerController> Players;
+    public List<PlayerController> Players = new List<PlayerController>();
+    public List<CameraController> Cameras = new List<CameraController>();
 
-    public void AddPlayer(PlayerController player)
+    void Start()
     {
-        if (!Players.Contains(player))
+        for (int i = 0; i < 4; i++)
         {
-            Players.Add(player);
-
-            GameEventHandler.TriggerPlayerJoined(player, player.Name);
+            Players.Add(null);
+            Cameras.Add(null);
         }
     }
 
     public void RemovePlayer(PlayerController player)
     {
-        if (Players.Contains(player))
-        {
-            Players.Remove(player);
+        if (player == null)
+            return;
 
-            GameEventHandler.TriggerPlayerLeft(player, player.Name);
-        }
+        int index = Players.IndexOf(player);
+
+        Destroy(Cameras[index].gameObject);
+        Cameras[index] = null;
+
+        GameEventHandler.TriggerPlayerLeft(player, player.Name);
+
+        Players[index] = null;
+        Destroy(player.gameObject);
     }
 
     public PlayerController MainPlayer
     {
         get
         {
-            if (Players.Count > 0)
-                return Players[0];
+            return Players[0];
+        }
+    }
 
-            return null;
+    void Update()
+    {
+        if (currentPlayerSelectingClass != -1)
+        {
+            slotButtons[currentPlayerSelectingClass].Text = "Player " + (currentPlayerSelectingClass + 1) + " Select";
+            slotButtons[currentPlayerSelectingClass].ButtonStyle.normal.textColor = Color.red;
+        }
+    }
+
+    public int PlayerCount
+    {
+        get { return Players.Count(o => o != null); }
+    }
+
+    public void StartGame()
+    {
+        foreach (var playerController in Players)
+        {
+            if (playerController)
+            {
+                playerController.gameObject.SetActive(true);
+                playerController.OnReset();
+            }
         }
 
-        set
+        int camIndex = 0;
+
+        foreach (var cameraController in Cameras)
         {
-            if (Players.Count == 0)
-                Players.Add(value);
-            else
-                Players[0] = value;
+            if (cameraController)
+            {
+                if (PlayerCount == 2)
+                {
+                    if (camIndex == 0)
+                    {
+                        cameraController.camera.rect = new Rect(0, 0, 1f, 0.5f);
+                    }
+                    if (camIndex == 1)
+                    {
+                        cameraController.camera.rect = new Rect(0, 0.5f, 1f, 0.5f);
+                    }
+                }
+
+                cameraController.gameObject.SetActive(true);
+
+                camIndex++;
+            }
+        }
+
+        GameContainer.SetActive(true);
+    }
+
+    public void AddPlayerSlot1()
+    {
+        SlotButton(0);
+    }
+    public void AddPlayerSlot2()
+    {
+        SlotButton(1);
+    }
+    public void AddPlayerSlot3()
+    {
+        SlotButton(2);
+    }
+    public void AddPlayerSlot4()
+    {
+        SlotButton(3);
+    }
+
+    public void SlotButton(int id)
+    {
+        slotButtons[currentPlayerSelectingClass].Text = "Slot " + (currentPlayerSelectingClass + 1);
+        slotButtons[currentPlayerSelectingClass].ButtonStyle.normal.textColor = Color.white;
+
+        RemovePlayer(Players[id]);
+
+        currentPlayerSelectingClass = id;
+    }
+
+    public void SelectBoro()
+    {
+        SelectClass(0);
+    }
+
+    public void SelectJack()
+    {
+        SelectClass(1);
+    }
+
+    public GameObject playerPrefab;
+    public GameObject cameraPrefab;
+    public PlayerClass[] PlayerClasses;
+
+    public GameObject GameContainer;
+
+    public void SelectClass(int id)
+    {
+        GameObject newPlayer = (GameObject)Object.Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
+        newPlayer.SetActive(false);
+        Players[currentPlayerSelectingClass] = newPlayer.GetComponent<PlayerController>();
+
+        GameObject newCam = (GameObject) Object.Instantiate(cameraPrefab, new Vector3(0,0,-10), Quaternion.identity);
+        newCam.SetActive(false);
+
+        Cameras[currentPlayerSelectingClass] = newCam.GetComponent<CameraController>();
+        Cameras[currentPlayerSelectingClass].player = newPlayer.transform;
+
+        Players[currentPlayerSelectingClass].PlayerId = currentPlayerSelectingClass;
+        Players[currentPlayerSelectingClass].PlayerClass = (PlayerClass)Object.Instantiate(PlayerClasses[id]);
+
+        slotButtons[currentPlayerSelectingClass].Text = "Selected: " + Players[currentPlayerSelectingClass].PlayerClass.name.Replace("(Clone)", "");
+        slotButtons[currentPlayerSelectingClass].ButtonStyle.normal.textColor = Color.green;
+
+
+        currentPlayerSelectingClass = -1;
+        for (int i = 0; i < 4; i++)
+        {
+            if (Players[i] == null)
+            {
+                currentPlayerSelectingClass = i;
+                break;
+            }
         }
     }
 
@@ -88,9 +213,4 @@ public class GameManager : MonoBehaviour {
     {
         GamePaused = false;
     }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }

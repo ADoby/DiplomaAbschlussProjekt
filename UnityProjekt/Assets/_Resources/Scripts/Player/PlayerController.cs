@@ -1,7 +1,4 @@
-﻿using UnityEditor;
-using UnityEngine;
-using System.Collections;
-using System;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -66,10 +63,6 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         _animator = GetComponent<Animator>();
-        if (!GameManager.Instance.MainPlayer)
-        {
-            GameManager.Instance.MainPlayer = this;
-        }
     }
 
 	void Start () 

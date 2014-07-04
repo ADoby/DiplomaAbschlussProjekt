@@ -112,6 +112,8 @@ public class PlayerClass : MonoBehaviour
 
     public bool damageImune = false;
 
+    public Texture classThumbnail;
+
     public virtual void Update()
     {
         foreach (PlayerSkill skill in playerSkills)
