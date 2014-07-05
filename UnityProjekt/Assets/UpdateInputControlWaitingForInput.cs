@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class UpdateInputControlWaitingForInput : MonoBehaviour
 {
@@ -30,6 +29,14 @@ public class UpdateInputControlWaitingForInput : MonoBehaviour
         myUIRect.Visible = true;
     }
 
+    public void ResetUI()
+    {
+        if (DisabledUiRectRect)
+            DisabledUiRectRect.Enabled = true;
+
+        myUIRect.Visible = false;
+    }
+
 	// Update is called once per frame
 	void Update ()
 	{
@@ -40,20 +47,15 @@ public class UpdateInputControlWaitingForInput : MonoBehaviour
 	    {
 	        InputController.Instance.CancelRebind();
 
-            myUIRect.Visible = false;
+            ResetUI();
 	    }
 	    else
 	    {
             if (InputController.Instance.CheckForInput())
             {
-                //Finished
-                if (DisabledUiRectRect)
-                    DisabledUiRectRect.Enabled = true;
-
-
                 inputButton.Text = "Player: " + playerNumber + " Action: " + actionName + "\n" + InputController.Instance.GetInfo(playerNumber + "_" + actionName).GetInfo();
 
-                myUIRect.Visible = false;
+                ResetUI();
             }
 	    }
 	    

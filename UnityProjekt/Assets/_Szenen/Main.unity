@@ -131,10 +131,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 421.600006
-    y: 253.889999
-    width: 71.9199982
-    height: 22.3199997
+    x: 741.200012
+    y: 576.940002
+    width: 126.439995
+    height: 50.7200012
   parent: {fileID: 2110167300}
   children: []
   ChildCount: 0
@@ -190,7 +190,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 8
+    m_FontSize: 20
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -717,8 +717,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 437681294}
-  m_RootOrder: 1
+  m_Father: {fileID: 520547855}
+  m_RootOrder: 0
 --- !u!114 &172333930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -734,7 +734,7 @@ MonoBehaviour:
   Visible: 1
   Enabled: 1
   ShowBackground: 0
-  RelativePosition: {x: .219999999, y: .0199999996}
+  RelativePosition: {x: 0, y: .0199999996}
   AbsolutePosition: {x: 0, y: 0}
   RelativeSize: {x: 1, y: .300000012}
   RelativeWidthBasedOnHeight: 0
@@ -745,11 +745,11 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 124.793594
-    y: 65.0069885
-    width: 200.88002
-    height: 12.5550013
-  parent: {fileID: 437681295}
+    x: 154.503967
+    y: 185.571793
+    width: 332.850037
+    height: 25.677002
+  parent: {fileID: 520547854}
   children: []
   ChildCount: 0
   Text: Boro
@@ -801,7 +801,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 6
+    m_FontSize: 12
     m_FontStyle: 0
     m_Alignment: 0
     m_WordWrap: 1
@@ -918,10 +918,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 278
-    y: 179.860001
-    width: 139
-    height: 35.1900024
+    x: 328.799988
+    y: 291.640015
+    width: 164.400009
+    height: 57.0600014
   parent: {fileID: 1974104217}
   children: []
   ChildCount: 0
@@ -977,7 +977,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 14
+    m_FontSize: 22
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -1103,9 +1103,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1373494807}
-  - {fileID: 470913240}
-  - {fileID: 1376198152}
   - {fileID: 824183432}
+  - {fileID: 1376198152}
+  - {fileID: 470913240}
   m_Father: {fileID: 1196208425}
   m_RootOrder: 0
 --- !u!114 &226484827
@@ -1136,8 +1136,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 695
-    height: 391
+    width: 872
+    height: 634
   parent: {fileID: 1196208426}
   children:
   - {fileID: 1373494806}
@@ -1178,7 +1178,7 @@ Transform:
   - {fileID: 893137505}
   - {fileID: 302877474}
   m_Father: {fileID: 537064884}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!114 &246998729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1194,9 +1194,9 @@ MonoBehaviour:
   Visible: 1
   Enabled: 1
   ShowBackground: 0
-  RelativePosition: {x: .600000024, y: 0}
+  RelativePosition: {x: 0, y: 0}
   AbsolutePosition: {x: 0, y: 0}
-  RelativeSize: {x: .400000006, y: 1}
+  RelativeSize: {x: 1, y: .100000001}
   RelativeWidthBasedOnHeight: 0
   AbsoluteSize: {x: 0, y: 0}
   HorizontalAnchor: 0
@@ -1205,10 +1205,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 281.480011
-    y: 64.1699905
-    width: 133.920013
-    height: 167.400009
+    x: 55.5999756
+    y: 145.819977
+    width: 760.800049
+    height: 38.0400047
   parent: {fileID: 537064885}
   children:
   - {fileID: 984513047}
@@ -1263,7 +1263,7 @@ MonoBehaviour:
   ShowBackground: 0
   RelativePosition: {x: 0, y: 0}
   AbsolutePosition: {x: 0, y: 0}
-  RelativeSize: {x: .200000003, y: 1}
+  RelativeSize: {x: .125, y: 1}
   RelativeWidthBasedOnHeight: 0
   AbsoluteSize: {x: 0, y: 0}
   HorizontalAnchor: 0
@@ -1272,10 +1272,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 80.5999908
-    y: 106.019989
-    width: 40.1760063
-    height: 41.8500023
+    x: 55.5999756
+    y: 269.449982
+    width: 95.1000061
+    height: 85.590004
   parent: {fileID: 891592285}
   children: []
   ChildCount: 0
@@ -1608,6 +1608,73 @@ SpriteRenderer:
   m_SortingOrder: 14
   m_Sprite: {fileID: 21300014, guid: 3ae48280cbd068447b40ce5b2e92d421, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &302417464
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 302417466}
+  - 114: {fileID: 302417465}
+  m_Layer: 0
+  m_Name: UIPanel_LeftSide
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &302417465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 302417464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6227c02e43a7f4dba299c99c285584, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identifier: ce26720c-8b7b-4cbe-86b8-0b1591225492
+  Visible: 1
+  Enabled: 1
+  ShowBackground: 0
+  RelativePosition: {x: .129999995, y: 0}
+  AbsolutePosition: {x: 0, y: 0}
+  RelativeSize: {x: .4375, y: 1}
+  RelativeWidthBasedOnHeight: 0
+  AbsoluteSize: {x: 0, y: 0}
+  HorizontalAnchor: 0
+  VerticalAnchor: 0
+  HorizontalAlignment: 0
+  VerticalAlignment: 0
+  absoluteRect:
+    serializedVersion: 2
+    x: 154.503967
+    y: 269.449982
+    width: 332.850037
+    height: 85.590004
+  parent: {fileID: 891592285}
+  children:
+  - {fileID: 2005015971}
+  - {fileID: 465564822}
+  ChildCount: 2
+  ShowBox: 0
+  content: 
+--- !u!4 &302417466
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 302417464}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2005015970}
+  - {fileID: 465564821}
+  m_Father: {fileID: 891592284}
+  m_RootOrder: 1
 --- !u!1 &302877473
 GameObject:
   m_ObjectHideFlags: 0
@@ -1617,6 +1684,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 302877474}
   - 114: {fileID: 302877475}
+  - 114: {fileID: 302877476}
   m_Layer: 0
   m_Name: UIButton_Slot4
   m_TagString: Untagged
@@ -1651,9 +1719,9 @@ MonoBehaviour:
   Visible: 1
   Enabled: 1
   ShowBackground: 0
-  RelativePosition: {x: 0, y: .75}
+  RelativePosition: {x: .75, y: 0}
   AbsolutePosition: {x: 0, y: 0}
-  RelativeSize: {x: 1, y: .25}
+  RelativeSize: {x: .25, y: 1}
   RelativeWidthBasedOnHeight: 0
   AbsoluteSize: {x: 0, y: 0}
   HorizontalAnchor: 0
@@ -1662,17 +1730,17 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 281.480011
-    y: 189.720001
-    width: 133.920013
-    height: 41.8500023
+    x: 626.200012
+    y: 145.819977
+    width: 190.200012
+    height: 38.0400047
   parent: {fileID: 246998729}
   children: []
   ChildCount: 0
   Text: Slot 4
   Callback:
-    MessageReciever: {fileID: 846884939}
-    MethodName: AddPlayerSlot4
+    MessageReciever: {fileID: 0}
+    MethodName: 
   fontSize: 7
   ButtonStyle:
     m_Name: button
@@ -1721,7 +1789,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 13
+    m_FontSize: 12
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -1733,6 +1801,18 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+--- !u!114 &302877476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 302877473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c50a0d64744635e4e825dc5be2e442ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerSlots: 3
 --- !u!1 &309023400
 GameObject:
   m_ObjectHideFlags: 0
@@ -1794,6 +1874,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 437681294}
   - 114: {fileID: 437681295}
+  - 114: {fileID: 437681296}
   m_Layer: 0
   m_Name: UIButton_Boro
   m_TagString: Untagged
@@ -1812,8 +1893,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1889536204}
-  - {fileID: 172333929}
-  - {fileID: 763628336}
+  - {fileID: 520547855}
+  - {fileID: 2038480152}
   m_Father: {fileID: 1774546689}
   m_RootOrder: 0
 --- !u!114 &437681295
@@ -1842,15 +1923,15 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 80.5999908
-    y: 64.1699905
-    width: 200.88002
-    height: 41.8500023
+    x: 55.5999756
+    y: 183.859985
+    width: 760.800049
+    height: 85.590004
   parent: {fileID: 1774546690}
   children:
   - {fileID: 1889536205}
-  - {fileID: 172333930}
-  - {fileID: 763628337}
+  - {fileID: 520547854}
+  - {fileID: 2038480151}
   ChildCount: 3
   Text: 
   Callback:
@@ -1904,7 +1985,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 4
+    m_FontSize: 9
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -1916,6 +1997,18 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+--- !u!114 &437681296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 437681293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d66afb27d6d9a694c9123ac64d2066a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerClass: 0
 --- !u!1 &444336467
 GameObject:
   m_ObjectHideFlags: 0
@@ -1959,10 +2052,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 347.5
-    y: 66.4700012
-    width: 256.59375
-    height: 29.3250008
+    x: 436
+    y: 107.779999
+    width: 416.062531
+    height: 47.5500031
   parent: {fileID: 1373494806}
   children: []
   ChildCount: 0
@@ -2018,7 +2111,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 14
+    m_FontSize: 23
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -2083,8 +2176,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 891592284}
-  m_RootOrder: 2
+  m_Father: {fileID: 302417466}
+  m_RootOrder: 1
 --- !u!114 &465564822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2100,7 +2193,7 @@ MonoBehaviour:
   Visible: 1
   Enabled: 1
   ShowBackground: 0
-  RelativePosition: {x: .219999999, y: .25}
+  RelativePosition: {x: 0, y: .25}
   AbsolutePosition: {x: 0, y: 0}
   RelativeSize: {x: 1, y: .699999988}
   RelativeWidthBasedOnHeight: 0
@@ -2111,11 +2204,11 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 124.793594
-    y: 116.482491
-    width: 200.88002
-    height: 29.295002
-  parent: {fileID: 891592285}
+    x: 154.503967
+    y: 290.847473
+    width: 332.850037
+    height: 59.913002
+  parent: {fileID: 302417465}
   children: []
   ChildCount: 0
   Text: 'Jack hat keine Geschichte.
@@ -2171,7 +2264,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 4
+    m_FontSize: 9
     m_FontStyle: 0
     m_Alignment: 0
     m_WordWrap: 1
@@ -2211,7 +2304,7 @@ Transform:
   m_Children:
   - {fileID: 1748996640}
   m_Father: {fileID: 226484826}
-  m_RootOrder: 1
+  m_RootOrder: 3
 --- !u!114 &470913241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2239,9 +2332,9 @@ MonoBehaviour:
   absoluteRect:
     serializedVersion: 2
     x: 0
-    y: 351.899994
-    width: 695
-    height: 39.1000023
+    y: 570.599976
+    width: 872
+    height: 63.4000015
   parent: {fileID: 226484827}
   children:
   - {fileID: 1748996641}
@@ -2423,6 +2516,73 @@ SpriteRenderer:
   m_SortingOrder: 14
   m_Sprite: {fileID: 21300004, guid: 3ae48280cbd068447b40ce5b2e92d421, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &520547853
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 520547855}
+  - 114: {fileID: 520547854}
+  m_Layer: 0
+  m_Name: UIPanel_LeftSide
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &520547854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 520547853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6227c02e43a7f4dba299c99c285584, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identifier: ce26720c-8b7b-4cbe-86b8-0b1591225492
+  Visible: 1
+  Enabled: 1
+  ShowBackground: 0
+  RelativePosition: {x: .129999995, y: 0}
+  AbsolutePosition: {x: 0, y: 0}
+  RelativeSize: {x: .4375, y: 1}
+  RelativeWidthBasedOnHeight: 0
+  AbsoluteSize: {x: 0, y: 0}
+  HorizontalAnchor: 0
+  VerticalAnchor: 0
+  HorizontalAlignment: 0
+  VerticalAlignment: 0
+  absoluteRect:
+    serializedVersion: 2
+    x: 154.503967
+    y: 183.859985
+    width: 332.850037
+    height: 85.590004
+  parent: {fileID: 437681295}
+  children:
+  - {fileID: 172333930}
+  - {fileID: 763628337}
+  ChildCount: 2
+  ShowBox: 0
+  content: 
+--- !u!4 &520547855
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 520547853}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 172333929}
+  - {fileID: 763628336}
+  m_Father: {fileID: 437681294}
+  m_RootOrder: 1
 --- !u!1 &530616072
 GameObject:
   m_ObjectHideFlags: 0
@@ -2589,8 +2749,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1774546689}
   - {fileID: 246998728}
+  - {fileID: 1774546689}
   m_Father: {fileID: 931791363}
   m_RootOrder: 0
 --- !u!114 &537064885
@@ -2619,14 +2779,14 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 80.5999908
-    y: 64.1699905
-    width: 334.800018
-    height: 167.400009
+    x: 55.5999756
+    y: 145.819977
+    width: 760.800049
+    height: 380.400024
   parent: {fileID: 931791364}
   children:
-  - {fileID: 1774546690}
   - {fileID: 246998729}
+  - {fileID: 1774546690}
   ChildCount: 2
   ShowBox: 1
   content: 
@@ -2696,10 +2856,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 278
-    y: 222.869995
-    width: 139
-    height: 35.1900024
+    x: 328.799988
+    y: 361.380005
+    width: 164.400009
+    height: 57.0600014
   parent: {fileID: 1974104217}
   children: []
   ChildCount: 0
@@ -2755,7 +2915,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 14
+    m_FontSize: 22
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -3249,10 +3409,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 278
-    y: 134.894989
-    width: 139
-    height: 35.1900024
+    x: 328.799988
+    y: 218.729996
+    width: 164.400009
+    height: 57.0600014
   parent: {fileID: 1974104217}
   children: []
   ChildCount: 0
@@ -3308,7 +3468,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 14
+    m_FontSize: 22
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -3607,8 +3767,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 437681294}
-  m_RootOrder: 2
+  m_Father: {fileID: 520547855}
+  m_RootOrder: 1
 --- !u!114 &763628337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3624,7 +3784,7 @@ MonoBehaviour:
   Visible: 1
   Enabled: 1
   ShowBackground: 0
-  RelativePosition: {x: .219999999, y: .25}
+  RelativePosition: {x: 0, y: .25}
   AbsolutePosition: {x: 0, y: 0}
   RelativeSize: {x: 1, y: .699999988}
   RelativeWidthBasedOnHeight: 0
@@ -3635,11 +3795,11 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 124.793594
-    y: 74.6324921
-    width: 200.88002
-    height: 29.295002
-  parent: {fileID: 437681295}
+    x: 154.503967
+    y: 205.257492
+    width: 332.850037
+    height: 59.913002
+  parent: {fileID: 520547854}
   children: []
   ChildCount: 0
   Text: "Boro ist ein ehemaliger Marine.\nEr hat einige Zeit damit verbracht den Krieg
@@ -3692,7 +3852,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 4
+    m_FontSize: 9
     m_FontStyle: 0
     m_Alignment: 0
     m_WordWrap: 1
@@ -4197,7 +4357,7 @@ GameObject:
   - 4: {fileID: 824183432}
   - 114: {fileID: 824183431}
   m_Layer: 0
-  m_Name: UIPanel_Allgemein
+  m_Name: UIPanel_General
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4229,10 +4389,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 93.3500061
-    y: 97.75
-    width: 508.299988
-    height: 254.149994
+    x: 23.9000244
+    y: 158.5
+    width: 824.199951
+    height: 412.099976
   parent: {fileID: 226484827}
   children: []
   ChildCount: 0
@@ -4249,7 +4409,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 226484826}
-  m_RootOrder: 3
+  m_RootOrder: 1
 --- !u!1 &846884939
 GameObject:
   m_ObjectHideFlags: 0
@@ -4316,6 +4476,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 891592284}
   - 114: {fileID: 891592285}
+  - 114: {fileID: 891592286}
   m_Layer: 0
   m_Name: UIButton_Jack
   m_TagString: Untagged
@@ -4334,8 +4495,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 262448734}
-  - {fileID: 2005015970}
-  - {fileID: 465564821}
+  - {fileID: 302417466}
+  - {fileID: 1852923064}
   m_Father: {fileID: 1774546689}
   m_RootOrder: 1
 --- !u!114 &891592285
@@ -4364,20 +4525,20 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 80.5999908
-    y: 106.019989
-    width: 200.88002
-    height: 41.8500023
+    x: 55.5999756
+    y: 269.449982
+    width: 760.800049
+    height: 85.590004
   parent: {fileID: 1774546690}
   children:
   - {fileID: 262448735}
-  - {fileID: 2005015971}
-  - {fileID: 465564822}
+  - {fileID: 302417465}
+  - {fileID: 1852923063}
   ChildCount: 3
   Text: 
   Callback:
-    MessageReciever: {fileID: 846884939}
-    MethodName: SelectJack
+    MessageReciever: {fileID: 0}
+    MethodName: 
   fontSize: 1
   ButtonStyle:
     m_Name: button
@@ -4426,7 +4587,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 4
+    m_FontSize: 9
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -4438,6 +4599,18 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+--- !u!114 &891592286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 891592283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d66afb27d6d9a694c9123ac64d2066a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerClass: 1
 --- !u!1 &893137504
 GameObject:
   m_ObjectHideFlags: 0
@@ -4447,6 +4620,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 893137505}
   - 114: {fileID: 893137506}
+  - 114: {fileID: 893137507}
   m_Layer: 0
   m_Name: UIButton_Slot3
   m_TagString: Untagged
@@ -4481,9 +4655,9 @@ MonoBehaviour:
   Visible: 1
   Enabled: 1
   ShowBackground: 0
-  RelativePosition: {x: 0, y: .5}
+  RelativePosition: {x: .5, y: 0}
   AbsolutePosition: {x: 0, y: 0}
-  RelativeSize: {x: 1, y: .25}
+  RelativeSize: {x: .25, y: 1}
   RelativeWidthBasedOnHeight: 0
   AbsoluteSize: {x: 0, y: 0}
   HorizontalAnchor: 0
@@ -4492,17 +4666,17 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 281.480011
-    y: 147.869995
-    width: 133.920013
-    height: 41.8500023
+    x: 436
+    y: 145.819977
+    width: 190.200012
+    height: 38.0400047
   parent: {fileID: 246998729}
   children: []
   ChildCount: 0
   Text: Slot 3
   Callback:
-    MessageReciever: {fileID: 846884939}
-    MethodName: AddPlayerSlot3
+    MessageReciever: {fileID: 0}
+    MethodName: 
   fontSize: 7
   ButtonStyle:
     m_Name: button
@@ -4551,7 +4725,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 13
+    m_FontSize: 12
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -4563,6 +4737,18 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+--- !u!114 &893137507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 893137504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c50a0d64744635e4e825dc5be2e442ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerSlots: 2
 --- !u!1 &910369023
 GameObject:
   m_ObjectHideFlags: 0
@@ -4768,7 +4954,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &931791363
 Transform:
   m_ObjectHideFlags: 0
@@ -4811,8 +4997,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 496
-    height: 279
+    width: 872
+    height: 634
   parent: {fileID: 0}
   children:
   - {fileID: 537064885}
@@ -4829,6 +5015,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 954563700}
   - 114: {fileID: 954563701}
+  - 114: {fileID: 954563702}
   m_Layer: 0
   m_Name: UIButton_Slot2
   m_TagString: Untagged
@@ -4863,9 +5050,9 @@ MonoBehaviour:
   Visible: 1
   Enabled: 1
   ShowBackground: 0
-  RelativePosition: {x: 0, y: .25}
+  RelativePosition: {x: .25, y: 0}
   AbsolutePosition: {x: 0, y: 0}
-  RelativeSize: {x: 1, y: .25}
+  RelativeSize: {x: .25, y: 1}
   RelativeWidthBasedOnHeight: 0
   AbsoluteSize: {x: 0, y: 0}
   HorizontalAnchor: 0
@@ -4874,17 +5061,17 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 281.480011
-    y: 106.019989
-    width: 133.920013
-    height: 41.8500023
+    x: 245.799988
+    y: 145.819977
+    width: 190.200012
+    height: 38.0400047
   parent: {fileID: 246998729}
   children: []
   ChildCount: 0
   Text: Slot 2
   Callback:
-    MessageReciever: {fileID: 846884939}
-    MethodName: AddPlayerSlot2
+    MessageReciever: {fileID: 0}
+    MethodName: 
   fontSize: 7
   ButtonStyle:
     m_Name: button
@@ -4933,7 +5120,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 13
+    m_FontSize: 12
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -4945,6 +5132,18 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+--- !u!114 &954563702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 954563699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c50a0d64744635e4e825dc5be2e442ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerSlots: 1
 --- !u!1 &984513045
 GameObject:
   m_ObjectHideFlags: 0
@@ -4954,6 +5153,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 984513046}
   - 114: {fileID: 984513047}
+  - 114: {fileID: 984513048}
   m_Layer: 0
   m_Name: UIButton_Slot1
   m_TagString: Untagged
@@ -4990,7 +5190,7 @@ MonoBehaviour:
   ShowBackground: 0
   RelativePosition: {x: 0, y: 0}
   AbsolutePosition: {x: 0, y: 0}
-  RelativeSize: {x: 1, y: .25}
+  RelativeSize: {x: .25, y: 1}
   RelativeWidthBasedOnHeight: 0
   AbsoluteSize: {x: 0, y: 0}
   HorizontalAnchor: 0
@@ -4999,17 +5199,17 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 281.480011
-    y: 64.1699905
-    width: 133.920013
-    height: 41.8500023
+    x: 55.5999756
+    y: 145.819977
+    width: 190.200012
+    height: 38.0400047
   parent: {fileID: 246998729}
   children: []
   ChildCount: 0
   Text: Slot 1
   Callback:
-    MessageReciever: {fileID: 846884939}
-    MethodName: AddPlayerSlot1
+    MessageReciever: {fileID: 0}
+    MethodName: 
   fontSize: 7
   ButtonStyle:
     m_Name: button
@@ -5058,7 +5258,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 13
+    m_FontSize: 12
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -5070,6 +5270,18 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+--- !u!114 &984513048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 984513045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c50a0d64744635e4e825dc5be2e442ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerSlots: 0
 --- !u!1 &998559622
 GameObject:
   m_ObjectHideFlags: 0
@@ -5452,8 +5664,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 695
-    height: 391
+    width: 872
+    height: 634
   parent: {fileID: 1196208426}
   children:
   - {fileID: 89286404}
@@ -5685,8 +5897,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 695
-    height: 391
+    width: 872
+    height: 634
   parent: {fileID: 0}
   children:
   - {fileID: 226484827}
@@ -6335,10 +6547,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 90.90625
-    y: 66.4700012
-    width: 513.1875
-    height: 29.3250008
+    x: 19.9374695
+    y: 107.779999
+    width: 832.125061
+    height: 47.5500031
   parent: {fileID: 226484827}
   children:
   - {fileID: 1385661501}
@@ -6416,10 +6628,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 93.3500061
-    y: 97.75
-    width: 508.299988
-    height: 254.149994
+    x: 23.9000244
+    y: 158.5
+    width: 824.199951
+    height: 412.099976
   parent: {fileID: 226484827}
   children:
   - {fileID: 632376291}
@@ -6490,7 +6702,7 @@ GameObject:
   - 114: {fileID: 1385661501}
   - 114: {fileID: 1385661503}
   m_Layer: 0
-  m_Name: UIButton_Allgemein
+  m_Name: UIButton_General
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6522,14 +6734,14 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 90.90625
-    y: 66.4700012
-    width: 256.59375
-    height: 29.3250008
+    x: 19.9374695
+    y: 107.779999
+    width: 416.062531
+    height: 47.5500031
   parent: {fileID: 1373494806}
   children: []
   ChildCount: 0
-  Text: Allgemein
+  Text: General
   Callback:
     MessageReciever: {fileID: 0}
     MethodName: 
@@ -6581,7 +6793,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 14
+    m_FontSize: 23
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -7117,10 +7329,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 2.48000002
-    y: 253.889999
-    width: 416.639984
-    height: 22.3199997
+    x: 4.36000013
+    y: 576.940002
+    width: 732.47998
+    height: 50.7200012
   parent: {fileID: 2110167300}
   children: []
   ChildCount: 0
@@ -7176,7 +7388,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 8
+    m_FontSize: 20
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -7886,10 +8098,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 3.4749999
-    y: 355.809998
-    width: 688.049988
-    height: 31.2800026
+    x: 4.36000013
+    y: 576.940002
+    width: 863.280029
+    height: 50.7200012
   parent: {fileID: 470913241}
   children: []
   ChildCount: 0
@@ -7945,7 +8157,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 12
+    m_FontSize: 20
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -8001,7 +8213,7 @@ Transform:
   - {fileID: 437681294}
   - {fileID: 891592284}
   m_Father: {fileID: 537064884}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!114 &1774546690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8017,9 +8229,9 @@ MonoBehaviour:
   Visible: 1
   Enabled: 1
   ShowBackground: 0
-  RelativePosition: {x: 0, y: 0}
+  RelativePosition: {x: 0, y: .100000001}
   AbsolutePosition: {x: 0, y: 0}
-  RelativeSize: {x: .600000024, y: 1}
+  RelativeSize: {x: 1, y: .899999976}
   RelativeWidthBasedOnHeight: 0
   AbsoluteSize: {x: 0, y: 0}
   HorizontalAnchor: 0
@@ -8028,10 +8240,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 80.5999908
-    y: 64.1699905
-    width: 200.88002
-    height: 167.400009
+    x: 55.5999756
+    y: 183.859985
+    width: 760.800049
+    height: 342.360016
   parent: {fileID: 537064885}
   children:
   - {fileID: 437681295}
@@ -8187,6 +8399,69 @@ SpriteRenderer:
   m_SortingOrder: 14
   m_Sprite: {fileID: 21300000, guid: 3ae48280cbd068447b40ce5b2e92d421, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1852923062
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1852923064}
+  - 114: {fileID: 1852923063}
+  m_Layer: 0
+  m_Name: UIPanel_RightSide
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1852923063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1852923062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6227c02e43a7f4dba299c99c285584, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identifier: ce26720c-8b7b-4cbe-86b8-0b1591225492
+  Visible: 1
+  Enabled: 1
+  ShowBackground: 0
+  RelativePosition: {x: .5625, y: 0}
+  AbsolutePosition: {x: 0, y: 0}
+  RelativeSize: {x: .4375, y: 1}
+  RelativeWidthBasedOnHeight: 0
+  AbsoluteSize: {x: 0, y: 0}
+  HorizontalAnchor: 0
+  VerticalAnchor: 0
+  HorizontalAlignment: 0
+  VerticalAlignment: 0
+  absoluteRect:
+    serializedVersion: 2
+    x: 483.549988
+    y: 269.449982
+    width: 332.850037
+    height: 85.590004
+  parent: {fileID: 891592285}
+  children: []
+  ChildCount: 0
+  ShowBox: 0
+  content: 
+--- !u!4 &1852923064
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1852923062}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 891592284}
+  m_RootOrder: 2
 --- !u!1 &1859161813
 GameObject:
   m_ObjectHideFlags: 0
@@ -8259,7 +8534,7 @@ MonoBehaviour:
   ShowBackground: 0
   RelativePosition: {x: 0, y: 0}
   AbsolutePosition: {x: 0, y: 0}
-  RelativeSize: {x: .200000003, y: 1}
+  RelativeSize: {x: .125, y: 1}
   RelativeWidthBasedOnHeight: 0
   AbsoluteSize: {x: 0, y: 0}
   HorizontalAnchor: 0
@@ -8268,10 +8543,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 80.5999908
-    y: 64.1699905
-    width: 40.1760063
-    height: 41.8500023
+    x: 55.5999756
+    y: 183.859985
+    width: 95.1000061
+    height: 85.590004
   parent: {fileID: 437681295}
   children: []
   ChildCount: 0
@@ -8292,7 +8567,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1906325895
 Transform:
   m_ObjectHideFlags: 0
@@ -8334,8 +8609,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 695
-    height: 391
+    width: 822
+    height: 634
   parent: {fileID: 0}
   children:
   - {fileID: 1974104217}
@@ -8576,10 +8851,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 260.625
-    y: 117.299995
-    width: 173.75
-    height: 156.400009
+    x: 308.25
+    y: 190.199997
+    width: 205.5
+    height: 253.600006
   parent: {fileID: 1906325896}
   children:
   - {fileID: 691127879}
@@ -8689,8 +8964,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 891592284}
-  m_RootOrder: 1
+  m_Father: {fileID: 302417466}
+  m_RootOrder: 0
 --- !u!114 &2005015971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8706,7 +8981,7 @@ MonoBehaviour:
   Visible: 1
   Enabled: 1
   ShowBackground: 0
-  RelativePosition: {x: .219999999, y: .0199999996}
+  RelativePosition: {x: 0, y: .0199999996}
   AbsolutePosition: {x: 0, y: 0}
   RelativeSize: {x: 1, y: .300000012}
   RelativeWidthBasedOnHeight: 0
@@ -8717,11 +8992,11 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 124.793594
-    y: 106.856987
-    width: 200.88002
-    height: 12.5550013
-  parent: {fileID: 891592285}
+    x: 154.503967
+    y: 271.161774
+    width: 332.850037
+    height: 25.677002
+  parent: {fileID: 302417465}
   children: []
   ChildCount: 0
   Text: Jack
@@ -8773,7 +9048,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 6
+    m_FontSize: 12
     m_FontStyle: 0
     m_Alignment: 0
     m_WordWrap: 1
@@ -8812,6 +9087,69 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1372128246}
   m_RootOrder: 3
+--- !u!1 &2038480150
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2038480152}
+  - 114: {fileID: 2038480151}
+  m_Layer: 0
+  m_Name: UIPanel_RightSide
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2038480151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2038480150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6227c02e43a7f4dba299c99c285584, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identifier: ce26720c-8b7b-4cbe-86b8-0b1591225492
+  Visible: 1
+  Enabled: 1
+  ShowBackground: 0
+  RelativePosition: {x: .5625, y: 0}
+  AbsolutePosition: {x: 0, y: 0}
+  RelativeSize: {x: .4375, y: 1}
+  RelativeWidthBasedOnHeight: 0
+  AbsoluteSize: {x: 0, y: 0}
+  HorizontalAnchor: 0
+  VerticalAnchor: 0
+  HorizontalAlignment: 0
+  VerticalAlignment: 0
+  absoluteRect:
+    serializedVersion: 2
+    x: 483.549988
+    y: 183.859985
+    width: 332.850037
+    height: 85.590004
+  parent: {fileID: 437681295}
+  children: []
+  ChildCount: 0
+  ShowBox: 0
+  content: 
+--- !u!4 &2038480152
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2038480150}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 437681294}
+  m_RootOrder: 2
 --- !u!1 &2080947349
 GameObject:
   m_ObjectHideFlags: 0
@@ -9073,9 +9411,9 @@ MonoBehaviour:
   absoluteRect:
     serializedVersion: 2
     x: 0
-    y: 251.100006
-    width: 496
-    height: 27.8999996
+    y: 570.599976
+    width: 872
+    height: 63.4000015
   parent: {fileID: 931791364}
   children:
   - {fileID: 1666083299}

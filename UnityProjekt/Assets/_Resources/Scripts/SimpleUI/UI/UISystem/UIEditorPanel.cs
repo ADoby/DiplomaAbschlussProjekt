@@ -12,6 +12,9 @@ public class UIEditorPanel : UIPanel
 
     void OnGUI()
     {
+        if (!Application.isPlaying)
+            UpdateChildren();
+
         UpdateUI();
     }
 }

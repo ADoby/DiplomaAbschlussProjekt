@@ -3,6 +3,22 @@ using System.Linq;
 using UnityEngine;
 using System.Collections;
 
+public enum PlayerClasses
+{
+    BORO,
+    JACK,
+    COUNT
+}
+
+public enum PlayerSlots
+{
+    ONE,
+    TWO,
+    THREE,
+    FOUR,
+    COUNT
+}
+
 public class GameManager : MonoBehaviour {
 
     #region Singleton
@@ -124,24 +140,7 @@ public class GameManager : MonoBehaviour {
         GameContainer.SetActive(true);
     }
 
-    public void AddPlayerSlot1()
-    {
-        SlotButton(0);
-    }
-    public void AddPlayerSlot2()
-    {
-        SlotButton(1);
-    }
-    public void AddPlayerSlot3()
-    {
-        SlotButton(2);
-    }
-    public void AddPlayerSlot4()
-    {
-        SlotButton(3);
-    }
-
-    public void SlotButton(int id)
+    public void SelectSlot(int id)
     {
         slotButtons[currentPlayerSelectingClass].Text = "Slot " + (currentPlayerSelectingClass + 1);
         slotButtons[currentPlayerSelectingClass].ButtonStyle.normal.textColor = Color.white;
@@ -149,16 +148,6 @@ public class GameManager : MonoBehaviour {
         RemovePlayer(Players[id]);
 
         currentPlayerSelectingClass = id;
-    }
-
-    public void SelectBoro()
-    {
-        SelectClass(0);
-    }
-
-    public void SelectJack()
-    {
-        SelectClass(1);
     }
 
     public GameObject playerPrefab;
@@ -180,7 +169,11 @@ public class GameManager : MonoBehaviour {
         Cameras[currentPlayerSelectingClass].player = newPlayer.transform;
 
         Players[currentPlayerSelectingClass].PlayerId = currentPlayerSelectingClass;
-        Players[currentPlayerSelectingClass].PlayerClass = (PlayerClass)Object.Instantiate(PlayerClasses[id]);
+
+
+        PlayerClass playerClass = (PlayerClass) Object.Instantiate(PlayerClasses[id]);
+        playerClass.transform.parent = newPlayer.transform;
+        Players[currentPlayerSelectingClass].PlayerClass = playerClass;
 
         slotButtons[currentPlayerSelectingClass].Text = "Selected: " + Players[currentPlayerSelectingClass].PlayerClass.name.Replace("(Clone)", "");
         slotButtons[currentPlayerSelectingClass].ButtonStyle.normal.textColor = Color.green;
