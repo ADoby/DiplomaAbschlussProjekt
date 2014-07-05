@@ -6,22 +6,12 @@ public class UIEditorPanel : UIPanel
 
     void Start()
     {
-        UpdateChildren();
+        if(Application.isPlaying)
+            UpdateChildren();
     }
 
     void OnGUI()
     {
         UpdateUI();
-    }
-
-    public void UpdateChilds()
-    {
-        UIRect[] newChildren = gameObject.GetComponentsInChildren<UIRect>();
-
-        foreach (var child in newChildren)
-        {
-            child.UpdateChildren();
-            //child.UpdateUI();
-        }
     }
 }
