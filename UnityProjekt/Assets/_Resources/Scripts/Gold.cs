@@ -45,8 +45,7 @@ public class Gold : MonoBehaviour {
         if (other && other.gameObject && other.gameObject.tag == "Player")
         {
             other.gameObject.SendMessage("AddMoney", amount, SendMessageOptions.DontRequireReceiver);
-            GameObjectPool.Instance.Despawn(poolName, gameObject);
-
+            EntitySpawnManager.Despawn(poolName, gameObject);
         }
     }
 }

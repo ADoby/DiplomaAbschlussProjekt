@@ -103,10 +103,12 @@ public class AlienBaseEditor : Editor
 
         myTarget.StartUpTime = EditorGUILayout.Slider("StartUpTime", myTarget.StartUpTime, myTarget.minNeededTime, myTarget.maxNeededTime);
 
+        EditorGUILayout.Popup(myTarget.currentState, myTarget.BaseStateList);
+
         GUILayout.Space(10);
 
         GUILayout.Label("Base States:");
-        scrollValue = EditorGUILayout.BeginScrollView(scrollValue, GUILayout.MaxHeight(300));
+        scrollValue = EditorGUILayout.BeginScrollView(scrollValue, GUILayout.MaxHeight(300), GUILayout.MinHeight(200));
 
         foreach (AlienBaseState state in myTarget.StateOrder)
         {
@@ -182,6 +184,7 @@ public class AlienBaseEditor : Editor
         {
             myTarget.currentTestState = myTarget.StateOrder.Count;
         }
+
         UpdateStateList();
     }
 
@@ -211,6 +214,8 @@ public class AlienBaseEditor : Editor
         UpdateStateList();
     }
 
+    private Vector2 spawningInfoScrollValue = Vector2.zero;
+
     private void DrawInspectorForState(AlienBaseState state)
     {
 
@@ -223,6 +228,42 @@ public class AlienBaseEditor : Editor
         EditorGUILayout.MinMaxSlider(new GUIContent("Start/End Time"), ref state.startTime, ref state.endTime, myTarget.minNeededTime, myTarget.maxNeededTime);
         state.startTime = EditorGUILayout.FloatField("Start Time:", state.startTime);
         state.endTime = EditorGUILayout.FloatField("End Time:", state.endTime);
+
+        state.spawning = EditorGUILayout.Toggle("Spawning", state.spawning);
+        if (state.spawning)
+        {
+            state.spawnCooldown = EditorGUILayout.FloatField("Spawn Cooldown:", state.spawnCooldown);
+
+            spawningInfoScrollValue = EditorGUILayout.BeginScrollView(spawningInfoScrollValue, GUILayout.MaxHeight(300), GUILayout.MinHeight(80));
+
+            SpawnInfo deleteInfo = null;
+
+            if(state.spawnInfos == null)
+                state.spawnInfos = new List<SpawnInfo>();
+
+            foreach (var spawnInfo in state.spawnInfos)
+            {
+                spawnInfo.poolName = EditorGUILayout.TextField("PoolName:", spawnInfo.poolName);
+                spawnInfo.weight = EditorGUILayout.FloatField("SpawnWeight:", spawnInfo.weight);
+                if (GUILayout.Button("Delete SpawnInfo"))
+                {
+                    deleteInfo = spawnInfo;
+                }
+            }
+
+            if (deleteInfo != null)
+            {
+                state.spawnInfos.Remove(deleteInfo);
+            }
+
+            EditorGUILayout.EndScrollView();
+
+            if (GUILayout.Button("Add SpawnInfo"))
+            {
+                state.spawnInfos.Add(new SpawnInfo());
+            }
+
+        }
 
         if (GUILayout.Button("Delete State"))
         {
@@ -252,6 +293,7 @@ public class AlienBaseEditor : Editor
                 UpdateStateTimeBefore(currentStateIndex);
                 UpdateStateTimeAfter(currentStateIndex);
             }
+            EditorUtility.SetDirty(myTarget);
         }
     }
 

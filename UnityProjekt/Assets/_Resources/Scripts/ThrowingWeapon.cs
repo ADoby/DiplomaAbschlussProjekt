@@ -21,6 +21,11 @@ public class ThrowingWeapon : MonoBehaviour {
     public float powerUp = 2.0f;
     public float powerForward = 2.0f;
 
+    public void Reset()
+    {
+        detonateTimer = detonateTime;
+    }
+
     void Update()
     {
         detonateTimer -= Time.deltaTime;
@@ -34,7 +39,6 @@ public class ThrowingWeapon : MonoBehaviour {
     {
         if (detonateTimer > 0)
         {
-            //cam.WorldToScreenPoint(mouseOverItem.renderer.bounds.center);
             Vector2 pos = Camera.main.WorldToScreenPoint(renderer.bounds.center);
             pos.y = Screen.height - pos.y;
             GUI.Label(new Rect(pos.x, pos.y - 20, 40, 40), detonateTimer.ToString("#.#"));

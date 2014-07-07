@@ -30,7 +30,7 @@ public class EnemieSpawner : MonoBehaviour {
         GameEventHandler.EnemieDied += EnemieDied;
 	}
 
-    public void EnemieDied()
+    public void EnemieDied(EnemieController enemie)
     {
         livingEnemies--;
     }

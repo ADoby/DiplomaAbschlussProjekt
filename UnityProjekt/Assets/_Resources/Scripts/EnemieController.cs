@@ -61,7 +61,13 @@ public class EnemieController : MonoBehaviour {
         rigidbody2D.velocity = Vector2.zero;
     }
 
-
+    public void MoneySpawned(GameObject go)
+    {
+        if (go)
+        {
+            go.rigidbody2D.velocity = new Vector3(Random.Range(-4, 4), Random.Range(10, 20), 0);
+        }
+    }
 
     public void Damage(float damage)
     {
@@ -74,14 +80,12 @@ public class EnemieController : MonoBehaviour {
             int amount = Random.Range(3, 7);
             for (int i = 0; i < amount; i++)
             {
-                GameObject go = GameObjectPool.Instance.Spawn("Gold", transform.position, Quaternion.identity);
-                go.rigidbody2D.velocity = new Vector3(Random.Range(-4,4), Random.Range(10, 20), 0);
+                EntitySpawnManager.Spawn("Gold", transform.position, MoneySpawned, true);
             }
 
             //TODO Sterbe
-            GameObjectPool.Instance.Despawn(poolName, gameObject);
-
-            GameEventHandler.TriggerEnemieDied();
+            EntitySpawnManager.Despawn(poolName, gameObject);
+            GameEventHandler.TriggerEnemieDied(this);
         }
     }
 
@@ -222,7 +226,11 @@ public class EnemieController : MonoBehaviour {
     void LateUpdate()
     {
         if (GameManager.Instance.GamePaused)
+        {
+
             return;
+        }
+            
 
         rigidbody2D.velocity = new Vector2(currentSpeed, rigidbody2D.velocity.y);
     }

@@ -34,10 +34,16 @@ public class PlayerSkill : MonoBehaviour
             SkillRunTimer -= Time.deltaTime * player.GetAttributeValue(AttributeType.ATTACKSPEED);
             if (SkillRunTimer <= 0)
             {
+                SkillFinished(player);
                 skillRunning = false;
                 PlayerClass.SkillFinished(this);
             }
         }
+        
+    }
+
+    public virtual void SkillFinished(PlayerClass player)
+    {
         
     }
 

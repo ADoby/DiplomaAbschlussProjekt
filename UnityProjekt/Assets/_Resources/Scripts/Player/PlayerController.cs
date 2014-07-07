@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Text;
+using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -36,7 +37,7 @@ public class PlayerController : MonoBehaviour
 
     public int Level { get; protected set; }
     public float CurrentExperience { get; protected set; }
-    private Vector2 _currentVelocity;
+    public Vector2 _currentVelocity;
     private Vector2 _currentInput;
     public bool Grounded;
 
@@ -73,6 +74,8 @@ public class PlayerController : MonoBehaviour
     private void Init()
     {
         PlayerClass.Init(this);
+
+        GameManager.Instance.AddPlayer(this);
 
         GameEventHandler.OnDamageDone += DamageDone;
         GameEventHandler.OnPause += OnPause;
@@ -170,13 +173,18 @@ public class PlayerController : MonoBehaviour
         rigidbody2D.velocity = _currentVelocity;
     }
 
+    public void StopPlayer()
+    {
+        rigidbody2D.velocity = Vector2.zero;
+    }
+
     private void UpdateLookDirection()
     {
-        if (_currentVelocity.x < 0 && transform.localScale.x == 1)
+        if (_currentInput.x < -0.05f && transform.localScale.x == 1)
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
-        else if (_currentVelocity.x > 0 && transform.localScale.x == -1)
+        else if (_currentInput.x > 0.05f && transform.localScale.x == -1)
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
@@ -248,24 +256,18 @@ public class PlayerController : MonoBehaviour
         Gravity();
     }
 
+
     //new One with AREA
     private bool CheckGround()
     {
-        if (_currentVelocity.y > MinUpMotionForExtraJump)
+        if (_currentVelocity.y > PlayerClass.GetAttributeValue(AttributeType.JUMPPOWER)/2f)
         {
             //If we move upwards not grounded
-            return false;
+            //return false;
         }
-
-        Debug.DrawLine(transform.position - transform.right * PlayerClass.playerWidth * Half, transform.position + transform.right * PlayerClass.playerWidth * Half + (-Vector3.up * PlayerClass.footHeight));
-
         bool grounded = Physics2D.OverlapArea(transform.position - transform.right * PlayerClass.playerWidth * Half, transform.position + transform.right * PlayerClass.playerWidth * Half + (-Vector3.up * PlayerClass.footHeight), GroundCheckLayer);
         if (grounded)
         {
-            if (!Grounded)
-            {
-                _currentVelocity.y = 0;
-            }
             PlayerClass.ResetJump();
         }
         return grounded;
@@ -277,7 +279,7 @@ public class PlayerController : MonoBehaviour
         {
             if (Physics2D.OverlapArea(transform.position - transform.right * PlayerClass.playerWidth * Half + transform.up * PlayerClass.playerHeight, transform.position + transform.right * PlayerClass.playerWidth * Half + Vector3.up * PlayerClass.playerHeight + Vector3.up * PlayerClass.footHeight, GroundCheckLayer))
             {
-                _currentVelocity.y = 0;
+                //_currentVelocity.y = 0;
                 return true;
             }
         }
@@ -322,9 +324,57 @@ public class PlayerController : MonoBehaviour
         return false;
     }
 
+    public Vector2 normal;
     private void Move()
     {
-        _currentVelocity.x = Mathf.Lerp(_currentVelocity.x, PlayerClass.GetAttributeValue(AttributeType.MAXMOVESPEED) * _currentInput.x, Time.deltaTime * PlayerClass.GetAttributeValue(AttributeType.MOVEMENTCHANGE));
+        normal = Vector2.right;
+        float mult = 1f;
+        if (Grounded)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(transform.position + transform.up, Vector3.down, 5f, GroundCheckLayer);
+
+            if (hit)
+            {
+                normal.x = Mathf.Abs(hit.normal.y);
+                normal.y = -Mathf.Abs(hit.normal.x);
+            }
+
+            mult = Mathf.Clamp(normal.x - 0.8f, 0f, 1f)*5f;
+        }
+        else
+        {
+            int direction = (int)Mathf.Clamp(_currentInput.x*1000, -1, 1);
+            Vector3 startPoint = transform.position + transform.right * PlayerClass.playerWidth * Half * direction + 
+                                Vector3.up * PlayerClass.playerHeight;
+            Vector3 endPoint = transform.position + transform.right * PlayerClass.playerWidth * Half * direction +
+                                transform.right * 0.2f * direction;
+
+            bool somethingInTheWay = Physics2D.OverlapArea(startPoint, endPoint, GroundCheckLayer);
+            
+            Debug.DrawLine(startPoint, endPoint);
+            
+            if(somethingInTheWay)
+                mult = 0;
+        }
+
+        
+        Vector2 change = mult * normal * _currentInput.x * Time.fixedDeltaTime * 
+                         PlayerClass.GetAttributeValue(AttributeType.MOVEMENTCHANGE);
+
+        if (Mathf.Abs((_currentVelocity + change).x) > PlayerClass.GetAttributeValue(AttributeType.MAXMOVESPEED)*mult)
+        {
+            float clampMagnitude = 1f - Mathf.Clamp(Mathf.Abs((_currentVelocity + change).x) -
+                          PlayerClass.GetAttributeValue(AttributeType.MAXMOVESPEED), 0f, 1f);
+            change = Vector2.ClampMagnitude(change, clampMagnitude);
+        }
+
+        _currentVelocity += change;
+
+        if (!Grounded && Mathf.Abs(_currentInput.x) < 0.1f)
+        {
+            _currentVelocity.x = Mathf.Lerp(_currentVelocity.x, 0,
+                Time.fixedDeltaTime*PlayerClass.GetAttributeValue(AttributeType.MOVEMENTCHANGE)/10f);
+        }
     }
 
     private void Jump()
@@ -340,10 +390,9 @@ public class PlayerController : MonoBehaviour
 
     private void Gravity()
     {
-        if (!Grounded)
-        {
+        
             _currentVelocity += Physics2D.gravity * PlayerClass.GravityMultiply * Time.fixedDeltaTime;
-        }
+        
     }
 
     public void AddMoney(int amount)

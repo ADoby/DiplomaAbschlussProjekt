@@ -42,6 +42,7 @@ using System.Collections.Generic;
 			Pool pool = pools[poolName];
 
 			if(pool.Count == 0){
+                //Debug.Log("Not enough in pool: " + poolName + " instantiating new one");
 				InstantiatePrefab(poolName, pool.prefab);
 			}
 
@@ -83,14 +84,20 @@ using System.Collections.Generic;
 			}
 		}
 
-		public GameObject Spawn(string poolName, Vector3 position, Quaternion rotation){
+		public GameObject Spawn(string poolName, Vector3 position, Quaternion rotation)
+		{
+            if (!pools.ContainsKey(poolName))
+                return null;
 			GameObject go = Spawn(poolName, null, position, rotation.eulerAngles, pools[poolName].prefab.transform.localScale);
 			
 			return go;
 		}
 
 		public GameObject Spawn(string poolName, Transform parent, Vector3 position, Vector3 rotation, Vector3 scale){
-			GameObject go = ReleaseGameObject(poolName);
+            if (!pools.ContainsKey(poolName))
+                return null;
+            
+            GameObject go = ReleaseGameObject(poolName);
 			if(!go)
 				return null;
 

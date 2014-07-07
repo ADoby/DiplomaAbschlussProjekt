@@ -13,7 +13,7 @@ public class AlienBase : MonoBehaviour
 
     public string[] BaseStateList = new string[0];
 
-    private int currentState = 0;
+    public int currentState = 0;
 
     public float currentTime = 0;
 
@@ -22,6 +22,8 @@ public class AlienBase : MonoBehaviour
     public bool UpdateGrowingParts = false;
 
     public float StartUpTime = 0;
+
+    public bool UpdateTime = true;
 
     #region MembersForEditor
 
@@ -59,9 +61,18 @@ public class AlienBase : MonoBehaviour
     {
         currentTime = StartUpTime;
 
-        foreach (var alienBaseState in StateOrder)
+        FindCorrectState();
+
+        UpdateParts();
+    }
+
+    public void FindCorrectState()
+    {
+        for (int index = 0; index < StateOrder.Count; index++)
         {
+            var alienBaseState = StateOrder[index];
             alienBaseState.Reset();
+            alienBaseState.SetBase(this);
 
             if (alienBaseState.startTime <= currentTime && alienBaseState.endTime >= currentTime)
             {
@@ -69,8 +80,6 @@ public class AlienBase : MonoBehaviour
                 alienBaseState.currentTime = currentTime;
             }
         }
-
-        UpdateParts();
     }
 
     public void TryAutomaticGrowingSettings()
@@ -81,17 +90,18 @@ public class AlienBase : MonoBehaviour
         {
             List<GrowingPart> currentGrowingParts = hirarchy.NextParts();
 
-            foreach (var currentPart in currentGrowingParts)
+            for (int index = 0; index < currentGrowingParts.Count; index++)
             {
+                var currentPart = currentGrowingParts[index];
                 currentPart.myBase = this;
                 currentPart.currentBaseStateIndex = StateOrder.Count;
                 currentPart.UpdateMinMaxTime();
 
-                currentPart.startTime = currentPart.minTime + 
-                    hirarchy.CurrentProzent * (currentPart.maxTime - currentPart.minTime);
+                currentPart.startTime = currentPart.minTime +
+                                        hirarchy.CurrentProzent*(currentPart.maxTime - currentPart.minTime);
 
                 currentPart.endTime = currentPart.startTime +
-                                      hirarchy.ProzentPerPart * (currentPart.maxTime - currentPart.minTime);
+                                      hirarchy.ProzentPerPart*(currentPart.maxTime - currentPart.minTime);
 
 #if UNITY_EDITOR
                 EditorUtility.SetDirty(currentPart);
@@ -131,18 +141,34 @@ public class AlienBase : MonoBehaviour
         }
     }
 
-    
+    public void SetCurrentTime(float newTime)
+    {
+        currentTime = Mathf.Clamp(newTime, minNeededTime, maxNeededTime);
+        if (currentTime < StateOrder[currentState].startTime || currentTime > StateOrder[currentState].endTime)
+        {
+            FindCorrectState();
+        }
+        UpdateParts();
+    }
+
 
     // Update is called once per frame
 	void Update () {
 	    if (Application.isPlaying)
 	    {
-            if (StateOrder[currentState].Update())
-            {
-                NextState();
-            }
+	        StateOrder[currentState].Update();
 
-            currentTime = StateOrder[currentState].currentTime;
+	        if (UpdateTime)
+	        {
+                currentTime += Time.deltaTime;
+                currentTime = Mathf.Clamp(currentTime, minNeededTime, maxNeededTime);
+
+	            if (currentTime > StateOrder[currentState].endTime)
+	            {
+	                NextState();
+	            }
+	        }
+            
 	        UpdateParts();
 	    }
 	    else
@@ -156,8 +182,9 @@ public class AlienBase : MonoBehaviour
 
     public void UpdateParts()
     {
-        foreach (var growingPart in parts.ToArray())
+        for (int index = 0; index < parts.ToArray().Length; index++)
         {
+            var growingPart = parts.ToArray()[index];
             if (growingPart)
             {
                 growingPart.UpdateMinMaxTime();

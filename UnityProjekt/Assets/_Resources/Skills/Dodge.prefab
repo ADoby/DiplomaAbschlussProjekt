@@ -41,11 +41,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Jump
   SkillCooldown: 2
-  SkillRunTime: 0
-  PreventsMovement: 0
-  PreventsDamage: 0
+  SkillRunTime: .5
+  PreventsMovement: 1
+  PreventsDamage: 1
   PreventsUsingSkills: 0
-  MovesPlayer: 0
+  MovesPlayer: 1
   direction: {x: 20, y: 0}
 --- !u!1001 &100100000
 Prefab:

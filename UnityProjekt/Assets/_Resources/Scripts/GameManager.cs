@@ -46,22 +46,36 @@ public class GameManager : MonoBehaviour {
 
     #endregion
 
+    public int CurrentSpawnedEntityCount = 0;
+    public int MaxSpawnedEntityCount = 40;
+
+    public static bool CanSpawnEntity
+    {
+        get { return (instance.CurrentSpawnedEntityCount < instance.MaxSpawnedEntityCount); }
+    }
+
+    public void AddEntity()
+    {
+        CurrentSpawnedEntityCount++;
+    }
+
+    public void RemoveEntity()
+    {
+        CurrentSpawnedEntityCount--;
+    }
+
     public int currentPlayerSelectingClass = 0;
 
     public UIButton[] slotButtons;
 
     public Transform SpawnPosition;
 
-    public List<PlayerController> Players = new List<PlayerController>();
-    public List<CameraController> Cameras = new List<CameraController>();
+    private PlayerController[] Players = {null,null,null,null};
+    private CameraController[] Cameras = {null,null,null,null};
 
     void Start()
     {
-        for (int i = 0; i < 4; i++)
-        {
-            Players.Add(null);
-            Cameras.Add(null);
-        }
+
     }
 
     public void RemovePlayer(PlayerController player)
@@ -69,7 +83,15 @@ public class GameManager : MonoBehaviour {
         if (player == null)
             return;
 
-        int index = Players.IndexOf(player);
+        int index = 0;
+        for (int i = 0; i < Players.Length; i++)
+        {
+            if (Players[i] == player)
+            {
+                index = i;
+                break;
+            }
+        }
 
         Destroy(Cameras[index].gameObject);
         Cameras[index] = null;
@@ -84,13 +106,20 @@ public class GameManager : MonoBehaviour {
     {
         get
         {
-            return Players[0];
+            for (int i = 0; i < Players.Length; i++)
+            {
+                if (Players[i] != null)
+                {
+                    return Players[i];
+                }
+            }
+            return null;
         }
     }
 
     void Update()
     {
-        if (currentPlayerSelectingClass != -1)
+        if (currentPlayerSelectingClass != -1 && slotButtons.Length > 0)
         {
             slotButtons[currentPlayerSelectingClass].Text = "Player " + (currentPlayerSelectingClass + 1) + " Select";
             slotButtons[currentPlayerSelectingClass].ButtonStyle.normal.textColor = Color.red;
@@ -205,5 +234,26 @@ public class GameManager : MonoBehaviour {
     public void OnResume()
     {
         GamePaused = false;
+    }
+
+    public void AddPlayer(PlayerController playerController)
+    {
+        
+        if (Players.Contains(playerController))
+        {
+            Debug.Log("Containing");
+            return;
+        }
+
+        for (int i = 0; i < Players.Length; i++)
+        {
+            if (Players[i] == null)
+            {
+                Debug.Log("Player Added");
+                Players[i] = playerController;
+                return;
+            }
+        }
+        Debug.Log("Not addded");
     }
 }

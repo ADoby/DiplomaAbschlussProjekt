@@ -169,7 +169,7 @@ CircleCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_Enabled: 1
-  m_Material: {fileID: 6200000, guid: 268e84fa78991a240886c583b1b6bcf2, type: 2}
+  m_Material: {fileID: 6200000, guid: c9a9f96f670a9cc4b8519ffd388632d5, type: 2}
   m_IsTrigger: 0
   m_Radius: .25
   m_Center: {x: 0, y: .25}
@@ -180,7 +180,7 @@ BoxCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_Enabled: 1
-  m_Material: {fileID: 6200000, guid: 268e84fa78991a240886c583b1b6bcf2, type: 2}
+  m_Material: {fileID: 6200000, guid: c9a9f96f670a9cc4b8519ffd388632d5, type: 2}
   m_IsTrigger: 0
   m_Size: {x: .5, y: .5}
   m_Center: {x: .119999997, y: .519999981}
@@ -241,7 +241,7 @@ MonoBehaviour:
   jumpPower: 2
   pathFindingLayer:
     serializedVersion: 2
-    m_Bits: 4294906079
+    m_Bits: 4294840543
   chanceForRandomJump: .0500000007
 --- !u!114 &11400002
 MonoBehaviour:
@@ -290,7 +290,7 @@ SpriteRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: 3583dcfd005158347bc7ee028fba1317, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0

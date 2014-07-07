@@ -79,14 +79,14 @@ MonoBehaviour:
     ValuePerLevel: .200000003
     ValuePerSkillPoint: .5
   playerSkills:
-  - {fileID: 11400000, guid: 5407a11209516da488da561b621f3b75, type: 2}
-  - {fileID: 11400000, guid: d4162f6444f6e964082cf95814e0d8bd, type: 2}
-  - {fileID: 11400000, guid: d4162f6444f6e964082cf95814e0d8bd, type: 2}
-  - {fileID: 11400000, guid: d4162f6444f6e964082cf95814e0d8bd, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   Health: 30
   GravityMultiply: 2
-  playerWidth: .800000012
-  playerHeight: 1
+  playerWidth: 1
+  playerHeight: 2
   footHeight: .100000001
   MaxJumpCount: 1
   overrideVelocity: {x: 0, y: 0}

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Runtime.Remoting.Messaging;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System;
@@ -30,6 +31,8 @@ public enum ActionType
     AXIS,
     AXISDIRECTION
 }
+
+#region InputInfo Class
 
 [System.Serializable]
 public class InputInfo
@@ -212,118 +215,20 @@ public class InputInfo
     }
 }
 
+#endregion
+
+[System.Serializable]
 public class InputController : MonoBehaviour{
 
-    public InputInfo[] InputInfos =
-    {
-        new InputInfo() {Action = "1_LEFT", ActionType = ActionType.AXISDIRECTION, key = KeyCode.A},
-        new InputInfo() {Action = "1_RIGHT", ActionType = ActionType.AXISDIRECTION, key = KeyCode.D},
-        new InputInfo() {Action = "1_JUMP", ActionType = ActionType.BUTTON, key = KeyCode.Space},
-        new InputInfo() {Action = "1_SKILL1", ActionType = ActionType.BUTTON, key = KeyCode.Alpha1},
-        new InputInfo() {Action = "1_SKILL2", ActionType = ActionType.BUTTON, key = KeyCode.Alpha2},
-        new InputInfo() {Action = "1_SKILL3", ActionType = ActionType.BUTTON, key = KeyCode.Alpha3},
-        new InputInfo() {Action = "1_SKILL4", ActionType = ActionType.BUTTON, key = KeyCode.Alpha4},
-        new InputInfo() {Action = "ESCAPE", ActionType = ActionType.BUTTON, key = KeyCode.Escape},
-        new InputInfo() {Action = "LEVELUP", ActionType = ActionType.BUTTON, key = KeyCode.F},
-        new InputInfo() {Action = "1_CROUCH", ActionType = ActionType.BUTTON, key = KeyCode.S}
-    };
+    [SerializeField]
+    public List<InputInfo> InputInfos = new List<InputInfo>();
 
     private InputInfo[] resetInfo;
 
     private Dictionary<string, InputInfo> actionToInfo = new Dictionary<string, InputInfo>();
 
-
-	// Use this for initialization
-	void Awake () {
-        Instance = this;
-
-        resetInfo = (InputInfo[])InputInfos.Clone();
-
-        bool save = false;
-        bool load = false;
-        if (PlayerPrefs.GetInt("InputCount") == 0)
-        {
-            Debug.Log("No Saved Prefs, saving default");
-            save = true;
-            PlayerPrefs.SetInt("InputCount", InputInfos.Length);
-        }
-        else
-        {
-            load = true;
-        }
-
-        if (load)
-        {
-            List<InputInfo> inputInfoList = new List<InputInfo>();
-            int count = PlayerPrefs.GetInt("InputCount");
-            for (int i = 0; i < count; i++)
-            {
-                InputInfo input = new InputInfo();
-                input.Action = PlayerPrefs.GetString("Action" + i.ToString());
-                input.ActionType = (ActionType)PlayerPrefs.GetInt("ActionActionType" + i.ToString());
-                input.InputType = (InputType)PlayerPrefs.GetInt("ActionInputType" + i.ToString());
-                input.key = (KeyCode)PlayerPrefs.GetInt("ActionKey" + i.ToString());
-                input.mouseButtonID = PlayerPrefs.GetInt("ActionMouseButton" + i.ToString());
-                input.inputString = PlayerPrefs.GetString("ActionInputString" + i.ToString());
-                inputInfoList.Add(input);
-            }
-            InputInfos = inputInfoList.ToArray();
-        }
-
-        int actionID = 0;
-        foreach (var item in InputInfos)
-        {
-            actionToInfo.Add(item.Action, item);
-
-            if (save)
-            {
-                PlayerPrefs.SetString("Action" + actionID.ToString(), item.Action);
-                PlayerPrefs.SetInt("ActionActionType" + actionID.ToString(), (int)item.ActionType);
-                PlayerPrefs.SetInt("ActionInputType" + actionID.ToString(), (int)item.InputType);
-                PlayerPrefs.SetInt("ActionKey" + actionID.ToString(), (int)item.key);
-                PlayerPrefs.SetInt("ActionMouseButton" + actionID.ToString(), (int)item.mouseButtonID);
-                PlayerPrefs.SetString("ActionInputString" + actionID.ToString(), item.inputString);
-            }
-            actionID++;
-        }
-	}
-
-    [ContextMenu("ResetInputs")]
-    public void ResetInputs()
-    {
-        InputInfos = (InputInfo[])resetInfo.Clone();
-
-        PlayerPrefs.SetInt("InputCount", InputInfos.Length);
-
-        actionToInfo.Clear();
-        int actionID = 0;
-        foreach (var item in resetInfo)
-        {
-
-            PlayerPrefs.SetString("Action" + actionID.ToString(), item.Action);
-            PlayerPrefs.SetInt("ActionActionType" + actionID.ToString(), (int)item.ActionType);
-            PlayerPrefs.SetInt("ActionInputType" + actionID.ToString(), (int)item.InputType);
-            PlayerPrefs.SetInt("ActionKey" + actionID.ToString(), (int)item.key);
-            PlayerPrefs.SetInt("ActionMouseButton" + actionID.ToString(), (int)item.mouseButtonID);
-            PlayerPrefs.SetString("ActionInputString" + actionID.ToString(), item.inputString);
-
-            actionToInfo.Add(item.Action, item);
-
-            actionID++;
-        }
-    }
-
-    public string[] unityButtonInputs;
-    public string[] unityAxisInputs = 
-    {
-        "Mouse ScrollWheel",
-        "L_XAxis_1",
-        "L_YAxis_1",
-        "R_XAxis_1",
-        "R_YAxis_1",
-        "TriggersL_1",
-        "TriggersR_1"
-    };
+    public List<string> unityButtonInputs = new List<string>();
+    public List<string> unityAxisInputs = new List<string>();
 
     private bool waitForInput = false;
     public bool IsWaitingForInput
@@ -333,6 +238,68 @@ public class InputController : MonoBehaviour{
 
     private InputInfo clickedInfo = null;
 
+	// Use this for initialization
+	void Awake () {
+        Instance = this;
+
+        resetInfo = InputInfos.ToArray();
+
+        if (PlayerPrefs.GetInt("InputCount") != 0)
+        {
+            LoadSavedInfos();
+        }
+
+        UpdateSavedInfos();
+	}
+
+    [ContextMenu("ResetInputs")]
+    public void ResetInputs()
+    {
+        InputInfos.Clear();
+        InputInfos.AddRange(resetInfo);
+
+        UpdateSavedInfos();
+    }
+
+    public void LoadSavedInfos()
+    {
+        InputInfos = new List<InputInfo>();
+        int count = PlayerPrefs.GetInt("InputCount");
+        for (int i = 0; i < count; i++)
+        {
+            InputInfo input = new InputInfo();
+            input.Action = PlayerPrefs.GetString("Action" + i.ToString());
+            input.ActionType = (ActionType)PlayerPrefs.GetInt("ActionActionType" + i.ToString());
+            input.InputType = (InputType)PlayerPrefs.GetInt("ActionInputType" + i.ToString());
+            input.key = (KeyCode)PlayerPrefs.GetInt("ActionKey" + i.ToString());
+            input.mouseButtonID = PlayerPrefs.GetInt("ActionMouseButton" + i.ToString());
+            input.inputString = PlayerPrefs.GetString("ActionInputString" + i.ToString());
+            InputInfos.Add(input);
+        }
+    }
+
+    public void UpdateSavedInfos()
+    {
+        PlayerPrefs.SetInt("InputCount", InputInfos.Count);
+
+        actionToInfo.Clear();
+        int actionID = 0;
+        foreach (var item in InputInfos)
+        {
+            actionToInfo.Add(item.Action, item);
+
+            PlayerPrefs.SetString("Action" + actionID.ToString(), item.Action);
+            PlayerPrefs.SetInt("ActionActionType" + actionID.ToString(), (int)item.ActionType);
+            PlayerPrefs.SetInt("ActionInputType" + actionID.ToString(), (int)item.InputType);
+            PlayerPrefs.SetInt("ActionKey" + actionID.ToString(), (int)item.key);
+            PlayerPrefs.SetInt("ActionMouseButton" + actionID.ToString(), (int)item.mouseButtonID);
+            PlayerPrefs.SetString("ActionInputString" + actionID.ToString(), item.inputString);
+
+            actionID++;
+        }
+    }
+
+    #region UpdateInputInfo Functions
     private void ChangeInfoMouse(int mouseButton)
     {
         clickedInfo.mouseButtonID = mouseButton;
@@ -386,31 +353,28 @@ public class InputController : MonoBehaviour{
         waitForInput = false;
         UpdatePlayerPrefForAction(clickedInfo);
     }
+    #endregion
 
     public void UpdatePlayerPrefForAction(InputInfo info)
     {
-        for (int i = 0; i < InputInfos.Length; i++)
-        {
-            if (InputInfos[i] == info)
-            {
-                PlayerPrefs.SetInt("ActionInputType" + i.ToString(), (int)info.InputType);
-                PlayerPrefs.SetInt("ActionKey" + i.ToString(), (int)info.key);
-                PlayerPrefs.SetInt("ActionMouseButton" + i.ToString(), (int)info.mouseButtonID);
-                PlayerPrefs.SetString("ActionInputString" + i.ToString(), info.inputString);
-            }
-        }
+        if (!InputInfos.Contains(info))
+            return;
+
+        int index = InputInfos.IndexOf(info);
+
+        PlayerPrefs.SetInt("ActionInputType" + index.ToString(), (int)info.InputType);
+        PlayerPrefs.SetInt("ActionKey" + index.ToString(), (int)info.key);
+        PlayerPrefs.SetInt("ActionMouseButton" + index.ToString(), info.mouseButtonID);
+        PlayerPrefs.SetString("ActionInputString" + index.ToString(), info.inputString);
     }
 
     public InputInfo GetInfo(string action)
     {
-        foreach (var inputInfo in InputInfos)
+        if (!actionToInfo.ContainsKey(action))
         {
-            if (inputInfo.Action == action)
-            {
-                return inputInfo;
-            }
+            throw new ArgumentOutOfRangeException("Action " + action + " not found!");
         }
-        return null;
+        return actionToInfo[action];
     }
 
     public bool CheckForInput()
@@ -526,13 +490,11 @@ public class InputController : MonoBehaviour{
 
     public void RebindKey(string inputString)
     {
-        foreach (var inputInfo in InputInfos)
+        InputInfo info = GetInfo(inputString);
+        if (info != null)
         {
-            if (inputInfo.Action == inputString)
-            {
-                waitForInput = true;
-                clickedInfo = inputInfo;
-            }
+            waitForInput = true;
+            clickedInfo = info;
         }
     }
 

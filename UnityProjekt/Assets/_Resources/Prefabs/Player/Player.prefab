@@ -140,7 +140,7 @@ CircleCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
-  m_Material: {fileID: 6200000, guid: c9a9f96f670a9cc4b8519ffd388632d5, type: 2}
+  m_Material: {fileID: 6200000, guid: 83545b170b24a9d478cb3d28f7e0c0a2, type: 2}
   m_IsTrigger: 0
   m_Radius: .5
   m_Center: {x: 0, y: .5}
@@ -151,7 +151,7 @@ BoxCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
-  m_Material: {fileID: 6200000, guid: c9a9f96f670a9cc4b8519ffd388632d5, type: 2}
+  m_Material: {fileID: 6200000, guid: 83545b170b24a9d478cb3d28f7e0c0a2, type: 2}
   m_IsTrigger: 0
   m_Size: {x: 1, y: 1.5}
   m_Center: {x: 0, y: 1.25}
@@ -232,13 +232,15 @@ MonoBehaviour:
   Skill4Input: _SKILL4
   GroundCheckLayer:
     serializedVersion: 2
-    m_Bits: 4294958591
+    m_Bits: 4294906079
+  _currentVelocity: {x: 0, y: 0}
   Grounded: 0
   _skillMakesImune: 0
   _skillPreventsMovement: 0
   _skillOverridesMovement: 0
   _skillPreventsSkillUsement: 0
   SpotlightTransform: {fileID: 400000}
+  normal: {x: 0, y: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

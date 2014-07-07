@@ -55,7 +55,7 @@ MonoBehaviour:
     ValuePerLevel: 2
     ValuePerSkillPoint: 5
   - Name: Attack Speed
-    Value: 1.4000001
+    Value: 1
     ValuePerLevel: .100000001
     ValuePerSkillPoint: .200000003
   - Name: Damage
@@ -79,14 +79,14 @@ MonoBehaviour:
     ValuePerLevel: .200000003
     ValuePerSkillPoint: .5
   playerSkills:
-  - {fileID: 11400000, guid: 5407a11209516da488da561b621f3b75, type: 2}
-  - {fileID: 11400000, guid: d4162f6444f6e964082cf95814e0d8bd, type: 2}
-  - {fileID: 11400000, guid: d4162f6444f6e964082cf95814e0d8bd, type: 2}
-  - {fileID: 11400000, guid: d4162f6444f6e964082cf95814e0d8bd, type: 2}
+  - {fileID: 11400000, guid: e498e8fd35d281845b4cd1bfe62bc78f, type: 2}
+  - {fileID: 11400000, guid: 936cd7626d9574b4ab4e28b2d0636f21, type: 2}
+  - {fileID: 11400002, guid: ce2c3b18860fa114ca8613e5764c187f, type: 2}
+  - {fileID: 11400000, guid: 4138e676b74154142aded402a86090d6, type: 2}
   Health: 30
   GravityMultiply: 2
-  playerWidth: .800000012
-  playerHeight: 1
+  playerWidth: 1
+  playerHeight: 2
   footHeight: .100000001
   MaxJumpCount: 1
   overrideVelocity: {x: 0, y: 0}

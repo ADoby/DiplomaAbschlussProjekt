@@ -10,12 +10,18 @@ public class BoostJump : PlayerSkill
 
     }
 
+    public override void SkillFinished(PlayerClass player)
+    {
+        player.playerControl.StopPlayer();
+    }
+
     public override void LateUpdateSkill(PlayerClass player)
     {
         base.LateUpdateSkill(player);
 
         if(SkillRunTimer > 0f)
             player.overrideVelocity += direction * player.GetAttributeValue(AttributeType.ATTACKSPEED);
+
     }
 
     public override void Do(PlayerClass player)

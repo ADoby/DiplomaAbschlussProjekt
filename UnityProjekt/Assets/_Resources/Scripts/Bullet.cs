@@ -93,6 +93,12 @@ public class Bullet : MonoBehaviour {
             other.GetComponent<EnemieBase>().Hit(position);
             GameEventHandler.TriggerDamageDone(player, damage);
         }
+        else if (other && other.GetComponent<BaseCollider>())
+        {
+            other.GetComponent<BaseCollider>().Damage(damage);
+            other.GetComponent<BaseCollider>().Hit(position);
+            GameEventHandler.TriggerDamageDone(player, damage);
+        }
 
 
         //Effekt
