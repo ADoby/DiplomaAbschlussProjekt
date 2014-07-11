@@ -1,20 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemieController : MonoBehaviour {
+public class EnemieController : HitAble {
 
     public HealthBar healthBar;
 
     public float Health = 100f;
     public float maxHealth = 0f;
-
+    
     public float FloorCheckDistance = 1.0f;
     public float FloorCheckLength = 0.5f;
 
     public float MyDamage = 5.0f;
 
     private int direction = 1;
-
+    
     public float maxSpeed = 2.0f;
     public float speedChange = 2.0f;
 
@@ -69,22 +69,22 @@ public class EnemieController : MonoBehaviour {
         }
     }
 
-    public void Damage(float damage)
+    public override void Damage(float damage)
     {
+        base.Damage(damage);
+
         Health -= damage;
         healthBar.UpdateBar(Health, maxHealth);
         if (Health <= 0)
         {
-            healthBar.UpdateInstant();
-
             int amount = Random.Range(3, 7);
             for (int i = 0; i < amount; i++)
             {
-                EntitySpawnManager.Spawn("Gold", transform.position, MoneySpawned, true);
+                EntitySpawnManager.Spawn("Gold", transform.position, Quaternion.identity, MoneySpawned, true);
             }
 
             //TODO Sterbe
-            EntitySpawnManager.Despawn(poolName, gameObject);
+            EntitySpawnManager.Despawn(poolName, gameObject, true);
             GameEventHandler.TriggerEnemieDied(this);
         }
     }
@@ -221,9 +221,10 @@ public class EnemieController : MonoBehaviour {
         {
             transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
         }
+
 	}
 
-    void LateUpdate()
+    void FixedUpdate()
     {
         if (GameManager.Instance.GamePaused)
         {
@@ -329,10 +330,12 @@ public class EnemieController : MonoBehaviour {
             turnTimer -= Time.deltaTime;
             if (turnTimer <= 0)
             {
+                
                 turnTimer = Random.Range(MinTurnTime, MaxTurnTime);
                 //links von uns
                 direction = 1;
             }
+            
         }
     }
 
@@ -346,7 +349,7 @@ public class EnemieController : MonoBehaviour {
                 direction = Random.Range(-1, 1);
             randomTimer = Random.Range(randomTimeMin, randomTimeMax);
         }
-
+        
         targetPos = transform.position + Vector3.right * direction * distanceToTarget * 2f;
     }
 
@@ -372,10 +375,5 @@ public class EnemieController : MonoBehaviour {
     public void SetDamage(float newDamage)
     {
         MyDamage = newDamage;
-    }
-
-    public void Hit(Vector3 position)
-    {
-        GameObjectPool.Instance.Spawn("Blood", position, Quaternion.identity);
     }
 }

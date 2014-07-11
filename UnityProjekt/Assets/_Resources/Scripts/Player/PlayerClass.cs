@@ -114,7 +114,7 @@ public class PlayerClass : MonoBehaviour
 
     public Texture classThumbnail;
 
-    public virtual void Update()
+    public void UpdateClass()
     {
         foreach (PlayerSkill skill in playerSkills)
         {
@@ -125,7 +125,7 @@ public class PlayerClass : MonoBehaviour
         Health = Mathf.Clamp(Health, 0, GetAttributeValue(AttributeType.HEALTH));
     }
 
-    public virtual void LateUpdate()
+    public void LateUpdateClass()
     {
         overrideVelocity = Vector2.zero;
 
@@ -135,7 +135,7 @@ public class PlayerClass : MonoBehaviour
         }
     }
 
-    public virtual void Init(PlayerController playerControl)
+    public void Init(PlayerController playerControl)
     {
         playerTransform = playerControl.transform;
         this.playerControl = playerControl;
@@ -213,7 +213,7 @@ public class PlayerClass : MonoBehaviour
         return Attributes[id];
     }
 
-    public virtual bool Jump(bool grounded)
+    public bool Jump(bool grounded)
     {
         //If we fly and did not jump yet something went wrong
         //Probably fall from the edge or something
@@ -231,14 +231,14 @@ public class PlayerClass : MonoBehaviour
         return true;
     }
 
-    public virtual void ResetJump() 
+    public void ResetJump() 
     {
         currentJumpNumber = 0;
     }
 
     //Grounded is used to make the player stop controlling and no gravity
     //while the thing runs
-    public virtual bool UseSkill(int skillID)
+    public bool UseSkill(int skillID)
     {
         PlayerSkill skill = playerSkills[skillID];
 

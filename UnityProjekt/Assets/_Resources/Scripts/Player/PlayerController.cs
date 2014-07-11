@@ -64,6 +64,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         _animator = GetComponent<Animator>();
+        PlayerClass = (PlayerClass) Object.Instantiate(PlayerClass); 
     }
 
 	void Start () 
@@ -124,7 +125,7 @@ public class PlayerController : MonoBehaviour
 	        _currentInput.x = 0;
 	    }
 
-        PlayerClass.Update();
+        PlayerClass.UpdateClass();
 
         if (CanUseSkill)
             TryUseSkill();
@@ -153,7 +154,7 @@ public class PlayerController : MonoBehaviour
 
         _currentVelocity = rigidbody2D.velocity;
 
-        PlayerClass.LateUpdate();
+        PlayerClass.LateUpdateClass();
 
         if (CanMove)
         {
@@ -325,10 +326,15 @@ public class PlayerController : MonoBehaviour
     }
 
     public Vector2 normal;
+
     private void Move()
     {
         normal = Vector2.right;
-        float mult = 1f;
+        int inputDirection = (int)Mathf.Clamp(_currentInput.x * 1000, -1, 1);
+        int walkDirection = (int)Mathf.Clamp(_currentVelocity.x * 1000, -1, 1);
+        float speedChangeMult = 1f;
+        float maxSpeedMult = 1f;
+
         if (Grounded)
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position + transform.up, Vector3.down, 5f, GroundCheckLayer);
@@ -336,44 +342,47 @@ public class PlayerController : MonoBehaviour
             if (hit)
             {
                 normal.x = Mathf.Abs(hit.normal.y);
-                normal.y = -Mathf.Abs(hit.normal.x);
+                normal.y = -Mathf.Abs(hit.normal.x) * inputDirection;
             }
 
-            mult = Mathf.Clamp(normal.x - 0.8f, 0f, 1f)*5f;
+            if (hit.normal.x * inputDirection < 0)
+            {
+                //When we run uphill slow down maxSpeed, because walking uphill is hard
+                maxSpeedMult = Mathf.Clamp(Mathf.Clamp(normal.x - 0.8f, 0f, 1f) * 5f, 0f, 1f);
+            }
         }
         else
         {
-            int direction = (int)Mathf.Clamp(_currentInput.x*1000, -1, 1);
-            Vector3 startPoint = transform.position + transform.right * PlayerClass.playerWidth * Half * direction + 
+            Vector3 startPoint = transform.position + transform.right * PlayerClass.playerWidth * Half * inputDirection + 
                                 Vector3.up * PlayerClass.playerHeight;
-            Vector3 endPoint = transform.position + transform.right * PlayerClass.playerWidth * Half * direction +
-                                transform.right * 0.2f * direction;
-
-            bool somethingInTheWay = Physics2D.OverlapArea(startPoint, endPoint, GroundCheckLayer);
+            Vector3 endPoint = transform.position + transform.right * PlayerClass.playerWidth * Half * inputDirection +
+                                transform.right * 0.2f * inputDirection;
             
             Debug.DrawLine(startPoint, endPoint);
             
-            if(somethingInTheWay)
-                mult = 0;
+            if(Physics2D.OverlapArea(startPoint, endPoint, GroundCheckLayer))
+                speedChangeMult = 0;
         }
-
         
-        Vector2 change = mult * normal * _currentInput.x * Time.fixedDeltaTime * 
+        Vector2 change = speedChangeMult * normal * _currentInput.x * Time.fixedDeltaTime * 
                          PlayerClass.GetAttributeValue(AttributeType.MOVEMENTCHANGE);
 
-        if (Mathf.Abs((_currentVelocity + change).x) > PlayerClass.GetAttributeValue(AttributeType.MAXMOVESPEED)*mult)
+        if (Mathf.Abs((_currentVelocity + change).x) > PlayerClass.GetAttributeValue(AttributeType.MAXMOVESPEED) * maxSpeedMult)
         {
             float clampMagnitude = 1f - Mathf.Clamp(Mathf.Abs((_currentVelocity + change).x) -
                           PlayerClass.GetAttributeValue(AttributeType.MAXMOVESPEED), 0f, 1f);
-            change = Vector2.ClampMagnitude(change, clampMagnitude);
+            //change = Vector2.ClampMagnitude(change, clampMagnitude);
         }
 
         _currentVelocity += change;
 
-        if (!Grounded && Mathf.Abs(_currentInput.x) < 0.1f)
+        _currentVelocity.x = Mathf.Lerp(_currentVelocity.x, 0,
+                Time.fixedDeltaTime * PlayerClass.GetAttributeValue(AttributeType.MOVEMENTCHANGE) / 10f);
+
+        if (inputDirection == 0 || inputDirection + walkDirection == 0)
         {
-            _currentVelocity.x = Mathf.Lerp(_currentVelocity.x, 0,
-                Time.fixedDeltaTime*PlayerClass.GetAttributeValue(AttributeType.MOVEMENTCHANGE)/10f);
+           // _currentVelocity.x = Mathf.Lerp(_currentVelocity.x, 0,
+           //     Time.fixedDeltaTime*PlayerClass.GetAttributeValue(AttributeType.MOVEMENTCHANGE)/10f);
         }
     }
 
@@ -390,9 +399,7 @@ public class PlayerController : MonoBehaviour
 
     private void Gravity()
     {
-        
-            _currentVelocity += Physics2D.gravity * PlayerClass.GravityMultiply * Time.fixedDeltaTime;
-        
+        _currentVelocity += Physics2D.gravity * PlayerClass.GravityMultiply * Time.fixedDeltaTime;
     }
 
     public void AddMoney(int amount)

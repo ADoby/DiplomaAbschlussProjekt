@@ -12,23 +12,15 @@ public class GrowingPartEditor : Editor {
     {
         myTarget = (GrowingPart) target;
 
-        if (!myTarget.myBase)
+        if (myTarget.BaseStateList != null && myTarget.BaseStateList.Length != 0)
         {
-            EditorGUILayout.LabelField("Click \"Update Growing Part List\" in the AlienBase inspector,");
-            return;
-        }
-
-        if (myTarget.myBase.BaseStateList.Length != 0)
-        {
-            myTarget.currentBaseStateIndex = EditorGUILayout.Popup(myTarget.currentBaseStateIndex, myTarget.myBase.BaseStateList);
+            myTarget.currentBaseStateIndex = EditorGUILayout.Popup(myTarget.currentBaseStateIndex, myTarget.BaseStateList);
         }
         
         EditorGUILayout.MinMaxSlider(new GUIContent("Growing Time"), ref myTarget.startTime, ref myTarget.endTime, myTarget.minTime, myTarget.maxTime);
 
         myTarget.startTime = EditorGUILayout.FloatField("Start Time:", myTarget.startTime);
         myTarget.endTime = EditorGUILayout.FloatField("End Time:", myTarget.endTime);
-
-        EditorGUILayout.LabelField("Current Time: " + myTarget.currentTime);
 
         myTarget.startScale = EditorGUILayout.Vector3Field("Start Scale", myTarget.startScale);
         myTarget.endScale = EditorGUILayout.Vector3Field("End Scale", myTarget.endScale);

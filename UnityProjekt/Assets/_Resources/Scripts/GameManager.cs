@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
+using UnityEditor;
 using UnityEngine;
-using System.Collections;
 
 public enum PlayerClasses
 {
@@ -75,7 +74,17 @@ public class GameManager : MonoBehaviour {
 
     void Start()
     {
+        GameEventHandler.TriggerOnPause();
+    }
 
+    void OnGUI()
+    {
+        if (GUILayout.Button("Resources"))
+        {
+            Resources.UnloadUnusedAssets();
+            EditorUtility.UnloadUnusedAssets();
+            System.GC.Collect();
+        }
     }
 
     public void RemovePlayer(PlayerController player)
@@ -167,6 +176,8 @@ public class GameManager : MonoBehaviour {
         }
 
         GameContainer.SetActive(true);
+
+        GameEventHandler.TriggerOnResume();
     }
 
     public void SelectSlot(int id)

@@ -70,14 +70,20 @@ public class ThrowingWeapon : MonoBehaviour {
         Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, distance);
         foreach (var item in collider)
         {
-            float distanceToTarget = Vector2.Distance(item.transform.position, transform.position);
+            if (item.GetComponent<HitAble>())
+            {
+                HitAble target = item.GetComponent<HitAble>();
 
-            float damageMult = (distance - distanceToTarget);
+                float distanceToTarget = Vector2.Distance(item.transform.position, transform.position);
 
-            item.SendMessage("Damage", damageMult * damage, SendMessageOptions.DontRequireReceiver);
-            item.SendMessage("AddForce", damageMult * force, SendMessageOptions.DontRequireReceiver);
+                float damageMult = (distance - distanceToTarget);
 
-            GameEventHandler.TriggerDamageDone(player, damage);
+                target.Damage(damageMult * damage);
+                target.Hit(item.transform.position, transform.position);
+                target.Force(transform.position, damageMult * force);
+
+                GameEventHandler.TriggerDamageDone(player, damage);
+            }
         }
 
         GameObject go = GameObjectPool.Instance.Spawn(hitEffektPoolName, transform.position, Quaternion.identity);

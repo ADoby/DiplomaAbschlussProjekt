@@ -84,16 +84,16 @@ using System.Collections.Generic;
 			}
 		}
 
-		public GameObject Spawn(string poolName, Vector3 position, Quaternion rotation)
+        public GameObject Spawn(string poolName, Vector3 position, Quaternion rotation)
 		{
             if (!pools.ContainsKey(poolName))
                 return null;
-			GameObject go = Spawn(poolName, null, position, rotation.eulerAngles, pools[poolName].prefab.transform.localScale);
+			GameObject go = Spawn(poolName, null, position, rotation, pools[poolName].prefab.transform.localScale);
 			
 			return go;
 		}
 
-		public GameObject Spawn(string poolName, Transform parent, Vector3 position, Vector3 rotation, Vector3 scale){
+		public GameObject Spawn(string poolName, Transform parent, Vector3 position, Quaternion rotation, Vector3 scale){
             if (!pools.ContainsKey(poolName))
                 return null;
             
@@ -107,7 +107,7 @@ using System.Collections.Generic;
                 go.transform.parent = pools[poolName].parent.transform;
 
 			go.transform.localPosition = position;
-			go.transform.localRotation = Quaternion.Euler(rotation);
+			go.transform.localRotation = rotation;
 			go.transform.localScale = scale;
 			
 			go.SetActive(true);
@@ -116,8 +116,9 @@ using System.Collections.Generic;
 
 			return go;
 		}
-		
-		public GameObject Spawn(string poolName, Transform parent, string name, Vector3 position, Vector3 rotation, Vector3 scale){
+
+        public GameObject Spawn(string poolName, Transform parent, string name, Vector3 position, Quaternion rotation, Vector3 scale)
+        {
 			
 			GameObject go = Spawn(poolName, parent, position, rotation, scale);
 			if(!go)

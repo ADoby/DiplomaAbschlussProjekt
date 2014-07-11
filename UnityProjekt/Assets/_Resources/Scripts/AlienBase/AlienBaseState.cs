@@ -26,12 +26,7 @@ public class AlienBaseState
     public float healthBonus = 0.0f;
     private float timer = 0.0f;
 
-    private AlienBase myBase;
-
-    public void SetBase(AlienBase newBase)
-    {
-        myBase = newBase;
-    }
+    public Transform BaseTransform { get; set; }
 
     public float currentTime
     {
@@ -43,11 +38,6 @@ public class AlienBaseState
                 timer = value;
             }
         }
-    }
-
-    public AlienBaseState(AlienBase value)
-    {
-        myBase = value;
     }
 
     public void Reset()
@@ -62,11 +52,8 @@ public class AlienBaseState
         {
             if (rnd < item.weight)
             {
-                if (myBase)
-                {
-                    EntitySpawnManager.Spawn(item.poolName, myBase.transform.position, true);
-                }
-                   
+                EntitySpawnManager.Spawn(item.poolName, BaseTransform.position, Quaternion.identity);
+
                 return;
             }
             rnd -= item.weight;

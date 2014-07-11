@@ -5,8 +5,6 @@ using System;
 [System.Serializable]
 public class GrowingPart : MonoBehaviour
 {
-    public AlienBase myBase;
-
     public float minTime, maxTime;
 
     public float startTime = -1, endTime = -1;
@@ -14,17 +12,14 @@ public class GrowingPart : MonoBehaviour
     public Vector3 startScale = new Vector3(0,0,0);
     public Vector3 endScale = new Vector3(1,1,1);
 
-    public float currentTime = 0;
-
     public int currentBaseStateIndex = -1;
 
     public bool manualUserScale = false;
 
-    public void UpdateMinMaxTime()
-    {
-        if (!myBase)
-            return;
+    public string[] BaseStateList;
 
+    public void UpdateMinMaxTime(AlienBase myBase)
+    {
         if (currentBaseStateIndex < 0 || currentBaseStateIndex > myBase.StateCount)
             currentBaseStateIndex = myBase.StateCount;
 
@@ -64,16 +59,11 @@ public class GrowingPart : MonoBehaviour
         startScale = new Vector3(0, 0, 0);
         endScale = new Vector3(1, 1, 1);
 
-        UpdateScale();
+        UpdateScale(0);
     }
 
-    public void UpdateScale()
+    public void UpdateScale(float currentTime)
     {
-        if (!myBase)
-            return;
-
-        currentTime = myBase.currentTime;
-
         currentTime = Mathf.Clamp(currentTime, startTime, endTime);
 
         float prozent = (currentTime - startTime) / (endTime - startTime);

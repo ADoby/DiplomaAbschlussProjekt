@@ -6,7 +6,12 @@ public class OnEnemieDeathSpawnBase : MonoBehaviour
 
     public SpawnInfo[] basePoolNames;
 
+    public float spawnChance = 0.5f;
+    public float maxDistanceDown = 5f;
+    public float minSpace = 3f;
+
     public LayerMask GroundLayer;
+    public LayerMask BaseLayer;
 
 	// Use this for initialization
 	void Start ()
@@ -16,7 +21,7 @@ public class OnEnemieDeathSpawnBase : MonoBehaviour
 
     public void OnEnemieDied(EnemieController enemie)
     {
-        if (Random.value < 0.2f)
+        if (Random.value < spawnChance)
         {
             var rnd = Random.value;
             for (int i = 0; i < basePoolNames.Length; i++)
@@ -33,14 +38,19 @@ public class OnEnemieDeathSpawnBase : MonoBehaviour
 
     public void TrySpawning(string poolName, Vector3 position)
     {
-        RaycastHit2D hit = Physics2D.Raycast(position + Vector3.up, Vector3.down, float.PositiveInfinity,
-                        GroundLayer);
+        RaycastHit2D hit = Physics2D.Raycast(position + Vector3.up, Vector3.down, maxDistanceDown, GroundLayer);
 
         if (hit)
         {
-            GameObject go = GameObjectPool.Instance.Spawn(poolName, hit.point, Quaternion.Euler(hit.normal));
-            //go.GetComponent<AlienBase>().SetCurrentTime(0);
-            //go.GetComponent<EnemieBase>().Health = 0;
+            if (!Physics2D.OverlapCircle(hit.point, minSpace, BaseLayer))
+            {
+                EntitySpawnManager.Spawn(poolName, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
+            }
+            else
+            {
+                Debug.Log("Something in the way to spawn");
+            }
+                
         }
     }
 }

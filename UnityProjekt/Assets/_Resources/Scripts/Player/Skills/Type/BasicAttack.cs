@@ -7,6 +7,7 @@ public class BasicAttack : PlayerSkill
     public string Projectile;
     public Vector2 ShootingPosition;
     public Vector2 CrouchShootingPosition;
+    public Vector2 KnockBack;
 
     public float DamageMult = 1.0f;
 
@@ -30,5 +31,7 @@ public class BasicAttack : PlayerSkill
         go.SendMessage("SetDirection", Vector2.right * player.playerTransform.localScale.x);
         go.SendMessage("SetPlayer", player.playerControl);
         go.SendMessage("SetDamage", DamageMult * player.GetAttributeValue(AttributeType.DAMAGE));
+
+        player.playerControl.rigidbody2D.AddForce(KnockBack * player.playerTransform.localScale.x);
     }
 }

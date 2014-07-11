@@ -49,6 +49,7 @@ MonoBehaviour:
   Projectile: Bullet
   ShootingPosition: {x: .600000024, y: 1.29999995}
   CrouchShootingPosition: {x: .600000024, y: .5}
+  KnockBack: {x: -200, y: 0}
   DamageMult: 5
 --- !u!1001 &100100000
 Prefab:

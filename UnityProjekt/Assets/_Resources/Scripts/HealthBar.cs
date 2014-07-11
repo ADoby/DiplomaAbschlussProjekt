@@ -10,6 +10,8 @@ public class HealthBar : MonoBehaviour {
 
     public float change = 5.0f;
 
+    private bool updatebar = true;
+
     public void Reset()
     {
         currentHealth = 0;
@@ -17,24 +19,23 @@ public class HealthBar : MonoBehaviour {
         health = 0;
     }
 
-    public void UpdateBar(float phealth, float pmaxHealth)
+    public void UpdateBar(float phealth, float pmaxHealth, bool instant = false)
     {
-        health = Mathf.Clamp(phealth, 0, pmaxHealth);
         maxHealth = pmaxHealth;
-        if (currentHealth == 0)
-        {
-            currentHealth = maxHealth;
-        }
-    }
+        health = Mathf.Clamp(phealth, 0, maxHealth);
+        
+        if(instant)
+            currentHealth = health;
 
-    public void UpdateInstant()
-    {
-        currentHealth = health;
+        updatebar = (maxHealth > 0);
     }
 
     void Update()
     {
-        currentHealth = Mathf.Lerp(currentHealth, health, Time.deltaTime * change);
-        healthBar.localScale = new Vector3(currentHealth / maxHealth, healthBar.localScale.y, healthBar.localScale.z);
+        if (updatebar)
+        {
+            currentHealth = Mathf.Lerp(currentHealth, health, Time.deltaTime * change);
+            healthBar.localScale = new Vector3(currentHealth / maxHealth, healthBar.localScale.y, healthBar.localScale.z);
+        }
     }
 }

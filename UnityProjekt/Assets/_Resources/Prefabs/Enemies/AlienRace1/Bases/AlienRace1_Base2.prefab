@@ -971,6 +971,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &100116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400116}
+  - 114: {fileID: 11400092}
+  m_Layer: 0
+  m_Name: ColliderPart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &400000
 Transform:
   m_ObjectHideFlags: 1
@@ -1421,7 +1437,6 @@ Transform:
   - {fileID: 400066}
   - {fileID: 400028}
   - {fileID: 400018}
-  - {fileID: 400114}
   m_Father: {fileID: 400110}
   m_RootOrder: 3
 --- !u!4 &400070
@@ -1628,11 +1643,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100100}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.78540242, y: -.358572245, z: 0}
+  m_LocalPosition: {x: -5.71007347, y: -.360937864, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400098}
   - {fileID: 400110}
+  - {fileID: 400116}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &400102
@@ -1718,12 +1734,25 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100114}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -.120258883, w: .992742598}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .666666687, y: .666666687, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 400068}
-  m_RootOrder: 3
+  m_Father: {fileID: 400116}
+  m_RootOrder: 0
+--- !u!4 &400116
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100116}
+  m_LocalRotation: {x: 0, y: 0, z: .120258607, w: .992742598}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: .100000001, y: .100000001, z: .100000001}
+  m_Children:
+  - {fileID: 400114}
+  m_Father: {fileID: 400100}
+  m_RootOrder: 2
 --- !u!60 &6000000
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -1780,16 +1809,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 5
   endTime: 7.5
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: .200000003, y: .200000003, z: 1}
-  currentTime: 5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1801,16 +1829,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 7.5
   endTime: 10
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: .800000012, y: .800000012, z: 1}
-  currentTime: 7.5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1822,16 +1849,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 7.5
   endTime: 10
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: .800000012, y: .800000012, z: 1}
-  currentTime: 7.5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1843,16 +1869,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 5
   endTime: 7.5
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: .200000003, y: .200000003, z: 1}
-  currentTime: 5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1864,16 +1889,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 5
   endTime: 7.5
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: .200000003, y: .200000003, z: 1}
-  currentTime: 5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1885,16 +1909,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 7.5
   endTime: 10
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: .800000012, y: .800000012, z: 1}
-  currentTime: 7.5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1906,16 +1929,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 5
   endTime: 7.5
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: .200000003, y: .200000003, z: 1}
-  currentTime: 5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1927,16 +1949,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 7.5
   endTime: 10
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: 1, y: 1, z: 1}
-  currentTime: 7.5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1948,16 +1969,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 7.5
   endTime: 10
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: 1, y: 1, z: 1}
-  currentTime: 7.5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1969,16 +1989,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 5
   endTime: 7.5
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: .200000003, y: .200000003, z: 1}
-  currentTime: 5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1990,16 +2009,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 5
   endTime: 7.5
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: .300000012, y: .300000012, z: 1}
-  currentTime: 5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2011,16 +2029,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 7.5
   endTime: 10
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: 1, y: 1, z: 1}
-  currentTime: 7.5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2032,16 +2049,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 7.5
   endTime: 10
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: 1, y: 1, z: 1}
-  currentTime: 7.5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2053,16 +2069,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 5
   endTime: 7.5
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: .400000006, y: .400000006, z: 1}
-  currentTime: 5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400028
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2074,16 +2089,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 5
   endTime: 7.5
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: .5, y: .5, z: 1}
-  currentTime: 5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2095,16 +2109,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 7.5
   endTime: 10
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: .800000012, y: .800000012, z: 1}
-  currentTime: 7.5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2116,16 +2129,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 7.5
   endTime: 10
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: .800000012, y: .800000012, z: 1}
-  currentTime: 7.5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2137,16 +2149,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 5
   endTime: 7.5
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: .5, y: .5, z: 1}
-  currentTime: 5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400036
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2158,16 +2169,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 5
   endTime: 7.5
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: .400000006, y: .400000006, z: 1}
-  currentTime: 5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2179,16 +2189,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 7.5
   endTime: 10
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: .800000012, y: .800000012, z: 1}
-  currentTime: 7.5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2200,16 +2209,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 7.5
   endTime: 10
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: .800000012, y: .800000012, z: 1}
-  currentTime: 7.5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400042
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2221,16 +2229,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 5
   endTime: 7.5
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: .600000024, y: .600000024, z: 1}
-  currentTime: 5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400044
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2242,16 +2249,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 2.5
   endTime: 5
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: 1, y: 1, z: 1}
-  currentTime: 2.5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2263,16 +2269,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 5
   endTime: 7.5
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: .800000012, y: .800000012, z: .800000012}
-  currentTime: 5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2284,16 +2289,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 5
   endTime: 7.5
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: 1, y: 1, z: 1}
-  currentTime: 5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400050
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2305,16 +2309,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 5
   endTime: 7.5
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: 1, y: 1, z: 1}
-  currentTime: 5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400052
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2326,16 +2329,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 5
   endTime: 7.5
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: .800000012, y: .800000012, z: .800000012}
-  currentTime: 5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400054
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2347,16 +2349,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 2.5
   endTime: 5
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: .699999988, y: .699999988, z: 1}
-  currentTime: 2.5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400056
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2368,16 +2369,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 7.5
   endTime: 10
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: .5, y: .5, z: 1}
-  currentTime: 7.5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400058
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2389,16 +2389,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 7.5
   endTime: 10
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: .5, y: .5, z: 1}
-  currentTime: 7.5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2410,16 +2409,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 2.5
   endTime: 5
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: .800000012, y: .800000012, z: 1}
-  currentTime: 2.5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400062
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2431,16 +2429,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 5
   endTime: 7.5
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: .800000012, y: .800000012, z: .800000012}
-  currentTime: 5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400064
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2452,16 +2449,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 5
   endTime: 7.5
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: 1, y: 1, z: 1}
-  currentTime: 5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2473,16 +2469,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 5
   endTime: 7.5
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: 1, y: 1, z: 1}
-  currentTime: 5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2494,16 +2489,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 5
   endTime: 7.5
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: .800000012, y: .800000012, z: .800000012}
-  currentTime: 5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400070
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2541,12 +2535,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff1488c501b42045a94719cd4656a4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sendFurther: 0
+  reciever: {fileID: 0}
+  SpawnPool: 1
+  SpawnPoolName: Blood
   healthBar: {fileID: 11400072}
-  Health: 100
-  normal: {fileID: 0}
-  death: {fileID: 0}
+  maxHealth: 400
   poolName: AlienRace1_Base2
   HealthRegenPerSec: 5
+  StartFull: 1
+  RestartFull: 0
+  HealthChangeSpeed: 10
 --- !u!114 &11400076
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2627,6 +2626,7 @@ MonoBehaviour:
   - {fileID: 11400016}
   - {fileID: 11400012}
   - {fileID: 11400014}
+  - {fileID: 11400092}
   UpdateGrowingParts: 1
   StartUpTime: 0
   UpdateTime: 1
@@ -2646,16 +2646,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 2.5
   endTime: 5
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: .800000012, y: .800000012, z: .800000012}
-  currentTime: 2.5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400080
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2667,16 +2666,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 2.5
   endTime: 5
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: 1, y: 1, z: 1}
-  currentTime: 2.5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400082
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2688,16 +2686,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 2.5
   endTime: 5
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: 1, y: 1, z: 1}
-  currentTime: 2.5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400084
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2709,16 +2706,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 2.5
   endTime: 5
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: .800000012, y: .800000012, z: .800000012}
-  currentTime: 2.5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400086
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2730,16 +2726,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 0
   endTime: 2.5
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: 1.5, y: 1.5, z: 1}
-  currentTime: 0
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400088
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2751,16 +2746,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 11400076}
   minTime: 0
   maxTime: 10
   startTime: 5
   endTime: 7.5
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: .5, y: .5, z: 1}
-  currentTime: 5
   currentBaseStateIndex: 2
   manualUserScale: 0
+  BaseStateList: []
 --- !u!114 &11400090
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2769,10 +2763,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 100114}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02a2d6144636d864fb0221b0295bc11b, type: 3}
+  m_Script: {fileID: 11500000, guid: 2da6b0ddacc96fc4eae861859261d69c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemieBase: {fileID: 11400074}
+  sendFurther: 1
+  reciever: {fileID: 11400074}
+  SpawnPool: 0
+  SpawnPoolName: Blood
+--- !u!114 &11400092
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minTime: 0
+  maxTime: 10
+  startTime: 0
+  endTime: 10
+  startScale: {x: .100000001, y: .100000001, z: .100000001}
+  endScale: {x: 1, y: 1, z: 1}
+  currentBaseStateIndex: 2
+  manualUserScale: 0
+  BaseStateList: []
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

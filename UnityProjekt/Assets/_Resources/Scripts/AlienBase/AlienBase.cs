@@ -52,6 +52,12 @@ public class AlienBase : MonoBehaviour
         return StateOrder[stateIndex].endTime;
     }
 
+    void Awake()
+    {
+        GameEventHandler.OnPause += OnPause;
+        GameEventHandler.OnResume += OnResume;
+    }
+
     void Start()
     {
         Reset();
@@ -60,10 +66,20 @@ public class AlienBase : MonoBehaviour
     public void Reset()
     {
         currentTime = StartUpTime;
-
+        
         FindCorrectState();
 
         UpdateParts();
+    }
+
+    void OnPause()
+    {
+        enabled = false;
+    }
+
+    void OnResume()
+    {
+        enabled = true;
     }
 
     public void FindCorrectState()
@@ -72,7 +88,7 @@ public class AlienBase : MonoBehaviour
         {
             var alienBaseState = StateOrder[index];
             alienBaseState.Reset();
-            alienBaseState.SetBase(this);
+            alienBaseState.BaseTransform = transform;
 
             if (alienBaseState.startTime <= currentTime && alienBaseState.endTime >= currentTime)
             {
@@ -93,9 +109,8 @@ public class AlienBase : MonoBehaviour
             for (int index = 0; index < currentGrowingParts.Count; index++)
             {
                 var currentPart = currentGrowingParts[index];
-                currentPart.myBase = this;
                 currentPart.currentBaseStateIndex = StateOrder.Count;
-                currentPart.UpdateMinMaxTime();
+                currentPart.UpdateMinMaxTime(this);
 
                 currentPart.startTime = currentPart.minTime +
                                         hirarchy.CurrentProzent*(currentPart.maxTime - currentPart.minTime);
@@ -187,8 +202,8 @@ public class AlienBase : MonoBehaviour
             var growingPart = parts.ToArray()[index];
             if (growingPart)
             {
-                growingPart.UpdateMinMaxTime();
-                growingPart.UpdateScale();
+                growingPart.UpdateMinMaxTime(this);
+                growingPart.UpdateScale(currentTime);
             }
             else
             {

@@ -20,13 +20,10 @@ public class AlienBaseEditor : Editor
 
     public void UpdatePartList()
     {
-        foreach (var growingPart in myTarget.parts.ToArray())
+        for (int index = 0; index < myTarget.parts.ToArray().Length; index++)
         {
-            if(growingPart == null)
-            {
-                myTarget.parts.Remove(growingPart);
-            }
-            else if (growingPart.myBase != myTarget)
+            var growingPart = myTarget.parts.ToArray()[index];
+            if (growingPart == null)
             {
                 myTarget.parts.Remove(growingPart);
             }
@@ -34,15 +31,13 @@ public class AlienBaseEditor : Editor
         myTarget.parts.Clear();
         if (myTarget)
         {
-            foreach (var part in myTarget.GetComponentsInChildren<GrowingPart>())
+            for (int index = 0; index < myTarget.GetComponentsInChildren<GrowingPart>().Length; index++)
             {
+                var part = myTarget.GetComponentsInChildren<GrowingPart>()[index];
                 if (!myTarget.parts.Contains(part))
                 {
-                    part.myBase = myTarget;
-                    //part.endScale = part.transform.localScale;
                     myTarget.parts.Add(part);
                 }
-                
             }
         }
     }
@@ -175,6 +170,12 @@ public class AlienBaseEditor : Editor
         }
 
         myTarget.BaseStateList[myTarget.StateOrder.Count] = "All";
+
+        for (int index = 0; index < myTarget.parts.Count; index++)
+        {
+            var growingPart = myTarget.parts[index];
+            growingPart.BaseStateList = myTarget.BaseStateList;
+        }
     }
 
     private void DeleteState(int index)
@@ -190,7 +191,7 @@ public class AlienBaseEditor : Editor
 
     private void NewState()
     {
-        AlienBaseState state = new AlienBaseState(myTarget);
+        AlienBaseState state = new AlienBaseState();
         state.Name = "BaseState " + myTarget.StateOrder.Count;
 
         if (myTarget.StateOrder.Count != 0)

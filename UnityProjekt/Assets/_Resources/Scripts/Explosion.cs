@@ -27,7 +27,7 @@ public class Explosion : MonoBehaviour {
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
-            EntitySpawnManager.Despawn(poolName, gameObject);
+            EntitySpawnManager.Despawn(poolName, gameObject, false);
             //GameObjectPool.Instance.Despawn(poolName, gameObject);
         }
         /*timer = Mathf.Clamp(timer + Time.deltaTime, 0f, time);

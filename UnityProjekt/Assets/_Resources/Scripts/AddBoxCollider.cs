@@ -6,6 +6,8 @@ public class AddBoxCollider : MonoBehaviour
 
     public string WantedLayer = "Level";
 
+    public float ColliderDepth = 6f;
+
 	// Use this for initialization
     void Start()
     {
@@ -24,7 +26,7 @@ public class AddBoxCollider : MonoBehaviour
 
             BoxCollider boxCollider = child.AddComponent<BoxCollider>();
 
-            boxCollider.size = new Vector3(item.size.x * item.transform.localScale.x, item.size.y * item.transform.localScale.y, 100);
+            boxCollider.size = new Vector3(item.size.x * item.transform.localScale.x, item.size.y * item.transform.localScale.y, ColliderDepth);
             boxCollider.center = new Vector3(item.center.x, item.center.y, 0);
         }
     }

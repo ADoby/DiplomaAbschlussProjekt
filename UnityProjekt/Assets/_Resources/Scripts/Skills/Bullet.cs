@@ -18,6 +18,8 @@ public class Bullet : MonoBehaviour {
     public float DespawnTime = 10.0f;
     private float _despawnTimer = 0.0f;
 
+    public float force = 2.0f;
+
     private Vector3 savedVelocity = Vector3.zero;
 
     void Awake()
@@ -81,25 +83,15 @@ public class Bullet : MonoBehaviour {
 
     private void Explode(GameObject other, Vector3 position)
     {
-        if (other && other.GetComponent<EnemieController>())
+        if (other && other.GetComponent<HitAble>())
         {
-            other.GetComponent<EnemieController>().Damage(damage);
-            other.GetComponent<EnemieController>().Hit(position);
-            GameEventHandler.TriggerDamageDone(player, damage);
-        }
-        else if (other && other.GetComponent<EnemieBase>())
-        {
-            other.GetComponent<EnemieBase>().Damage(damage);
-            other.GetComponent<EnemieBase>().Hit(position);
-            GameEventHandler.TriggerDamageDone(player, damage);
-        }
-        else if (other && other.GetComponent<BaseCollider>())
-        {
-            other.GetComponent<BaseCollider>().Damage(damage);
-            other.GetComponent<BaseCollider>().Hit(position);
-            GameEventHandler.TriggerDamageDone(player, damage);
-        }
+            HitAble target = other.GetComponent<HitAble>();
+            target.Damage(damage);
+            target.Hit(position, transform.position);
+            target.Force(transform.position, force);
 
+            GameEventHandler.TriggerDamageDone(player, damage);
+        }
 
         //Effekt
         GameObjectPool.Instance.Spawn(hitEffektPoolName, transform.position, Quaternion.identity);

@@ -67,7 +67,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 5
   m_AngularDrag: .0500000007
   m_GravityScale: 3
   m_FixedAngle: 0
@@ -111,10 +111,8 @@ MonoBehaviour:
   poolName: Gold
   amount: 10
   worldCollider: {fileID: 6100000}
-  waitTimer: 0
   waitTime: 3
-  maxSpeed: 100
-  speedChange: 8
+  maxSpeed: 10
   gravity: 3
 --- !u!212 &21200000
 SpriteRenderer:
