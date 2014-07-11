@@ -45,44 +45,54 @@ MonoBehaviour:
   - Name: Health
     Value: 30
     ValuePerLevel: 5
+    valueMultiply: 1
     ValuePerSkillPoint: 10
   - Name: Health Regen
     Value: 1.4000001
     ValuePerLevel: .100000001
+    valueMultiply: 1
     ValuePerSkillPoint: .200000003
   - Name: Armor
     Value: 18
     ValuePerLevel: 2
+    valueMultiply: 1
     ValuePerSkillPoint: 5
   - Name: Attack Speed
     Value: 1.4000001
     ValuePerLevel: .100000001
+    valueMultiply: 1
     ValuePerSkillPoint: .200000003
   - Name: Damage
     Value: 18
     ValuePerLevel: 2
+    valueMultiply: 1
     ValuePerSkillPoint: 4
   - Name: Max Movement Speed
-    Value: 10.4000015
+    Value: 10
     ValuePerLevel: .100000001
+    valueMultiply: 1
     ValuePerSkillPoint: .200000003
   - Name: Movement Change
-    Value: 58
+    Value: 100
     ValuePerLevel: 2
+    valueMultiply: 1
     ValuePerSkillPoint: 4
   - Name: Jump Power
     Value: 15.4000015
     ValuePerLevel: .100000001
+    valueMultiply: 1
     ValuePerSkillPoint: .200000003
   - Name: More Jump Power
     Value: 5.79999924
     ValuePerLevel: .200000003
+    valueMultiply: 1
     ValuePerSkillPoint: .5
   playerSkills:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400002, guid: ce2c3b18860fa114ca8613e5764c187f, type: 2}
+  - {fileID: 11400002, guid: b9b0f5cb02b3f184585e4e9f980eef53, type: 2}
+  - {fileID: 11400000, guid: 936cd7626d9574b4ab4e28b2d0636f21, type: 2}
+  - {fileID: 11400002, guid: ce2c3b18860fa114ca8613e5764c187f, type: 2}
+  playerBuffs: []
   Health: 30
   GravityMultiply: 2
   playerWidth: 1

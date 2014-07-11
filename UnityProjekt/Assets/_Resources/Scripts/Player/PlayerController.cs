@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         _animator = GetComponent<Animator>();
-        PlayerClass = (PlayerClass) Object.Instantiate(PlayerClass); 
+        //PlayerClass = (PlayerClass) Object.Instantiate(PlayerClass); 
     }
 
 	void Start () 
@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
     {
         PlayerClass.Init(this);
 
-        GameManager.Instance.AddPlayer(this);
+        //GameManager.Instance.AddPlayer(this);
 
         GameEventHandler.OnDamageDone += DamageDone;
         GameEventHandler.OnPause += OnPause;
@@ -147,14 +147,14 @@ public class PlayerController : MonoBehaviour
         return (PlayerId + 1).ToString();
     }
 
-    void LateUpdate()
+    void FixedUpdate()
     {
         if (GameManager.Instance.GamePaused)
             return;
 
         _currentVelocity = rigidbody2D.velocity;
 
-        PlayerClass.LateUpdateClass();
+        PlayerClass.FixedUpdateClass();
 
         if (CanMove)
         {
@@ -289,7 +289,7 @@ public class PlayerController : MonoBehaviour
 
     private bool TryJump()
     {
-        if (InputController.GetClicked(PlayerID() + JumpInput) && PlayerClass.Jump(Grounded))
+        if (InputController.GetDown(PlayerID() + JumpInput) && _currentVelocity.y <= 0 && PlayerClass.Jump(Grounded))
         {
             Jump();
             return true;
@@ -371,18 +371,26 @@ public class PlayerController : MonoBehaviour
         {
             float clampMagnitude = 1f - Mathf.Clamp(Mathf.Abs((_currentVelocity + change).x) -
                           PlayerClass.GetAttributeValue(AttributeType.MAXMOVESPEED), 0f, 1f);
-            //change = Vector2.ClampMagnitude(change, clampMagnitude);
+            change = Vector2.ClampMagnitude(change, clampMagnitude);
         }
 
         _currentVelocity += change;
 
-        _currentVelocity.x = Mathf.Lerp(_currentVelocity.x, 0,
-                Time.fixedDeltaTime * PlayerClass.GetAttributeValue(AttributeType.MOVEMENTCHANGE) / 10f);
+        float SlowDownXValue = walkDirection * Time.fixedDeltaTime * (PlayerClass.GetAttributeValue(AttributeType.MOVEMENTCHANGE) / 2f);
+        if (Mathf.Abs(_currentVelocity.x) - Mathf.Abs(SlowDownXValue) <= 0)
+        {
+            _currentVelocity.x = 0;
+        }
+        else
+        {
+            _currentVelocity.x -= SlowDownXValue;
+        }
+        
 
         if (inputDirection == 0 || inputDirection + walkDirection == 0)
         {
-           // _currentVelocity.x = Mathf.Lerp(_currentVelocity.x, 0,
-           //     Time.fixedDeltaTime*PlayerClass.GetAttributeValue(AttributeType.MOVEMENTCHANGE)/10f);
+            //_currentVelocity.x = Mathf.Lerp(_currentVelocity.x, 0,
+            //    Time.fixedDeltaTime*PlayerClass.GetAttributeValue(AttributeType.MOVEMENTCHANGE)/10f);
         }
     }
 

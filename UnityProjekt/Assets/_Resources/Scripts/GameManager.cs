@@ -77,16 +77,6 @@ public class GameManager : MonoBehaviour {
         GameEventHandler.TriggerOnPause();
     }
 
-    void OnGUI()
-    {
-        if (GUILayout.Button("Resources"))
-        {
-            Resources.UnloadUnusedAssets();
-            EditorUtility.UnloadUnusedAssets();
-            System.GC.Collect();
-        }
-    }
-
     public void RemovePlayer(PlayerController player)
     {
         if (player == null)
@@ -209,7 +199,6 @@ public class GameManager : MonoBehaviour {
         Cameras[currentPlayerSelectingClass].player = newPlayer.transform;
 
         Players[currentPlayerSelectingClass].PlayerId = currentPlayerSelectingClass;
-
 
         PlayerClass playerClass = (PlayerClass) Object.Instantiate(PlayerClasses[id]);
         playerClass.transform.parent = newPlayer.transform;

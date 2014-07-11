@@ -57,7 +57,7 @@ public class PlayerSkill : MonoBehaviour
         skillRunning = true;
     }
 
-    public virtual void UpdateAttributes(PlayerClass player)
+    public virtual void UpdateAttributesOnLevelUp()
     {
 
     }
@@ -72,7 +72,7 @@ public class PlayerSkill : MonoBehaviour
         return (CooldownTimer <= 0);
     }
 
-    public virtual void LateUpdateSkill(PlayerClass playerClass)
+    public virtual void FixedUpdateSkill(PlayerClass playerClass)
     {
         
     }

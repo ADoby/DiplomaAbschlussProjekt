@@ -192,10 +192,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 646
-    y: 389.480011
-    width: 110.199997
-    height: 34.2400017
+    x: 363.800018
+    y: 292.109985
+    width: 62.0599976
+    height: 25.6800022
   parent: {fileID: 2110167300}
   children: []
   ChildCount: 0
@@ -251,7 +251,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 13
+    m_FontSize: 10
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -303,7 +303,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 17
+  m_RootOrder: 14
 --- !u!61 &36667956
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -772,10 +772,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 189.967987
-    y: 125.275574
-    width: 224.700012
-    height: 17.3340015
+    x: 71.4759979
+    y: 93.9566879
+    width: 168.525009
+    height: 13.0005007
   parent: {fileID: 520547854}
   children: []
   ChildCount: 0
@@ -828,7 +828,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 8
+    m_FontSize: 6
     m_FontStyle: 0
     m_Alignment: 0
     m_WordWrap: 1
@@ -1549,10 +1549,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 123.199982
-    y: 98.4399719
-    width: 513.600037
-    height: 25.6800022
+    x: 21.3999939
+    y: 73.8299866
+    width: 385.200012
+    height: 19.2600002
   parent: {fileID: 537064885}
   children:
   - {fileID: 984513047}
@@ -1690,10 +1690,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 123.199982
-    y: 181.899979
-    width: 64.2000046
-    height: 57.7800026
+    x: 21.3999939
+    y: 136.424988
+    width: 48.1500015
+    height: 43.3349991
   parent: {fileID: 891592285}
   children: []
   ChildCount: 0
@@ -1918,6 +1918,10 @@ Prefab:
       propertyPath: m_RootMapOrder
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 100100, guid: 4ee2ce256f48ac74b8b445b043f88cfc, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4ee2ce256f48ac74b8b445b043f88cfc, type: 2}
   m_RootGameObject: {fileID: 1701476461}
@@ -1965,10 +1969,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 189.967987
-    y: 181.899979
-    width: 224.700012
-    height: 57.7800026
+    x: 71.4759979
+    y: 136.424988
+    width: 168.525009
+    height: 43.3349991
   parent: {fileID: 891592285}
   children:
   - {fileID: 2005015971}
@@ -2045,10 +2049,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 508.399994
-    y: 98.4399719
-    width: 128.400009
-    height: 25.6800022
+    x: 310.300018
+    y: 73.8299866
+    width: 96.3000031
+    height: 19.2600002
   parent: {fileID: 246998729}
   children: []
   ChildCount: 0
@@ -2104,7 +2108,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 8
+    m_FontSize: 6
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -2293,7 +2297,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 22
+  m_RootOrder: 19
 --- !u!61 &346117940
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2357,7 +2361,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 6
+  m_RootOrder: 3
 --- !u!61 &371143118
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2421,7 +2425,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 2
+  m_RootOrder: 28
 --- !u!61 &374994554
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2662,7 +2666,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 28
+  m_RootOrder: 25
 --- !u!61 &413067976
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2829,10 +2833,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 123.199982
-    y: 124.119972
-    width: 513.600037
-    height: 57.7800026
+    x: 21.3999939
+    y: 93.0899887
+    width: 385.200012
+    height: 43.3349991
   parent: {fileID: 1774546690}
   children:
   - {fileID: 1889536205}
@@ -2891,7 +2895,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 6
+    m_FontSize: 4
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -3299,10 +3303,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 189.967987
-    y: 196.344986
-    width: 224.700012
-    height: 40.446003
+    x: 71.4759979
+    y: 147.258743
+    width: 168.525009
+    height: 30.3344994
   parent: {fileID: 302417465}
   children: []
   ChildCount: 0
@@ -3359,7 +3363,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 6
+    m_FontSize: 5
     m_FontStyle: 0
     m_Alignment: 0
     m_WordWrap: 1
@@ -3565,7 +3569,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 21
+  m_RootOrder: 18
 --- !u!61 &507496564
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3629,7 +3633,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 26
+  m_RootOrder: 23
 --- !u!61 &508591215
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3707,10 +3711,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 189.967987
-    y: 124.119972
-    width: 224.700012
-    height: 57.7800026
+    x: 71.4759979
+    y: 93.0899887
+    width: 168.525009
+    height: 43.3349991
   parent: {fileID: 437681295}
   children:
   - {fileID: 172333930}
@@ -3928,10 +3932,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 123.199982
-    y: 98.4399719
-    width: 513.600037
-    height: 256.800018
+    x: 21.3999939
+    y: 73.8299866
+    width: 385.200012
+    height: 192.600006
   parent: {fileID: 931791364}
   children:
   - {fileID: 246998729}
@@ -3967,7 +3971,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 8
+  m_RootOrder: 5
 --- !u!61 &563843917
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4203,7 +4207,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 10
+  m_RootOrder: 7
 --- !u!1 &616532610
 GameObject:
   m_ObjectHideFlags: 0
@@ -4416,7 +4420,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 20
+  m_RootOrder: 17
 --- !u!61 &645975084
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4532,7 +4536,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 5
+  m_RootOrder: 2
 --- !u!61 &649714375
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5246,10 +5250,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 189.967987
-    y: 138.564972
-    width: 224.700012
-    height: 40.446003
+    x: 71.4759979
+    y: 103.923737
+    width: 168.525009
+    height: 30.3344994
   parent: {fileID: 520547854}
   children: []
   ChildCount: 0
@@ -5303,7 +5307,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 6
+    m_FontSize: 5
     m_FontStyle: 0
     m_Alignment: 0
     m_WordWrap: 1
@@ -6245,7 +6249,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 24
+  m_RootOrder: 21
 --- !u!61 &863265999
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6391,10 +6395,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 123.199982
-    y: 181.899979
-    width: 513.600037
-    height: 57.7800026
+    x: 21.3999939
+    y: 136.424988
+    width: 385.200012
+    height: 43.3349991
   parent: {fileID: 1774546690}
   children:
   - {fileID: 262448735}
@@ -6453,7 +6457,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 6
+    m_FontSize: 4
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -6532,10 +6536,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 380
-    y: 98.4399719
-    width: 128.400009
-    height: 25.6800022
+    x: 214
+    y: 73.8299866
+    width: 96.3000031
+    height: 19.2600002
   parent: {fileID: 246998729}
   children: []
   ChildCount: 0
@@ -6591,7 +6595,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 8
+    m_FontSize: 6
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -6936,8 +6940,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 760
-    height: 428
+    width: 428
+    height: 321
   parent: {fileID: 0}
   children:
   - {fileID: 537064885}
@@ -6973,7 +6977,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 18
+  m_RootOrder: 15
 --- !u!61 &948311249
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7064,10 +7068,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 251.599991
-    y: 98.4399719
-    width: 128.400009
-    height: 25.6800022
+    x: 117.699997
+    y: 73.8299866
+    width: 96.3000031
+    height: 19.2600002
   parent: {fileID: 246998729}
   children: []
   ChildCount: 0
@@ -7123,7 +7127,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 8
+    m_FontSize: 6
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -7279,7 +7283,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 12
+  m_RootOrder: 9
 --- !u!61 &959342697
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7370,10 +7374,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 123.199982
-    y: 98.4399719
-    width: 128.400009
-    height: 25.6800022
+    x: 21.3999939
+    y: 73.8299866
+    width: 96.3000031
+    height: 19.2600002
   parent: {fileID: 246998729}
   children: []
   ChildCount: 0
@@ -7429,7 +7433,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 8
+    m_FontSize: 6
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -8106,7 +8110,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 23
+  m_RootOrder: 20
 --- !u!61 &1110723635
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8170,7 +8174,7 @@ Transform:
   m_LocalScale: {x: .896549046, y: .896548569, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 27
+  m_RootOrder: 24
 --- !u!61 &1122077916
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8622,7 +8626,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 1
+  m_RootOrder: 27
 --- !u!61 &1197717713
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8760,7 +8764,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 13
+  m_RootOrder: 10
 --- !u!61 &1243355350
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8897,7 +8901,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 0
+  m_RootOrder: 26
 --- !u!61 &1250703806
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9122,7 +9126,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 11
+  m_RootOrder: 8
 --- !u!1 &1312698030
 GameObject:
   m_ObjectHideFlags: 0
@@ -9829,7 +9833,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 4
+  m_RootOrder: 1
 --- !u!61 &1384793388
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10523,7 +10527,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 16
+  m_RootOrder: 13
 --- !u!61 &1504987827
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10984,9 +10988,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1250703805}
-  - {fileID: 1197717712}
-  - {fileID: 374994553}
   - {fileID: 1583718627}
   - {fileID: 1384793387}
   - {fileID: 649714374}
@@ -11013,6 +11014,9 @@ Transform:
   - {fileID: 508591214}
   - {fileID: 1122077915}
   - {fileID: 413067975}
+  - {fileID: 1250703805}
+  - {fileID: 1197717712}
+  - {fileID: 374994553}
   m_Father: {fileID: 1372128246}
   m_RootOrder: 2
 --- !u!1001 &1580820416
@@ -11095,7 +11099,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 3
+  m_RootOrder: 0
 --- !u!61 &1583718628
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11233,7 +11237,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 25
+  m_RootOrder: 22
 --- !u!61 &1595822842
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11486,10 +11490,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 3.79999995
-    y: 389.480011
-    width: 638.399963
-    height: 34.2400017
+    x: 2.13999987
+    y: 292.109985
+    width: 359.519989
+    height: 25.6800022
   parent: {fileID: 2110167300}
   children: []
   ChildCount: 0
@@ -11545,7 +11549,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 13
+    m_FontSize: 10
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -11990,7 +11994,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 14
+  m_RootOrder: 11
 --- !u!61 &1676270013
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12374,7 +12378,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1701476462
 Transform:
   m_ObjectHideFlags: 0
@@ -12424,7 +12428,7 @@ MonoBehaviour:
   maxHealth: 400
   poolName: AlienRace1_Base2
   HealthRegenPerSec: 5
-  StartFull: 1
+  StartFull: 0
   RestartFull: 0
   HealthChangeSpeed: 10
 --- !u!114 &1701476465
@@ -12545,7 +12549,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 7
+  m_RootOrder: 4
 --- !u!61 &1732782966
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13021,10 +13025,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 123.199982
-    y: 124.119972
-    width: 513.600037
-    height: 231.12001
+    x: 21.3999939
+    y: 93.0899887
+    width: 385.200012
+    height: 173.339996
   parent: {fileID: 537064885}
   children:
   - {fileID: 437681295}
@@ -13133,7 +13137,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 15
+  m_RootOrder: 12
 --- !u!61 &1793160784
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13284,10 +13288,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 412.100006
-    y: 181.899979
-    width: 224.700012
-    height: 57.7800026
+    x: 238.074997
+    y: 136.424988
+    width: 168.525009
+    height: 43.3349991
   parent: {fileID: 891592285}
   children: []
   ChildCount: 0
@@ -13752,10 +13756,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 123.199982
-    y: 124.119972
-    width: 64.2000046
-    height: 57.7800026
+    x: 21.3999939
+    y: 93.0899887
+    width: 48.1500015
+    height: 43.3349991
   parent: {fileID: 437681295}
   children: []
   ChildCount: 0
@@ -14159,7 +14163,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 19
+  m_RootOrder: 16
 --- !u!61 &1950183822
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14443,10 +14447,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 189.967987
-    y: 183.055573
-    width: 224.700012
-    height: 17.3340015
+    x: 71.4759979
+    y: 137.291687
+    width: 168.525009
+    height: 13.0005007
   parent: {fileID: 302417465}
   children: []
   ChildCount: 0
@@ -14499,7 +14503,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 8
+    m_FontSize: 6
     m_FontStyle: 0
     m_Alignment: 0
     m_WordWrap: 1
@@ -14841,10 +14845,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 412.100006
-    y: 124.119972
-    width: 224.700012
-    height: 57.7800026
+    x: 238.074997
+    y: 93.0899887
+    width: 168.525009
+    height: 43.3349991
   parent: {fileID: 437681295}
   children: []
   ChildCount: 0
@@ -14989,7 +14993,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 9
+  m_RootOrder: 6
 --- !u!1 &2090605814
 GameObject:
   m_ObjectHideFlags: 0
@@ -15187,9 +15191,9 @@ MonoBehaviour:
   absoluteRect:
     serializedVersion: 2
     x: 0
-    y: 385.200012
-    width: 760
-    height: 42.7999992
+    y: 288.899994
+    width: 428
+    height: 32.1000023
   parent: {fileID: 931791364}
   children:
   - {fileID: 1666083299}

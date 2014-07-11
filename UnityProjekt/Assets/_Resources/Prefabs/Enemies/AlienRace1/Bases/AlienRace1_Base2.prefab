@@ -2543,7 +2543,7 @@ MonoBehaviour:
   maxHealth: 400
   poolName: AlienRace1_Base2
   HealthRegenPerSec: 5
-  StartFull: 1
+  StartFull: 0
   RestartFull: 0
   HealthChangeSpeed: 10
 --- !u!114 &11400076

@@ -176,7 +176,7 @@ public class InputInfo
         return !Down();
     }
 
-    public virtual string GetInfo()
+    public string GetInfo()
     {
         switch (InputType)
         {

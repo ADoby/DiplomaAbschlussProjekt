@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
 
 public enum AttributeType
 {
@@ -11,6 +13,7 @@ public enum AttributeType
     MOVEMENTCHANGE,
     JUMPPOWER,
     MOREJUMPPOWER,
+    SPELLVAMP,
     COUNT
 }
 
@@ -20,8 +23,7 @@ public class Attribute
     public string Name = "Name";
     public float Value = 0f;
     public float ValuePerLevel = 0f;
-    private float valueMultiply = 1.0f;
-    public float ValueMultiply { get { return valueMultiply; } }
+    public float valueMultiply = 1.0f;
 
     public float ValuePerSkillPoint = 0f;
 
@@ -31,12 +33,6 @@ public class Attribute
         Value = value;
         ValuePerLevel = valuePerLevel;
         ValuePerSkillPoint = valuePerSkillPoint;
-        ResetMult();
-    }
-
-    public void ResetMult()
-    {
-        valueMultiply = 1.0f;
     }
 
     public void AddMult(float amount)
@@ -44,9 +40,9 @@ public class Attribute
         valueMultiply += amount;
     }
 
-    public void RemoveMult(float amount)
+    public void AddValue(float amount)
     {
-        valueMultiply -= amount;
+        Value += amount;
     }
 
     public void LevelUp()
@@ -75,10 +71,62 @@ public class PlayerClass : MonoBehaviour
         new Attribute("Max Movement Speed", 10f, 0.1f, 0.2f),
         new Attribute("Movement Change", 50f, 2f, 4f),
         new Attribute("Jump Power", 10f, 0.1f, 0.2f),
-        new Attribute("More Jump Power", 5f, 0.2f, 0.5f)
+        new Attribute("More Jump Power", 5f, 0.2f, 0.5f),
+        new Attribute("Spell Vampire", 0.0f, 0.0f, 0.1f)
     };
 
     public PlayerSkill[] playerSkills;
+
+    #region PlayerBuffs
+
+    public List<PlayerBuff> playerBuffs;
+
+    public void AddBuff(PlayerBuff buff)
+    {
+        PlayerBuff oldBuff = playerBuffs.FirstOrDefault(o => o.BuffName == buff.BuffName);
+        PlayerBuff newBuff = null;
+        if (oldBuff == null)
+        {
+            newBuff = buff.Clone();
+            playerBuffs.Add(newBuff);
+        }
+        else
+        {
+            newBuff = oldBuff;
+        }
+
+        if(newBuff != null)
+            newBuff.StartBuff(this);
+    }
+
+    public void UpdateAllBuffs()
+    {
+        for (int i = 0; i < playerBuffs.Count; i++)
+        {
+            playerBuffs[i].UpdateBuff();
+        }
+    }
+
+    public void EndBuff(PlayerBuff buff)
+    {
+        PlayerBuff oldBuff = playerBuffs.FirstOrDefault(o => o.BuffName == buff.BuffName);
+        if (oldBuff != null)
+        {
+            oldBuff.EndBuff();
+        }
+    }
+
+    public void EndAllBuffs()
+    {
+        for (int i = 0; i < playerBuffs.Count; i++)
+        {
+            playerBuffs[i].EndBuff();
+        }
+    }
+
+    #endregion
+
+    
 
     //Leben
     public float Health = 0.0f;
@@ -121,17 +169,19 @@ public class PlayerClass : MonoBehaviour
             skill.UpdateSkill(this);
         }
 
+        UpdateAllBuffs();
+
         Health += GetAttributeValue(AttributeType.HEALTHREG) * Time.deltaTime;
         Health = Mathf.Clamp(Health, 0, GetAttributeValue(AttributeType.HEALTH));
     }
 
-    public void LateUpdateClass()
+    public void FixedUpdateClass()
     {
         overrideVelocity = Vector2.zero;
 
         foreach (PlayerSkill skill in playerSkills)
         {
-            skill.LateUpdateSkill(this);
+            skill.FixedUpdateSkill(this);
         }
     }
 
@@ -139,8 +189,6 @@ public class PlayerClass : MonoBehaviour
     {
         playerTransform = playerControl.transform;
         this.playerControl = playerControl;
-
-        
     }
 
     public void ResetPlayerClass()
@@ -170,7 +218,10 @@ public class PlayerClass : MonoBehaviour
         {
             attribute.LevelUp();
         }
-        UpdateAttributes();
+        foreach (PlayerSkill skill in playerSkills)
+        {
+            skill.UpdateAttributesOnLevelUp();
+        }
     }
 
     public void SkillUpAttribute(int id)
@@ -182,26 +233,13 @@ public class PlayerClass : MonoBehaviour
         GetAttribute(id).SkillUp();
     }
 
-    public void UpdateAttributes()
-    {
-        foreach (Attribute attribute in Attributes)
-        {
-            attribute.ResetMult();
-        }
-
-        foreach (PlayerSkill skill in playerSkills)
-        {
-            skill.UpdateAttributes(this);
-        }
-    }
-
     public float GetAttributeValue(AttributeType type)
     {
-        return Attributes[(int)type].Value * Attributes[(int)type].ValueMultiply;
+        return Attributes[(int)type].Value * Attributes[(int)type].valueMultiply;
     }
     public float GetAttributeValue(int id)
     {
-        return Attributes[id].Value * Attributes[id].ValueMultiply;
+        return Attributes[id].Value * Attributes[id].valueMultiply;
     }
 
     public Attribute GetAttribute(AttributeType type)
