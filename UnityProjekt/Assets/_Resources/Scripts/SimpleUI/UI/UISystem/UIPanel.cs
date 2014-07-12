@@ -6,9 +6,14 @@ public class UIPanel : UIRect
     public bool ShowBox = true;
     public string content = "";
 
+    public GUIStyle BoxStyle;
+
     public override void DrawMe()
     {
+        if (BoxStyle == null)
+            BoxStyle = new GUIStyle(GUI.skin.box);
+
         if (ShowBox)
-            GUI.Box(absoluteRect, content);
+            GUI.Box(absoluteRect, content, BoxStyle);
     }
 }

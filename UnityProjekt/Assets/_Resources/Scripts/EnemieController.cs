@@ -39,8 +39,7 @@ public class EnemieController : HitAble {
     {
         Reset();
 
-        GameEventHandler.OnPause += OnPause;
-        GameEventHandler.OnResume += OnResume;
+       
 	}
 
     void Awake()
@@ -48,6 +47,8 @@ public class EnemieController : HitAble {
         maxHealth = Health;
 
         GameEventHandler.FoundTarget += OnFoundTarget;
+        GameEventHandler.OnPause += OnPause;
+        GameEventHandler.OnResume += OnResume;
     }
 
     public void OnResume()
@@ -170,11 +171,11 @@ public class EnemieController : HitAble {
             }
             else
             {
+                
                 lockTimer -= Time.deltaTime;
                 if (lockTimer <= 0)
                 {
                     target.GetComponent<PlayerController>().Damage(MyDamage);
-
                     //Effekt
 
                     targetLocked = false;
@@ -187,10 +188,12 @@ public class EnemieController : HitAble {
         {
             if (attackTimer <= 0)
             {
-                Collider2D[] collider = Physics2D.OverlapAreaAll(transform.position + new Vector3(-attackDistance / 2f, 2, 0), transform.position + new Vector3(attackDistance/2f, 2, 0), findTargetLayer);
+                Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, attackDistance, findTargetLayer);
+
+                //Collider2D[] collider = Physics2D.OverlapAreaAll(transform.position + new Vector3(-attackDistance / 2f, 2, 0), transform.position + new Vector3(attackDistance/2f, 2, 0), findTargetLayer);
                 foreach (var item in collider)
                 {
-                    if (item.GetComponent<PlayerController>())
+                    if (item.gameObject.GetComponent<PlayerController>())
                     {
                         lockTimer = lockTime;
                         targetLocked = true;

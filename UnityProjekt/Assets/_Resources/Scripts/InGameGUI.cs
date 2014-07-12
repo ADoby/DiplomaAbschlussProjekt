@@ -21,7 +21,7 @@ public class InGameGUI : MonoBehaviour {
                 PlayerController item = playerList[i];
 
                 currentExperienceGUI[i] = Mathf.Lerp(currentExperienceGUI[i], item.CurrentExperience, experienceChange * Time.deltaTime);
-                currentHealthGUI[i] = Mathf.Lerp(currentHealthGUI[i], item.PlayerClass.Health, healthChange * Time.deltaTime);
+                currentHealthGUI[i] = Mathf.Lerp(currentHealthGUI[i], item.PlayerClass.CurrentHealth, healthChange * Time.deltaTime);
             }
             if (InputController.GetClicked("LEVELUP"))
             {
@@ -66,7 +66,7 @@ public class InGameGUI : MonoBehaviour {
             }
             GUILayout.EndHorizontal();
             GUILayout.HorizontalSlider(currentExperienceGUI[i], item.PrevNeededExperience, item.NeededExperience);
-            GUILayout.Label("Health: " + item.PlayerClass.Health.ToString() + " of " + item.PlayerClass.GetAttributeValue(AttributeType.HEALTH));
+            GUILayout.Label("Health: " + item.PlayerClass.CurrentHealth.ToString() + " of " + item.PlayerClass.GetAttributeValue(AttributeType.HEALTH));
             GUILayout.HorizontalSlider(currentHealthGUI[i], 0f, item.PlayerClass.GetAttributeValue(AttributeType.HEALTH));
         }
         

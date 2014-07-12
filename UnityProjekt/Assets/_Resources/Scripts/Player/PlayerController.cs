@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
         _currentInput = Vector2.zero;
         Grounded = false;
 
-        PlayerClass.Health = PlayerClass.GetAttributeValue(AttributeType.HEALTH);
+        PlayerClass.CurrentHealth = PlayerClass.GetAttributeValue(AttributeType.HEALTH);
 
         //Back to SpawnPoint
         transform.position = GameManager.GetSpawnPosition();
@@ -111,6 +111,15 @@ public class PlayerController : MonoBehaviour
 	void Update () {
         if (GameManager.Instance.GamePaused)
             return;
+
+        if (InputController.GetClicked(PlayerID() + "_SKILLMENU"))
+        {
+            LevelUpGUI.Instance.OpenWithPlayer(this);
+            //AddSkillMakingImune();
+            //AddSkillOverridingMovement();
+            //AddSkillPreventingMovement();
+            //AddSkillPreventingSkillUsement();
+        }
 
 	    if (CanMove)
 	    {
@@ -222,10 +231,10 @@ public class PlayerController : MonoBehaviour
     {
         if (!PlayerClass.damageImune)
         {
-            PlayerClass.Health -= damage;
+            PlayerClass.CurrentHealth -= damage;
         }
         
-        if (PlayerClass.Health <= 0)
+        if (PlayerClass.CurrentHealth <= 0)
         {
             //Dead
             ResetPlayer();

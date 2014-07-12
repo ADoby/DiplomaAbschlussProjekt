@@ -287,7 +287,7 @@ MonoBehaviour:
   PrevNeededExperience: 0
   NeededExperience: 100
   NeededExperienceMultPerLevel: 1.5
-  ExperiencePerDamageDone: 2
+  ExperiencePerDamageDone: .5
   MinUpMotionForExtraJump: .200000003
   JumpInput: _JUMP
   Skill1Input: _SKILL1

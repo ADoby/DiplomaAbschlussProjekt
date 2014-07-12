@@ -49,24 +49,19 @@ MonoBehaviour:
     ValuePerSkillPoint: 10
   - Name: Health Regen
     Value: 1
-    ValuePerLevel: .100000001
+    ValuePerLevel: .0250000004
     valueMultiply: 1
-    ValuePerSkillPoint: .200000003
-  - Name: Armor
-    Value: 10
-    ValuePerLevel: 2
-    valueMultiply: 1
-    ValuePerSkillPoint: 5
+    ValuePerSkillPoint: .0500000007
   - Name: Attack Speed
     Value: 1
-    ValuePerLevel: .100000001
+    ValuePerLevel: .0250000004
     valueMultiply: 1
-    ValuePerSkillPoint: .200000003
+    ValuePerSkillPoint: .0500000007
   - Name: Damage
-    Value: 10
-    ValuePerLevel: 2
+    Value: 3
+    ValuePerLevel: 1
     valueMultiply: 1
-    ValuePerSkillPoint: 4
+    ValuePerSkillPoint: 2
   - Name: Max Movement Speed
     Value: 10
     ValuePerLevel: .100000001
@@ -74,27 +69,31 @@ MonoBehaviour:
     ValuePerSkillPoint: .200000003
   - Name: Movement Change
     Value: 50
-    ValuePerLevel: 2
+    ValuePerLevel: 1
     valueMultiply: 1
-    ValuePerSkillPoint: 4
+    ValuePerSkillPoint: 2
   - Name: Jump Power
-    Value: 10
+    Value: 15
     ValuePerLevel: .100000001
     valueMultiply: 1
     ValuePerSkillPoint: .200000003
   - Name: More Jump Power
     Value: 5
-    ValuePerLevel: .200000003
+    ValuePerLevel: .00999999978
     valueMultiply: 1
-    ValuePerSkillPoint: .5
+    ValuePerSkillPoint: .0199999996
   - Name: Spell Vampire
     Value: 0
     ValuePerLevel: 0
     valueMultiply: 1
-    ValuePerSkillPoint: .100000001
-  playerSkills: []
+    ValuePerSkillPoint: .0500000007
+  playerSkills:
+  - {fileID: 11400000, guid: e498e8fd35d281845b4cd1bfe62bc78f, type: 2}
+  - {fileID: 11400000, guid: 936cd7626d9574b4ab4e28b2d0636f21, type: 2}
+  - {fileID: 11400002, guid: ce2c3b18860fa114ca8613e5764c187f, type: 2}
+  - {fileID: 11400000, guid: 4138e676b74154142aded402a86090d6, type: 2}
   playerBuffs: []
-  Health: 0
+  CurrentHealth: 0
   GravityMultiply: 2
   playerWidth: 1
   playerHeight: 2

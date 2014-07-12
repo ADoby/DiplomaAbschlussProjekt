@@ -6,7 +6,6 @@ public enum AttributeType
 {
     HEALTH,
     HEALTHREG,
-    ARMOR,
     ATTACKSPEED,
     DAMAGE,
     MAXMOVESPEED,
@@ -64,15 +63,14 @@ public class PlayerClass : MonoBehaviour
     public Attribute[] Attributes =
     {
         new Attribute("Health", 100f, 5f, 10f),
-        new Attribute("Health Regen", 1f, 0.1f, 0.2f),
-        new Attribute("Armor", 10f, 2f, 5f),
-        new Attribute("Attack Speed", 1f, 0.1f, 0.2f),
+        new Attribute("Health Regen", 1f, 0.025f, 0.05f),
+        new Attribute("Attack Speed", 1f, 0.025f, 0.05f),
         new Attribute("Damage", 10f, 2f, 4f),
         new Attribute("Max Movement Speed", 10f, 0.1f, 0.2f),
-        new Attribute("Movement Change", 50f, 2f, 4f),
+        new Attribute("Movement Change", 50f, 1f, 2f),
         new Attribute("Jump Power", 10f, 0.1f, 0.2f),
-        new Attribute("More Jump Power", 5f, 0.2f, 0.5f),
-        new Attribute("Spell Vampire", 0.0f, 0.0f, 0.1f)
+        new Attribute("More Jump Power", 5f, 0.01f, 0.02f),
+        new Attribute("Spell Vampire", 0.0f, 0.0f, 0.05f)
     };
 
     public PlayerSkill[] playerSkills;
@@ -126,10 +124,8 @@ public class PlayerClass : MonoBehaviour
 
     #endregion
 
-    
-
     //Leben
-    public float Health = 0.0f;
+    public float CurrentHealth = 0.0f;
 
     private int skillsRunning = 0;
     public bool SkillRunning { get { return (skillsRunning > 0); } }
@@ -171,8 +167,8 @@ public class PlayerClass : MonoBehaviour
 
         UpdateAllBuffs();
 
-        Health += GetAttributeValue(AttributeType.HEALTHREG) * Time.deltaTime;
-        Health = Mathf.Clamp(Health, 0, GetAttributeValue(AttributeType.HEALTH));
+        CurrentHealth += GetAttributeValue(AttributeType.HEALTHREG) * Time.deltaTime;
+        CurrentHealth = Mathf.Clamp(CurrentHealth, 0, GetAttributeValue(AttributeType.HEALTH));
     }
 
     public void FixedUpdateClass()
@@ -193,7 +189,7 @@ public class PlayerClass : MonoBehaviour
 
     public void ResetPlayerClass()
     {
-        Health = GetAttributeValue(AttributeType.HEALTH);
+        CurrentHealth = GetAttributeValue(AttributeType.HEALTH);
         skillPoints = 0;
     }
 

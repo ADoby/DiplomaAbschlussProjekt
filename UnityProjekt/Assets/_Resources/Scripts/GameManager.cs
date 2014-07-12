@@ -72,6 +72,8 @@ public class GameManager : MonoBehaviour {
     private PlayerController[] Players = {null,null,null,null};
     private CameraController[] Cameras = {null,null,null,null};
 
+    public static float CurrentDifficulty = 0;
+
     void Start()
     {
         GameEventHandler.TriggerOnPause();
@@ -118,11 +120,18 @@ public class GameManager : MonoBehaviour {
 
     void Update()
     {
+
         if (currentPlayerSelectingClass != -1 && slotButtons.Length > 0)
         {
             slotButtons[currentPlayerSelectingClass].Text = "Player " + (currentPlayerSelectingClass + 1) + " Select";
             slotButtons[currentPlayerSelectingClass].ButtonStyle.normal.textColor = Color.red;
         }
+
+
+
+        if (GamePaused)
+            return;
+        CurrentDifficulty += Time.deltaTime;
     }
 
     public int PlayerCount
@@ -132,6 +141,9 @@ public class GameManager : MonoBehaviour {
 
     public void StartGame()
     {
+       
+
+        CurrentDifficulty = 0;
         foreach (var playerController in Players)
         {
             if (playerController)
@@ -152,10 +164,12 @@ public class GameManager : MonoBehaviour {
                     if (camIndex == 0)
                     {
                         cameraController.camera.rect = new Rect(0, 0, 1f, 0.5f);
+                        
                     }
                     if (camIndex == 1)
                     {
                         cameraController.camera.rect = new Rect(0, 0.5f, 1f, 0.5f);
+                        cameraController.GetComponent<PlayerUI>().panel.RelativePosition.y = 0.5f;
                     }
                 }
 
@@ -194,6 +208,8 @@ public class GameManager : MonoBehaviour {
 
         GameObject newCam = (GameObject) Object.Instantiate(cameraPrefab, new Vector3(0,0,-10), Quaternion.identity);
         newCam.SetActive(false);
+
+        newCam.GetComponent<PlayerUI>().playerControl = Players[currentPlayerSelectingClass];
 
         Cameras[currentPlayerSelectingClass] = newCam.GetComponent<CameraController>();
         Cameras[currentPlayerSelectingClass].player = newPlayer.transform;

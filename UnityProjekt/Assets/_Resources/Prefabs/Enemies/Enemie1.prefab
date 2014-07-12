@@ -221,12 +221,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ba754dcbb440d47be634101a76a826, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sendFurther: 0
+  reciever: {fileID: 0}
+  SpawnPool: 1
+  SpawnPoolName: Blood
   healthBar: {fileID: 11400002}
   Health: 50
   maxHealth: 0
   FloorCheckDistance: 1
   FloorCheckLength: .100000001
-  MyDamage: 1
+  MyDamage: 10
   maxSpeed: 3
   speedChange: 5
   target: {fileID: 0}
@@ -240,7 +244,7 @@ MonoBehaviour:
   gravityMult: 3
   lastVelocity: {x: 0, y: 0}
   attackAnim: {fileID: 7400000, guid: d7277d1b8dc740d4a8ddc2eb2941af66, type: 2}
-  anim: {fileID: 9500000}
+  anim: {fileID: 0}
   attackTime: 1
   attackDistance: 2
   randomTimer: 0
@@ -253,7 +257,7 @@ MonoBehaviour:
   jumpPower: 2
   pathFindingLayer:
     serializedVersion: 2
-    m_Bits: 4294840543
+    m_Bits: 4294447327
   chanceForRandomJump: .0500000007
 --- !u!114 &11400002
 MonoBehaviour:

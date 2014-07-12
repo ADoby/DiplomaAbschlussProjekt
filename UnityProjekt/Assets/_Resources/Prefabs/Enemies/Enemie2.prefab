@@ -209,12 +209,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ba754dcbb440d47be634101a76a826, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sendFurther: 0
+  reciever: {fileID: 0}
+  SpawnPool: 1
+  SpawnPoolName: Blood
   healthBar: {fileID: 11400002}
   Health: 50
   maxHealth: 0
   FloorCheckDistance: 1
   FloorCheckLength: .5
-  MyDamage: 1
+  MyDamage: 2
   maxSpeed: 3
   speedChange: 5
   target: {fileID: 0}
