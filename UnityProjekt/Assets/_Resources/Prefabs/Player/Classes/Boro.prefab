@@ -40,50 +40,61 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Boro
-  Description: Nothing
+  Description: Beschreibung
   Attributes:
   - Name: Health
-    Value: 30
+    Value: 100
     ValuePerLevel: 5
+    valueMultiply: 1
     ValuePerSkillPoint: 10
   - Name: Health Regen
-    Value: 1.4000001
+    Value: 1
     ValuePerLevel: .100000001
+    valueMultiply: 1
     ValuePerSkillPoint: .200000003
   - Name: Armor
-    Value: 18
+    Value: 10
     ValuePerLevel: 2
+    valueMultiply: 1
     ValuePerSkillPoint: 5
   - Name: Attack Speed
     Value: 1
     ValuePerLevel: .100000001
+    valueMultiply: 1
     ValuePerSkillPoint: .200000003
   - Name: Damage
-    Value: 18
+    Value: 10
     ValuePerLevel: 2
+    valueMultiply: 1
     ValuePerSkillPoint: 4
   - Name: Max Movement Speed
-    Value: 10.4000015
+    Value: 10
     ValuePerLevel: .100000001
+    valueMultiply: 1
     ValuePerSkillPoint: .200000003
   - Name: Movement Change
-    Value: 58
+    Value: 50
     ValuePerLevel: 2
+    valueMultiply: 1
     ValuePerSkillPoint: 4
   - Name: Jump Power
-    Value: 15.4000015
+    Value: 10
     ValuePerLevel: .100000001
+    valueMultiply: 1
     ValuePerSkillPoint: .200000003
   - Name: More Jump Power
-    Value: 5.79999924
+    Value: 5
     ValuePerLevel: .200000003
+    valueMultiply: 1
     ValuePerSkillPoint: .5
-  playerSkills:
-  - {fileID: 11400000, guid: e498e8fd35d281845b4cd1bfe62bc78f, type: 2}
-  - {fileID: 11400000, guid: 936cd7626d9574b4ab4e28b2d0636f21, type: 2}
-  - {fileID: 11400002, guid: ce2c3b18860fa114ca8613e5764c187f, type: 2}
-  - {fileID: 11400000, guid: 4138e676b74154142aded402a86090d6, type: 2}
-  Health: 30
+  - Name: Spell Vampire
+    Value: 0
+    ValuePerLevel: 0
+    valueMultiply: 1
+    ValuePerSkillPoint: .100000001
+  playerSkills: []
+  playerBuffs: []
+  Health: 0
   GravityMultiply: 2
   playerWidth: 1
   playerHeight: 2
@@ -92,7 +103,7 @@ MonoBehaviour:
   overrideVelocity: {x: 0, y: 0}
   skillPoints: 0
   damageImune: 0
-  classThumbnail: {fileID: 2800000, guid: 439b11fd04679434b82f36da01de32d9, type: 3}
+  classThumbnail: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

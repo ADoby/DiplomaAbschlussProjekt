@@ -63,7 +63,7 @@ public class PlayerClass : MonoBehaviour
 
     public Attribute[] Attributes =
     {
-        new Attribute("Health", 10f, 5f, 10f),
+        new Attribute("Health", 100f, 5f, 10f),
         new Attribute("Health Regen", 1f, 0.1f, 0.2f),
         new Attribute("Armor", 10f, 2f, 5f),
         new Attribute("Attack Speed", 1f, 0.1f, 0.2f),
@@ -135,13 +135,13 @@ public class PlayerClass : MonoBehaviour
     public bool SkillRunning { get { return (skillsRunning > 0); } }
 
     [Range(0f, 4f)]
-    public float GravityMultiply = 3.0f;
+    public float GravityMultiply = 2.0f;
 
     [Range(0.5f, 2.0f)]
-    public float playerWidth = 0.8f;
+    public float playerWidth = 1f;
 
     [Range(0.5f, 3f)]
-    public float playerHeight = 1f;
+    public float playerHeight = 2f;
 
     [Range(0.01f, 1.0f)]
     public float footHeight = 0.1f;

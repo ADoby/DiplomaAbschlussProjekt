@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
     #region Private Member
     private Animator _animator;
 
+    private bool jumping = false;
+
     public int Level { get; protected set; }
     public float CurrentExperience { get; protected set; }
     public Vector2 _currentVelocity;
@@ -289,13 +291,19 @@ public class PlayerController : MonoBehaviour
 
     private bool TryJump()
     {
-        if (InputController.GetDown(PlayerID() + JumpInput) && _currentVelocity.y <= 0 && PlayerClass.Jump(Grounded))
+        if (_currentVelocity.y < MinUpMotionForExtraJump)
+        {
+            jumping = false;
+        }
+
+        if (Grounded && !jumping && InputController.GetDown(PlayerID() + JumpInput) && PlayerClass.Jump(Grounded))
         {
             Jump();
+            jumping = true;
             return true;
         }
-        
-        if (InputController.GetDown(PlayerID() + JumpInput) && _currentVelocity.y > MinUpMotionForExtraJump)
+
+        if (jumping && InputController.GetDown(PlayerID() + JumpInput))
         {
             _currentVelocity.y += PlayerClass.GetAttributeValue(AttributeType.MOREJUMPPOWER) * Time.fixedDeltaTime;
             return true;
@@ -396,7 +404,7 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        _currentVelocity.y += PlayerClass.GetAttributeValue(AttributeType.JUMPPOWER);
+        _currentVelocity.y = PlayerClass.GetAttributeValue(AttributeType.JUMPPOWER);
     }
 
     private bool UseSkill(int skillID)
