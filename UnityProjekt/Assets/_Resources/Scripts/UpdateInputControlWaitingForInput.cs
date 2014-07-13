@@ -11,19 +11,36 @@ public class UpdateInputControlWaitingForInput : MonoBehaviour
     private string playerNumber = "";
     private string actionName = "";
 
+    private string inputString = "";
+
+    private bool playerInput = true;
+
+    private bool rebindSend = false;
+
     void Awake()
     {
         myUIRect = GetComponent<UIRect>();
     }
 
-    public void RebindKey(UIButton button, string action)
+    public void RebindKey(UIButton button, string action, bool playerInput = true)
     {
+        rebindSend = false;
         inputButton = button;
-        InputController.Instance.RebindKey(action);
+        this.playerInput = playerInput;
+        inputString = action;
 
-        string[] args = action.Split('_');
-        playerNumber = args[0];
-        actionName = args[1];
+        if (playerInput)
+        {
+            string[] args = action.Split('_');
+            playerNumber = args[0];
+            actionName = args[1];
+        }
+        else
+        {
+            playerNumber = "";
+            actionName = action;
+        }
+        
         
         DisabledUiRectRect.Enabled = false;
         myUIRect.Visible = true;
@@ -40,10 +57,10 @@ public class UpdateInputControlWaitingForInput : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-	    if (!myUIRect.Visible)
+	    if (!myUIRect.Visible || !rebindSend)
 	        return;
 
-	    if (Input.GetKeyDown(KeyCode.Escape))
+	    if (InputController.GetClicked("ESCAPE"))
 	    {
 	        InputController.Instance.CancelRebind();
 
@@ -53,11 +70,25 @@ public class UpdateInputControlWaitingForInput : MonoBehaviour
 	    {
             if (InputController.Instance.CheckForInput())
             {
-                inputButton.Text = "Player: " + playerNumber + " Action: " + actionName + "\n" + InputController.Instance.GetInfo(playerNumber + "_" + actionName).GetInfo();
-
+                if (playerInput)
+                {
+                    inputButton.Text = "Player: " + playerNumber + " Action: " + actionName + "\n" + InputController.Instance.GetInfo(playerNumber + "_" + actionName).GetInfo();
+                }
+                else
+                {
+                    inputButton.Text = "Action: " + actionName + "\n" + InputController.Instance.GetInfo(actionName).GetInfo();
+                }
                 ResetUI();
             }
 	    }
-	    
 	}
+
+    void LateUpdate()
+    {
+        if (myUIRect.Visible && !rebindSend)
+        {
+            InputController.Instance.RebindKey(inputString);
+            rebindSend = true;
+        }
+    }
 }

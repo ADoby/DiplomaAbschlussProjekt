@@ -9,12 +9,27 @@ public class UIText : UIRect
 
     public GUIStyle FontStyle;
 
+    private bool isInitialized = false;
+
+    private Color normalTextColor, hoverTextColor;
+
     public override void DrawMe()
     {
-        if (FontStyle == null)
-            FontStyle = new GUIStyle(GUI.skin.label);
+        if (!isInitialized)
+        {
+            if (FontStyle == null)
+                FontStyle = new GUIStyle(GUI.skin.label);
+
+            normalTextColor = FontStyle.normal.textColor;
+            hoverTextColor = FontStyle.hover.textColor;
+            isInitialized = true;
+        }
 
         FontStyle.fontSize = (int)(absoluteRect.height / (GUITools.MaxFontSize - fontSize));
+        if (forceHover)
+            FontStyle.normal.textColor = hoverTextColor;
+        else
+            FontStyle.normal.textColor = normalTextColor;
 
         GUI.Label(absoluteRect, Text, FontStyle);
     }

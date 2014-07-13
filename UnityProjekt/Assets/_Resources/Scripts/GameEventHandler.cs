@@ -18,6 +18,8 @@ public class GameEventHandler : MonoBehaviour {
     public static event GameEvent OnResume;
     public static event GameEvent Reset;
 
+    public static event GameEvent StopControllerMenu;
+
     public delegate void CoopEvent(PlayerController player, string message);
     public static event CoopEvent PlayerLeft;
     public static event CoopEvent PlayerJoined;
@@ -100,6 +102,14 @@ public class GameEventHandler : MonoBehaviour {
         if (EnemieSpawned != null)
         {
             EnemieSpawned(enemie);
+        }
+    }
+
+    public static void TriggerStopControllerMenu()
+    {
+        if (StopControllerMenu != null)
+        {
+            StopControllerMenu();
         }
     }
 }

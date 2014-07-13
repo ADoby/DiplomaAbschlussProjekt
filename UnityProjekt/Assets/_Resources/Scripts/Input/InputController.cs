@@ -50,6 +50,7 @@ public class InputInfo
     private float lastValue = 0f;
     private bool clicked = false;
 
+
     public void Update()
     {
         clicked = false;
@@ -238,12 +239,15 @@ public class InputController : MonoBehaviour{
 
     private InputInfo clickedInfo = null;
 
+    public bool ResetOnStart = false;
+
 	// Use this for initialization
 	void Awake () {
         Instance = this;
 
-        resetInfo = InputInfos.ToArray();
+        UpdateActionToInfo();
 
+        resetInfo = InputInfos.ToArray();
         if (PlayerPrefs.GetInt("InputCount") != 0)
         {
             LoadSavedInfos();
@@ -261,20 +265,28 @@ public class InputController : MonoBehaviour{
         UpdateSavedInfos();
     }
 
+    public void UpdateActionToInfo()
+    {
+        actionToInfo.Clear();
+        foreach (var item in InputInfos)
+        {
+            actionToInfo.Add(item.Action, item);
+        }
+    }
+
     public void LoadSavedInfos()
     {
-        InputInfos = new List<InputInfo>();
         int count = PlayerPrefs.GetInt("InputCount");
         for (int i = 0; i < count; i++)
         {
-            InputInfo input = new InputInfo();
-            input.Action = PlayerPrefs.GetString("Action" + i.ToString());
-            input.ActionType = (ActionType)PlayerPrefs.GetInt("ActionActionType" + i.ToString());
-            input.InputType = (InputType)PlayerPrefs.GetInt("ActionInputType" + i.ToString());
-            input.key = (KeyCode)PlayerPrefs.GetInt("ActionKey" + i.ToString());
-            input.mouseButtonID = PlayerPrefs.GetInt("ActionMouseButton" + i.ToString());
-            input.inputString = PlayerPrefs.GetString("ActionInputString" + i.ToString());
-            InputInfos.Add(input);
+            InputInfo info = GetInfo(PlayerPrefs.GetString("Action" + i.ToString()));
+            if (info != null)
+            {
+                info.InputType = (InputType)PlayerPrefs.GetInt("ActionInputType" + i.ToString());
+                info.key = (KeyCode)PlayerPrefs.GetInt("ActionKey" + i.ToString());
+                info.mouseButtonID = PlayerPrefs.GetInt("ActionMouseButton" + i.ToString());
+                info.inputString = PlayerPrefs.GetString("ActionInputString" + i.ToString());
+            }
         }
     }
 
@@ -282,14 +294,10 @@ public class InputController : MonoBehaviour{
     {
         PlayerPrefs.SetInt("InputCount", InputInfos.Count);
 
-        actionToInfo.Clear();
         int actionID = 0;
         foreach (var item in InputInfos)
         {
-            actionToInfo.Add(item.Action, item);
-
             PlayerPrefs.SetString("Action" + actionID.ToString(), item.Action);
-            PlayerPrefs.SetInt("ActionActionType" + actionID.ToString(), (int)item.ActionType);
             PlayerPrefs.SetInt("ActionInputType" + actionID.ToString(), (int)item.InputType);
             PlayerPrefs.SetInt("ActionKey" + actionID.ToString(), (int)item.key);
             PlayerPrefs.SetInt("ActionMouseButton" + actionID.ToString(), (int)item.mouseButtonID);
@@ -372,7 +380,7 @@ public class InputController : MonoBehaviour{
     {
         if (!actionToInfo.ContainsKey(action))
         {
-            throw new ArgumentOutOfRangeException("Action " + action + " not found!");
+            return null;
         }
         return actionToInfo[action];
     }

@@ -53,6 +53,7 @@ public class EnemieController : HitAble {
 
     public void OnResume()
     {
+        rigidbody2D.isKinematic = false;
         rigidbody2D.velocity = lastVelocity;
     }
 
@@ -60,6 +61,7 @@ public class EnemieController : HitAble {
     {
         lastVelocity = rigidbody2D.velocity;
         rigidbody2D.velocity = Vector2.zero;
+        rigidbody2D.isKinematic = true;
     }
 
     public void MoneySpawned(GameObject go)
@@ -230,11 +232,9 @@ public class EnemieController : HitAble {
     void FixedUpdate()
     {
         if (GameManager.Instance.GamePaused)
-        {
-
             return;
-        }
-            
+
+        rigidbody2D.velocity += Physics2D.gravity * Time.fixedDeltaTime;
 
         rigidbody2D.velocity = new Vector2(currentSpeed, rigidbody2D.velocity.y);
     }

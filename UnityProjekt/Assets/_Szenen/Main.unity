@@ -291,10 +291,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 824.5
-    y: 496.859985
-    width: 140.649994
-    height: 43.6800041
+    x: 661.300049
+    y: 398.580017
+    width: 112.809998
+    height: 35.0400009
   parent: {fileID: 2110167300}
   children: []
   ChildCount: 0
@@ -350,7 +350,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 17
+    m_FontSize: 14
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -744,7 +744,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 9
+  m_RootOrder: 17
 --- !u!61 &36667956
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2944,10 +2944,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 242.575989
-    y: 159.814163
-    width: 286.649994
-    height: 22.1130009
+    x: 194.527985
+    y: 128.202576
+    width: 229.950012
+    height: 17.7390003
   parent: {fileID: 520547854}
   children: []
   ChildCount: 0
@@ -2960,7 +2960,7 @@ MonoBehaviour:
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_TextColor: {r: 1, g: .617647052, b: .617647052, a: 1}
     m_Active:
       m_Background: {fileID: 0}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
@@ -3000,7 +3000,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 11
+    m_FontSize: 8
     m_FontStyle: 0
     m_Alignment: 0
     m_WordWrap: 1
@@ -3749,10 +3749,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 216
-    y: 139.839996
-    width: 108
-    height: 27.3599987
+    x: 296.399994
+    y: 191.820007
+    width: 148.199997
+    height: 37.5299988
   parent: {fileID: 1974104217}
   children: []
   ChildCount: 0
@@ -3808,7 +3808,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 10
+    m_FontSize: 15
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -4712,8 +4712,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 698
-    height: 393
+    width: 778
+    height: 438
   parent: {fileID: 1196208426}
   children:
   - {fileID: 1373494806}
@@ -5271,10 +5271,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 157.399994
-    y: 125.579971
-    width: 655.200012
-    height: 32.7600021
+    x: 126.199982
+    y: 100.739975
+    width: 525.600037
+    height: 26.2800026
   parent: {fileID: 537064885}
   children:
   - {fileID: 984513047}
@@ -5773,10 +5773,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 157.399994
-    y: 232.049957
-    width: 81.9000015
-    height: 73.7099991
+    x: 126.199982
+    y: 186.149979
+    width: 65.7000046
+    height: 59.1300011
   parent: {fileID: 891592285}
   children: []
   ChildCount: 0
@@ -6038,6 +6038,147 @@ SpriteRenderer:
   m_SortingOrder: 13
   m_Sprite: {fileID: 21300014, guid: 3ae48280cbd068447b40ce5b2e92d421, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &282410031
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 282410033}
+  - 114: {fileID: 282410032}
+  - 114: {fileID: 282410034}
+  m_Layer: 0
+  m_Name: UIButton_SKILLMENU
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &282410032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 282410031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da241933b8bd284fb657d4dc710dd4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identifier: 697cd681-4a4f-436a-b9b0-8a723be3b1f3
+  Visible: 1
+  Enabled: 1
+  ShowBackground: 0
+  RelativePosition: {x: .800000012, y: 0}
+  AbsolutePosition: {x: 0, y: 0}
+  RelativeSize: {x: .200000003, y: 1}
+  RelativeWidthBasedOnHeight: 0
+  AbsoluteSize: {x: 0, y: 0}
+  HorizontalAnchor: 0
+  VerticalAnchor: 0
+  HorizontalAlignment: 0
+  VerticalAlignment: 0
+  absoluteRect:
+    serializedVersion: 2
+    x: 559.820007
+    y: 372.847473
+    width: 113.879997
+    height: 21.352499
+  parent: {fileID: 544527124}
+  children: []
+  ChildCount: 0
+  Text: 'Player 1, LEFT, Key: A'
+  Callback:
+    MessageReciever: {fileID: 1145457062}
+    MethodName: StartWaitingForInput
+  fontSize: 7
+  ButtonStyle:
+    m_Name: button
+    m_Normal:
+      m_Background: {fileID: 2800000, guid: f9faaf9212010db4fb759604302998c0, type: 3}
+      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+    m_Hover:
+      m_Background: {fileID: 2800000, guid: ee938bf6d943c7b46be0b29eecb383cb, type: 3}
+      m_TextColor: {r: .654411793, g: .654411793, b: .654411793, a: 1}
+    m_Active:
+      m_Background: {fileID: 2800000, guid: d6c1bb7cff8fb5643b6b00e63de71aa3, type: 3}
+      m_TextColor: {r: .764908671, g: 1, b: .720588207, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 0}
+      m_TextColor: {r: .90196079, g: .90196079, b: .90196079, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 11004, guid: 0000000000000000e000000000000000, type: 0}
+      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 0}
+      m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 6
+      m_Right: 6
+      m_Top: 6
+      m_Bottom: 4
+    m_Margin:
+      m_Left: 4
+      m_Right: 4
+      m_Top: 4
+      m_Bottom: 4
+    m_Padding:
+      m_Left: 6
+      m_Right: 6
+      m_Top: 3
+      m_Bottom: 3
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
+    m_FontSize: 7
+    m_FontStyle: 0
+    m_Alignment: 3
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 1
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
+--- !u!4 &282410033
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 282410031}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1000, y: 1000, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 544527125}
+  m_RootOrder: 4
+--- !u!114 &282410034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 282410031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30d2c0a1590314c428b0edeaeb53dc38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInput: 0
+  playerNumber: 1
+  actionName: MENUSELECT
+  WaitForInputGameObject: {fileID: 1145457065}
 --- !u!1 &286272065
 GameObject:
   m_ObjectHideFlags: 0
@@ -6346,10 +6487,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 221.274994
-    y: 146.146881
-    width: 127.724998
-    height: 15.9656248
+    x: 246.650009
+    y: 162.881256
+    width: 142.349991
+    height: 17.7937489
   parent: {fileID: 704425842}
   children: []
   ChildCount: 0
@@ -6440,6 +6581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d2c0a1590314c428b0edeaeb53dc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInput: 1
   playerNumber: 2
   actionName: JUMP
   WaitForInputGameObject: {fileID: 1145457065}
@@ -6688,10 +6830,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 242.575989
-    y: 232.049957
-    width: 286.649994
-    height: 73.7099991
+    x: 194.527985
+    y: 186.149979
+    width: 229.950012
+    height: 59.1300011
   parent: {fileID: 891592285}
   children:
   - {fileID: 2005015971}
@@ -6827,10 +6969,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 648.800049
-    y: 125.579971
-    width: 163.800003
-    height: 32.7600021
+    x: 520.400024
+    y: 100.739975
+    width: 131.400009
+    height: 26.2800026
   parent: {fileID: 246998729}
   children: []
   ChildCount: 0
@@ -6886,7 +7028,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 10
+    m_FontSize: 8
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -7434,6 +7576,147 @@ SpriteRenderer:
   m_SortingOrder: 12
   m_Sprite: {fileID: 21300000, guid: 3ae48280cbd068447b40ce5b2e92d421, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &333068284
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 333068286}
+  - 114: {fileID: 333068285}
+  - 114: {fileID: 333068287}
+  m_Layer: 0
+  m_Name: UIButton_SKILLMENU
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &333068285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 333068284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da241933b8bd284fb657d4dc710dd4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identifier: 697cd681-4a4f-436a-b9b0-8a723be3b1f3
+  Visible: 1
+  Enabled: 1
+  ShowBackground: 0
+  RelativePosition: {x: .400000006, y: 0}
+  AbsolutePosition: {x: 0, y: 0}
+  RelativeSize: {x: .200000003, y: 1}
+  RelativeWidthBasedOnHeight: 0
+  AbsoluteSize: {x: 0, y: 0}
+  HorizontalAnchor: 0
+  VerticalAnchor: 0
+  HorizontalAlignment: 0
+  VerticalAlignment: 0
+  absoluteRect:
+    serializedVersion: 2
+    x: 332.059998
+    y: 372.847473
+    width: 113.879997
+    height: 21.352499
+  parent: {fileID: 544527124}
+  children: []
+  ChildCount: 0
+  Text: 'Player 1, LEFT, Key: A'
+  Callback:
+    MessageReciever: {fileID: 1145457062}
+    MethodName: StartWaitingForInput
+  fontSize: 7
+  ButtonStyle:
+    m_Name: button
+    m_Normal:
+      m_Background: {fileID: 2800000, guid: f9faaf9212010db4fb759604302998c0, type: 3}
+      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+    m_Hover:
+      m_Background: {fileID: 2800000, guid: ee938bf6d943c7b46be0b29eecb383cb, type: 3}
+      m_TextColor: {r: .654411793, g: .654411793, b: .654411793, a: 1}
+    m_Active:
+      m_Background: {fileID: 2800000, guid: d6c1bb7cff8fb5643b6b00e63de71aa3, type: 3}
+      m_TextColor: {r: .764908671, g: 1, b: .720588207, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 0}
+      m_TextColor: {r: .90196079, g: .90196079, b: .90196079, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 11004, guid: 0000000000000000e000000000000000, type: 0}
+      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 0}
+      m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 6
+      m_Right: 6
+      m_Top: 6
+      m_Bottom: 4
+    m_Margin:
+      m_Left: 4
+      m_Right: 4
+      m_Top: 4
+      m_Bottom: 4
+    m_Padding:
+      m_Left: 6
+      m_Right: 6
+      m_Top: 3
+      m_Bottom: 3
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
+    m_FontSize: 7
+    m_FontStyle: 0
+    m_Alignment: 3
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 1
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
+--- !u!4 &333068286
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 333068284}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1000, y: 1000, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 544527125}
+  m_RootOrder: 2
+--- !u!114 &333068287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 333068284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30d2c0a1590314c428b0edeaeb53dc38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInput: 0
+  playerNumber: 1
+  actionName: MENULEFT
+  WaitForInputGameObject: {fileID: 1145457065}
 --- !u!1 &339408784
 GameObject:
   m_ObjectHideFlags: 0
@@ -7726,7 +8009,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 14
+  m_RootOrder: 22
 --- !u!61 &346117940
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7887,6 +8170,147 @@ SpriteRenderer:
   m_SortingOrder: 12
   m_Sprite: {fileID: 21300020, guid: 3ae48280cbd068447b40ce5b2e92d421, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &349474910
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 349474912}
+  - 114: {fileID: 349474911}
+  - 114: {fileID: 349474913}
+  m_Layer: 0
+  m_Name: UIButton_SKILLMENU
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &349474911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 349474910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da241933b8bd284fb657d4dc710dd4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identifier: 697cd681-4a4f-436a-b9b0-8a723be3b1f3
+  Visible: 1
+  Enabled: 1
+  ShowBackground: 0
+  RelativePosition: {x: 0, y: 0}
+  AbsolutePosition: {x: 0, y: 0}
+  RelativeSize: {x: .200000003, y: 1}
+  RelativeWidthBasedOnHeight: 0
+  AbsoluteSize: {x: 0, y: 0}
+  HorizontalAnchor: 0
+  VerticalAnchor: 0
+  HorizontalAlignment: 0
+  VerticalAlignment: 0
+  absoluteRect:
+    serializedVersion: 2
+    x: 104.300018
+    y: 372.847473
+    width: 113.879997
+    height: 21.352499
+  parent: {fileID: 544527124}
+  children: []
+  ChildCount: 0
+  Text: 'Player 1, LEFT, Key: A'
+  Callback:
+    MessageReciever: {fileID: 1145457062}
+    MethodName: StartWaitingForInput
+  fontSize: 7
+  ButtonStyle:
+    m_Name: button
+    m_Normal:
+      m_Background: {fileID: 2800000, guid: f9faaf9212010db4fb759604302998c0, type: 3}
+      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+    m_Hover:
+      m_Background: {fileID: 2800000, guid: ee938bf6d943c7b46be0b29eecb383cb, type: 3}
+      m_TextColor: {r: .654411793, g: .654411793, b: .654411793, a: 1}
+    m_Active:
+      m_Background: {fileID: 2800000, guid: d6c1bb7cff8fb5643b6b00e63de71aa3, type: 3}
+      m_TextColor: {r: .764908671, g: 1, b: .720588207, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 0}
+      m_TextColor: {r: .90196079, g: .90196079, b: .90196079, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 11004, guid: 0000000000000000e000000000000000, type: 0}
+      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 0}
+      m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 6
+      m_Right: 6
+      m_Top: 6
+      m_Bottom: 4
+    m_Margin:
+      m_Left: 4
+      m_Right: 4
+      m_Top: 4
+      m_Bottom: 4
+    m_Padding:
+      m_Left: 6
+      m_Right: 6
+      m_Top: 3
+      m_Bottom: 3
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
+    m_FontSize: 7
+    m_FontStyle: 0
+    m_Alignment: 3
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 1
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
+--- !u!4 &349474912
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 349474910}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1000, y: 1000, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 544527125}
+  m_RootOrder: 0
+--- !u!114 &349474913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 349474910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30d2c0a1590314c428b0edeaeb53dc38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInput: 0
+  playerNumber: 1
+  actionName: MENUUP
+  WaitForInputGameObject: {fileID: 1145457065}
 --- !u!1001 &352938044
 Prefab:
   m_ObjectHideFlags: 0
@@ -8169,7 +8593,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 27
+  m_RootOrder: 6
 --- !u!61 &371143118
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8233,7 +8657,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 23
+  m_RootOrder: 2
 --- !u!61 &374994554
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8537,6 +8961,147 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 1620215870}
   change: 5
+--- !u!1 &389111073
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 389111075}
+  - 114: {fileID: 389111074}
+  - 114: {fileID: 389111076}
+  m_Layer: 0
+  m_Name: UIButton_SKILLMENU
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &389111074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 389111073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da241933b8bd284fb657d4dc710dd4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identifier: 697cd681-4a4f-436a-b9b0-8a723be3b1f3
+  Visible: 1
+  Enabled: 1
+  ShowBackground: 0
+  RelativePosition: {x: .200000003, y: 0}
+  AbsolutePosition: {x: 0, y: 0}
+  RelativeSize: {x: .200000003, y: 1}
+  RelativeWidthBasedOnHeight: 0
+  AbsoluteSize: {x: 0, y: 0}
+  HorizontalAnchor: 0
+  VerticalAnchor: 0
+  HorizontalAlignment: 0
+  VerticalAlignment: 0
+  absoluteRect:
+    serializedVersion: 2
+    x: 218.180023
+    y: 372.847473
+    width: 113.879997
+    height: 21.352499
+  parent: {fileID: 544527124}
+  children: []
+  ChildCount: 0
+  Text: 'Player 1, LEFT, Key: A'
+  Callback:
+    MessageReciever: {fileID: 1145457062}
+    MethodName: StartWaitingForInput
+  fontSize: 7
+  ButtonStyle:
+    m_Name: button
+    m_Normal:
+      m_Background: {fileID: 2800000, guid: f9faaf9212010db4fb759604302998c0, type: 3}
+      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+    m_Hover:
+      m_Background: {fileID: 2800000, guid: ee938bf6d943c7b46be0b29eecb383cb, type: 3}
+      m_TextColor: {r: .654411793, g: .654411793, b: .654411793, a: 1}
+    m_Active:
+      m_Background: {fileID: 2800000, guid: d6c1bb7cff8fb5643b6b00e63de71aa3, type: 3}
+      m_TextColor: {r: .764908671, g: 1, b: .720588207, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 0}
+      m_TextColor: {r: .90196079, g: .90196079, b: .90196079, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 11004, guid: 0000000000000000e000000000000000, type: 0}
+      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 0}
+      m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 6
+      m_Right: 6
+      m_Top: 6
+      m_Bottom: 4
+    m_Margin:
+      m_Left: 4
+      m_Right: 4
+      m_Top: 4
+      m_Bottom: 4
+    m_Padding:
+      m_Left: 6
+      m_Right: 6
+      m_Top: 3
+      m_Bottom: 3
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
+    m_FontSize: 7
+    m_FontStyle: 0
+    m_Alignment: 3
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 1
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
+--- !u!4 &389111075
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 389111073}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1000, y: 1000, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 544527125}
+  m_RootOrder: 1
+--- !u!114 &389111076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 389111073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30d2c0a1590314c428b0edeaeb53dc38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInput: 0
+  playerNumber: 1
+  actionName: MENUDOWN
+  WaitForInputGameObject: {fileID: 1145457065}
 --- !u!1 &405271351
 GameObject:
   m_ObjectHideFlags: 0
@@ -8764,7 +9329,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 20
+  m_RootOrder: 28
 --- !u!61 &413067976
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9150,10 +9715,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 157.399994
-    y: 158.339966
-    width: 655.200012
-    height: 73.7099991
+    x: 126.199982
+    y: 127.019974
+    width: 525.600037
+    height: 59.1300011
   parent: {fileID: 1774546690}
   children:
   - {fileID: 1889536205}
@@ -9212,7 +9777,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 8
+    m_FontSize: 6
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -9416,10 +9981,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 349
-    y: 66.8099976
-    width: 257.90625
-    height: 29.4750004
+    x: 389
+    y: 74.4599991
+    width: 287.437531
+    height: 32.8500023
   parent: {fileID: 1373494806}
   children: []
   ChildCount: 0
@@ -9475,7 +10040,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 14
+    m_FontSize: 16
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -10103,10 +10668,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 242.575989
-    y: 250.477463
-    width: 286.649994
-    height: 51.5970001
+    x: 194.527985
+    y: 200.93248
+    width: 229.950012
+    height: 41.3909988
   parent: {fileID: 302417465}
   children: []
   ChildCount: 0
@@ -10123,7 +10688,7 @@ MonoBehaviour:
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_TextColor: {r: 1, g: .617647052, b: .617647052, a: 1}
     m_Active:
       m_Background: {fileID: 0}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
@@ -10163,7 +10728,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 8
+    m_FontSize: 6
     m_FontStyle: 0
     m_Alignment: 0
     m_WordWrap: 1
@@ -10231,9 +10796,9 @@ MonoBehaviour:
   absoluteRect:
     serializedVersion: 2
     x: 0
-    y: 353.700012
-    width: 698
-    height: 39.2999992
+    y: 394.200012
+    width: 778
+    height: 43.7999992
   parent: {fileID: 226484827}
   children:
   - {fileID: 1748996641}
@@ -10896,7 +11461,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 13
+  m_RootOrder: 21
 --- !u!61 &507496564
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10960,7 +11525,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 18
+  m_RootOrder: 26
 --- !u!61 &508591215
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11163,10 +11728,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 242.575989
-    y: 158.339966
-    width: 286.649994
-    height: 73.7099991
+    x: 194.527985
+    y: 127.019974
+    width: 229.950012
+    height: 59.1300011
   parent: {fileID: 437681295}
   children:
   - {fileID: 172333930}
@@ -11418,10 +11983,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 93.5500031
-    y: 98.25
-    width: 127.724998
-    height: 15.9656248
+    x: 104.300018
+    y: 109.5
+    width: 142.349991
+    height: 17.7937489
   parent: {fileID: 632376291}
   children: []
   ChildCount: 0
@@ -11500,6 +12065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d2c0a1590314c428b0edeaeb53dc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInput: 1
   playerNumber: 1
   actionName: LEFT
   WaitForInputGameObject: {fileID: 1145457065}
@@ -11685,10 +12251,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 157.399994
-    y: 125.579971
-    width: 655.200012
-    height: 327.600006
+    x: 126.199982
+    y: 100.739975
+    width: 525.600037
+    height: 262.800018
   parent: {fileID: 931791364}
   children:
   - {fileID: 246998729}
@@ -11755,6 +12321,138 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+--- !u!1 &544527123
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 544527125}
+  - 114: {fileID: 544527124}
+  m_Layer: 0
+  m_Name: UIPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &544527124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 544527123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6227c02e43a7f4dba299c99c285584, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identifier: fffc73af-10c5-4fcd-999d-1087c48e222e
+  Visible: 1
+  Enabled: 1
+  ShowBackground: 0
+  RelativePosition: {x: 0, y: 0}
+  AbsolutePosition: {x: 0, y: 0}
+  RelativeSize: {x: 1, y: .075000003}
+  RelativeWidthBasedOnHeight: 0
+  AbsoluteSize: {x: 0, y: 0}
+  HorizontalAnchor: 0
+  VerticalAnchor: 2
+  HorizontalAlignment: 0
+  VerticalAlignment: 2
+  absoluteRect:
+    serializedVersion: 2
+    x: 104.300018
+    y: 372.847473
+    width: 569.399963
+    height: 21.352499
+  parent: {fileID: 1376198153}
+  children:
+  - {fileID: 349474911}
+  - {fileID: 389111074}
+  - {fileID: 333068285}
+  - {fileID: 1411698919}
+  - {fileID: 282410032}
+  ChildCount: 5
+  ShowBox: 1
+  content: 
+  BoxStyle:
+    m_Name: box
+    m_Normal:
+      m_Background: {fileID: 11001, guid: 0000000000000000e000000000000000, type: 0}
+      m_TextColor: {r: .799999952, g: .799999952, b: .799999952, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Active:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 6
+      m_Right: 6
+      m_Top: 6
+      m_Bottom: 6
+    m_Margin:
+      m_Left: 4
+      m_Right: 4
+      m_Top: 4
+      m_Bottom: 4
+    m_Padding:
+      m_Left: 4
+      m_Right: 4
+      m_Top: 4
+      m_Bottom: 4
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 0}
+    m_FontSize: 0
+    m_FontStyle: 0
+    m_Alignment: 1
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 1
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
+--- !u!4 &544527125
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 544527123}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1000, y: -1000, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 349474912}
+  - {fileID: 389111075}
+  - {fileID: 333068286}
+  - {fileID: 1411698920}
+  - {fileID: 282410033}
+  m_Father: {fileID: 1376198152}
+  m_RootOrder: 2
 --- !u!1 &555893240
 GameObject:
   m_ObjectHideFlags: 0
@@ -12078,7 +12776,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 0
+  m_RootOrder: 8
 --- !u!61 &563843917
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12305,10 +13003,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 216
-    y: 173.279999
-    width: 108
-    height: 27.3599987
+    x: 296.399994
+    y: 237.690002
+    width: 148.199997
+    height: 37.5299988
   parent: {fileID: 1974104217}
   children: []
   ChildCount: 0
@@ -12364,7 +13062,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 10
+    m_FontSize: 15
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -13437,7 +14135,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 2
+  m_RootOrder: 10
 --- !u!1 &614243603
 GameObject:
   m_ObjectHideFlags: 0
@@ -13806,10 +14504,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 93.5500031
-    y: 98.25
-    width: 127.724998
-    height: 255.449997
+    x: 104.300018
+    y: 109.5
+    width: 142.349991
+    height: 284.699982
   parent: {fileID: 1376198153}
   children:
   - {fileID: 530616074}
@@ -14152,7 +14850,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 12
+  m_RootOrder: 20
 --- !u!61 &645975084
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14268,7 +14966,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 26
+  m_RootOrder: 5
 --- !u!61 &649714375
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14944,6 +15642,36 @@ MonoBehaviour:
     key: 102
     mouseButtonID: 0
     inputString: 
+  - Action: MENUUP
+    ActionType: 0
+    InputType: 0
+    key: 273
+    mouseButtonID: 0
+    inputString: 
+  - Action: MENUDOWN
+    ActionType: 0
+    InputType: 0
+    key: 274
+    mouseButtonID: 0
+    inputString: 
+  - Action: MENURIGHT
+    ActionType: 0
+    InputType: 0
+    key: 275
+    mouseButtonID: 0
+    inputString: 
+  - Action: MENULEFT
+    ActionType: 0
+    InputType: 0
+    key: 276
+    mouseButtonID: 0
+    inputString: 
+  - Action: MENUSELECT
+    ActionType: 0
+    InputType: 0
+    key: 13
+    mouseButtonID: 0
+    inputString: 
   unityButtonInputs: []
   unityAxisInputs:
   - Mouse ScrollWheel
@@ -14959,6 +15687,7 @@ MonoBehaviour:
   - R_YAxis_2
   - TriggersL_2
   - TriggersR_2
+  ResetOnStart: 0
 --- !u!4 &675760613
 Transform:
   m_ObjectHideFlags: 0
@@ -15215,10 +15944,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 216
-    y: 104.879997
-    width: 108
-    height: 27.3599987
+    x: 296.399994
+    y: 143.86499
+    width: 148.199997
+    height: 37.5299988
   parent: {fileID: 1974104217}
   children: []
   ChildCount: 0
@@ -15274,7 +16003,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 10
+    m_FontSize: 15
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -15542,10 +16271,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 221.274994
-    y: 98.25
-    width: 127.724998
-    height: 255.449997
+    x: 246.650009
+    y: 109.5
+    width: 142.349991
+    height: 284.699982
   parent: {fileID: 1376198153}
   children:
   - {fileID: 804110581}
@@ -16017,10 +16746,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 93.5500031
-    y: 194.043747
-    width: 127.724998
-    height: 15.9656248
+    x: 104.300018
+    y: 216.262497
+    width: 142.349991
+    height: 17.7937489
   parent: {fileID: 632376291}
   children: []
   ChildCount: 0
@@ -16111,6 +16840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d2c0a1590314c428b0edeaeb53dc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInput: 1
   playerNumber: 1
   actionName: SKILL3
   WaitForInputGameObject: {fileID: 1145457065}
@@ -16392,10 +17122,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 242.575989
-    y: 176.767471
-    width: 286.649994
-    height: 51.5970001
+    x: 194.527985
+    y: 141.802475
+    width: 229.950012
+    height: 41.3909988
   parent: {fileID: 520547854}
   children: []
   ChildCount: 0
@@ -16409,7 +17139,7 @@ MonoBehaviour:
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_TextColor: {r: 1, g: .617647052, b: .617647052, a: 1}
     m_Active:
       m_Background: {fileID: 0}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
@@ -16449,7 +17179,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 8
+    m_FontSize: 6
     m_FontStyle: 0
     m_Alignment: 0
     m_WordWrap: 1
@@ -17388,10 +18118,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 221.274994
-    y: 162.112503
-    width: 127.724998
-    height: 15.9656248
+    x: 246.650009
+    y: 180.674988
+    width: 142.349991
+    height: 17.7937489
   parent: {fileID: 704425842}
   children: []
   ChildCount: 0
@@ -17482,6 +18212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d2c0a1590314c428b0edeaeb53dc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInput: 1
   playerNumber: 2
   actionName: SKILL1
   WaitForInputGameObject: {fileID: 1145457065}
@@ -17528,10 +18259,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 221.274994
-    y: 98.25
-    width: 127.724998
-    height: 15.9656248
+    x: 246.650009
+    y: 109.5
+    width: 142.349991
+    height: 17.7937489
   parent: {fileID: 704425842}
   children: []
   ChildCount: 0
@@ -17622,6 +18353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d2c0a1590314c428b0edeaeb53dc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInput: 1
   playerNumber: 2
   actionName: LEFT
   WaitForInputGameObject: {fileID: 1145457065}
@@ -18234,10 +18966,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 93.5500031
-    y: 210.009369
-    width: 127.724998
-    height: 15.9656248
+    x: 104.300018
+    y: 234.056244
+    width: 142.349991
+    height: 17.7937489
   parent: {fileID: 632376291}
   children: []
   ChildCount: 0
@@ -18328,6 +19060,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d2c0a1590314c428b0edeaeb53dc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInput: 1
   playerNumber: 1
   actionName: SKILL4
   WaitForInputGameObject: {fileID: 1145457065}
@@ -18373,10 +19106,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 93.5500031
-    y: 98.25
-    width: 510.899994
-    height: 255.449997
+    x: 104.300018
+    y: 109.5
+    width: 569.399963
+    height: 284.699982
   parent: {fileID: 226484827}
   children: []
   ChildCount: 0
@@ -19336,7 +20069,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 16
+  m_RootOrder: 24
 --- !u!61 &863265999
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20009,10 +20742,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 157.399994
-    y: 232.049957
-    width: 655.200012
-    height: 73.7099991
+    x: 126.199982
+    y: 186.149979
+    width: 525.600037
+    height: 59.1300011
   parent: {fileID: 1774546690}
   children:
   - {fileID: 262448735}
@@ -20071,7 +20804,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 8
+    m_FontSize: 6
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -20150,10 +20883,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 485
-    y: 125.579971
-    width: 163.800003
-    height: 32.7600021
+    x: 389
+    y: 100.739975
+    width: 131.400009
+    height: 26.2800026
   parent: {fileID: 246998729}
   children: []
   ChildCount: 0
@@ -20209,7 +20942,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 10
+    m_FontSize: 8
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -20452,10 +21185,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 221.274994
-    y: 194.043747
-    width: 127.724998
-    height: 15.9656248
+    x: 246.650009
+    y: 216.262497
+    width: 142.349991
+    height: 17.7937489
   parent: {fileID: 704425842}
   children: []
   ChildCount: 0
@@ -20546,6 +21279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d2c0a1590314c428b0edeaeb53dc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInput: 1
   playerNumber: 2
   actionName: SKILL3
   WaitForInputGameObject: {fileID: 1145457065}
@@ -21119,6 +21853,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 931791363}
   - 114: {fileID: 931791364}
+  - 114: {fileID: 931791365}
   m_Layer: 0
   m_Name: UIEditorPanel_PlayerSelect
   m_TagString: Untagged
@@ -21168,8 +21903,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 970
-    height: 546
+    width: 778
+    height: 438
   parent: {fileID: 0}
   children:
   - {fileID: 537064885}
@@ -21236,6 +21971,30 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+--- !u!114 &931791365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 931791362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a404ad4caf32aa4bb6da939b30a958e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lines:
+  - buttons:
+    - {fileID: 984513047}
+    - {fileID: 954563701}
+    - {fileID: 893137506}
+    - {fileID: 302877475}
+  - buttons:
+    - {fileID: 437681295}
+  - buttons:
+    - {fileID: 891592285}
+  - buttons:
+    - {fileID: 1666083299}
+    - {fileID: 14530760}
 --- !u!1 &932432568
 GameObject:
   m_ObjectHideFlags: 0
@@ -21364,10 +22123,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 221.274994
-    y: 210.009369
-    width: 127.724998
-    height: 15.9656248
+    x: 246.650009
+    y: 251.849991
+    width: 142.349991
+    height: 17.7937489
   parent: {fileID: 704425842}
   children: []
   ChildCount: 0
@@ -21446,6 +22205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d2c0a1590314c428b0edeaeb53dc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInput: 1
   playerNumber: 2
   actionName: SKILLMENU
   WaitForInputGameObject: {fileID: 1145457065}
@@ -21477,7 +22237,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 10
+  m_RootOrder: 18
 --- !u!61 &948311249
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21568,10 +22328,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 321.200012
-    y: 125.579971
-    width: 163.800003
-    height: 32.7600021
+    x: 257.599976
+    y: 100.739975
+    width: 131.400009
+    height: 26.2800026
   parent: {fileID: 246998729}
   children: []
   ChildCount: 0
@@ -21627,7 +22387,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 10
+    m_FontSize: 8
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -21857,7 +22617,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 4
+  m_RootOrder: 12
 --- !u!61 &959342697
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22220,10 +22980,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 157.399994
-    y: 125.579971
-    width: 163.800003
-    height: 32.7600021
+    x: 126.199982
+    y: 100.739975
+    width: 131.400009
+    height: 26.2800026
   parent: {fileID: 246998729}
   children: []
   ChildCount: 0
@@ -22279,7 +23039,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 10
+    m_FontSize: 8
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -22419,10 +23179,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 93.5500031
-    y: 146.146881
-    width: 127.724998
-    height: 15.9656248
+    x: 104.300018
+    y: 162.881256
+    width: 142.349991
+    height: 17.7937489
   parent: {fileID: 632376291}
   children: []
   ChildCount: 0
@@ -22513,6 +23273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d2c0a1590314c428b0edeaeb53dc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInput: 1
   playerNumber: 1
   actionName: JUMP
   WaitForInputGameObject: {fileID: 1145457065}
@@ -23142,10 +23903,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 221.274994
-    y: 130.181244
-    width: 127.724998
-    height: 15.9656248
+    x: 246.650009
+    y: 145.087494
+    width: 142.349991
+    height: 17.7937489
   parent: {fileID: 704425842}
   children: []
   ChildCount: 0
@@ -23236,6 +23997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d2c0a1590314c428b0edeaeb53dc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInput: 1
   playerNumber: 2
   actionName: CROUCH
   WaitForInputGameObject: {fileID: 1145457065}
@@ -24436,10 +25198,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 93.5500031
-    y: 210.009369
-    width: 127.724998
-    height: 15.9656248
+    x: 104.300018
+    y: 251.849991
+    width: 142.349991
+    height: 17.7937489
   parent: {fileID: 632376291}
   children: []
   ChildCount: 0
@@ -24518,6 +25280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d2c0a1590314c428b0edeaeb53dc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInput: 1
   playerNumber: 1
   actionName: SKILLMENU
   WaitForInputGameObject: {fileID: 1145457065}
@@ -24691,7 +25454,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 15
+  m_RootOrder: 23
 --- !u!61 &1110723635
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24974,7 +25737,7 @@ Transform:
   m_LocalScale: {x: .896549046, y: .896548569, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 19
+  m_RootOrder: 27
 --- !u!61 &1122077916
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25700,8 +26463,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 698
-    height: 393
+    width: 778
+    height: 438
   parent: {fileID: 1196208426}
   children:
   - {fileID: 89286404}
@@ -26517,10 +27280,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 93.5500031
-    y: 162.112503
-    width: 127.724998
-    height: 15.9656248
+    x: 104.300018
+    y: 180.674988
+    width: 142.349991
+    height: 17.7937489
   parent: {fileID: 632376291}
   children: []
   ChildCount: 0
@@ -26611,6 +27374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d2c0a1590314c428b0edeaeb53dc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInput: 1
   playerNumber: 1
   actionName: SKILL1
   WaitForInputGameObject: {fileID: 1145457065}
@@ -27041,6 +27805,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1196208425}
   - 114: {fileID: 1196208426}
+  - 114: {fileID: 1196208427}
   m_Layer: 0
   m_Name: UIEditorPanel_Settings
   m_TagString: Untagged
@@ -27090,8 +27855,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 698
-    height: 393
+    width: 778
+    height: 438
   parent: {fileID: 0}
   children:
   - {fileID: 226484827}
@@ -27158,6 +27923,56 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+--- !u!114 &1196208427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1196208424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a404ad4caf32aa4bb6da939b30a958e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lines:
+  - buttons:
+    - {fileID: 1385661501}
+    - {fileID: 444336468}
+  - buttons:
+    - {fileID: 530616074}
+    - {fileID: 804110581}
+  - buttons:
+    - {fileID: 1362913460}
+    - {fileID: 1409602762}
+  - buttons:
+    - {fileID: 2090605815}
+    - {fileID: 1050532216}
+  - buttons:
+    - {fileID: 998559623}
+    - {fileID: 292964223}
+  - buttons:
+    - {fileID: 1176669907}
+    - {fileID: 803916309}
+  - buttons:
+    - {fileID: 1670425826}
+    - {fileID: 2142651441}
+  - buttons:
+    - {fileID: 745798405}
+    - {fileID: 910369024}
+  - buttons:
+    - {fileID: 823589472}
+    - {fileID: 1671853408}
+  - buttons:
+    - {fileID: 1098725587}
+    - {fileID: 944703567}
+  - buttons:
+    - {fileID: 349474911}
+    - {fileID: 389111074}
+    - {fileID: 333068285}
+    - {fileID: 1411698919}
+    - {fileID: 282410032}
+  - buttons:
+    - {fileID: 1748996641}
 --- !u!1 &1197167768
 GameObject:
   m_ObjectHideFlags: 0
@@ -27260,7 +28075,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 22
+  m_RootOrder: 1
 --- !u!61 &1197717713
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28073,7 +28888,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 5
+  m_RootOrder: 13
 --- !u!61 &1243355350
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28283,7 +29098,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 21
+  m_RootOrder: 0
 --- !u!61 &1250703806
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29445,7 +30260,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 3
+  m_RootOrder: 11
 --- !u!1 &1312698030
 GameObject:
   m_ObjectHideFlags: 0
@@ -30301,10 +31116,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 93.5500031
-    y: 114.215622
-    width: 127.724998
-    height: 15.9656248
+    x: 104.300018
+    y: 127.293747
+    width: 142.349991
+    height: 17.7937489
   parent: {fileID: 632376291}
   children: []
   ChildCount: 0
@@ -30395,6 +31210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d2c0a1590314c428b0edeaeb53dc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInput: 1
   playerNumber: 1
   actionName: RIGHT
   WaitForInputGameObject: {fileID: 1145457065}
@@ -30673,10 +31489,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 91.09375
-    y: 66.8099976
-    width: 515.8125
-    height: 29.4750004
+    x: 101.562469
+    y: 74.4599991
+    width: 574.875061
+    height: 32.8500023
   parent: {fileID: 226484827}
   children:
   - {fileID: 1385661501}
@@ -30785,6 +31601,7 @@ Transform:
   m_Children:
   - {fileID: 632376292}
   - {fileID: 704425843}
+  - {fileID: 544527125}
   m_Father: {fileID: 226484826}
   m_RootOrder: 2
 --- !u!114 &1376198153
@@ -30799,7 +31616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   identifier: 64358f15-1bf2-4c46-a843-b7611a989c57
-  Visible: 0
+  Visible: 1
   Enabled: 1
   ShowBackground: 0
   RelativePosition: {x: .5, y: .25}
@@ -30813,15 +31630,16 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 93.5500031
-    y: 98.25
-    width: 510.899994
-    height: 255.449997
+    x: 104.300018
+    y: 109.5
+    width: 569.399963
+    height: 284.699982
   parent: {fileID: 226484827}
   children:
   - {fileID: 632376291}
   - {fileID: 704425842}
-  ChildCount: 2
+  - {fileID: 544527124}
+  ChildCount: 3
   ShowBox: 1
   content: 
   BoxStyle:
@@ -31084,7 +31902,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 25
+  m_RootOrder: 4
 --- !u!61 &1384793388
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31163,10 +31981,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 91.09375
-    y: 66.8099976
-    width: 257.90625
-    height: 29.4750004
+    x: 101.562469
+    y: 74.4599991
+    width: 287.437531
+    height: 32.8500023
   parent: {fileID: 1373494806}
   children: []
   ChildCount: 0
@@ -31222,7 +32040,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 14
+    m_FontSize: 16
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -31729,10 +32547,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 221.274994
-    y: 114.215622
-    width: 127.724998
-    height: 15.9656248
+    x: 246.650009
+    y: 127.293747
+    width: 142.349991
+    height: 17.7937489
   parent: {fileID: 704425842}
   children: []
   ChildCount: 0
@@ -31823,6 +32641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d2c0a1590314c428b0edeaeb53dc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInput: 1
   playerNumber: 2
   actionName: RIGHT
   WaitForInputGameObject: {fileID: 1145457065}
@@ -31900,6 +32719,147 @@ MonoBehaviour:
   currentBaseStateIndex: 1
   manualUserScale: 0
   BaseStateList: []
+--- !u!1 &1411698918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1411698920}
+  - 114: {fileID: 1411698919}
+  - 114: {fileID: 1411698921}
+  m_Layer: 0
+  m_Name: UIButton_SKILLMENU
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1411698919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1411698918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da241933b8bd284fb657d4dc710dd4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identifier: 697cd681-4a4f-436a-b9b0-8a723be3b1f3
+  Visible: 1
+  Enabled: 1
+  ShowBackground: 0
+  RelativePosition: {x: .600000024, y: 0}
+  AbsolutePosition: {x: 0, y: 0}
+  RelativeSize: {x: .200000003, y: 1}
+  RelativeWidthBasedOnHeight: 0
+  AbsoluteSize: {x: 0, y: 0}
+  HorizontalAnchor: 0
+  VerticalAnchor: 0
+  HorizontalAlignment: 0
+  VerticalAlignment: 0
+  absoluteRect:
+    serializedVersion: 2
+    x: 445.940002
+    y: 372.847473
+    width: 113.879997
+    height: 21.352499
+  parent: {fileID: 544527124}
+  children: []
+  ChildCount: 0
+  Text: 'Player 1, LEFT, Key: A'
+  Callback:
+    MessageReciever: {fileID: 1145457062}
+    MethodName: StartWaitingForInput
+  fontSize: 7
+  ButtonStyle:
+    m_Name: button
+    m_Normal:
+      m_Background: {fileID: 2800000, guid: f9faaf9212010db4fb759604302998c0, type: 3}
+      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+    m_Hover:
+      m_Background: {fileID: 2800000, guid: ee938bf6d943c7b46be0b29eecb383cb, type: 3}
+      m_TextColor: {r: .654411793, g: .654411793, b: .654411793, a: 1}
+    m_Active:
+      m_Background: {fileID: 2800000, guid: d6c1bb7cff8fb5643b6b00e63de71aa3, type: 3}
+      m_TextColor: {r: .764908671, g: 1, b: .720588207, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 0}
+      m_TextColor: {r: .90196079, g: .90196079, b: .90196079, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 11004, guid: 0000000000000000e000000000000000, type: 0}
+      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 0}
+      m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 6
+      m_Right: 6
+      m_Top: 6
+      m_Bottom: 4
+    m_Margin:
+      m_Left: 4
+      m_Right: 4
+      m_Top: 4
+      m_Bottom: 4
+    m_Padding:
+      m_Left: 6
+      m_Right: 6
+      m_Top: 3
+      m_Bottom: 3
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
+    m_FontSize: 7
+    m_FontStyle: 0
+    m_Alignment: 3
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 1
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
+--- !u!4 &1411698920
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1411698918}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1000, y: 1000, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 544527125}
+  m_RootOrder: 3
+--- !u!114 &1411698921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1411698918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30d2c0a1590314c428b0edeaeb53dc38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInput: 0
+  playerNumber: 1
+  actionName: MENURIGHT
+  WaitForInputGameObject: {fileID: 1145457065}
 --- !u!1 &1412719891
 GameObject:
   m_ObjectHideFlags: 0
@@ -33559,7 +34519,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 8
+  m_RootOrder: 16
 --- !u!61 &1504987827
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34696,6 +35656,14 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1250703805}
+  - {fileID: 1197717712}
+  - {fileID: 374994553}
+  - {fileID: 1583718627}
+  - {fileID: 1384793387}
+  - {fileID: 649714374}
+  - {fileID: 371143117}
+  - {fileID: 1732782965}
   - {fileID: 563843916}
   - {fileID: 2080947352}
   - {fileID: 613408307}
@@ -34717,14 +35685,6 @@ Transform:
   - {fileID: 508591214}
   - {fileID: 1122077915}
   - {fileID: 413067975}
-  - {fileID: 1250703805}
-  - {fileID: 1197717712}
-  - {fileID: 374994553}
-  - {fileID: 1583718627}
-  - {fileID: 1384793387}
-  - {fileID: 649714374}
-  - {fileID: 371143117}
-  - {fileID: 1732782965}
   m_Father: {fileID: 1372128246}
   m_RootOrder: 2
 --- !u!1001 &1580820416
@@ -34807,7 +35767,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 24
+  m_RootOrder: 3
 --- !u!61 &1583718628
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35144,7 +36104,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 17
+  m_RootOrder: 25
 --- !u!61 &1595822842
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36092,10 +37052,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 4.8499999
-    y: 496.859985
-    width: 814.799988
-    height: 43.6800041
+    x: 3.88999987
+    y: 398.580017
+    width: 653.519958
+    height: 35.0400009
   parent: {fileID: 2110167300}
   children: []
   ChildCount: 0
@@ -36151,7 +37111,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 17
+    m_FontSize: 14
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -36258,10 +37218,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 93.5500031
-    y: 178.078125
-    width: 127.724998
-    height: 15.9656248
+    x: 104.300018
+    y: 198.46875
+    width: 142.349991
+    height: 17.7937489
   parent: {fileID: 632376291}
   children: []
   ChildCount: 0
@@ -36352,6 +37312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d2c0a1590314c428b0edeaeb53dc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInput: 1
   playerNumber: 1
   actionName: SKILL2
   WaitForInputGameObject: {fileID: 1145457065}
@@ -36475,10 +37436,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 221.274994
-    y: 210.009369
-    width: 127.724998
-    height: 15.9656248
+    x: 246.650009
+    y: 234.056244
+    width: 142.349991
+    height: 17.7937489
   parent: {fileID: 704425842}
   children: []
   ChildCount: 0
@@ -36569,6 +37530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d2c0a1590314c428b0edeaeb53dc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInput: 1
   playerNumber: 2
   actionName: SKILL4
   WaitForInputGameObject: {fileID: 1145457065}
@@ -36747,7 +37709,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 6
+  m_RootOrder: 14
 --- !u!61 &1676270013
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -38150,7 +39112,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 28
+  m_RootOrder: 7
 --- !u!61 &1732782966
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -38492,10 +39454,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 3.49000001
-    y: 357.630005
-    width: 691.02002
-    height: 31.4400005
+    x: 3.88999987
+    y: 398.580017
+    width: 770.220032
+    height: 35.0400009
   parent: {fileID: 470913241}
   children: []
   ChildCount: 0
@@ -38551,7 +39513,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 12
+    m_FontSize: 14
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -39177,10 +40139,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 157.399994
-    y: 158.339966
-    width: 655.200012
-    height: 294.839996
+    x: 126.199982
+    y: 127.019974
+    width: 525.600037
+    height: 236.520004
   parent: {fileID: 537064885}
   children:
   - {fileID: 437681295}
@@ -39622,7 +40584,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 7
+  m_RootOrder: 15
 --- !u!61 &1793160784
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -40357,10 +41319,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 525.950012
-    y: 232.049957
-    width: 286.649994
-    height: 73.7099991
+    x: 421.850006
+    y: 186.149979
+    width: 229.950012
+    height: 59.1300011
   parent: {fileID: 891592285}
   children: []
   ChildCount: 0
@@ -41602,10 +42564,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 157.399994
-    y: 158.339966
-    width: 81.9000015
-    height: 73.7099991
+    x: 126.199982
+    y: 127.019974
+    width: 65.7000046
+    height: 59.1300011
   parent: {fileID: 437681295}
   children: []
   ChildCount: 0
@@ -41914,6 +42876,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1906325895}
   - 114: {fileID: 1906325896}
+  - 114: {fileID: 1906325897}
   m_Layer: 0
   m_Name: UIEditorPanel_MainMenu
   m_TagString: Untagged
@@ -41962,8 +42925,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 540
-    height: 304
+    width: 741
+    height: 417
   parent: {fileID: 0}
   children:
   - {fileID: 1974104217}
@@ -42029,6 +42992,24 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+--- !u!114 &1906325897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1906325894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a404ad4caf32aa4bb6da939b30a958e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lines:
+  - buttons:
+    - {fileID: 691127879}
+  - buttons:
+    - {fileID: 191299322}
+  - buttons:
+    - {fileID: 568633468}
 --- !u!1 &1911864889
 GameObject:
   m_ObjectHideFlags: 0
@@ -42659,7 +43640,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 11
+  m_RootOrder: 19
 --- !u!61 &1950183822
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -42989,10 +43970,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 202.5
-    y: 91.1999969
-    width: 135
-    height: 121.599998
+    x: 277.875
+    y: 125.099998
+    width: 185.25
+    height: 166.800003
   parent: {fileID: 1906325896}
   children:
   - {fileID: 691127879}
@@ -44052,10 +45033,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 242.575989
-    y: 233.524155
-    width: 286.649994
-    height: 22.1130009
+    x: 194.527985
+    y: 187.332581
+    width: 229.950012
+    height: 17.7390003
   parent: {fileID: 302417465}
   children: []
   ChildCount: 0
@@ -44068,7 +45049,7 @@ MonoBehaviour:
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_TextColor: {r: 1, g: .617647052, b: .617647052, a: 1}
     m_Active:
       m_Background: {fileID: 0}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
@@ -44108,7 +45089,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 11
+    m_FontSize: 8
     m_FontStyle: 0
     m_Alignment: 0
     m_WordWrap: 1
@@ -45196,10 +46177,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 525.950012
-    y: 158.339966
-    width: 286.649994
-    height: 73.7099991
+    x: 421.850006
+    y: 127.019974
+    width: 229.950012
+    height: 59.1300011
   parent: {fileID: 437681295}
   children: []
   ChildCount: 0
@@ -46112,7 +47093,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 1
+  m_RootOrder: 9
 --- !u!1 &2086403969
 GameObject:
   m_ObjectHideFlags: 0
@@ -46233,10 +47214,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 93.5500031
-    y: 130.181244
-    width: 127.724998
-    height: 15.9656248
+    x: 104.300018
+    y: 145.087494
+    width: 142.349991
+    height: 17.7937489
   parent: {fileID: 632376291}
   children: []
   ChildCount: 0
@@ -46327,6 +47308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d2c0a1590314c428b0edeaeb53dc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInput: 1
   playerNumber: 1
   actionName: CROUCH
   WaitForInputGameObject: {fileID: 1145457065}
@@ -46461,9 +47443,9 @@ MonoBehaviour:
   absoluteRect:
     serializedVersion: 2
     x: 0
-    y: 491.399994
-    width: 970
-    height: 54.6000023
+    y: 394.200012
+    width: 778
+    height: 43.7999992
   parent: {fileID: 931791364}
   children:
   - {fileID: 1666083299}
@@ -47059,10 +48041,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 221.274994
-    y: 178.078125
-    width: 127.724998
-    height: 15.9656248
+    x: 246.650009
+    y: 198.46875
+    width: 142.349991
+    height: 17.7937489
   parent: {fileID: 704425842}
   children: []
   ChildCount: 0
@@ -47153,6 +48135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d2c0a1590314c428b0edeaeb53dc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInput: 1
   playerNumber: 2
   actionName: SKILL2
   WaitForInputGameObject: {fileID: 1145457065}

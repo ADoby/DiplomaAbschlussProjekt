@@ -18,24 +18,49 @@ public class UIButton : UIRect
     public ButtonEvent OnButtonClicked;
     public static ButtonEvent OnAnyButtonClicked;
 
+    private bool isInitialized = false;
+
+    private Color normalTextColor, hoverTextColor;
+
     public override void DrawMe()
     {
-        if (ButtonStyle == null)
-            ButtonStyle = new GUIStyle(GUI.skin.button);
+        if (!isInitialized)
+        {
+            if (ButtonStyle == null)
+                ButtonStyle = new GUIStyle(GUI.skin.button);
+
+            normalTextColor = ButtonStyle.normal.textColor;
+            hoverTextColor = ButtonStyle.hover.textColor;
+            isInitialized = true;
+        }
 
         ButtonStyle.fontSize = (int)(absoluteRect.height / (GUITools.MaxFontSize - fontSize));
 
+        if (forceHover)
+            ButtonStyle.normal.textColor = hoverTextColor;
+        else
+            ButtonStyle.normal.textColor = normalTextColor;
         
         if (GUI.Button(absoluteRect, Text, ButtonStyle))
         {
-            if (Callback != null)
-                Callback.CallBack(this);
-
-            if (OnButtonClicked != null)
-                OnButtonClicked(this);
-
-            if (OnAnyButtonClicked != null)
-                OnAnyButtonClicked(this);
+            ThrowClicked();
         }
+
+        if (forceHover && absoluteRect.Contains(Event.current.mousePosition))
+        {
+            GameEventHandler.TriggerStopControllerMenu();
+        }
+    }
+
+    public void ThrowClicked()
+    {
+        if (Callback != null)
+            Callback.CallBack(this);
+
+        if (OnButtonClicked != null)
+            OnButtonClicked(this);
+
+        if (OnAnyButtonClicked != null)
+            OnAnyButtonClicked(this);
     }
 }
