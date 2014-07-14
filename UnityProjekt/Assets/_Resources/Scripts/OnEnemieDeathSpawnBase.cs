@@ -46,10 +46,6 @@ public class OnEnemieDeathSpawnBase : MonoBehaviour
             {
                 EntitySpawnManager.Spawn(poolName, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
             }
-            else
-            {
-                Debug.Log("Something in the way to spawn");
-            }
                 
         }
     }

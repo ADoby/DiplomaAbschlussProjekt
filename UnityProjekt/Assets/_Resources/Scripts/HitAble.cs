@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System.Linq;
 public class HitAble : MonoBehaviour {
 
     public bool sendFurther = false;
@@ -9,19 +9,26 @@ public class HitAble : MonoBehaviour {
     public bool SpawnPool = true;
     public string SpawnPoolName = "Blood";
 
-    public virtual void Hit(Vector3 HitPosition, Vector3 HitterPosition)
+    public virtual void Hit(Vector3 HitPosition, Vector3 HitDirection, float forceAmount = 0f)
     {
         if (sendFurther && reciever)
-            reciever.Hit(HitPosition, HitterPosition);
+            reciever.Hit(HitPosition, HitDirection, forceAmount);
 
         if (SpawnPool)
         {
-            Debug.Log(gameObject.name + " Got Hit");
-            Vector3 direction = (HitPosition - HitterPosition);
-            RaycastHit2D hit = Physics2D.Raycast(HitterPosition, direction, direction.magnitude * 2f);
+            int layermask = 1 << gameObject.layer;
+            RaycastHit2D hit = Physics2D.RaycastAll(HitPosition - HitDirection, HitDirection, HitDirection.magnitude * 2f, layermask).FirstOrDefault(o => o.collider == collider2D);
             if (hit)
-                GameObjectPool.Instance.Spawn(SpawnPoolName, hit.point, Quaternion.FromToRotation(Vector3.back, hit.normal));
+            {
+                GameObjectPool.Instance.Spawn(SpawnPoolName, HitPosition, Quaternion.FromToRotation(Vector3.back, hit.normal));
+                if (forceAmount != 0)
+                {
+                    Force(HitPosition, HitDirection.normalized, forceAmount);
+                }
+            }
         }
+
+        
     }
 
     public virtual void Damage(float amount)
@@ -30,12 +37,17 @@ public class HitAble : MonoBehaviour {
             reciever.Damage(amount);
     }
 
-    public virtual void Force(Vector3 HitterPosition, float amount)
+    public void RecieveForce(Vector3 position, Vector3 direction, float amount)
+    {
+        Force(position, direction, amount);
+    }
+
+    protected virtual void Force(Vector3 position, Vector3 direction, float amount)
     {
         if (sendFurther && reciever)
-            reciever.Force(HitterPosition, amount);
+            reciever.RecieveForce(position, direction, amount);
 
         if(rigidbody2D)
-            rigidbody2D.AddForce((transform.position - HitterPosition) * amount);
+            rigidbody2D.AddForceAtPosition(direction * amount, position, ForceMode2D.Impulse);
     }
 }

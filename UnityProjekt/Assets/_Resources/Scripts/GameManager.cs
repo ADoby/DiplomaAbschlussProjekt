@@ -213,6 +213,7 @@ public class GameManager : MonoBehaviour {
 
         Cameras[currentPlayerSelectingClass] = newCam.GetComponent<CameraController>();
         Cameras[currentPlayerSelectingClass].player = newPlayer.transform;
+        Cameras[currentPlayerSelectingClass].playerControl = newPlayer.GetComponent<PlayerController>();
 
         Players[currentPlayerSelectingClass].PlayerId = currentPlayerSelectingClass;
 

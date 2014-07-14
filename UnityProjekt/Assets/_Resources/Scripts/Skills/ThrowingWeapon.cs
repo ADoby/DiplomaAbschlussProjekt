@@ -79,8 +79,7 @@ public class ThrowingWeapon : MonoBehaviour {
                 float damageMult = (distance - distanceToTarget);
 
                 target.Damage(damageMult * damage);
-                target.Hit(item.transform.position, transform.position);
-                target.Force(transform.position, damageMult * force);
+                target.Hit(item.transform.position, (item.transform.position - transform.position), force);
 
                 GameEventHandler.TriggerDamageDone(player, damage);
             }

@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class Bullet : MonoBehaviour {
 
@@ -20,7 +20,15 @@ public class Bullet : MonoBehaviour {
 
     public float force = 2.0f;
 
+    public int pierceAmount = 0;
+    private int pierceCount = 0;
+
     private Vector3 savedVelocity = Vector3.zero;
+
+    public LayerMask HitLayer;
+
+
+    private List<GameObject> gameObjectHitted = new List<GameObject>();
 
     void Awake()
     {
@@ -33,14 +41,19 @@ public class Bullet : MonoBehaviour {
         if (GameManager.Instance.GamePaused)
             return;
 
-        //rigidbody2D.velocity = direction * speed * Time.fixedDeltaTime;
 
         _despawnTimer += Time.fixedDeltaTime;
         if (_despawnTimer >= DespawnTime)
         {
-            Explode(null, Vector3.zero);
+            Hit(null, transform.position);
+            return;
         }
-        
+
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, rigidbody2D.velocity.normalized, rigidbody2D.velocity.magnitude * Time.fixedDeltaTime, HitLayer);
+        for (int i = 0; i < hits.Length; i++)
+        {
+            Hit(hits[i].collider.gameObject, hits[i].point);
+        }
     }
 
     public void OnPause()
@@ -57,6 +70,8 @@ public class Bullet : MonoBehaviour {
     //Invoked from GameObjectPool
     public void Reset()
     {
+        gameObjectHitted.Clear();
+        pierceCount = 0;
         _despawnTimer = 0;
     }
 
@@ -76,27 +91,48 @@ public class Bullet : MonoBehaviour {
         rigidbody2D.velocity = direction*speed;
     }
 
-    void OnCollisionEnter2D(Collision2D info)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        Explode(info.gameObject, info.contacts[0].point);
+        Hit(other.gameObject, transform.position);
     }
 
-    private void Explode(GameObject other, Vector3 position)
+
+    private void Hit(GameObject other, Vector3 position)
     {
         if (other && other.GetComponent<HitAble>())
         {
+            if (gameObjectHitted.Contains(other))
+            {
+                return;
+            }
+
             HitAble target = other.GetComponent<HitAble>();
             target.Damage(damage);
-            target.Hit(position, transform.position);
-            target.Force(transform.position, force);
+            target.Hit(position, rigidbody2D.velocity * Time.fixedDeltaTime, force);
 
             GameEventHandler.TriggerDamageDone(player, damage);
+
+            gameObjectHitted.Add(other);
+        }
+        else
+        {
+            GameObjectPool.Instance.Spawn(hitEffektPoolName, position, Quaternion.identity);
+            
+            GameObjectPool.Instance.Despawn(poolName, gameObject);
+            return;
         }
 
-        //Effekt
-        GameObjectPool.Instance.Spawn(hitEffektPoolName, transform.position, Quaternion.identity);
 
-        rigidbody2D.velocity = Vector2.zero;
-        GameObjectPool.Instance.Despawn(poolName, gameObject);
+        GameObjectPool.Instance.Spawn(hitEffektPoolName, position, Quaternion.identity);
+
+        if (pierceCount >= pierceAmount)
+        {
+            rigidbody2D.velocity = Vector2.zero;
+            GameObjectPool.Instance.Despawn(poolName, gameObject);
+        }
+        else
+        {
+            pierceCount++;
+        }
     }
 }
