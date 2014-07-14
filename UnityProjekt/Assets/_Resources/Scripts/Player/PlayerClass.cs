@@ -190,7 +190,6 @@ public class PlayerClass : MonoBehaviour
     public void ResetPlayerClass()
     {
         CurrentHealth = GetAttributeValue(AttributeType.HEALTH);
-        skillPoints = 0;
     }
 
     public void SkillFinished(PlayerSkill skill)

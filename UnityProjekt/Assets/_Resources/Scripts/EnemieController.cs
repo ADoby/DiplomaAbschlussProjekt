@@ -5,13 +5,16 @@ public class EnemieController : HitAble {
 
     public HealthBar healthBar;
 
-    public float Health = 100f;
-    public float maxHealth = 0f;
+    private float Health = 100f;
+    public float StartMaxHealth = 100f;
+    public float MaxHealthPerDifficulty = 10f;
+    private float MaxHealth = 100f;
     
     public float FloorCheckDistance = 1.0f;
     public float FloorCheckLength = 0.5f;
 
     public float MyDamage = 5.0f;
+    public float DamagePerDifficulty = 2.0f;
 
     private int direction = 1;
     
@@ -38,14 +41,10 @@ public class EnemieController : HitAble {
 	void Start ()
     {
         Reset();
-
-       
 	}
 
     void Awake()
     {
-        maxHealth = Health;
-
         GameEventHandler.FoundTarget += OnFoundTarget;
         GameEventHandler.OnPause += OnPause;
         GameEventHandler.OnResume += OnResume;
@@ -77,7 +76,7 @@ public class EnemieController : HitAble {
         base.Damage(damage);
 
         Health -= damage;
-        healthBar.UpdateBar(Health, maxHealth);
+        healthBar.UpdateBar(Health, MaxHealth);
         if (Health <= 0)
         {
             int amount = Random.Range(3, 7);
@@ -98,7 +97,8 @@ public class EnemieController : HitAble {
         {
             direction = -1;
         }
-        Health = maxHealth;
+        MaxHealth = StartMaxHealth + GameManager.CurrentDifficulty * MaxHealthPerDifficulty;
+        Health = MaxHealth;
 
         StartCoroutine(findTarget());
 
@@ -177,7 +177,7 @@ public class EnemieController : HitAble {
                 lockTimer -= Time.deltaTime;
                 if (lockTimer <= 0)
                 {
-                    target.GetComponent<PlayerController>().Damage(MyDamage);
+                    target.GetComponent<PlayerController>().Damage(MyDamage + GameManager.CurrentDifficulty * DamagePerDifficulty);
                     //Effekt
 
                     targetLocked = false;
@@ -370,13 +370,4 @@ public class EnemieController : HitAble {
         return (isFloor || isJumpDown);
     }
 
-    public void SetHealth(float newHealth)
-    {
-        maxHealth = newHealth;
-        Health = newHealth;
-    }
-    public void SetDamage(float newDamage)
-    {
-        MyDamage = newDamage;
-    }
 }

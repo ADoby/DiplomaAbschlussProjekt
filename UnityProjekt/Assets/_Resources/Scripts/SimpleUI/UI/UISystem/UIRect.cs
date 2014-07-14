@@ -82,6 +82,7 @@ public class UIRect : MonoBehaviour
     public Vector2 RelativePosition = Vector2.zero;
     public Vector2 AbsolutePosition = Vector2.zero;
     public Vector2 RelativeSize = Vector2.zero;
+    public bool RelativeSizeBasedOnScreen = false;
     public bool RelativeWidthBasedOnHeight = false;
     public Vector2 AbsoluteSize = Vector2.zero;
 
@@ -260,7 +261,12 @@ public class UIRect : MonoBehaviour
         }
         else
         {
-            Rect relRect = GetRelativeRect(parent.absoluteRect.width, parent.absoluteRect.height);
+
+            Rect relRect;
+            if (RelativeSizeBasedOnScreen)
+                relRect = GetRelativeRect(Screen.width, Screen.height);
+            else
+                relRect = GetRelativeRect(parent.absoluteRect.width, parent.absoluteRect.height);
 
             absoluteRect.x += relRect.x;
             absoluteRect.y += relRect.y;

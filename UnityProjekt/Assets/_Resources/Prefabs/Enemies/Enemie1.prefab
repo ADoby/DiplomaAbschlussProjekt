@@ -226,11 +226,12 @@ MonoBehaviour:
   SpawnPool: 1
   SpawnPoolName: Blood
   healthBar: {fileID: 11400002}
-  Health: 50
-  maxHealth: 0
+  StartMaxHealth: 100
+  MaxHealthPerDifficulty: 10
   FloorCheckDistance: 1
   FloorCheckLength: .100000001
-  MyDamage: 10
+  MyDamage: 30
+  DamagePerDifficulty: 3
   maxSpeed: 3
   speedChange: 5
   target: {fileID: 0}

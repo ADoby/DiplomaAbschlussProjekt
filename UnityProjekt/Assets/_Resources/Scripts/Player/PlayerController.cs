@@ -246,6 +246,7 @@ public class PlayerController : MonoBehaviour
         if (player == this)
         {
             CurrentExperience += ExperiencePerDamageDone * damage;
+            PlayerClass.CurrentHealth += damage * PlayerClass.GetAttributeValue(AttributeType.SPELLVAMP);
         }
         if (CurrentExperience >= NeededExperience)
         {

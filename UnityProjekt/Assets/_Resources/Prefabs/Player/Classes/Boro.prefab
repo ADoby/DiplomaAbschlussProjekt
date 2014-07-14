@@ -43,10 +43,10 @@ MonoBehaviour:
   Description: Beschreibung
   Attributes:
   - Name: Health
-    Value: 100
-    ValuePerLevel: 5
+    Value: 500
+    ValuePerLevel: 10
     valueMultiply: 1
-    ValuePerSkillPoint: 10
+    ValuePerSkillPoint: 50
   - Name: Health Regen
     Value: 1
     ValuePerLevel: .0250000004
@@ -86,7 +86,7 @@ MonoBehaviour:
     Value: 0
     ValuePerLevel: 0
     valueMultiply: 1
-    ValuePerSkillPoint: .0500000007
+    ValuePerSkillPoint: .00999999978
   playerSkills:
   - {fileID: 11400000, guid: e498e8fd35d281845b4cd1bfe62bc78f, type: 2}
   - {fileID: 11400000, guid: 936cd7626d9574b4ab4e28b2d0636f21, type: 2}

@@ -73,6 +73,7 @@ public class GameManager : MonoBehaviour {
     private CameraController[] Cameras = {null,null,null,null};
 
     public static float CurrentDifficulty = 0;
+    public static float DifficultyValue = 0;
 
     void Start()
     {
@@ -118,6 +119,8 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    public UITexture DifficultyBar;
+
     void Update()
     {
 
@@ -131,7 +134,14 @@ public class GameManager : MonoBehaviour {
 
         if (GamePaused)
             return;
-        CurrentDifficulty += Time.deltaTime;
+        DifficultyValue += Time.deltaTime;
+        DifficultyBar.RelativeSize.y = DifficultyValue / 10.0f;
+        if (DifficultyValue >= 10)
+        {
+            CurrentDifficulty++;
+            DifficultyValue = 0;
+            
+        }
     }
 
     public int PlayerCount
@@ -141,9 +151,11 @@ public class GameManager : MonoBehaviour {
 
     public void StartGame()
     {
-       
 
+        DifficultyValue = 0;
         CurrentDifficulty = 0;
+
+
         foreach (var playerController in Players)
         {
             if (playerController)
