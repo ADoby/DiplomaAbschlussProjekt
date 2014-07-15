@@ -72,6 +72,11 @@ public class GameManager : MonoBehaviour {
     private PlayerController[] Players = {null,null,null,null};
     private CameraController[] Cameras = {null,null,null,null};
 
+    public CameraController[] GetCameras()
+    {
+        return Cameras;
+    }
+
     public static float CurrentDifficulty = 0;
     public static float DifficultyValue = 0;
 
@@ -119,7 +124,8 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public UITexture DifficultyBar;
+    public UIRect DifficultyBar;
+    public UIText DifficultyText;
 
     void Update()
     {
@@ -140,7 +146,7 @@ public class GameManager : MonoBehaviour {
         {
             CurrentDifficulty++;
             DifficultyValue = 0;
-            
+            DifficultyText.Text = "Difficulty: " + CurrentDifficulty.ToString("####0");
         }
     }
 
@@ -154,7 +160,7 @@ public class GameManager : MonoBehaviour {
 
         DifficultyValue = 0;
         CurrentDifficulty = 0;
-
+        DifficultyText.Text = "Difficulty: " + CurrentDifficulty.ToString("####0");
 
         foreach (var playerController in Players)
         {

@@ -104,6 +104,13 @@ MonoBehaviour:
   detonateTime: 2
   powerUp: 8
   powerForward: 7
+  explosion:
+    clip: {fileID: 8300000, guid: 72808a466e5dd5741a6399797b4101a6, type: 3}
+    volumeScale: .300000012
+    randomPitch: 1
+    minPitch: .800000012
+    maxPitch: 1.20000005
+    pitch: 1
   distance: 5
   force: 5
 --- !u!1001 &100100000

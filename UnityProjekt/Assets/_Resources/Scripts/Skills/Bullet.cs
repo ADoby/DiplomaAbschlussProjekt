@@ -28,6 +28,9 @@ public class Bullet : MonoBehaviour {
     public LayerMask HitLayer;
 
 
+    public SoundEffect ShootEffect;
+    public SoundEffect HitEffect;
+
     private List<GameObject> gameObjectHitted = new List<GameObject>();
 
     void Awake()
@@ -73,6 +76,7 @@ public class Bullet : MonoBehaviour {
         gameObjectHitted.Clear();
         pierceCount = 0;
         _despawnTimer = 0;
+        AudioEffectController.Instance.PlayOneShot(ShootEffect, transform.position);
     }
 
     public void SetDamage(float p_damage)
@@ -113,6 +117,8 @@ public class Bullet : MonoBehaviour {
             GameEventHandler.TriggerDamageDone(player, damage);
 
             gameObjectHitted.Add(other);
+
+            AudioEffectController.Instance.PlayOneShot(HitEffect, transform.position);
         }
         else
         {

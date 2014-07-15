@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   damage: 10
-  speed: 40
+  speed: 100
   poolName: Bullet
   hitEffektPoolName: BulletExplosion
   DespawnTime: 5
@@ -108,6 +108,20 @@ MonoBehaviour:
   HitLayer:
     serializedVersion: 2
     m_Bits: 37888
+  ShootEffect:
+    clip: {fileID: 8300000, guid: 08be1588c90d0084f8733043894aef2f, type: 3}
+    volumeScale: 1
+    randomPitch: 1
+    minPitch: .699999988
+    maxPitch: 1.29999995
+    pitch: 1
+  HitEffect:
+    clip: {fileID: 8300000, guid: 08be1588c90d0084f8733043894aef2f, type: 3}
+    volumeScale: .200000003
+    randomPitch: 1
+    minPitch: .699999988
+    maxPitch: 1.29999995
+    pitch: 1
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

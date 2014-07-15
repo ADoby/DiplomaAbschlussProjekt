@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region Private Member
-    private Animator _animator;
+    public Animator _animator;
 
     private bool jumping = false;
 
@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
-        _animator = GetComponent<Animator>();
+        //_animator = GetComponent<Animator>();
         //PlayerClass = (PlayerClass) Object.Instantiate(PlayerClass); 
     }
 

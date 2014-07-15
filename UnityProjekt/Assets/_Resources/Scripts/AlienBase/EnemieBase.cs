@@ -8,7 +8,7 @@ public class EnemieBase : HitAble {
 
     private float CurrentHealth;
     private float wantedHealth = 1;
-    public float maxHealth = 100;
+    public float MaxHealth = 100;
 
     public string poolName = "EnemieBase1";
 
@@ -29,7 +29,7 @@ public class EnemieBase : HitAble {
         Reset();
         if (StartFull)
         {
-            CurrentHealth = maxHealth;
+            CurrentHealth = MaxHealth;
             wantedHealth = CurrentHealth;
             UpdateHealthBar(true);
         }
@@ -50,7 +50,7 @@ public class EnemieBase : HitAble {
         isAlive = true;
         if (RestartFull)
         {
-            CurrentHealth = maxHealth;
+            CurrentHealth = MaxHealth;
         }
         else
         {
@@ -81,17 +81,17 @@ public class EnemieBase : HitAble {
 
     public float ProzentHealth()
     {
-        return CurrentHealth/maxHealth;
+        return CurrentHealth/MaxHealth;
     }
 
     public void UpdateHealthBar(bool instant = false)
     {
-        healthBar.UpdateBar(CurrentHealth, maxHealth, instant);
+        healthBar.UpdateBar(CurrentHealth, MaxHealth, instant);
     }
 
     public void SetHealth(float value)
     {
-        CurrentHealth = Mathf.Clamp(value, 0f, maxHealth);
+        CurrentHealth = Mathf.Clamp(value, 0f, MaxHealth);
         wantedHealth = CurrentHealth;
         UpdateHealthBar(true);
     }
@@ -100,7 +100,7 @@ public class EnemieBase : HitAble {
     {
         base.Damage(amount);
 
-        wantedHealth = Mathf.Clamp(wantedHealth - amount, 0f, maxHealth);
+        wantedHealth = Mathf.Clamp(wantedHealth - amount, 0f, MaxHealth);
 
         if (wantedHealth <= 0)
         {
@@ -110,7 +110,7 @@ public class EnemieBase : HitAble {
 
     public void Heal(float amount)
     {
-        wantedHealth = Mathf.Clamp(wantedHealth + amount, 0f, maxHealth);
+        wantedHealth = Mathf.Clamp(wantedHealth + amount, 0f, MaxHealth);
     }
 
     public void Die()

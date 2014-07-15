@@ -21,6 +21,8 @@ public class ThrowingWeapon : MonoBehaviour {
     public float powerUp = 2.0f;
     public float powerForward = 2.0f;
 
+    public SoundEffect explosion;
+
     public void Reset()
     {
         detonateTimer = detonateTime;
@@ -39,9 +41,15 @@ public class ThrowingWeapon : MonoBehaviour {
     {
         if (detonateTimer > 0)
         {
-            Vector2 pos = Camera.main.WorldToScreenPoint(renderer.bounds.center);
-            pos.y = Screen.height - pos.y;
-            GUI.Label(new Rect(pos.x, pos.y - 20, 40, 40), detonateTimer.ToString("#.#"));
+            for (int i = 0; i < GameManager.Instance.GetCameras().Length; i++)
+            {
+                if (GameManager.Instance.GetCameras()[i] != null)
+                {
+                    Vector2 pos = GameManager.Instance.GetCameras()[i].camera.WorldToScreenPoint(renderer.bounds.center);
+                    pos.y = Screen.height - pos.y;
+                    GUI.Label(new Rect(pos.x, pos.y - 20, 40, 40), detonateTimer.ToString("#.#"));
+                }
+            }
         }
     }
 
@@ -82,6 +90,8 @@ public class ThrowingWeapon : MonoBehaviour {
                 target.Hit(item.transform.position, (item.transform.position - transform.position), force);
 
                 GameEventHandler.TriggerDamageDone(player, damage);
+
+                AudioEffectController.Instance.PlayOneShot(explosion, transform.position);
             }
         }
 
