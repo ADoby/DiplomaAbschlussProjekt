@@ -1,0 +1,688 @@
+fileFormatVersion: 2
+guid: 6df56c66b008026409faf61052155540
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: FootBack
+    100002: FootFront
+    100004: FootStepBack
+    100006: FootStepFront
+    100008: HandBack
+    100010: HandFront
+    100012: Head
+    100014: Hips
+    100016: ikHandle1
+    100018: ikHandle2
+    100020: ikHandle3
+    100022: ikHandle4
+    100024: ikHandle5
+    100026: ikHandle6
+    100028: ikHandle7
+    100030: MidleArmBack
+    100032: MidleArmFront
+    100034: MidleBody
+    100036: MidleLegBack
+    100038: MidleLegFront
+    100040: Model1
+    100042: //RootNode
+    100044: PlayerMesh
+    100046: polySurface1
+    100048: polySurface2
+    100050: polySurface3
+    100052: polySurface4
+    100054: polySurface5
+    100056: polySurface6
+    100058: UperArmBack
+    100060: UperArmFront
+    100062: UperBody
+    100064: UperLegBack
+    100066: UperLegFront
+    100068: FootBacktIK
+    100070: FootFrontIK
+    100072: HandBackIK
+    100074: HandFrontIK
+    100076: PlayerRig
+    100078: ShoulderHandleIK
+    400000: FootBack
+    400002: FootFront
+    400004: FootStepBack
+    400006: FootStepFront
+    400008: HandBack
+    400010: HandFront
+    400012: Head
+    400014: Hips
+    400016: ikHandle1
+    400018: ikHandle2
+    400020: ikHandle3
+    400022: ikHandle4
+    400024: ikHandle5
+    400026: ikHandle6
+    400028: ikHandle7
+    400030: MidleArmBack
+    400032: MidleArmFront
+    400034: MidleBody
+    400036: MidleLegBack
+    400038: MidleLegFront
+    400040: Model1
+    400042: //RootNode
+    400044: PlayerMesh
+    400046: polySurface1
+    400048: polySurface2
+    400050: polySurface3
+    400052: polySurface4
+    400054: polySurface5
+    400056: polySurface6
+    400058: UperArmBack
+    400060: UperArmFront
+    400062: UperBody
+    400064: UperLegBack
+    400066: UperLegFront
+    400068: FootBacktIK
+    400070: FootFrontIK
+    400072: HandBackIK
+    400074: HandFrontIK
+    400076: PlayerRig
+    400078: ShoulderHandleIK
+    2300000: polySurface1
+    2300002: polySurface2
+    2300004: polySurface3
+    2300006: polySurface4
+    2300008: polySurface5
+    2300010: polySurface6
+    3300000: polySurface1
+    3300002: polySurface2
+    3300004: polySurface3
+    3300006: polySurface4
+    3300008: polySurface5
+    3300010: polySurface6
+    4300000: polySurface1
+    4300002: polySurface2
+    4300004: polySurface3
+    4300006: polySurface4
+    4300008: polySurface5
+    4300010: polySurface6
+    4300012: PlayerMesh
+    7400000: Standing
+    7400002: Walking
+    7400004: Crouching
+    9500000: //RootNode
+    13700000: PlayerMesh
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 3
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Standing
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 2
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: PlayerMesh
+        weight: 1
+      - path: PlayerRig
+        weight: 1
+      - path: PlayerRig/FootBacktIK
+        weight: 1
+      - path: PlayerRig/FootBacktIK/ikHandle4
+        weight: 1
+      - path: PlayerRig/FootFrontIK
+        weight: 1
+      - path: PlayerRig/FootFrontIK/ikHandle6
+        weight: 1
+      - path: PlayerRig/HandBackIK
+        weight: 1
+      - path: PlayerRig/HandFrontIK
+        weight: 1
+      - path: PlayerRig/Hips
+        weight: 1
+      - path: PlayerRig/Hips/MidleBody
+        weight: 1
+      - path: PlayerRig/Hips/MidleBody/UperBody
+        weight: 1
+      - path: PlayerRig/Hips/MidleBody/UperBody/Head
+        weight: 1
+      - path: PlayerRig/Hips/MidleBody/UperBody/UperArmBack
+        weight: 1
+      - path: PlayerRig/Hips/MidleBody/UperBody/UperArmBack/MidleArmBack
+        weight: 1
+      - path: PlayerRig/Hips/MidleBody/UperBody/UperArmBack/MidleArmBack/HandBack
+        weight: 1
+      - path: PlayerRig/Hips/MidleBody/UperBody/UperArmFront
+        weight: 1
+      - path: PlayerRig/Hips/MidleBody/UperBody/UperArmFront/MidleArmFront
+        weight: 1
+      - path: PlayerRig/Hips/MidleBody/UperBody/UperArmFront/MidleArmFront/HandFront
+        weight: 1
+      - path: PlayerRig/Hips/UperLegBack
+        weight: 1
+      - path: PlayerRig/Hips/UperLegBack/MidleLegBack
+        weight: 1
+      - path: PlayerRig/Hips/UperLegBack/MidleLegBack/FootBack
+        weight: 1
+      - path: PlayerRig/Hips/UperLegBack/MidleLegBack/FootBack/FootStepBack
+        weight: 1
+      - path: PlayerRig/Hips/UperLegFront
+        weight: 1
+      - path: PlayerRig/Hips/UperLegFront/MidleLegFront
+        weight: 1
+      - path: PlayerRig/Hips/UperLegFront/MidleLegFront/FootFront
+        weight: 1
+      - path: PlayerRig/Hips/UperLegFront/MidleLegFront/FootFront/FootStepFront
+        weight: 1
+      - path: PlayerRig/ShoulderHandleIK
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Walking
+      takeName: Take 001
+      firstFrame: 5
+      lastFrame: 25
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: PlayerMesh
+        weight: 1
+      - path: PlayerRig
+        weight: 1
+      - path: PlayerRig/FootBacktIK
+        weight: 1
+      - path: PlayerRig/FootBacktIK/ikHandle4
+        weight: 1
+      - path: PlayerRig/FootFrontIK
+        weight: 1
+      - path: PlayerRig/FootFrontIK/ikHandle6
+        weight: 1
+      - path: PlayerRig/HandBackIK
+        weight: 1
+      - path: PlayerRig/HandFrontIK
+        weight: 1
+      - path: PlayerRig/Hips
+        weight: 1
+      - path: PlayerRig/Hips/MidleBody
+        weight: 1
+      - path: PlayerRig/Hips/MidleBody/UperBody
+        weight: 1
+      - path: PlayerRig/Hips/MidleBody/UperBody/Head
+        weight: 1
+      - path: PlayerRig/Hips/MidleBody/UperBody/UperArmBack
+        weight: 1
+      - path: PlayerRig/Hips/MidleBody/UperBody/UperArmBack/MidleArmBack
+        weight: 1
+      - path: PlayerRig/Hips/MidleBody/UperBody/UperArmBack/MidleArmBack/HandBack
+        weight: 1
+      - path: PlayerRig/Hips/MidleBody/UperBody/UperArmFront
+        weight: 1
+      - path: PlayerRig/Hips/MidleBody/UperBody/UperArmFront/MidleArmFront
+        weight: 1
+      - path: PlayerRig/Hips/MidleBody/UperBody/UperArmFront/MidleArmFront/HandFront
+        weight: 1
+      - path: PlayerRig/Hips/UperLegBack
+        weight: 1
+      - path: PlayerRig/Hips/UperLegBack/MidleLegBack
+        weight: 1
+      - path: PlayerRig/Hips/UperLegBack/MidleLegBack/FootBack
+        weight: 1
+      - path: PlayerRig/Hips/UperLegBack/MidleLegBack/FootBack/FootStepBack
+        weight: 1
+      - path: PlayerRig/Hips/UperLegFront
+        weight: 1
+      - path: PlayerRig/Hips/UperLegFront/MidleLegFront
+        weight: 1
+      - path: PlayerRig/Hips/UperLegFront/MidleLegFront/FootFront
+        weight: 1
+      - path: PlayerRig/Hips/UperLegFront/MidleLegFront/FootFront/FootStepFront
+        weight: 1
+      - path: PlayerRig/ShoulderHandleIK
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Crouching
+      takeName: Take 001
+      firstFrame: 3
+      lastFrame: 4
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: PlayerMesh
+        weight: 0
+      - path: PlayerRig
+        weight: 1
+      - path: PlayerRig/FootBacktIK
+        weight: 0
+      - path: PlayerRig/FootBacktIK/ikHandle4
+        weight: 0
+      - path: PlayerRig/FootFrontIK
+        weight: 0
+      - path: PlayerRig/FootFrontIK/ikHandle6
+        weight: 0
+      - path: PlayerRig/HandBackIK
+        weight: 0
+      - path: PlayerRig/HandFrontIK
+        weight: 0
+      - path: PlayerRig/Hips
+        weight: 1
+      - path: PlayerRig/Hips/MidleBody
+        weight: 1
+      - path: PlayerRig/Hips/MidleBody/UperBody
+        weight: 1
+      - path: PlayerRig/Hips/MidleBody/UperBody/Head
+        weight: 1
+      - path: PlayerRig/Hips/MidleBody/UperBody/UperArmBack
+        weight: 1
+      - path: PlayerRig/Hips/MidleBody/UperBody/UperArmBack/MidleArmBack
+        weight: 1
+      - path: PlayerRig/Hips/MidleBody/UperBody/UperArmBack/MidleArmBack/HandBack
+        weight: 1
+      - path: PlayerRig/Hips/MidleBody/UperBody/UperArmFront
+        weight: 1
+      - path: PlayerRig/Hips/MidleBody/UperBody/UperArmFront/MidleArmFront
+        weight: 1
+      - path: PlayerRig/Hips/MidleBody/UperBody/UperArmFront/MidleArmFront/HandFront
+        weight: 1
+      - path: PlayerRig/Hips/UperLegBack
+        weight: 1
+      - path: PlayerRig/Hips/UperLegBack/MidleLegBack
+        weight: 1
+      - path: PlayerRig/Hips/UperLegBack/MidleLegBack/FootBack
+        weight: 1
+      - path: PlayerRig/Hips/UperLegBack/MidleLegBack/FootBack/FootStepBack
+        weight: 1
+      - path: PlayerRig/Hips/UperLegFront
+        weight: 1
+      - path: PlayerRig/Hips/UperLegFront/MidleLegFront
+        weight: 1
+      - path: PlayerRig/Hips/UperLegFront/MidleLegFront/FootFront
+        weight: 1
+      - path: PlayerRig/Hips/UperLegFront/MidleLegFront/FootFront/FootStepFront
+        weight: 1
+      - path: PlayerRig/ShoulderHandleIK
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .5
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human:
+    - boneName: Hips
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: UperLegBack
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: UperLegFront
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: MidleLegBack
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: MidleLegFront
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FootBack
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FootFront
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: MidleBody
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: UperBody
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: UperArmBack
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: UperArmFront
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: MidleArmBack
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: HandBack
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: MidleArmFront
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: HandFront
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FootStepBack
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FootStepFront
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: PlayerMesh(Clone)
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Hips
+      position: {x: -1.73472348e-18, y: 2.80007458, z: 0}
+      rotation: {x: -.703211069, y: .710981131, z: 1.26219113e-09, w: -1.27613753e-09}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: MidleBody
+      position: {x: -.671766162, y: .160833389, z: 1.96964078e-17}
+      rotation: {x: -4.68653611e-32, y: -1.64329749e-31, z: -.000989901484, w: .999999523}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: UperBody
+      position: {x: -.824139535, y: -.146023616, z: 6.53602783e-17}
+      rotation: {x: .999974728, y: -.00710846577, z: 3.47470835e-16, w: 6.37039318e-17}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Head
+      position: {x: -.386328667, y: -.0053889933, z: .5}
+      rotation: {x: 0, y: 0, z: .705262959, w: .708945811}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: UperArmBack
+      position: {x: .0373264365, y: .49980557, z: 1}
+      rotation: {x: .999925077, y: .0122426711, z: -3.00928553e-11, w: -1.79464443e-09}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: MidleArmBack
+      position: {x: .744014144, y: .128623903, z: -2.0627976e-16}
+      rotation: {x: 6.01861932e-36, y: 5.28343749e-18, z: .00541425031, w: .999985337}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: HandBack
+      position: {x: .787368298, y: -.144092515, z: -1.76561139e-17}
+      rotation: {x: 1.58900726e-32, y: 7.15412431e-17, z: .99992758, w: -.0120366951}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: UperArmFront
+      position: {x: -.00260413135, y: -.499993205, z: -1}
+      rotation: {x: 2.91077544e-11, y: -1.7946612e-09, z: .99984777, w: .0174503792}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: MidleArmFront
+      position: {x: -.849264562, y: .111310601, z: -1.70456513e-16}
+      rotation: {x: 7.45047135e-09, y: 4.03393048e-11, z: .00541425031, w: .999985337}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: HandFront
+      position: {x: -.781673551, y: -.157729238, z: -2.59131519e-16}
+      rotation: {x: -1.26827202e-10, y: 1.0535949e-08, z: .99992758, w: -.0120366951}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: UperLegBack
+      position: {x: .503435075, y: -.218634441, z: -.5}
+      rotation: {x: .99998492, y: -.0054942565, z: -7.74398531e-11, w: -1.79322523e-09}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: MidleLegBack
+      position: {x: .875761986, y: .146254718, z: 1.11021919e-16}
+      rotation: {x: .999898016, y: .0142813437, z: 8.73912181e-19, w: -6.125107e-17}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: FootBack
+      position: {x: .768835962, y: .248720959, z: -2.52503592e-16}
+      rotation: {x: -1.35674771e-09, y: -1.17511234e-09, z: .775459766, w: .631397009}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: FootStepBack
+      position: {x: -.257071584, y: .0450978503, z: 2.65751108e-16}
+      rotation: {x: .769881487, y: .638186932, z: -1.80783632e-16, w: -2.18089676e-16}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: UperLegFront
+      position: {x: .487261921, y: .318104595, z: .5}
+      rotation: {x: 5.63834847e-11, y: -1.79401083e-09, z: .99998492, w: .0054942565}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: MidleLegFront
+      position: {x: -.888124943, y: .150332734, z: 2.41815042e-16}
+      rotation: {x: .999898016, y: .0142813437, z: -2.62287247e-18, w: -6.12011215e-17}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: FootFront
+      position: {x: -.760648787, y: .189363152, z: 1.79563229e-16}
+      rotation: {x: .722785413, y: .691072524, z: 1.33723999e-09, w: 1.19726495e-09}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: FootStepFront
+      position: {x: -.25454998, y: .0197923537, z: 1.3119557e-16}
+      rotation: {x: 0, y: 0, z: -.728830278, w: .684694409}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: ikHandle1
+      position: {x: .552435935, y: 2.72962022, z: 1}
+      rotation: {x: .713745236, y: -.700405419, z: -4.52621386e-17, w: 4.1373996e-17}
+      scale: {x: 1, y: 1.00000012, z: 1}
+      transformModified: 1
+    - name: ikHandle2
+      position: {x: -2.77555756e-17, y: 4.29635811, z: -8.30431565e-17}
+      rotation: {x: -.703914583, y: .71028471, z: 4.35777309e-17, w: -4.30162307e-17}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: ikHandle3
+      position: {x: -.493520826, y: 2.66626263, z: -1}
+      rotation: {x: 8.60243683e-17, y: 8.71574602e-17, z: .700405419, w: .713745236}
+      scale: {x: 1, y: 1.00000012, z: 1}
+      transformModified: 1
+    - name: ikHandle4
+      position: {x: -.384116709, y: .673282027, z: -.5}
+      rotation: {x: 8.70667152e-17, y: 8.61151928e-17, z: .69693625, w: .717133105}
+      scale: {x: 1, y: .99999994, z: 1}
+      transformModified: 1
+    - name: ikHandle5
+      position: {x: -.12880066, y: .674349785, z: -.5}
+      rotation: {x: .0366998985, y: .999326348, z: -2.7268987e-16, w: -2.93482358e-16}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: ikHandle6
+      position: {x: .393679172, y: .642392993, z: .5}
+      rotation: {x: .0876503289, y: .996151328, z: -5.56296432e-17, w: -6.63637079e-17}
+      scale: {x: .99999994, y: 1.00000012, z: 1}
+      transformModified: 1
+    - name: ikHandle7
+      position: {x: .132682309, y: .642879546, z: .5}
+      rotation: {x: .717133105, y: -.69693625, z: 4.21927923e-17, w: -4.43804005e-17}
+      scale: {x: 1, y: .99999994, z: 1}
+      transformModified: 1
+    - name: PlayerMesh
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  additionalBone: 0
+  userData: 
