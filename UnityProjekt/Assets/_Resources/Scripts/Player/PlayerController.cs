@@ -140,6 +140,11 @@ public class PlayerController : MonoBehaviour
 
         if (CanUseSkill)
             TryUseSkill();
+
+        if (_animator)
+        {
+            _animator.SetFloat("Speed", Mathf.Abs(_currentVelocity.x));
+        }
 	}
 
     public void OnResume()
