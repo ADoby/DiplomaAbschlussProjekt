@@ -166,7 +166,7 @@ public class UIRect : MonoBehaviour
     {
         children.Clear();
 
-        var newChildren = gameObject.GetComponentsInChildren<UIRect>().Where(o => o.transform.parent == transform);
+        var newChildren = gameObject.GetComponentsInChildren<UIRect>(includeInactive:true).Where(o => o.transform.parent == transform);
 
         foreach (var child in newChildren)
         {

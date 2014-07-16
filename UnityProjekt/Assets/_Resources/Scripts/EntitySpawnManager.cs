@@ -53,7 +53,7 @@ public class EntitySpawnManager : MonoBehaviour
 
     public void Spawn(SpawnQueueInfo info)
     {
-        GameObject go = GameObjectPool.Instance.Spawn(info.poolName, info.position, info.rotation);
+        GameObject go = GameObjectPool.Instance.Spawn(info.poolName, info.position + Vector3.forward * 0.0001f * GameManager.Instance.CurrentSpawnedEntityCount, info.rotation);
 
         if (info.callBack != null)
         {

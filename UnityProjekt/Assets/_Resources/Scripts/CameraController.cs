@@ -33,6 +33,7 @@ public class CameraController : MonoBehaviour {
 
         cameraWantedSize = size;
         wantedPositionDiff = positionDiff;
+
 	}
 
 	// Update is called once per frame

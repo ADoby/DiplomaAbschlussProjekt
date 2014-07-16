@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
 
     public float PrevNeededExperience = 0;
     public float NeededExperience = 100f;
+    public float NeededExperiencePerLevel = 50f;
     public float NeededExperienceMultPerLevel = 1.5f;
     public float ExperiencePerDamageDone = 2.0f;
     public float MinUpMotionForExtraJump = 0.2f;
@@ -114,7 +115,7 @@ public class PlayerController : MonoBehaviour
 
         if (InputController.GetClicked(PlayerID() + "_SKILLMENU"))
         {
-            LevelUpGUI.Instance.OpenWithPlayer(this);
+            //LevelUpGUI.Instance.OpenWithPlayer(this);
             //AddSkillMakingImune();
             //AddSkillOverridingMovement();
             //AddSkillPreventingMovement();
@@ -226,10 +227,17 @@ public class PlayerController : MonoBehaviour
         //Do Cool Effekt LOL
         Level++;
         PrevNeededExperience = NeededExperience;
-        NeededExperience *= NeededExperienceMultPerLevel;
+        //NeededExperience *= NeededExperienceMultPerLevel;
+
+        NeededExperience += NeededExperiencePerLevel * (Level * NeededExperienceMultPerLevel);
 
         //Level UP
         PlayerClass.LevelUp();
+
+        if (CurrentExperience >= NeededExperience)
+        {
+            LevelUp();
+        }
     }
 
     public void Damage(float damage)

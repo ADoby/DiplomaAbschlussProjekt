@@ -18,6 +18,11 @@ public class PlayerUI : MonoBehaviour {
     public UIRect ExpBar;
 
 
+    public GameObject SkillAndItemMenu;
+    public UIButton SkillTabButton;
+
+    public UIRect skillPanel;
+
     private float currentHealth = 0, wantedHealth = 0;
     private float currentMaxHealth = 0;
 
@@ -29,8 +34,11 @@ public class PlayerUI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        SkillAndItemMenu.SetActive(false);
+
         StartCoroutine(UpdateUI());
 	}
+
 
     void Update()
     {
@@ -39,6 +47,19 @@ public class PlayerUI : MonoBehaviour {
         currentHealth = Mathf.Lerp(currentHealth, wantedHealth, Time.deltaTime * speed);
 
         ChangeUI();
+
+        if (InputController.GetClicked(playerControl.PlayerID() + "_SKILLMENU"))
+        {
+            SkillAndItemMenu.SetActive(!SkillAndItemMenu.activeSelf);
+            if (SkillAndItemMenu.activeSelf)
+            {
+                GameEventHandler.TriggerOnPause();
+            }
+            else
+            {
+                GameEventHandler.TriggerOnResume();
+            }
+        }
     }
 
     private void ChangeUI()
@@ -62,8 +83,13 @@ public class PlayerUI : MonoBehaviour {
         wantedMoney = playerControl.Money;
 
         wantedExp = ((playerControl.CurrentExperience - playerControl.PrevNeededExperience) / (playerControl.NeededExperience - playerControl.PrevNeededExperience));
-    
-        ChangeUI();
+
+        SkillTabButton.Text = "Skill/Attribute(" + playerControl.PlayerClass.skillPoints.ToString() + ")";
+
+        if (playerControl.PlayerClass.skillPoints > 0)
+            skillPanel.Enabled = true;
+        else
+            skillPanel.Enabled = false;
 
         yield return new WaitForSeconds(UpdateTimer);
         StartCoroutine(UpdateUI());

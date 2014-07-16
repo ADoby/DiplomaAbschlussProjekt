@@ -23,6 +23,11 @@ public class ControllerMenuInput : MonoBehaviour {
     void Awake(){
         GameEventHandler.StopControllerMenu += StopControllerMenu;
     }
+
+    void OnDisable()
+    {
+        StopControllerMenu();
+    }
 	
 	// Update is called once per frame
 	void Update () {

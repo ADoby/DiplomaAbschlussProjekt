@@ -63,12 +63,12 @@ MonoBehaviour:
     valueMultiply: 1
     ValuePerSkillPoint: 2
   - Name: Max Movement Speed
-    Value: 10
+    Value: 5
     ValuePerLevel: .100000001
     valueMultiply: 1
     ValuePerSkillPoint: .200000003
   - Name: Movement Change
-    Value: 50
+    Value: 30
     ValuePerLevel: 1
     valueMultiply: 1
     ValuePerSkillPoint: 2
