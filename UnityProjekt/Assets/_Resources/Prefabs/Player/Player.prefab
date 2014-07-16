@@ -1086,7 +1086,8 @@ MonoBehaviour:
   MinXMovement: .100000001
   PrevNeededExperience: 0
   NeededExperience: 100
-  NeededExperienceMultPerLevel: 1.5
+  NeededExperiencePerLevel: 50
+  NeededExperienceMultPerLevel: 1.10000002
   ExperiencePerDamageDone: .5
   MinUpMotionForExtraJump: .200000003
   JumpInput: _JUMP
