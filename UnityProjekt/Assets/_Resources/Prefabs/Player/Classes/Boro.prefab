@@ -97,7 +97,7 @@ MonoBehaviour:
     MaxSkillUps: 40
     currentSkillUps: 0
   - Name: Jump Power
-    Value: 5
+    Value: 10
     ValuePerLevel: 0
     valueMultiply: 1
     ValuePerSkillPoint: .400000006

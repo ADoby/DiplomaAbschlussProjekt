@@ -4,7 +4,7 @@ Shader "Sprites/Diffuse_Bump"
 	{
 		[PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
 		_Color ("Tint", Color) = (1,1,1,1)
-		[MaterialToggle] PixelSnap ("Pixel snap", Float) = 0
+		_Cutoff ("Alpha cutoff", Range(0,1)) = 0.5
 	}
 
 	SubShader
@@ -13,7 +13,7 @@ Shader "Sprites/Diffuse_Bump"
 		{ 
 			"Queue"="Transparent" 
 			"IgnoreProjector"="True" 
-			"RenderType"="Transparent"
+			"RenderType"="TransparentCutout"
 			"PreviewType"="Plane"
 			"CanUseSpriteAtlas"="True"
 		}
@@ -21,13 +21,12 @@ Shader "Sprites/Diffuse_Bump"
 		Cull Off
 		ZWrite Off
 		ColorMaterial Emission
-        Lighting On
+		Lighting On
 		Fog { Mode Off }
 		Blend One OneMinusSrcAlpha
 
 		CGPROGRAM
-		#pragma surface surf Lambert vertex:vert
-		#pragma multi_compile DUMMY PIXELSNAP_ON
+		#pragma surface surf Lambert vertex:vert alphatest:_Cutoff
 
 		sampler2D _MainTex;
 		fixed4 _Color;
@@ -40,9 +39,6 @@ Shader "Sprites/Diffuse_Bump"
 		
 		void vert (inout appdata_full v, out Input o)
 		{
-			#if defined(PIXELSNAP_ON) && !defined(SHADER_API_FLASH)
-			v.vertex = UnityPixelSnap (v.vertex);
-			#endif
 			v.normal = float3(0,0,-1);
 			
 			UNITY_INITIALIZE_OUTPUT(Input, o);

@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: SpriteMaterial_Bump
-  m_Shader: {fileID: 4800000, guid: 73f6db83b6c44894c8aa05791c93fa45, type: 3}
+  m_Shader: {fileID: 4800000, guid: 7440fe2ed0017194e9c0be2febc4bd56, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -18,13 +18,6 @@ Material:
           name: _MainTex
         second:
           m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _BumpMap
-        second:
-          m_Texture: {fileID: 2800000, guid: d4dfe207dcd19014bb5c960d19db8c99, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:

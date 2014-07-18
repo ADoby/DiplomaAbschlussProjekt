@@ -21,13 +21,13 @@ Shader "Sprites/Diffuse_Illum"
 		Cull Off
 		ZWrite Off
 		ColorMaterial Emission
-        Lighting On
+		Lighting On
 		Fog { Mode Off }
 		Blend One OneMinusSrcAlpha
 
 		CGPROGRAM
 		#pragma surface surf Lambert vertex:vert alphatest:_Cutoff
-
+        #include "UnityCG.cginc"
 		sampler2D _MainTex;
 		fixed4 _Color;
 
@@ -47,11 +47,11 @@ Shader "Sprites/Diffuse_Illum"
 
 		void surf (Input IN, inout SurfaceOutput o)
 		{
-			fixed4 c = tex2D(_MainTex, IN.uv_MainTex);// * IN.color;
+			fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * IN.color;
 			o.Albedo = c.rgb * c.a;
 			o.Alpha = c.a;
 			
-			o.Emission = c.rgb * tex2D(_MainTex, IN.uv_MainTex + float2(0.5, 0)).a;
+			o.Emission = c.rgb * tex2D(_MainTex, IN.uv_MainTex + float2(0.5, 0)).a * cos(_Time);
 
 			fixed4 packednormal = tex2D(_MainTex, IN.uv_MainTex + float2(0.25, 0));
 			fixed3 normal;
