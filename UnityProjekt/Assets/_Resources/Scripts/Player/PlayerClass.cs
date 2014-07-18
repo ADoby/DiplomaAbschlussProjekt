@@ -26,12 +26,26 @@ public class Attribute
 
     public float ValuePerSkillPoint = 0f;
 
-    public Attribute(string name, float value, float valuePerLevel, float valuePerSkillPoint)
+    public float MinValue = 0f;
+    public float MaxValue = 0f;
+
+    public int MaxSkillUps = 100;
+    public int currentSkillUps = 0;
+
+    public bool CanSkillUp
     {
-        Name = name;
-        Value = value;
-        ValuePerLevel = valuePerLevel;
-        ValuePerSkillPoint = valuePerSkillPoint;
+        get
+        {
+            return (currentSkillUps < MaxSkillUps);
+        }
+    }
+
+    public float AbsoluteValue
+    {
+        get
+        {
+            return Mathf.Clamp(Value * valueMultiply, MinValue, MaxValue);
+        }
     }
 
     public void AddMult(float amount)
@@ -49,9 +63,15 @@ public class Attribute
         Value += ValuePerLevel;
     }
 
-    public void SkillUp()
+    public bool SkillUp()
     {
-        Value += ValuePerSkillPoint;
+        if (currentSkillUps < MaxSkillUps)
+        {
+            Value += ValuePerSkillPoint;
+            currentSkillUps++;
+            return true;
+        }
+        return false;
     }
 }
 
@@ -62,15 +82,15 @@ public class PlayerClass : MonoBehaviour
 
     public Attribute[] Attributes =
     {
-        new Attribute("Health", 100f, 5f, 10f),
-        new Attribute("Health Regen", 1f, 0.025f, 0.05f),
-        new Attribute("Attack Speed", 1f, 0.025f, 0.05f),
-        new Attribute("Damage", 10f, 2f, 4f),
-        new Attribute("Max Movement Speed", 10f, 0.1f, 0.2f),
-        new Attribute("Movement Change", 50f, 1f, 2f),
-        new Attribute("Jump Power", 10f, 0.1f, 0.2f),
-        new Attribute("More Jump Power", 5f, 0.01f, 0.02f),
-        new Attribute("Spell Vampire", 0.0f, 0.0f, 0.05f)
+        new Attribute() { Name = "Health",              Value = 100f, ValuePerLevel = 25f,  ValuePerSkillPoint = 100f,   MaxValue = 999999f, MaxSkillUps = 200 },
+        new Attribute() { Name = "Health Regeneration", Value = 5f,   ValuePerLevel = 0.5f, ValuePerSkillPoint = 1f,     MaxValue = 2000f,   MaxSkillUps = 50 },
+        new Attribute() { Name = "Attack Speed",        Value = 1f,   ValuePerLevel = 0f,   ValuePerSkillPoint = 0.05f,  MaxValue = 4f,      MaxSkillUps = 20 },
+        new Attribute() { Name = "Damage",              Value = 10f,  ValuePerLevel = 2f,   ValuePerSkillPoint = 5f,     MaxValue = 5000f,   MaxSkillUps = 100 },
+        new Attribute() { Name = "Movement Speed",      Value = 5f,   ValuePerLevel = 0f,   ValuePerSkillPoint = 0.5f,   MaxValue = 30f,     MaxSkillUps = 20 },
+        new Attribute() { Name = "Acceleration",        Value = 30f,  ValuePerLevel = 0f,   ValuePerSkillPoint = 3f,     MaxValue = 200f,    MaxSkillUps = 40 },
+        new Attribute() { Name = "Jump Power",          Value = 5f,   ValuePerLevel = 0f,   ValuePerSkillPoint = 0.4f,   MaxValue = 25f,     MaxSkillUps = 30 },
+        new Attribute() { Name = "More Jump Power",     Value = 5f,   ValuePerLevel = 0f,   ValuePerSkillPoint = 0.2f,   MaxValue = 15f,     MaxSkillUps = 20 },
+        new Attribute() { Name = "Vampire",             Value = 0f,   ValuePerLevel = 0f,   ValuePerSkillPoint = 0.005f, MaxValue = 0.25f,   MaxSkillUps = 20 }
     };
 
     public PlayerSkill[] playerSkills;
@@ -224,17 +244,19 @@ public class PlayerClass : MonoBehaviour
         if (skillPoints <= 0)
             return;
 
-        skillPoints--;
-        GetAttribute(id).SkillUp();
+        if (GetAttribute(id).SkillUp())
+        {
+            skillPoints--;
+        }
     }
 
     public float GetAttributeValue(AttributeType type)
     {
-        return Attributes[(int)type].Value * Attributes[(int)type].valueMultiply;
+        return GetAttributeValue((int)type);
     }
     public float GetAttributeValue(int id)
     {
-        return Attributes[id].Value * Attributes[id].valueMultiply;
+        return Attributes[id].AbsoluteValue;
     }
 
     public Attribute GetAttribute(AttributeType type)

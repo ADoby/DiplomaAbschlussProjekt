@@ -39,54 +39,90 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d341f18d5c36e647bae48930c75d826, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Boro
+  Name: KlassenName
   Description: Beschreibung
   Attributes:
   - Name: Health
-    Value: 500
-    ValuePerLevel: 10
+    Value: 100
+    ValuePerLevel: 25
     valueMultiply: 1
-    ValuePerSkillPoint: 50
-  - Name: Health Regen
-    Value: 1
-    ValuePerLevel: .0250000004
+    ValuePerSkillPoint: 100
+    MinValue: 0
+    MaxValue: 999999
+    MaxSkillUps: 200
+    currentSkillUps: 0
+  - Name: Health Regeneration
+    Value: 5
+    ValuePerLevel: .5
     valueMultiply: 1
-    ValuePerSkillPoint: .0500000007
+    ValuePerSkillPoint: 1
+    MinValue: 0
+    MaxValue: 2000
+    MaxSkillUps: 50
+    currentSkillUps: 0
   - Name: Attack Speed
     Value: 1
-    ValuePerLevel: .0250000004
+    ValuePerLevel: 0
     valueMultiply: 1
     ValuePerSkillPoint: .0500000007
+    MinValue: 0
+    MaxValue: 4
+    MaxSkillUps: 20
+    currentSkillUps: 0
   - Name: Damage
-    Value: 3
-    ValuePerLevel: 1
+    Value: 10
+    ValuePerLevel: 2
     valueMultiply: 1
-    ValuePerSkillPoint: 2
-  - Name: Max Movement Speed
+    ValuePerSkillPoint: 5
+    MinValue: 0
+    MaxValue: 5000
+    MaxSkillUps: 100
+    currentSkillUps: 0
+  - Name: Movement Speed
     Value: 5
-    ValuePerLevel: .100000001
+    ValuePerLevel: 0
     valueMultiply: 1
-    ValuePerSkillPoint: .200000003
-  - Name: Movement Change
+    ValuePerSkillPoint: .5
+    MinValue: 0
+    MaxValue: 30
+    MaxSkillUps: 20
+    currentSkillUps: 0
+  - Name: Acceleration
     Value: 30
-    ValuePerLevel: 1
+    ValuePerLevel: 0
     valueMultiply: 1
-    ValuePerSkillPoint: 2
+    ValuePerSkillPoint: 3
+    MinValue: 0
+    MaxValue: 200
+    MaxSkillUps: 40
+    currentSkillUps: 0
   - Name: Jump Power
-    Value: 15
-    ValuePerLevel: .100000001
+    Value: 5
+    ValuePerLevel: 0
     valueMultiply: 1
-    ValuePerSkillPoint: .200000003
+    ValuePerSkillPoint: .400000006
+    MinValue: 0
+    MaxValue: 25
+    MaxSkillUps: 30
+    currentSkillUps: 0
   - Name: More Jump Power
     Value: 5
-    ValuePerLevel: .00999999978
+    ValuePerLevel: 0
     valueMultiply: 1
-    ValuePerSkillPoint: .0199999996
-  - Name: Spell Vampire
+    ValuePerSkillPoint: .200000003
+    MinValue: 0
+    MaxValue: 15
+    MaxSkillUps: 20
+    currentSkillUps: 0
+  - Name: Vampire
     Value: 0
     ValuePerLevel: 0
     valueMultiply: 1
-    ValuePerSkillPoint: .00999999978
+    ValuePerSkillPoint: .00499999989
+    MinValue: 0
+    MaxValue: .25
+    MaxSkillUps: 20
+    currentSkillUps: 0
   playerSkills:
   - {fileID: 11400000, guid: e498e8fd35d281845b4cd1bfe62bc78f, type: 2}
   - {fileID: 11400000, guid: 936cd7626d9574b4ab4e28b2d0636f21, type: 2}

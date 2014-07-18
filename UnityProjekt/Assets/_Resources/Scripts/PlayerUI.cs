@@ -32,6 +32,8 @@ public class PlayerUI : MonoBehaviour {
 
     public float speed = 2.0f;
 
+    public UIText skillCD1, skillCD2, skillCD3, skillCD4;
+
 	// Use this for initialization
 	void Start () {
         SkillAndItemMenu.SetActive(false);
@@ -73,6 +75,11 @@ public class PlayerUI : MonoBehaviour {
 
         Exp.Text = "Experience:" + (currentExp * 100).ToString("##0") + "%";
         ExpBar.RelativeSize.x = currentExp;
+
+        skillCD1.Text = playerControl.PlayerClass.playerSkills[0].Cooldown.ToString("#0.0");
+        skillCD2.Text = playerControl.PlayerClass.playerSkills[1].Cooldown.ToString("#0.0");
+        skillCD3.Text = playerControl.PlayerClass.playerSkills[2].Cooldown.ToString("#0.0");
+        skillCD4.Text = playerControl.PlayerClass.playerSkills[3].Cooldown.ToString("#0.0");
     }
 
     public IEnumerator UpdateUI()

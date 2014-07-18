@@ -8,6 +8,14 @@ public class PlayerSkill : MonoBehaviour
     public float SkillCooldown = 1.0f;
     protected float CooldownTimer = 0.0f;
 
+    public float Cooldown
+    {
+        get
+        {
+            return CooldownTimer;
+        }
+    }
+
     public float SkillRunTime = 0f;
     protected float SkillRunTimer = 0.0f;
     protected bool skillRunning = false;
@@ -28,6 +36,7 @@ public class PlayerSkill : MonoBehaviour
     public virtual void UpdateSkill(PlayerClass player)
     {
         CooldownTimer -= Time.deltaTime * player.GetAttributeValue(AttributeType.ATTACKSPEED);
+        CooldownTimer = Mathf.Clamp(CooldownTimer, 0f, SkillCooldown);
 
         if (Running())
         {
