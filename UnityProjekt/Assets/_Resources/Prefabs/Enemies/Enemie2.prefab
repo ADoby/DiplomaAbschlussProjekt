@@ -214,13 +214,13 @@ MonoBehaviour:
   SpawnPool: 1
   SpawnPoolName: Blood
   healthBar: {fileID: 11400002}
-  StartMaxHealth: 100
-  MaxHealthPerDifficulty: 10
+  StartMaxHealth: 50
+  MaxHealthPerDifficulty: 5
   FloorCheckDistance: 1
   FloorCheckLength: .5
   MyDamage: 5
   DamagePerDifficulty: 2
-  maxSpeed: 3
+  maxSpeed: 5
   speedChange: 5
   target: {fileID: 0}
   findTargetDistance: 10
@@ -234,7 +234,7 @@ MonoBehaviour:
   lastVelocity: {x: 0, y: 0}
   attackAnim: {fileID: 7400000, guid: d7277d1b8dc740d4a8ddc2eb2941af66, type: 2}
   anim: {fileID: 9500000}
-  attackTime: 1
+  attackTime: .5
   attackDistance: 2
   randomTimer: 0
   randomTimeMin: 3

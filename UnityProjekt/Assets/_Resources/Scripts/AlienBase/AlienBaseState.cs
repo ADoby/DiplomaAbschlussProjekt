@@ -19,12 +19,16 @@ public class AlienBaseState
     public float spawnCooldown = 2.0f;
     private float spawnTimer = 0.0f;
 
+    public float Range = 10f;
+
     public string Name = "BaseState";
 
     public float startTime = 0.0f, endTime = 0.0f;
 
     public float healthBonus = 0.0f;
     private float timer = 0.0f;
+
+    public LayerMask mask;
 
     public Transform BaseTransform { get; set; }
 
@@ -47,16 +51,19 @@ public class AlienBaseState
 
     public void Spawn()
     {
-        var rnd = Random.value;
-        foreach (var item in spawnInfos)
+        if (Physics2D.OverlapCircle(BaseTransform.position, Range, mask))
         {
-            if (rnd < item.weight)
+            var rnd = Random.value;
+            foreach (var item in spawnInfos)
             {
-                EntitySpawnManager.Spawn(item.poolName, BaseTransform.position, Quaternion.identity);
+                if (rnd < item.weight)
+                {
+                    EntitySpawnManager.Spawn(item.poolName, BaseTransform.position, Quaternion.identity);
 
-                return;
+                    return;
+                }
+                rnd -= item.weight;
             }
-            rnd -= item.weight;
         }
     }
 

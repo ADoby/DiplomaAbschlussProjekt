@@ -2540,7 +2540,7 @@ MonoBehaviour:
   SpawnPool: 1
   SpawnPoolName: Blood
   healthBar: {fileID: 11400072}
-  maxHealth: 400
+  MaxHealth: 500
   poolName: AlienRace1_Base2
   HealthRegenPerSec: 5
   StartFull: 0
@@ -2562,10 +2562,14 @@ MonoBehaviour:
     spawning: 0
     spawnInfos: []
     spawnCooldown: 0
+    Range: 10
     Name: BaseState 1
     startTime: 0
     endTime: 8
     healthBonus: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 0
   - attacking: 0
     spawning: 1
     spawnInfos:
@@ -2574,10 +2578,14 @@ MonoBehaviour:
     - poolName: Enemie2
       weight: 10
     spawnCooldown: 3
+    Range: 10
     Name: SpawnState 1
     startTime: 8
     endTime: 10
     healthBonus: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 512
   BaseStateList:
   - BaseState 1
   - SpawnState 1

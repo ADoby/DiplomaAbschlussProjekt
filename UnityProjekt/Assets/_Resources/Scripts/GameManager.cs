@@ -142,7 +142,7 @@ public class GameManager : MonoBehaviour {
             return;
         DifficultyValue += Time.deltaTime;
         DifficultyBar.RelativeSize.y = DifficultyValue / 10.0f;
-        if (DifficultyValue >= 10)
+        if (DifficultyValue >= 5)
         {
             CurrentDifficulty++;
             DifficultyValue = 0;
