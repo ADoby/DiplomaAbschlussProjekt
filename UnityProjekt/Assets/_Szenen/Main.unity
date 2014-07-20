@@ -407,7 +407,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 70
+  m_RootOrder: 64
 --- !u!212 &12280055
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -595,7 +595,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 13
+  m_RootOrder: 7
 --- !u!212 &14508622
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -985,7 +985,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 47
+  m_RootOrder: 41
 --- !u!212 &24346305
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1123,7 +1123,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 10
+  m_RootOrder: 4
 --- !u!212 &26592391
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2220,7 +2220,7 @@ Transform:
   - {fileID: 1179522716}
   - {fileID: 1984059655}
   m_Father: {fileID: 1733340690}
-  m_RootOrder: 17
+  m_RootOrder: 12
 --- !u!114 &47896199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2303,7 +2303,7 @@ MonoBehaviour:
   - BaseState 1
   - SpawnState 1
   - All
-  currentState: 0
+  currentState: 1
   currentTime: 10
   parts:
   - {fileID: 1179522717}
@@ -2384,7 +2384,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 81
+  m_RootOrder: 75
 --- !u!212 &51362230
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2448,7 +2448,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 75
+  m_RootOrder: 69
 --- !u!212 &53279203
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2853,7 +2853,7 @@ Transform:
   - {fileID: 584367925}
   - {fileID: 139872464}
   m_Father: {fileID: 1733340690}
-  m_RootOrder: 22
+  m_RootOrder: 17
 --- !u!114 &67411295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4343,7 +4343,7 @@ Transform:
   - {fileID: 896186065}
   - {fileID: 462902366}
   m_Father: {fileID: 1733340690}
-  m_RootOrder: 5
+  m_RootOrder: 0
 --- !u!114 &105582195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5238,7 +5238,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 31
+  m_RootOrder: 25
 --- !u!212 &121958664
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5653,7 +5653,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 30
+  m_RootOrder: 24
 --- !u!212 &127775344
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5794,7 +5794,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 52
+  m_RootOrder: 46
 --- !u!212 &131390979
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6475,7 +6475,7 @@ Transform:
   - {fileID: 339581423}
   - {fileID: 127271174}
   m_Father: {fileID: 1733340690}
-  m_RootOrder: 27
+  m_RootOrder: 22
 --- !u!114 &146691319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6985,7 +6985,7 @@ Transform:
   - {fileID: 1234257414}
   - {fileID: 1904734544}
   m_Father: {fileID: 1733340690}
-  m_RootOrder: 11
+  m_RootOrder: 6
 --- !u!114 &149044459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7284,7 +7284,7 @@ Transform:
   - {fileID: 276499958}
   - {fileID: 1128063300}
   m_Father: {fileID: 1733340690}
-  m_RootOrder: 2
+  m_RootOrder: 29
 --- !u!114 &156476780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8019,7 +8019,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 44
+  m_RootOrder: 38
 --- !u!212 &170541748
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8431,7 +8431,7 @@ Transform:
   - {fileID: 797415887}
   - {fileID: 967675500}
   m_Father: {fileID: 1733340690}
-  m_RootOrder: 21
+  m_RootOrder: 16
 --- !u!114 &179419697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8941,7 +8941,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 56
+  m_RootOrder: 50
 --- !u!212 &189774781
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9033,10 +9033,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 380.399994
-    y: 246.100006
-    width: 190.199997
-    height: 48.1499977
+    x: 270.399994
+    y: 233.220001
+    width: 135.199997
+    height: 45.6300011
   parent: {fileID: 1974104217}
   children: []
   ChildCount: 0
@@ -9092,7 +9092,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 19
+    m_FontSize: 18
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -9758,7 +9758,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 61
+  m_RootOrder: 55
 --- !u!212 &210524803
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9826,7 +9826,7 @@ Transform:
   - {fileID: 1679143882}
   - {fileID: 500428051}
   m_Father: {fileID: 1733340690}
-  m_RootOrder: 20
+  m_RootOrder: 15
 --- !u!114 &211012835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9909,7 +9909,7 @@ MonoBehaviour:
   - BaseState 1
   - SpawnState 1
   - All
-  currentState: 0
+  currentState: 1
   currentTime: 10
   parts:
   - {fileID: 1679143884}
@@ -10167,7 +10167,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 68
+  m_RootOrder: 62
 --- !u!212 &217352027
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12218,7 +12218,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 28
+  m_RootOrder: 22
 --- !u!212 &259491131
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13207,7 +13207,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 17
+  m_RootOrder: 11
 --- !u!212 &278472787
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13810,7 +13810,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 74
+  m_RootOrder: 68
 --- !u!212 &287305258
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14436,7 +14436,7 @@ Transform:
   m_LocalScale: {x: 6.05078506, y: 6.0507946, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 62
+  m_RootOrder: 56
 --- !u!212 &294028712
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15065,7 +15065,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 3
+  m_RootOrder: 84
 --- !u!212 &304665281
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15133,7 +15133,7 @@ Transform:
   - {fileID: 1555675339}
   - {fileID: 1793555081}
   m_Father: {fileID: 1733340690}
-  m_RootOrder: 7
+  m_RootOrder: 2
 --- !u!114 &306409131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15709,7 +15709,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 16
+  m_RootOrder: 10
 --- !u!212 &319385440
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18710,7 +18710,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 21
+  m_RootOrder: 15
 --- !u!212 &384403849
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -22192,7 +22192,7 @@ Transform:
   - {fileID: 570394851}
   - {fileID: 892385029}
   m_Father: {fileID: 1733340690}
-  m_RootOrder: 15
+  m_RootOrder: 10
 --- !u!114 &461466444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24175,7 +24175,7 @@ Transform:
   - {fileID: 1185486339}
   - {fileID: 838131539}
   m_Father: {fileID: 1733340690}
-  m_RootOrder: 30
+  m_RootOrder: 25
 --- !u!114 &490168405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24645,7 +24645,7 @@ Transform:
   - {fileID: 100505662}
   - {fileID: 1194675308}
   m_Father: {fileID: 1733340690}
-  m_RootOrder: 1
+  m_RootOrder: 28
 --- !u!114 &502459037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26335,7 +26335,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 11
+  m_RootOrder: 5
 --- !u!212 &529538380
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -28672,10 +28672,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 380.399994
-    y: 304.950012
-    width: 190.199997
-    height: 48.1499977
+    x: 270.399994
+    y: 288.98999
+    width: 135.199997
+    height: 45.6300011
   parent: {fileID: 1974104217}
   children: []
   ChildCount: 0
@@ -28731,7 +28731,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 19
+    m_FontSize: 18
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -28991,7 +28991,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 14
+  m_RootOrder: 8
 --- !u!212 &576454739
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -30479,7 +30479,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 66
+  m_RootOrder: 60
 --- !u!212 &606468299
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -32528,7 +32528,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 15
+  m_RootOrder: 9
 --- !u!212 &643519017
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -34166,7 +34166,7 @@ Transform:
   - {fileID: 289219996}
   - {fileID: 1200906516}
   m_Father: {fileID: 1733340690}
-  m_RootOrder: 6
+  m_RootOrder: 1
 --- !u!114 &670569943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34284,7 +34284,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 6
+  m_RootOrder: 0
 --- !u!212 &671345161
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -35443,10 +35443,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 380.399994
-    y: 184.574997
-    width: 190.199997
-    height: 48.1499977
+    x: 270.399994
+    y: 174.915009
+    width: 135.199997
+    height: 45.6300011
   parent: {fileID: 1974104217}
   children: []
   ChildCount: 0
@@ -35502,7 +35502,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 19
+    m_FontSize: 18
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -36282,7 +36282,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 36
+  m_RootOrder: 30
 --- !u!212 &709911657
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -36346,7 +36346,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 71
+  m_RootOrder: 65
 --- !u!212 &710000612
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -36697,7 +36697,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 0
+  m_RootOrder: 81
 --- !u!212 &718952183
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -37255,7 +37255,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 29
+  m_RootOrder: 23
 --- !u!212 &732591240
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -39640,7 +39640,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 22
+  m_RootOrder: 16
 --- !u!212 &772778861
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -39830,7 +39830,7 @@ Transform:
   - {fileID: 760446757}
   - {fileID: 1404267224}
   m_Father: {fileID: 1733340690}
-  m_RootOrder: 24
+  m_RootOrder: 19
 --- !u!114 &775733744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40244,7 +40244,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 41
+  m_RootOrder: 35
 --- !u!212 &786411901
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -41679,7 +41679,7 @@ Transform:
   - {fileID: 2059828596}
   - {fileID: 1503576378}
   m_Father: {fileID: 1733340690}
-  m_RootOrder: 18
+  m_RootOrder: 13
 --- !u!114 &813267150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41762,7 +41762,7 @@ MonoBehaviour:
   - BaseState 1
   - SpawnState 1
   - All
-  currentState: 0
+  currentState: 1
   currentTime: 10
   parts:
   - {fileID: 2059828597}
@@ -43097,7 +43097,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 19
+  m_RootOrder: 13
 --- !u!212 &837454419
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -43893,7 +43893,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 24
+  m_RootOrder: 18
 --- !u!212 &853984363
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -45048,7 +45048,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 67
+  m_RootOrder: 61
 --- !u!212 &874498429
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -46565,7 +46565,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 69
+  m_RootOrder: 63
 --- !u!212 &899809522
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -47419,7 +47419,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 58
+  m_RootOrder: 52
 --- !u!212 &914842414
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -47566,7 +47566,7 @@ Transform:
   - {fileID: 1428304519}
   - {fileID: 514212536}
   m_Father: {fileID: 1733340690}
-  m_RootOrder: 19
+  m_RootOrder: 14
 --- !u!114 &915245104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47649,7 +47649,7 @@ MonoBehaviour:
   - BaseState 1
   - SpawnState 1
   - All
-  currentState: 0
+  currentState: 1
   currentTime: 10
   parts:
   - {fileID: 1428304520}
@@ -47853,7 +47853,7 @@ Transform:
   m_LocalScale: {x: 6.0507865, y: 6.05079508, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 64
+  m_RootOrder: 58
 --- !u!212 &919809796
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -51399,7 +51399,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 34
+  m_RootOrder: 28
 --- !u!212 &996394311
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -51861,7 +51861,7 @@ Transform:
   - {fileID: 1975902708}
   - {fileID: 1284054158}
   m_Father: {fileID: 1733340690}
-  m_RootOrder: 0
+  m_RootOrder: 27
 --- !u!114 &1007631033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52105,7 +52105,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 77
+  m_RootOrder: 71
 --- !u!212 &1011972797
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -53461,7 +53461,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 18
+  m_RootOrder: 12
 --- !u!212 &1038071987
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -54241,7 +54241,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 37
+  m_RootOrder: 31
 --- !u!212 &1051671596
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -56079,7 +56079,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 57
+  m_RootOrder: 51
 --- !u!212 &1079895118
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -57929,7 +57929,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 51
+  m_RootOrder: 45
 --- !u!212 &1114618918
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -58117,7 +58117,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 80
+  m_RootOrder: 74
 --- !u!61 &1122077916
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -59066,7 +59066,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 1
+  m_RootOrder: 82
 --- !u!212 &1133052528
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -61311,7 +61311,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 33
+  m_RootOrder: 27
 --- !u!212 &1173293712
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -61375,7 +61375,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 84
+  m_RootOrder: 78
 --- !u!212 &1175925652
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -62341,7 +62341,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 54
+  m_RootOrder: 48
 --- !u!1 &1189039780
 GameObject:
   m_ObjectHideFlags: 0
@@ -62521,7 +62521,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 83
+  m_RootOrder: 77
 --- !u!212 &1189603792
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -64951,7 +64951,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 9
+  m_RootOrder: 3
 --- !u!212 &1227439088
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -65019,7 +65019,7 @@ Transform:
   - {fileID: 508757774}
   - {fileID: 1828494063}
   m_Father: {fileID: 1733340690}
-  m_RootOrder: 3
+  m_RootOrder: 30
 --- !u!114 &1229453840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65394,7 +65394,7 @@ Transform:
   - {fileID: 2018025354}
   - {fileID: 771754237}
   m_Father: {fileID: 1733340690}
-  m_RootOrder: 13
+  m_RootOrder: 8
 --- !u!114 &1235141524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65898,7 +65898,7 @@ Transform:
   - {fileID: 869057443}
   - {fileID: 1997689191}
   m_Father: {fileID: 1733340690}
-  m_RootOrder: 31
+  m_RootOrder: 26
 --- !u!114 &1246557171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66240,7 +66240,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 7
+  m_RootOrder: 1
 --- !u!212 &1249913100
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -66377,7 +66377,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 72
+  m_RootOrder: 66
 --- !u!212 &1252338893
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -67070,7 +67070,7 @@ Transform:
   m_LocalScale: {x: 6.0507865, y: 6.05079508, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 63
+  m_RootOrder: 57
 --- !u!212 &1270698624
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -67339,7 +67339,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 39
+  m_RootOrder: 33
 --- !u!212 &1279733481
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -68639,7 +68639,7 @@ Transform:
   - {fileID: 2049508390}
   - {fileID: 1334651217}
   m_Father: {fileID: 1733340690}
-  m_RootOrder: 8
+  m_RootOrder: 3
 --- !u!114 &1300266420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69387,7 +69387,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 5
+  m_RootOrder: 86
 --- !u!212 &1319228002
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -69599,7 +69599,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 38
+  m_RootOrder: 32
 --- !u!212 &1322739233
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -70022,7 +70022,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 82
+  m_RootOrder: 76
 --- !u!212 &1328689206
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -70992,7 +70992,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 12
+  m_RootOrder: 6
 --- !u!212 &1346352950
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -71108,7 +71108,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 49
+  m_RootOrder: 43
 --- !u!212 &1346834949
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -74491,7 +74491,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 20
+  m_RootOrder: 14
 --- !u!212 &1406848945
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -75289,7 +75289,7 @@ Transform:
   - {fileID: 182845477}
   - {fileID: 1870855080}
   m_Father: {fileID: 1733340690}
-  m_RootOrder: 25
+  m_RootOrder: 20
 --- !u!114 &1417513360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75639,7 +75639,7 @@ Transform:
   - {fileID: 1431928362}
   - {fileID: 163900063}
   m_Father: {fileID: 1733340690}
-  m_RootOrder: 28
+  m_RootOrder: 23
 --- !u!114 &1424164165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76356,7 +76356,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 4
+  m_RootOrder: 85
 --- !u!212 &1432684729
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -77329,7 +77329,7 @@ Transform:
   - {fileID: 445072212}
   - {fileID: 1844201662}
   m_Father: {fileID: 1733340690}
-  m_RootOrder: 12
+  m_RootOrder: 7
 --- !u!114 &1450480031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77447,7 +77447,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 79
+  m_RootOrder: 73
 --- !u!212 &1452582827
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -77785,7 +77785,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 35
+  m_RootOrder: 29
 --- !u!212 &1460534915
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -79450,7 +79450,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 40
+  m_RootOrder: 34
 --- !u!212 &1484164760
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -82266,7 +82266,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 86
+  m_RootOrder: 80
 --- !u!212 &1559442732
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -83193,12 +83193,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 718952182}
-  - {fileID: 1133052527}
-  - {fileID: 2026639381}
-  - {fileID: 304665280}
-  - {fileID: 1432684728}
-  - {fileID: 1319228001}
   - {fileID: 671345160}
   - {fileID: 1249913099}
   - {fileID: 2086668393}
@@ -83280,6 +83274,12 @@ Transform:
   - {fileID: 1175925651}
   - {fileID: 1606554455}
   - {fileID: 1559442731}
+  - {fileID: 718952182}
+  - {fileID: 1133052527}
+  - {fileID: 2026639381}
+  - {fileID: 304665280}
+  - {fileID: 1432684728}
+  - {fileID: 1319228001}
   m_Father: {fileID: 1372128246}
   m_RootOrder: 2
 --- !u!1 &1579665153
@@ -83521,7 +83521,7 @@ Transform:
   - {fileID: 112846373}
   - {fileID: 1194984603}
   m_Father: {fileID: 1733340690}
-  m_RootOrder: 29
+  m_RootOrder: 24
 --- !u!114 &1582498025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84183,7 +84183,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 45
+  m_RootOrder: 39
 --- !u!212 &1592441795
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -84445,7 +84445,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 60
+  m_RootOrder: 54
 --- !u!212 &1600107080
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -84661,7 +84661,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 85
+  m_RootOrder: 79
 --- !u!212 &1606554456
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -85270,7 +85270,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 78
+  m_RootOrder: 72
 --- !u!212 &1619516685
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -86523,7 +86523,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 26
+  m_RootOrder: 20
 --- !u!212 &1638227851
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -86943,7 +86943,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 48
+  m_RootOrder: 42
 --- !u!212 &1642198345
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -87594,7 +87594,7 @@ Transform:
   - {fileID: 1308077981}
   - {fileID: 1076450764}
   m_Father: {fileID: 1733340690}
-  m_RootOrder: 16
+  m_RootOrder: 11
 --- !u!114 &1663592961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88924,7 +88924,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 76
+  m_RootOrder: 70
 --- !u!212 &1681683188
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -89553,7 +89553,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 46
+  m_RootOrder: 40
 --- !u!212 &1692255485
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -90635,7 +90635,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 25
+  m_RootOrder: 19
 --- !u!212 &1708919989
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -91121,7 +91121,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 53
+  m_RootOrder: 47
 --- !u!212 &1719408607
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -92285,7 +92285,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 59
+  m_RootOrder: 53
 --- !u!212 &1728250051
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -92763,11 +92763,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1007631032}
-  - {fileID: 502459036}
-  - {fileID: 156476779}
-  - {fileID: 1229453839}
-  - {fileID: 2140648723}
   - {fileID: 105582194}
   - {fileID: 670569942}
   - {fileID: 306409130}
@@ -92795,6 +92790,11 @@ Transform:
   - {fileID: 1582498024}
   - {fileID: 490168404}
   - {fileID: 1246557170}
+  - {fileID: 1007631032}
+  - {fileID: 502459036}
+  - {fileID: 156476779}
+  - {fileID: 1229453839}
+  - {fileID: 2140648723}
   m_Father: {fileID: 1372128246}
   m_RootOrder: 0
 --- !u!114 &1733340691
@@ -93002,7 +93002,7 @@ Transform:
   - {fileID: 1277656863}
   - {fileID: 1078525882}
   m_Father: {fileID: 1733340690}
-  m_RootOrder: 10
+  m_RootOrder: 5
 --- !u!114 &1736323954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94054,7 +94054,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 23
+  m_RootOrder: 17
 --- !u!212 &1752137632
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -95467,7 +95467,7 @@ Transform:
   - {fileID: 395681975}
   - {fileID: 826341987}
   m_Father: {fileID: 1733340690}
-  m_RootOrder: 23
+  m_RootOrder: 18
 --- !u!114 &1782093716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96165,7 +96165,7 @@ Transform:
   - {fileID: 642781051}
   - {fileID: 1268431541}
   m_Father: {fileID: 1733340690}
-  m_RootOrder: 26
+  m_RootOrder: 21
 --- !u!114 &1800054533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96356,7 +96356,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 32
+  m_RootOrder: 26
 --- !u!212 &1805102947
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -99110,7 +99110,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 73
+  m_RootOrder: 67
 --- !u!212 &1867787534
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -99438,7 +99438,7 @@ Transform:
   m_LocalScale: {x: 6.05078697, y: 6.05079603, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 65
+  m_RootOrder: 59
 --- !u!212 &1875211332
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -99899,7 +99899,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 42
+  m_RootOrder: 36
 --- !u!212 &1885604205
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -101934,8 +101934,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 951
-    height: 535
+    width: 676
+    height: 507
   parent: {fileID: 0}
   children:
   - {fileID: 1974104217}
@@ -102328,7 +102328,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 27
+  m_RootOrder: 21
 --- !u!212 &1916594358
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -105575,10 +105575,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 356.625
-    y: 160.5
-    width: 237.75
-    height: 214
+    x: 253.5
+    y: 152.100006
+    width: 169
+    height: 202.800003
   parent: {fileID: 1906325896}
   children:
   - {fileID: 691127879}
@@ -105849,7 +105849,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 55
+  m_RootOrder: 49
 --- !u!212 &1981294487
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -107800,7 +107800,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 2
+  m_RootOrder: 83
 --- !u!212 &2026639382
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -108428,7 +108428,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 50
+  m_RootOrder: 44
 --- !u!212 &2034553391
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -109866,7 +109866,7 @@ Transform:
   - {fileID: 207102680}
   - {fileID: 399108966}
   m_Father: {fileID: 1733340690}
-  m_RootOrder: 9
+  m_RootOrder: 4
 --- !u!114 &2064823744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110861,7 +110861,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 8
+  m_RootOrder: 2
 --- !u!212 &2086668394
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -111358,7 +111358,7 @@ Transform:
   - {fileID: 688835668}
   - {fileID: 1076577935}
   m_Father: {fileID: 1733340690}
-  m_RootOrder: 14
+  m_RootOrder: 9
 --- !u!114 &2096571887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113522,7 +113522,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577913785}
-  m_RootOrder: 43
+  m_RootOrder: 37
 --- !u!212 &2137999101
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -113618,7 +113618,7 @@ Transform:
   - {fileID: 1281043326}
   - {fileID: 1054631571}
   m_Father: {fileID: 1733340690}
-  m_RootOrder: 4
+  m_RootOrder: 31
 --- !u!114 &2140648724
 MonoBehaviour:
   m_ObjectHideFlags: 0
