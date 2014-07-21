@@ -101,7 +101,7 @@ MonoBehaviour:
   speed: 2
   poolName: Grenade
   hitEffektPoolName: GrenadeExplosion
-  detonateTime: 2
+  detonateTime: 1
   powerUp: 8
   powerForward: 7
   explosion:

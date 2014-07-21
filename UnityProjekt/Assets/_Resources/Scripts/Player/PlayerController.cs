@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     public float ExperiencePerDamageDone = 2.0f;
     public float MinUpMotionForExtraJump = 0.2f;
 
+    public float friction = 1f;
+
     public string JumpInput = "_JUMP",
                     Skill1Input = "_SKILL1",
                     Skill2Input = "_SKILL2",
@@ -43,6 +45,8 @@ public class PlayerController : MonoBehaviour
     public Vector2 _currentVelocity;
     private Vector2 _currentInput;
     public bool Grounded;
+
+    private Vector2 groundNormal = Vector2.up;
 
     private bool _crouching = false;
 
@@ -356,11 +360,9 @@ public class PlayerController : MonoBehaviour
         return false;
     }
 
-    public Vector2 normal;
-
     private void Move()
     {
-        normal = Vector2.right;
+        groundNormal = Vector2.right;
         int inputDirection = (int)Mathf.Clamp(_currentInput.x * 1000, -1, 1);
         int walkDirection = (int)Mathf.Clamp(_currentVelocity.x * 1000, -1, 1);
         float speedChangeMult = 1f;
@@ -372,14 +374,18 @@ public class PlayerController : MonoBehaviour
 
             if (hit)
             {
-                normal.x = Mathf.Abs(hit.normal.y);
-                normal.y = -Mathf.Abs(hit.normal.x) * inputDirection;
+                groundNormal.x = Mathf.Abs(hit.normal.y);
+                groundNormal.y = -Mathf.Abs(hit.normal.x) * inputDirection;
             }
 
             if (hit.normal.x * inputDirection < 0)
             {
                 //When we run uphill slow down maxSpeed, because walking uphill is hard
-                maxSpeedMult = Mathf.Clamp(Mathf.Clamp(normal.x - 0.8f, 0f, 1f) * 5f, 0f, 1f);
+                maxSpeedMult = Mathf.Clamp(Mathf.Clamp(groundNormal.x - 0.8f, 0f, 1f) * 5f, 0f, 1f);
+            }
+            else
+            {
+                //_currentVelocity.x -= _currentVelocity.x * friction;
             }
         }
         else
@@ -394,8 +400,8 @@ public class PlayerController : MonoBehaviour
             if(Physics2D.OverlapArea(startPoint, endPoint, GroundCheckLayer))
                 speedChangeMult = 0;
         }
-        
-        Vector2 change = speedChangeMult * normal * _currentInput.x * Time.fixedDeltaTime * 
+
+        Vector2 change = speedChangeMult * groundNormal * _currentInput.x * Time.fixedDeltaTime * 
                          PlayerClass.GetAttributeValue(AttributeType.MOVEMENTCHANGE);
 
         if (Mathf.Abs((_currentVelocity + change).x) > PlayerClass.GetAttributeValue(AttributeType.MAXMOVESPEED) * maxSpeedMult)
@@ -415,13 +421,6 @@ public class PlayerController : MonoBehaviour
         else
         {
             _currentVelocity.x -= SlowDownXValue;
-        }
-        
-
-        if (inputDirection == 0 || inputDirection + walkDirection == 0)
-        {
-            //_currentVelocity.x = Mathf.Lerp(_currentVelocity.x, 0,
-            //    Time.fixedDeltaTime*PlayerClass.GetAttributeValue(AttributeType.MOVEMENTCHANGE)/10f);
         }
     }
 

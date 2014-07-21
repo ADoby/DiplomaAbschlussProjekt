@@ -32,6 +32,8 @@ public class BasicAttack : PlayerSkill
         go.SendMessage("SetPlayer", player.playerControl);
         go.SendMessage("SetDamage", DamageMult * player.GetAttributeValue(AttributeType.DAMAGE));
 
-        player.playerControl.rigidbody2D.AddForce(KnockBack * player.playerTransform.localScale.x);
+        player.playerControl.rigidbody2D.MovePosition(player.playerControl.rigidbody2D.position + KnockBack * player.playerTransform.localScale.x * Time.fixedDeltaTime);
+
+        //player.playerControl.rigidbody2D.AddForce(KnockBack * player.playerTransform.localScale.x);
     }
 }
