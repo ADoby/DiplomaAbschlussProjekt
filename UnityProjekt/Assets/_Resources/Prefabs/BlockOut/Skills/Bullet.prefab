@@ -103,7 +103,7 @@ MonoBehaviour:
   poolName: Bullet
   hitEffektPoolName: BulletExplosion
   DespawnTime: 5
-  force: 5
+  force: 20
   pierceAmount: 2
   HitLayer:
     serializedVersion: 2

@@ -11,9 +11,10 @@ public class ParallaxLayer
 public class LevelController : MonoBehaviour {
 
     public Transform LevelSpawnPoint;
-    public Transform SpawnFloorsParent;
 
     public ParallaxLayer[] ParallaxLayer;
+
+    public float NeededLevelDamage = 20000f;
 
     void Awake()
     {

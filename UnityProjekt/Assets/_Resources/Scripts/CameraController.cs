@@ -31,13 +31,15 @@ public class CameraController : MonoBehaviour {
         if (!player)
             enabled = false;
 
-        cameraWantedSize = size;
+        cameraWantedSize = (Screen.height / size) / 2f;
         wantedPositionDiff = positionDiff;
 
 	}
 
 	// Update is called once per frame
 	void Update () {
+        cameraWantedSize = (Screen.height / size) / 2f;
+
         if (playerControl.Crouching)
         {
             if(crouchTimer < crouchMinTime)

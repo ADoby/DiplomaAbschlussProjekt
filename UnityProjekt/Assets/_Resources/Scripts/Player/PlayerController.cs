@@ -83,12 +83,12 @@ public class PlayerController : MonoBehaviour
     {
         PlayerClass.Init(this);
 
-        //GameManager.Instance.AddPlayer(this);
-
         GameEventHandler.OnDamageDone += DamageDone;
         GameEventHandler.OnPause += OnPause;
         GameEventHandler.OnResume += OnResume;
         GameEventHandler.Reset += OnReset;
+
+        currentCheckpointPosition = GameManager.GetLevelSpawnPoint();
 
         ResetPlayer();
     }
@@ -102,9 +102,16 @@ public class PlayerController : MonoBehaviour
         PlayerClass.CurrentHealth = PlayerClass.GetAttributeValue(AttributeType.HEALTH);
 
         //Back to SpawnPoint
-        transform.position = GameManager.GetSpawnPosition();
+        transform.position = currentCheckpointPosition;
 
         PlayerClass.ResetPlayerClass();
+    }
+
+    public Vector3 currentCheckpointPosition;
+
+    public void OnCreateCheckpoint()
+    {
+        currentCheckpointPosition = transform.position;
     }
 
     public void OnReset()
@@ -305,13 +312,11 @@ public class PlayerController : MonoBehaviour
 
     private bool CheckUp()
     {
-        if (_currentVelocity.y > 0)
+        
+        if (Physics2D.OverlapArea(transform.position - transform.right * PlayerClass.playerWidth * Half + transform.up * PlayerClass.playerHeight, transform.position + transform.right * PlayerClass.playerWidth * Half + Vector3.up * PlayerClass.playerHeight + Vector3.up * PlayerClass.footHeight, GroundCheckLayer))
         {
-            if (Physics2D.OverlapArea(transform.position - transform.right * PlayerClass.playerWidth * Half + transform.up * PlayerClass.playerHeight, transform.position + transform.right * PlayerClass.playerWidth * Half + Vector3.up * PlayerClass.playerHeight + Vector3.up * PlayerClass.footHeight, GroundCheckLayer))
-            {
-                //_currentVelocity.y = 0;
-                return true;
-            }
+            //_currentVelocity.y = 0;
+            return true;
         }
         return false;
     }
@@ -396,9 +401,23 @@ public class PlayerController : MonoBehaviour
                                 transform.right * 0.2f * inputDirection;
             
             Debug.DrawLine(startPoint, endPoint);
-            
-            if(Physics2D.OverlapArea(startPoint, endPoint, GroundCheckLayer))
-                speedChangeMult = 0;
+
+            if (Physics2D.OverlapArea(startPoint, endPoint, GroundCheckLayer))
+            {
+                speedChangeMult = 0f;
+                if (!CheckUp())
+                {
+                    //speedChangeMult = 2f;
+                    //groundNormal.x = 0;
+                    //groundNormal.y = 1 * inputDirection;
+                    _currentVelocity.y = 4f;
+                }
+                else
+                {
+                    //speedChangeMult = 0f;
+                }
+            }
+                
         }
 
         Vector2 change = speedChangeMult * groundNormal * _currentInput.x * Time.fixedDeltaTime * 

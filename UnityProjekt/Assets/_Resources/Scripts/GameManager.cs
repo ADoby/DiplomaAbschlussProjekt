@@ -4,291 +4,346 @@ using UnityEngine;
 
 public enum PlayerClasses
 {
-    BORO,
-    JACK,
-    COUNT
+	BORO,
+	JACK,
+	COUNT
 }
 
 public enum PlayerSlots
 {
-    ONE,
-    TWO,
-    THREE,
-    FOUR,
-    COUNT
+	ONE,
+	TWO,
+	THREE,
+	FOUR,
+	COUNT
 }
 
 public class GameManager : MonoBehaviour {
 
-    #region Singleton
+	#region Singleton
 
-    private static GameManager instance;
+	private static GameManager instance;
 
-    public static GameManager Instance
-    {
-        get
-        {
-            if(!instance)
-                instance = FindObjectOfType<GameManager>();
+	public static GameManager Instance
+	{
+		get
+		{
+			if(!instance)
+				instance = FindObjectOfType<GameManager>();
 
-            return instance;
-        }
-    }
+			return instance;
+		}
+	}
 
-    void Awake()
-    {
-        instance = this;
+	void Awake()
+	{
+		instance = this;
 
-        GameEventHandler.OnPause += OnPause;
-        GameEventHandler.OnResume += OnResume;
-    }
+		GameEventHandler.OnPause += OnPause;
+		GameEventHandler.OnResume += OnResume;
+	}
 
-    #endregion
+	#endregion
 
-    public int CurrentSpawnedEntityCount = 0;
-    public int MaxSpawnedEntityCount = 40;
+	public int CurrentSpawnedEntityCount = 0;
+	public int MaxSpawnedEntityCount = 40;
 
-    public static bool CanSpawnEntity
-    {
-        get { return (instance.CurrentSpawnedEntityCount < instance.MaxSpawnedEntityCount); }
-    }
+	public GameObject[] levels;
+	public int DefaultLevel = 0;
+	private int currentLevel = 0;
 
-    public void AddEntity()
-    {
-        CurrentSpawnedEntityCount++;
-    }
+	public static bool CanSpawnEntity
+	{
+		get { return (instance.CurrentSpawnedEntityCount < instance.MaxSpawnedEntityCount); }
+	}
 
-    public void RemoveEntity()
-    {
-        CurrentSpawnedEntityCount--;
-    }
+	public void AddEntity()
+	{
+		CurrentSpawnedEntityCount++;
+	}
 
-    public int currentPlayerSelectingClass = 0;
+	public void RemoveEntity()
+	{
+		CurrentSpawnedEntityCount--;
+	}
 
-    public UIButton[] slotButtons;
+	public int currentPlayerSelectingClass = 0;
 
-    public Transform SpawnPosition;
+	public UIButton[] slotButtons;
 
-    private PlayerController[] Players = {null,null,null,null};
-    private CameraController[] Cameras = {null,null,null,null};
+	private PlayerController[] Players = {null,null,null,null};
+	private CameraController[] Cameras = {null,null,null,null};
 
-    public CameraController[] GetCameras()
-    {
-        return Cameras;
-    }
+	public CameraController[] GetCameras()
+	{
+		return Cameras;
+	}
 
-    public static float CurrentDifficulty = 0;
-    public static float DifficultyValue = 0;
+	public static float CurrentDifficulty = 0;
+	public static float DifficultyValue = 0;
+	public float DifficultEveryXSecond = 5f;
 
-    void Start()
-    {
-        GameEventHandler.TriggerOnPause();
-    }
+	void Start()
+	{
+		GameEventHandler.TriggerOnPause();
 
-    public void RemovePlayer(PlayerController player)
-    {
-        if (player == null)
-            return;
+		GameEventHandler.OnDamageDone += OnDamageDone;
 
-        int index = 0;
-        for (int i = 0; i < Players.Length; i++)
-        {
-            if (Players[i] == player)
-            {
-                index = i;
-                break;
-            }
-        }
+		LoadLevel(DefaultLevel);
 
-        Destroy(Cameras[index].gameObject);
-        Cameras[index] = null;
+	}
 
-        GameEventHandler.TriggerPlayerLeft(player, player.Name);
+	public void LoadLevel(int id)
+	{
+		for (int i = 0; i < levels.Length; i++)
+		{
+			levels[i].SetActive(false);
+		}
+		levels[id].SetActive(true);
 
-        Players[index] = null;
-        Destroy(player.gameObject);
-    }
+		currentLevel = id;
+		UpdateProgressUI(true);
+	}
 
-    public PlayerController MainPlayer
-    {
-        get
-        {
-            for (int i = 0; i < Players.Length; i++)
-            {
-                if (Players[i] != null)
-                {
-                    return Players[i];
-                }
-            }
-            return null;
-        }
-    }
+	public Vector3 LevelSpawnPoint
+	{
+		get
+		{
+			return levels[currentLevel].GetComponent<LevelController>().LevelSpawnPoint.position;
+		}
+	}
 
-    public UIRect DifficultyBar;
-    public UIText DifficultyText;
+	public void RemovePlayer(PlayerController player)
+	{
+		if (player == null)
+			return;
 
-    void Update()
-    {
+		int index = 0;
+		for (int i = 0; i < Players.Length; i++)
+		{
+			if (Players[i] == player)
+			{
+				index = i;
+				break;
+			}
+		}
 
-        if (currentPlayerSelectingClass != -1 && slotButtons.Length > 0)
-        {
-            slotButtons[currentPlayerSelectingClass].Text = "Player " + (currentPlayerSelectingClass + 1) + " Select";
-            slotButtons[currentPlayerSelectingClass].ButtonStyle.normal.textColor = Color.red;
-        }
+		Destroy(Cameras[index].gameObject);
+		Cameras[index] = null;
 
+		GameEventHandler.TriggerPlayerLeft(player, player.Name);
 
+		Players[index] = null;
+		Destroy(player.gameObject);
+	}
 
-        if (GamePaused)
-            return;
-        DifficultyValue += Time.deltaTime;
-        DifficultyBar.RelativeSize.y = DifficultyValue / 10.0f;
-        if (DifficultyValue >= 5)
-        {
-            CurrentDifficulty++;
-            DifficultyValue = 0;
-            DifficultyText.Text = "Difficulty: " + CurrentDifficulty.ToString("####0");
-        }
-    }
+	public PlayerController MainPlayer
+	{
+		get
+		{
+			for (int i = 0; i < Players.Length; i++)
+			{
+				if (Players[i] != null)
+				{
+					return Players[i];
+				}
+			}
+			return null;
+		}
+	}
 
-    public int PlayerCount
-    {
-        get { return Players.Count(o => o != null); }
-    }
+	public UIRect DifficultyBar;
+	public UIText DifficultyText;
 
-    public void StartGame()
-    {
+	public UIText ProgressText;
+	public UIRect ProgressBar;
 
-        DifficultyValue = 0;
-        CurrentDifficulty = 0;
-        DifficultyText.Text = "Difficulty: " + CurrentDifficulty.ToString("####0");
+	private float NeededLevelDamage
+	{
+		get
+		{
+			return levels[currentLevel].GetComponent<LevelController>().NeededLevelDamage;
+		}
+	}
+	private float CurrentLevelDamage = 0f;
+	
 
-        foreach (var playerController in Players)
-        {
-            if (playerController)
-            {
-                playerController.gameObject.SetActive(true);
-                playerController.OnReset();
-            }
-        }
+	public void OnDamageDone(PlayerController player, float damage)
+	{
+		CurrentLevelDamage += damage;
+	}
 
-        int camIndex = 0;
-
-        foreach (var cameraController in Cameras)
-        {
-            if (cameraController)
-            {
-                if (PlayerCount == 2)
-                {
-                    if (camIndex == 0)
-                    {
-                        cameraController.camera.rect = new Rect(0, 0, 1f, 0.5f);
-                        
-                    }
-                    if (camIndex == 1)
-                    {
-                        cameraController.camera.rect = new Rect(0, 0.5f, 1f, 0.5f);
-                        cameraController.GetComponent<PlayerUI>().panel.RelativePosition.y = 0.5f;
-                    }
-                }
-
-                cameraController.gameObject.SetActive(true);
-
-                camIndex++;
-            }
-        }
-
-        GameContainer.SetActive(true);
-
-        GameEventHandler.TriggerOnResume();
-    }
-
-    public void SelectSlot(int id)
-    {
-        slotButtons[currentPlayerSelectingClass].Text = "Slot " + (currentPlayerSelectingClass + 1);
-        slotButtons[currentPlayerSelectingClass].ButtonStyle.normal.textColor = Color.white;
-
-        RemovePlayer(Players[id]);
-
-        currentPlayerSelectingClass = id;
-    }
-
-    public GameObject playerPrefab;
-    public GameObject cameraPrefab;
-    public PlayerClass[] PlayerClasses;
-
-    public GameObject GameContainer;
-
-    public void SelectClass(int id)
-    {
-        GameObject newPlayer = (GameObject)Object.Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
-        newPlayer.SetActive(false);
-        Players[currentPlayerSelectingClass] = newPlayer.GetComponent<PlayerController>();
-
-        GameObject newCam = (GameObject) Object.Instantiate(cameraPrefab, new Vector3(0,0,-10), Quaternion.identity);
-        newCam.SetActive(false);
-
-        newCam.GetComponent<PlayerUI>().playerControl = Players[currentPlayerSelectingClass];
-
-        Cameras[currentPlayerSelectingClass] = newCam.GetComponent<CameraController>();
-        Cameras[currentPlayerSelectingClass].player = newPlayer.transform;
-        Cameras[currentPlayerSelectingClass].playerControl = newPlayer.GetComponent<PlayerController>();
-
-        Players[currentPlayerSelectingClass].PlayerId = currentPlayerSelectingClass;
-
-        PlayerClass playerClass = (PlayerClass) Object.Instantiate(PlayerClasses[id]);
-        playerClass.transform.parent = newPlayer.transform;
-        Players[currentPlayerSelectingClass].PlayerClass = playerClass;
-
-        slotButtons[currentPlayerSelectingClass].Text = "Selected: " + Players[currentPlayerSelectingClass].PlayerClass.name.Replace("(Clone)", "");
-        slotButtons[currentPlayerSelectingClass].ButtonStyle.normal.textColor = Color.green;
+	public void UpdateProgressUI(bool instant = false)
+	{
+        float progress = instant ? CurrentLevelDamage / NeededLevelDamage : Mathf.Lerp(ProgressBar.RelativeSize.y, CurrentLevelDamage / NeededLevelDamage, Time.deltaTime);
 
 
-        currentPlayerSelectingClass = -1;
-        for (int i = 0; i < 4; i++)
-        {
-            if (Players[i] == null)
-            {
-                currentPlayerSelectingClass = i;
-                break;
-            }
-        }
-    }
+		ProgressText.Text = "Progress: " + progress.ToString("##0.##%");
 
-    public bool GamePaused = false;
+		ProgressBar.RelativeSize.y = progress;
+	}
 
-    public static Vector3 GetSpawnPosition()
-    {
-        return Instance.SpawnPosition.position;
-    }
+	void Update()
+	{
+		if (currentPlayerSelectingClass != -1 && slotButtons.Length > 0)
+		{
+			slotButtons[currentPlayerSelectingClass].Text = "Player " + (currentPlayerSelectingClass + 1) + " Select";
+			slotButtons[currentPlayerSelectingClass].ButtonStyle.normal.textColor = Color.red;
+		}
 
-    public void OnPause()
-    {
-        GamePaused = true;
-    }
+		if (GamePaused)
+			return;
+		DifficultyValue += Time.deltaTime;
+		DifficultyBar.RelativeSize.x = DifficultyValue / DifficultEveryXSecond;
+		if (DifficultyValue >= DifficultEveryXSecond)
+		{
+			CurrentDifficulty++;
+			DifficultyValue = 0;
+			DifficultyText.Text = "Difficulty: " + CurrentDifficulty.ToString("####0");
+		}
 
-    public void OnResume()
-    {
-        GamePaused = false;
-    }
+		UpdateProgressUI();
+	}
 
-    public void AddPlayer(PlayerController playerController)
-    {
-        
-        if (Players.Contains(playerController))
-        {
-            Debug.Log("Containing");
-            return;
-        }
+	public int PlayerCount
+	{
+		get { return Players.Count(o => o != null); }
+	}
 
-        for (int i = 0; i < Players.Length; i++)
-        {
-            if (Players[i] == null)
-            {
-                Debug.Log("Player Added");
-                Players[i] = playerController;
-                return;
-            }
-        }
-        Debug.Log("Not addded");
-    }
+	public void StartGame()
+	{
+
+		DifficultyValue = 0;
+		CurrentDifficulty = 0;
+		DifficultyText.Text = "Difficulty: " + CurrentDifficulty.ToString("####0");
+
+		foreach (var playerController in Players)
+		{
+			if (playerController)
+			{
+				playerController.gameObject.SetActive(true);
+				playerController.OnReset();
+			}
+		}
+
+		int camIndex = 0;
+
+		foreach (var cameraController in Cameras)
+		{
+			if (cameraController)
+			{
+				if (PlayerCount == 2)
+				{
+					if (camIndex == 0)
+					{
+						cameraController.camera.rect = new Rect(0, 0, 1f, 0.5f);
+						
+					}
+					if (camIndex == 1)
+					{
+						cameraController.camera.rect = new Rect(0, 0.5f, 1f, 0.5f);
+						cameraController.GetComponent<PlayerUI>().panel.RelativePosition.y = 0.5f;
+					}
+				}
+
+				cameraController.gameObject.SetActive(true);
+
+				camIndex++;
+			}
+		}
+
+		GameContainer.SetActive(true);
+
+		GameEventHandler.TriggerOnResume();
+	}
+
+	public void SelectSlot(int id)
+	{
+		slotButtons[currentPlayerSelectingClass].Text = "Slot " + (currentPlayerSelectingClass + 1);
+		slotButtons[currentPlayerSelectingClass].ButtonStyle.normal.textColor = Color.white;
+
+		RemovePlayer(Players[id]);
+
+		currentPlayerSelectingClass = id;
+	}
+
+	public GameObject playerPrefab;
+	public GameObject cameraPrefab;
+	public PlayerClass[] PlayerClasses;
+
+	public GameObject GameContainer;
+
+	public void SelectClass(int id)
+	{
+		GameObject newPlayer = (GameObject)Object.Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
+		newPlayer.SetActive(false);
+		Players[currentPlayerSelectingClass] = newPlayer.GetComponent<PlayerController>();
+
+		GameObject newCam = (GameObject) Object.Instantiate(cameraPrefab, new Vector3(0,0,-10), Quaternion.identity);
+		newCam.SetActive(false);
+
+		newCam.GetComponent<PlayerUI>().playerControl = Players[currentPlayerSelectingClass];
+
+		Cameras[currentPlayerSelectingClass] = newCam.GetComponent<CameraController>();
+		Cameras[currentPlayerSelectingClass].player = newPlayer.transform;
+		Cameras[currentPlayerSelectingClass].playerControl = newPlayer.GetComponent<PlayerController>();
+
+		Players[currentPlayerSelectingClass].PlayerId = currentPlayerSelectingClass;
+
+		PlayerClass playerClass = (PlayerClass) Object.Instantiate(PlayerClasses[id]);
+		playerClass.transform.parent = newPlayer.transform;
+		Players[currentPlayerSelectingClass].PlayerClass = playerClass;
+
+		slotButtons[currentPlayerSelectingClass].Text = "Selected: " + Players[currentPlayerSelectingClass].PlayerClass.name.Replace("(Clone)", "");
+		slotButtons[currentPlayerSelectingClass].ButtonStyle.normal.textColor = Color.green;
+
+
+		currentPlayerSelectingClass = -1;
+		for (int i = 0; i < 4; i++)
+		{
+			if (Players[i] == null)
+			{
+				currentPlayerSelectingClass = i;
+				break;
+			}
+		}
+	}
+
+	public bool GamePaused = false;
+
+	public static Vector3 GetLevelSpawnPoint()
+	{
+		return Instance.LevelSpawnPoint;
+	}
+
+	public void OnPause()
+	{
+		GamePaused = true;
+	}
+
+	public void OnResume()
+	{
+		GamePaused = false;
+	}
+
+	public void AddPlayer(PlayerController playerController)
+	{
+		
+		if (Players.Contains(playerController))
+		{
+			Debug.Log("Containing");
+			return;
+		}
+
+		for (int i = 0; i < Players.Length; i++)
+		{
+			if (Players[i] == null)
+			{
+				Debug.Log("Player Added");
+				Players[i] = playerController;
+				return;
+			}
+		}
+		Debug.Log("Not addded");
+	}
 }
