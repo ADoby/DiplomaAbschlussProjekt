@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400002}
   m_Layer: 0
   m_Name: BasicAttack
   m_TagString: Untagged
@@ -40,7 +41,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: BasicAttack
-  SkillCooldown: .5
+  SkillCooldown: 1
   SkillRunTime: 0
   PreventsMovement: 0
   PreventsDamage: 0
@@ -49,8 +50,26 @@ MonoBehaviour:
   Projectile: Bullet
   ShootingPosition: {x: .600000024, y: 1}
   CrouchShootingPosition: {x: .600000024, y: .5}
-  KnockBack: {x: -5, y: 0}
+  KnockBack: {x: -20, y: 0}
   DamageMult: 1
+  pierceAmount: 4
+  force: 80
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5ac6d84dca7648fab1a3a905dbc55b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: 
+  classId: af4ea778-2fc0-43ba-99e0-d2bd0d7044bd
+  StoreAllComponents: 1
+  Components: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

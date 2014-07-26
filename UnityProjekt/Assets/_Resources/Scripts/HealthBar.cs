@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[System.Serializable]
 public class HealthBar : MonoBehaviour {
 
+    
     public Transform healthBar;
-
+    
+    [SerializeField]
     private float health = 0, maxHealth = 1;
+    [SerializeField]
     private float currentHealth = 0;
 
     public float change = 5.0f;

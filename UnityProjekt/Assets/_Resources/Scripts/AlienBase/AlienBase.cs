@@ -25,6 +25,7 @@ public class AlienBase : MonoBehaviour
 
     public bool UpdateTime = true;
 
+
     #region MembersForEditor
 
     public int currentTestState = 0;
@@ -61,6 +62,8 @@ public class AlienBase : MonoBehaviour
     void Start()
     {
         Reset();
+
+        
     }
 
     public void Reset()

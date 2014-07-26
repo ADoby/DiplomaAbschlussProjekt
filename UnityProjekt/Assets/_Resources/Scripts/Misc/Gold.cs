@@ -5,6 +5,7 @@ public class Gold : MonoBehaviour {
 
     public string poolName = "Gold";
     public int amount = 10;
+    public float amountPerDifficulty = 1;
 
     public Collider2D worldCollider;
 
@@ -43,7 +44,7 @@ public class Gold : MonoBehaviour {
     {
         if (other && other.gameObject && other.gameObject.tag == "Player")
         {
-            other.gameObject.SendMessage("AddMoney", amount, SendMessageOptions.DontRequireReceiver);
+            other.gameObject.SendMessage("AddMoney", amount + (int)(amountPerDifficulty * GameManager.CurrentDifficulty), SendMessageOptions.DontRequireReceiver);
             EntitySpawnManager.Despawn(poolName, gameObject, true);
         }
     }

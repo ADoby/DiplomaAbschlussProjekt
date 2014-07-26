@@ -17,6 +17,8 @@ public class InputControllerEditor : Editor {
     private InputInfo moveUpInfo = null;
     private InputInfo moveDownInfo = null;
 
+    private bool showKeyBinding = false;
+
     public override void OnInspectorGUI()
     {
         myTarget = (InputController) target;
@@ -24,7 +26,9 @@ public class InputControllerEditor : Editor {
         deleteInfo = null;
         moveDownInfo = null;
         moveUpInfo = null;
-        
+
+        showKeyBinding = GUILayout.Toggle(showKeyBinding, "Show Key Bindings");
+
         GUILayout.Label("Input Infos:");
         
         inputInfoScrollValue = EditorGUILayout.BeginScrollView(inputInfoScrollValue, GUILayout.MaxHeight(300), GUILayout.MinHeight(200));
@@ -51,26 +55,31 @@ public class InputControllerEditor : Editor {
 
             inputInfo.Action = EditorGUILayout.TextField(inputInfo.Action);
 
-            GUILayout.BeginHorizontal();
-            inputInfo.ActionType = (ActionType)EditorGUILayout.EnumPopup(inputInfo.ActionType);
-            inputInfo.InputType = (InputType)EditorGUILayout.EnumPopup(inputInfo.InputType);
-            GUILayout.EndHorizontal();
+            if (showKeyBinding)
+            {
+                GUILayout.BeginHorizontal();
+                inputInfo.ActionType = (ActionType)EditorGUILayout.EnumPopup(inputInfo.ActionType);
+                inputInfo.InputType = (InputType)EditorGUILayout.EnumPopup(inputInfo.InputType);
+                GUILayout.EndHorizontal();
 
-            if (inputInfo.InputType == InputType.KEYCODE)
-            {
-                inputInfo.key = (KeyCode)EditorGUILayout.EnumPopup(inputInfo.key);
-            }
-            else
-            {
-                if (inputInfo.InputType == InputType.MOUSEBUTTON)
+                if (inputInfo.InputType == InputType.KEYCODE)
                 {
-                    inputInfo.mouseButtonID = EditorGUILayout.IntField(inputInfo.mouseButtonID);
+                    inputInfo.key = (KeyCode)EditorGUILayout.EnumPopup(inputInfo.key);
                 }
                 else
                 {
-                    inputInfo.inputString = EditorGUILayout.TextField(inputInfo.inputString);
+                    if (inputInfo.InputType == InputType.MOUSEBUTTON)
+                    {
+                        inputInfo.mouseButtonID = EditorGUILayout.IntField(inputInfo.mouseButtonID);
+                    }
+                    else
+                    {
+                        inputInfo.inputString = EditorGUILayout.TextField(inputInfo.inputString);
+                    }
                 }
             }
+
+            
 
             GUILayout.Space(5);
         }

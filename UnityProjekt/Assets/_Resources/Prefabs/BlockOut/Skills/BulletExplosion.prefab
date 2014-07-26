@@ -13,6 +13,7 @@ GameObject:
   - 114: {fileID: 11400002}
   - 198: {fileID: 19800000}
   - 199: {fileID: 19900000}
+  - 114: {fileID: 11400004}
   m_Layer: 13
   m_Name: BulletExplosion
   m_TagString: Untagged
@@ -60,6 +61,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolName: BulletExplosion
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5ac6d84dca7648fab1a3a905dbc55b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: 
+  classId: 4d4c1dbf-6c50-48bf-a7c7-906cbe197f6c
+  StoreAllComponents: 1
+  Components: []
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1

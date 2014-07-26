@@ -1,6 +1,7 @@
 ﻿using System.Text;
 using UnityEngine;
 
+[System.Serializable]
 public class PlayerController : MonoBehaviour
 {
 
@@ -8,6 +9,9 @@ public class PlayerController : MonoBehaviour
     public int PlayerId = 0;
     public string Name = "Player1";
     public int Money = 0;
+
+    public int MoneyPerSecond = 1;
+    private float MoneyTimer = 0f;
 
     public PlayerClass PlayerClass;
 
@@ -38,18 +42,22 @@ public class PlayerController : MonoBehaviour
     #region Private Member
     public Animator _animator;
 
+    [SerializeField]
     private bool jumping = false;
 
-    public int Level { get; protected set; }
-    public float CurrentExperience { get; protected set; }
+    public int Level = 0;
+    public float CurrentExperience = 0;
     public Vector2 _currentVelocity;
     private Vector2 _currentInput;
     public bool Grounded;
 
+    [SerializeField]
     private Vector2 groundNormal = Vector2.up;
 
+    [SerializeField]
     private bool _crouching = false;
 
+    [SerializeField]
     private Vector2 _savedVelocity = Vector2.zero;
 
     public int _skillMakesImune = 0;
@@ -64,31 +72,38 @@ public class PlayerController : MonoBehaviour
     //Some Const used
     private const float Half = 0.5f;
 
+    public float CheckPointCooldown = 10.0f;
+    [SerializeField]
+    private float checkPointTimer = 0f;
+
+    public float BackToCheckPointCooldown = 20.0f;
+    [SerializeField]
+    private float backToCheckPointTimer = 0f;
+
+    public float ProcentageCheckpointTimer
+    {
+        get
+        {
+            return checkPointTimer / CheckPointCooldown;
+        }
+    }
+
     #endregion
 
     public Transform SpotlightTransform;
 
-    void Awake()
-    {
-        //_animator = GetComponent<Animator>();
-        //PlayerClass = (PlayerClass) Object.Instantiate(PlayerClass); 
-    }
 
-	void Start () 
-    {
-        Init();
-	}
-
-    private void Init()
+    public void Init()
     {
         PlayerClass.Init(this);
 
         GameEventHandler.OnDamageDone += DamageDone;
         GameEventHandler.OnPause += OnPause;
         GameEventHandler.OnResume += OnResume;
-        GameEventHandler.Reset += OnReset;
+        GameEventHandler.OnCreateCheckpoint += OnCreateCheckpoint;
+        GameEventHandler.OnResetToCheckpoint += OnResetToCheckpoint;
 
-        currentCheckpointPosition = GameManager.GetLevelSpawnPoint();
+        transform.position = GameManager.GetLevelSpawnPoint();
 
         ResetPlayer();
     }
@@ -101,22 +116,18 @@ public class PlayerController : MonoBehaviour
 
         PlayerClass.CurrentHealth = PlayerClass.GetAttributeValue(AttributeType.HEALTH);
 
-        //Back to SpawnPoint
-        transform.position = currentCheckpointPosition;
 
         PlayerClass.ResetPlayerClass();
     }
 
-    public Vector3 currentCheckpointPosition;
-
     public void OnCreateCheckpoint()
     {
-        currentCheckpointPosition = transform.position;
+        checkPointTimer = 0;
     }
 
-    public void OnReset()
+    public void OnResetToCheckpoint()
     {
-        ResetPlayer();
+        backToCheckPointTimer = BackToCheckPointCooldown;
     }
 
 	// Update is called once per frame
@@ -124,14 +135,24 @@ public class PlayerController : MonoBehaviour
         if (GameManager.Instance.GamePaused)
             return;
 
-        if (InputController.GetClicked(PlayerID() + "_SKILLMENU"))
+        MoneyTimer += Time.deltaTime;
+        if(MoneyTimer > 1f)
         {
-            //LevelUpGUI.Instance.OpenWithPlayer(this);
-            //AddSkillMakingImune();
-            //AddSkillOverridingMovement();
-            //AddSkillPreventingMovement();
-            //AddSkillPreventingSkillUsement();
+            MoneyTimer -= 1f;
+            Money += MoneyPerSecond;
         }
+
+        if (checkPointTimer < CheckPointCooldown)
+            checkPointTimer += Time.deltaTime;
+        else if (checkPointTimer > CheckPointCooldown)
+            checkPointTimer = CheckPointCooldown;
+        else if (InputController.GetClicked(PlayerID() + "_CREATECHECKPOINT"))
+            GameEventHandler.TriggerCreateCheckpoint();
+
+        if(backToCheckPointTimer > 0)
+            backToCheckPointTimer -= Time.deltaTime;
+        else if (InputController.GetClicked(PlayerID() + "_BACKTOCHECKPOINT"))
+            GameEventHandler.TriggerResetToCheckpoint();
 
 	    if (CanMove)
 	    {
@@ -139,9 +160,6 @@ public class PlayerController : MonoBehaviour
 	                         Mathf.Abs(InputController.GetValue(PlayerID() + "_LEFT"));
 
 	        _crouching = InputController.GetDown(PlayerID() + "_CROUCH");
-
-	        if (_animator)
-	            _animator.SetBool("Crouching", _crouching);
 	    }
 	    else
 	    {
@@ -153,10 +171,7 @@ public class PlayerController : MonoBehaviour
         if (CanUseSkill)
             TryUseSkill();
 
-        if (_animator)
-        {
-            _animator.SetFloat("Speed", Mathf.Abs(_currentVelocity.x));
-        }
+        UpdateAnimator();
 	}
 
     public void OnResume()
@@ -228,9 +243,12 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateAnimator()
     {
-        //if (anim)
-        //anim.SetFloat("Speed", Mathf.Abs(currentVelocity.x));
+        if (_animator)
+        {
+            _animator.SetBool("Crouching", _crouching);
 
+            _animator.SetFloat("Speed", Mathf.Abs(_currentVelocity.x));
+        }
     }
 
     public void LevelUp()
@@ -255,13 +273,15 @@ public class PlayerController : MonoBehaviour
     {
         if (!PlayerClass.damageImune)
         {
+            damage = PlayerClass.OnPlayerGetsDamage(damage);
             PlayerClass.CurrentHealth -= damage;
+            PlayerClass.OnPlayerDamaged(damage);
         }
         
         if (PlayerClass.CurrentHealth <= 0)
         {
             //Dead
-            ResetPlayer();
+            GameEventHandler.TriggerResetToCheckpoint();
         }
     }
 
@@ -269,6 +289,7 @@ public class PlayerController : MonoBehaviour
     {
         if (player == this)
         {
+            PlayerClass.OnPlayerDidDamage(damage);
             CurrentExperience += ExperiencePerDamageDone * damage;
             PlayerClass.CurrentHealth += damage * PlayerClass.GetAttributeValue(AttributeType.SPELLVAMP);
         }

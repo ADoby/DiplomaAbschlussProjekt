@@ -7,11 +7,14 @@ public class HorizontalUIButtonLayout
     public UIButton[] buttons;
 }
 
+[System.Serializable]
 public class ControllerMenuInput : MonoBehaviour {
 
     public HorizontalUIButtonLayout[] lines;
 
+    [SerializeField]
     private int currentLine = 0;
+    [SerializeField]
     private int currentColumn = 0;
 
 	// Use this for initialization

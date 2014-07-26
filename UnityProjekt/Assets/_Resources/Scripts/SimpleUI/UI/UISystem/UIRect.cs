@@ -86,7 +86,7 @@ public class UIRect : MonoBehaviour
     public bool RelativeWidthBasedOnHeight = false;
     public Vector2 AbsoluteSize = Vector2.zero;
 
-    protected bool forceHover = false;
+    public bool forceHover = false;
 
     public void SetForceHover(bool value)
     {

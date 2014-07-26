@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Linq;
+
+[System.Serializable]
 public class HitAble : MonoBehaviour {
 
     public bool sendFurther = false;

@@ -16,7 +16,9 @@ public class GameEventHandler : MonoBehaviour {
     public delegate void GameEvent();
     public static event GameEvent OnPause;
     public static event GameEvent OnResume;
-    public static event GameEvent Reset;
+    public static event GameEvent ResetLevel;
+    public static event GameEvent OnCreateCheckpoint;
+    public static event GameEvent OnResetToCheckpoint;
 
     public static event GameEvent StopControllerMenu;
 
@@ -81,11 +83,11 @@ public class GameEventHandler : MonoBehaviour {
         }
     }
 
-    public static void TriggerReset()
+    public static void TriggerResetLevel()
     {
-        if (Reset != null)
+        if (ResetLevel != null)
         {
-            Reset();
+            ResetLevel();
         }
     }
 
@@ -110,6 +112,29 @@ public class GameEventHandler : MonoBehaviour {
         if (StopControllerMenu != null)
         {
             StopControllerMenu();
+        }
+    }
+
+    public static void TriggerCreateCheckpoint()
+    {
+        if (LevelSerializer.SavedGames[LevelSerializer.PlayerName].Count == 2)
+            LevelSerializer.SavedGames[LevelSerializer.PlayerName][0].Delete();
+
+        LevelSerializer.SaveGame("CheckPoint");
+
+        if (OnCreateCheckpoint != null)
+        {
+            OnCreateCheckpoint();
+        }
+    }
+
+    public static void TriggerResetToCheckpoint()
+    {
+        LevelSerializer.LoadNow(LevelSerializer.SavedGames[LevelSerializer.PlayerName][0].Data, false, true);
+
+        if (OnResetToCheckpoint != null)
+        {
+            OnResetToCheckpoint();
         }
     }
 }

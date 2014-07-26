@@ -45,9 +45,9 @@ public class ThrowingWeapon : MonoBehaviour {
             {
                 if (GameManager.Instance.GetCameras()[i] != null)
                 {
-                    Vector2 pos = GameManager.Instance.GetCameras()[i].camera.WorldToScreenPoint(renderer.bounds.center);
+                    Vector2 pos = GameManager.Instance.GetCameras()[i].camera.WorldToScreenPoint(transform.position);
                     pos.y = Screen.height - pos.y;
-                    GUI.Label(new Rect(pos.x, pos.y - 20, 40, 40), detonateTimer.ToString("#.#"));
+                    GUI.Label(new Rect(pos.x, pos.y - 20, 40, 40), detonateTimer.ToString("#0.#"));
                 }
             }
         }
@@ -95,9 +95,7 @@ public class ThrowingWeapon : MonoBehaviour {
             }
         }
 
-        GameObject go = GameObjectPool.Instance.Spawn(hitEffektPoolName, transform.position, Quaternion.identity);
-        
-
+        GameObjectPool.Instance.Spawn(hitEffektPoolName, transform.position, Quaternion.identity);
         GameObjectPool.Instance.Despawn(poolName, gameObject);
     }
 }

@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[System.Serializable]
 public class EnemieController : HitAble {
 
     public HealthBar healthBar;
 
+    [SerializeField]
     private float Health = 100f;
     public float StartMaxHealth = 100f;
     public float MaxHealthPerDifficulty = 10f;
+    [SerializeField]
     private float MaxHealth = 100f;
     
     public float FloorCheckDistance = 1.0f;
@@ -16,11 +19,13 @@ public class EnemieController : HitAble {
     public float MyDamage = 5.0f;
     public float DamagePerDifficulty = 2.0f;
 
+    [SerializeField]
     private int direction = 1;
     
     public float maxSpeed = 2.0f;
     public float speedChange = 2.0f;
 
+    [SerializeField]
     private float currentSpeed = 0.0f;
 
     public Transform target = null;
@@ -45,19 +50,59 @@ public class EnemieController : HitAble {
 
     void Awake()
     {
+        Listen();
+    }
+
+    void OnEnable()
+    {
+        Listen();
+    }
+
+    void Listen()
+    {
         GameEventHandler.FoundTarget += OnFoundTarget;
         GameEventHandler.OnPause += OnPause;
         GameEventHandler.OnResume += OnResume;
     }
 
+    void OnDisable()
+    {
+        StopCoroutine(findTarget());
+        UnListen();
+    }
+
+    void OnDestroy()
+    {
+        StopCoroutine(findTarget());
+        UnListen();
+    }
+
+    void UnListen()
+    {
+        GameEventHandler.FoundTarget -= OnFoundTarget;
+        GameEventHandler.OnPause -= OnPause;
+        GameEventHandler.OnResume -= OnResume;
+    }
+
     public void OnResume()
     {
+        if (this == null)
+        {
+            UnListen();
+        }
+
+
         rigidbody2D.isKinematic = false;
         rigidbody2D.velocity = lastVelocity;
     }
 
     public void OnPause()
     {
+        if (this == null)
+        {
+            UnListen();
+        }
+
         lastVelocity = rigidbody2D.velocity;
         rigidbody2D.velocity = Vector2.zero;
         rigidbody2D.isKinematic = true;
@@ -111,12 +156,16 @@ public class EnemieController : HitAble {
 
     public Animator anim;
 
+    [SerializeField]
     private float attackTimer = 0f;
     public float attackTime = 1.0f;
 
+    [SerializeField]
     private float lockTimer = 0f;
+    [SerializeField]
     private float lockTime = 0.5f;
 
+    [SerializeField]
     private bool targetLocked = false;
 
     public float attackDistance = 2.0f;
@@ -124,6 +173,7 @@ public class EnemieController : HitAble {
     public float randomTimer = 0f;
     public float randomTimeMin = 3.0f, randomTimeMax = 10f;
 
+    [SerializeField]
     private Vector3 targetPos = Vector3.zero;
 
 	// Update is called once per frame
@@ -241,7 +291,12 @@ public class EnemieController : HitAble {
 
     public void OnFoundTarget(Transform sender, Transform newTarget)
     {
-        if (!target && newTarget)
+        if (this == null)
+        {
+            UnListen();
+        }
+
+        if (!target && newTarget && transform)
         {
             if (Vector3.Distance(newTarget.position, transform.position) > findTargetDistance)
             {
@@ -271,6 +326,7 @@ public class EnemieController : HitAble {
         StartCoroutine(findTarget());
     }
 
+    [SerializeField]
     private float turnTimer = 0f;
     public float MinTurnTime = 0.5f, MaxTurnTime = 1f;
 
@@ -302,7 +358,7 @@ public class EnemieController : HitAble {
             }
             if (rigidbody2D.velocity.y <= 0)
             {
-                float random = Random.Range(0f, 1000f);
+                float random = Random.value;
                 if (random < chanceForRandomJump)
                 {
                     TryJump();

@@ -11,6 +11,9 @@ public class BasicAttack : PlayerSkill
 
     public float DamageMult = 1.0f;
 
+    public int pierceAmount = 0;
+    public float force = 0f;
+
     public BasicAttack(string name, float skillCooldown)
         : base(name, skillCooldown)
     {
@@ -20,6 +23,9 @@ public class BasicAttack : PlayerSkill
     public override void Do(PlayerClass player)
     {
         base.Do(player);
+
+        if (player == null || player.playerTransform == null)
+            return;
 
         //Shoot Or Something
         Vector3 position = new Vector3(ShootingPosition.x * player.playerTransform.localScale.x, ShootingPosition.y, 0);
@@ -31,9 +37,9 @@ public class BasicAttack : PlayerSkill
         go.SendMessage("SetDirection", Vector2.right * player.playerTransform.localScale.x);
         go.SendMessage("SetPlayer", player.playerControl);
         go.SendMessage("SetDamage", DamageMult * player.GetAttributeValue(AttributeType.DAMAGE));
+        go.SendMessage("SetPierceAmount", pierceAmount);
+        go.SendMessage("SetForce", force);
 
         player.playerControl.rigidbody2D.MovePosition(player.playerControl.rigidbody2D.position + KnockBack * player.playerTransform.localScale.x * Time.fixedDeltaTime);
-
-        //player.playerControl.rigidbody2D.AddForce(KnockBack * player.playerTransform.localScale.x);
     }
 }

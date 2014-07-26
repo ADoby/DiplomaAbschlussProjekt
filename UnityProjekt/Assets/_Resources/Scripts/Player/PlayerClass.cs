@@ -75,11 +75,14 @@ public class Attribute
     }
 }
 
+[System.Serializable]
 public class PlayerClass : MonoBehaviour
 {
     public string Name = "KlassenName";
-    public string Description = "Beschreibung";
 
+    [Multiline(4)]
+    public string Description = "Beschreibung";
+    [SerializeField]
     public Attribute[] Attributes =
     {
         new Attribute() { Name = "Health",              Value = 100f, ValuePerLevel = 25f,  ValuePerSkillPoint = 100f,   MaxValue = 999999f, MaxSkillUps = 200 },
@@ -92,11 +95,11 @@ public class PlayerClass : MonoBehaviour
         new Attribute() { Name = "More Jump Power",     Value = 5f,   ValuePerLevel = 0f,   ValuePerSkillPoint = 0.2f,   MaxValue = 15f,     MaxSkillUps = 20 },
         new Attribute() { Name = "Vampire",             Value = 0f,   ValuePerLevel = 0f,   ValuePerSkillPoint = 0.005f, MaxValue = 0.25f,   MaxSkillUps = 20 }
     };
-
+    [SerializeField]
     public PlayerSkill[] playerSkills;
 
     #region PlayerBuffs
-
+    [SerializeField]
     public List<PlayerBuff> playerBuffs;
 
     public void AddBuff(PlayerBuff buff)
@@ -147,6 +150,7 @@ public class PlayerClass : MonoBehaviour
     //Leben
     public float CurrentHealth = 0.0f;
 
+    [SerializeField]
     private int skillsRunning = 0;
     public bool SkillRunning { get { return (skillsRunning > 0); } }
 
@@ -164,9 +168,10 @@ public class PlayerClass : MonoBehaviour
 
     [Range(1, 3)]
     public int MaxJumpCount = 1;
+    [SerializeField]
     private int currentJumpNumber = 0;
 
-    public Transform playerTransform { get; set; }
+    public Transform playerTransform;
 
     public Vector2 overrideVelocity = Vector2.zero;
 
@@ -189,6 +194,11 @@ public class PlayerClass : MonoBehaviour
 
         CurrentHealth += GetAttributeValue(AttributeType.HEALTHREG) * Time.deltaTime;
         CurrentHealth = Mathf.Clamp(CurrentHealth, 0, GetAttributeValue(AttributeType.HEALTH));
+
+        for (int i = 0; i < items.Count; i++)
+        {
+            items[i].Update(this);
+        }
     }
 
     public void FixedUpdateClass()
@@ -205,6 +215,11 @@ public class PlayerClass : MonoBehaviour
     {
         playerTransform = playerControl.transform;
         this.playerControl = playerControl;
+
+        for (int i = 0; i < playerSkills.Length; i++)
+        {
+            playerSkills[i] = (PlayerSkill)PlayerSkill.Instantiate(playerSkills[i]);
+        }
     }
 
     public void ResetPlayerClass()
@@ -319,5 +334,79 @@ public class PlayerClass : MonoBehaviour
         }
         
         return false; ;
+    }
+
+    public void Heal(float amount)
+    {
+        CurrentHealth = Mathf.Clamp(CurrentHealth + amount, 0, GetAttributeValue(AttributeType.HEALTH));
+    }
+
+    public List<Item> items = new List<Item>();
+
+    public void AddItem(Item item)
+    {
+        items.Add(item);
+        item.Start(this);
+    }
+
+    public void RemoveItem(Item item)
+    {
+        //not Used
+        
+    }
+
+
+    public virtual float OnPlayerGetsDamage(float damage)
+    {
+        for (int i = 0; i < items.Count; i++)
+        {
+            damage = items[i].OnPlayerGetsDamage(this, damage);
+        }
+        return damage;
+    }
+    public virtual void OnPlayerDamaged(float damage)
+    {
+        for (int i = 0; i < items.Count; i++)
+        {
+            items[i].OnPlayerDamaged(this, damage);
+        }
+    }
+    public virtual float OnPlayerDoesDamage(float damage)
+    {
+        for (int i = 0; i < items.Count; i++)
+        {
+            damage = items[i].OnPlayerDoesDamage(this, damage);
+        }
+        return damage;
+    }
+    public virtual void OnPlayerDidDamage(float damage)
+    {
+        for (int i = 0; i < items.Count; i++)
+        {
+            items[i].OnPlayerDidDamage(this, damage);
+        }
+    }
+    public virtual void OnPlayerKilledEntity()
+    {
+        for (int i = 0; i < items.Count; i++)
+        {
+            items[i].OnPlayerKilledEntity(this);
+        }
+    }
+
+    public virtual float OnPlayerLethalDamage(float damage)
+    {
+        for (int i = 0; i < items.Count; i++)
+        {
+            damage = items[i].OnPlayerLethalDamage(this, damage);
+        }
+        return damage;
+    }
+    public virtual void OnPlayerDied()
+    {
+        for (int i = 0; i < items.Count; i++)
+        {
+            items[i].OnPlayerDied(this);
+        }
     }
 }

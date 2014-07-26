@@ -20,8 +20,18 @@ public class Bullet : MonoBehaviour {
 
     public float force = 2.0f;
 
+    public void SetForce(float amount)
+    {
+        force = amount;
+    }
+
     public int pierceAmount = 0;
     private int pierceCount = 0;
+
+    public void SetPierceAmount(int amount)
+    {
+        pierceAmount = amount;
+    }
 
     private Vector3 savedVelocity = Vector3.zero;
 

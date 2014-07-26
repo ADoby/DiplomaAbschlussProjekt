@@ -41,6 +41,8 @@ public class GameManager : MonoBehaviour {
 
 		GameEventHandler.OnPause += OnPause;
 		GameEventHandler.OnResume += OnResume;
+
+        LevelSerializer.MaxGames = 2;
 	}
 
 	#endregion
@@ -88,9 +90,6 @@ public class GameManager : MonoBehaviour {
 		GameEventHandler.TriggerOnPause();
 
 		GameEventHandler.OnDamageDone += OnDamageDone;
-
-		LoadLevel(DefaultLevel);
-
 	}
 
 	public void LoadLevel(int id)
@@ -222,7 +221,7 @@ public class GameManager : MonoBehaviour {
 			if (playerController)
 			{
 				playerController.gameObject.SetActive(true);
-				playerController.OnReset();
+				playerController.Init();
 			}
 		}
 
@@ -255,6 +254,10 @@ public class GameManager : MonoBehaviour {
 		GameContainer.SetActive(true);
 
 		GameEventHandler.TriggerOnResume();
+
+        LoadLevel(DefaultLevel);
+
+        LevelSerializer.SaveGame("LevelStart");
 	}
 
 	public void SelectSlot(int id)

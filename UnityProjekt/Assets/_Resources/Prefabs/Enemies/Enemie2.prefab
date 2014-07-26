@@ -8,6 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400000}
+  - 114: {fileID: 11400012}
   m_Layer: 10
   m_Name: CameraFollowPosition
   m_TagString: Untagged
@@ -25,6 +26,7 @@ GameObject:
   - 4: {fileID: 400002}
   - 212: {fileID: 21200002}
   - 95: {fileID: 9500000}
+  - 114: {fileID: 11400010}
   m_Layer: 10
   m_Name: Enemie1_0
   m_TagString: Untagged
@@ -44,6 +46,7 @@ GameObject:
   - 58: {fileID: 5800000}
   - 50: {fileID: 5000000}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400004}
   m_Layer: 10
   m_Name: Enemie2
   m_TagString: Untagged
@@ -60,6 +63,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400008}
   - 212: {fileID: 21200000}
+  - 114: {fileID: 11400006}
   m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
@@ -76,6 +80,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400010}
   - 114: {fileID: 11400002}
+  - 114: {fileID: 11400008}
   m_Layer: 10
   m_Name: HealthBar
   m_TagString: Untagged
@@ -214,14 +219,18 @@ MonoBehaviour:
   SpawnPool: 1
   SpawnPoolName: Blood
   healthBar: {fileID: 11400002}
-  StartMaxHealth: 50
+  Health: 100
+  StartMaxHealth: 30
   MaxHealthPerDifficulty: 5
+  MaxHealth: 100
   FloorCheckDistance: 1
   FloorCheckLength: .5
   MyDamage: 5
   DamagePerDifficulty: 2
-  maxSpeed: 5
-  speedChange: 5
+  direction: 1
+  maxSpeed: 6
+  speedChange: 10
+  currentSpeed: 0
   target: {fileID: 0}
   findTargetDistance: 10
   distanceToTarget: 0
@@ -234,20 +243,26 @@ MonoBehaviour:
   lastVelocity: {x: 0, y: 0}
   attackAnim: {fileID: 7400000, guid: d7277d1b8dc740d4a8ddc2eb2941af66, type: 2}
   anim: {fileID: 9500000}
+  attackTimer: 0
   attackTime: .5
+  lockTimer: 0
+  lockTime: .5
+  targetLocked: 0
   attackDistance: 2
   randomTimer: 0
   randomTimeMin: 3
   randomTimeMax: 10
-  MinTurnTime: .5
-  MaxTurnTime: 1
+  targetPos: {x: 0, y: 0, z: 0}
+  turnTimer: 0
+  MinTurnTime: .100000001
+  MaxTurnTime: .300000012
   jumpDownDistance: 2
   jumpUpDistance: 2
   jumpPower: 2
   pathFindingLayer:
     serializedVersion: 2
     m_Bits: 4294840543
-  chanceForRandomJump: .0500000007
+  chanceForRandomJump: .100000001
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -260,7 +275,82 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 400008}
+  health: 0
+  maxHealth: 1
+  currentHealth: 0
   change: 5
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5ac6d84dca7648fab1a3a905dbc55b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: 708700bb-9289-4bf3-98a0-5b135b97449f
+  classId: da19b35c-ddb5-4037-84f9-b283cb24ea97
+  StoreAllComponents: 1
+  Components: []
+--- !u!114 &11400006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc7f0a036bc94ddf9e7626ffd54921d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: f55b9a51-a919-492c-9b81-7132a804212b
+  classId: d6760f23-bac5-4f10-b8e5-fce25a2cc053
+--- !u!114 &11400008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc7f0a036bc94ddf9e7626ffd54921d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: bd501395-fbaf-4025-ad61-277cfff09c7d
+  classId: 10284abd-0324-47e1-96f3-93a7f1f651d2
+--- !u!114 &11400010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc7f0a036bc94ddf9e7626ffd54921d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: 64be2694-bc59-40e0-8201-dc3703cc10ff
+  classId: 35808dc5-7e84-424a-9e10-2af9990cef40
+--- !u!114 &11400012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc7f0a036bc94ddf9e7626ffd54921d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: cfe998bc-ce8c-4664-8f64-643a8e1928f2
+  classId: 95591723-3da9-4bdf-a11b-73df332c4b30
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

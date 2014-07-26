@@ -2,21 +2,25 @@
 using UnityEngine;
 using System.Collections;
 
+[System.Serializable]
 public class EnemieBase : HitAble {
 
     public HealthBar healthBar;
 
-    private float CurrentHealth;
-    private float wantedHealth = 1;
+    public float CurrentHealth;
+    public float wantedHealth = 1;
     public float MaxHealth = 100;
 
     public string poolName = "EnemieBase1";
 
     public float HealthRegenPerSec = 2f;
 
-    private bool isAlive = false;
+    public bool isAlive = false;
 
     public bool StartFull = false, RestartFull = false;
+
+
+    public LayerMask GroundLayer;
 
     void Awake()
     {
@@ -32,6 +36,13 @@ public class EnemieBase : HitAble {
             CurrentHealth = MaxHealth;
             wantedHealth = CurrentHealth;
             UpdateHealthBar(true);
+        }
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + transform.up, -transform.up, 2f, GroundLayer);
+
+        if (hit)
+        {
+            transform.localRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
         }
     }
 
@@ -73,7 +84,7 @@ public class EnemieBase : HitAble {
         CurrentHealth = Mathf.Lerp(CurrentHealth, wantedHealth, Time.deltaTime * HealthChangeSpeed);
         UpdateHealthBar();
 
-        if (!isAlive && CurrentHealth <= 1)
+        if (!isAlive && ProzentHealth() <= 0.01f)
         {
             Die();
         }
@@ -96,6 +107,12 @@ public class EnemieBase : HitAble {
         UpdateHealthBar(true);
     }
 
+    [ContextMenu("Kill")]
+    public void Kill()
+    {
+        Damage(MaxHealth);
+    }
+
     public override void Damage(float amount)
     {
         base.Damage(amount);
@@ -116,5 +133,11 @@ public class EnemieBase : HitAble {
     public void Die()
     {
         GameObjectPool.Instance.Despawn(poolName, gameObject);
+    }
+
+    public void HealFull()
+    {
+        isAlive = true;
+        SetHealth(MaxHealth);
     }
 }

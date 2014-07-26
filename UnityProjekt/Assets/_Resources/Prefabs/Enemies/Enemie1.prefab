@@ -8,6 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400000}
+  - 114: {fileID: 11400012}
   m_Layer: 10
   m_Name: CameraFollowPosition
   m_TagString: Untagged
@@ -25,6 +26,7 @@ GameObject:
   - 4: {fileID: 400002}
   - 212: {fileID: 21200002}
   - 95: {fileID: 9500000}
+  - 114: {fileID: 11400010}
   m_Layer: 10
   m_Name: Enemie1_0
   m_TagString: Untagged
@@ -45,6 +47,7 @@ GameObject:
   - 61: {fileID: 6100002}
   - 50: {fileID: 5000000}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400004}
   m_Layer: 10
   m_Name: Enemie1
   m_TagString: Untagged
@@ -61,6 +64,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400008}
   - 212: {fileID: 21200000}
+  - 114: {fileID: 11400006}
   m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
@@ -77,6 +81,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400010}
   - 114: {fileID: 11400002}
+  - 114: {fileID: 11400008}
   m_Layer: 10
   m_Name: HealthBar
   m_TagString: Untagged
@@ -226,14 +231,18 @@ MonoBehaviour:
   SpawnPool: 1
   SpawnPoolName: Blood
   healthBar: {fileID: 11400002}
-  StartMaxHealth: 200
+  Health: 100
+  StartMaxHealth: 100
   MaxHealthPerDifficulty: 20
+  MaxHealth: 100
   FloorCheckDistance: 1
   FloorCheckLength: .100000001
   MyDamage: 40
   DamagePerDifficulty: 5
+  direction: 1
   maxSpeed: 3
   speedChange: 5
+  currentSpeed: 0
   target: {fileID: 0}
   findTargetDistance: 10
   distanceToTarget: 0
@@ -246,11 +255,17 @@ MonoBehaviour:
   lastVelocity: {x: 0, y: 0}
   attackAnim: {fileID: 7400000, guid: d7277d1b8dc740d4a8ddc2eb2941af66, type: 2}
   anim: {fileID: 0}
+  attackTimer: 0
   attackTime: 1
+  lockTimer: 0
+  lockTime: .5
+  targetLocked: 0
   attackDistance: 2
   randomTimer: 0
   randomTimeMin: 3
   randomTimeMax: 10
+  targetPos: {x: 0, y: 0, z: 0}
+  turnTimer: 0
   MinTurnTime: .5
   MaxTurnTime: 1
   jumpDownDistance: 2
@@ -272,7 +287,82 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 400008}
+  health: 0
+  maxHealth: 1
+  currentHealth: 0
   change: 5
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5ac6d84dca7648fab1a3a905dbc55b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: 2aee8b69-5f5b-4b02-a7e9-ab3657397ae8
+  classId: 1d6226da-b80f-4a53-a277-b22a36b8bf12
+  StoreAllComponents: 1
+  Components: []
+--- !u!114 &11400006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc7f0a036bc94ddf9e7626ffd54921d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: 956b7fc6-77fc-49da-8b82-cdf48bd588b1
+  classId: c7f4e837-e351-442f-a591-3644a4c98d7a
+--- !u!114 &11400008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc7f0a036bc94ddf9e7626ffd54921d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: 5469af4e-34cd-4bf5-8c9b-ca52b1b4b1c6
+  classId: c85459e9-e5d5-4ff8-94f1-8cb083c07db6
+--- !u!114 &11400010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc7f0a036bc94ddf9e7626ffd54921d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: 662c4d8f-2372-496b-af5c-f313f747c958
+  classId: a4624528-dd1a-4c82-b4ef-f12988371cbe
+--- !u!114 &11400012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc7f0a036bc94ddf9e7626ffd54921d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: d5e51c3f-1347-45fd-8ae5-8eb5e117e422
+  classId: b2f493d5-9088-4c39-9d26-3e4bbc795da9
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
