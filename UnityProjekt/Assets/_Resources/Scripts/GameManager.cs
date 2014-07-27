@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using UnityEditor;
 using UnityEngine;
 
 public enum PlayerClasses
@@ -86,6 +85,8 @@ public class GameManager : MonoBehaviour {
 	public static float DifficultyValue = 0;
 	public float DifficultEveryXSecond = 5f;
 
+    public UIRect WinScreen;
+
 	void Start()
 	{
 		GameEventHandler.TriggerOnPause();
@@ -93,6 +94,23 @@ public class GameManager : MonoBehaviour {
 		GameEventHandler.OnDamageDone += OnDamageDone;
         GameEventHandler.ResetLevel += OnResetLevel;
 	}
+
+    public void StopGame()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            RemovePlayer(Players[i]);
+
+        }
+        CurrentDifficulty = 0;
+        DifficultyValue = 0;
+        CurrentLevelDamage = 0;
+
+        SelectSlot(3);
+        SelectSlot(2);
+        SelectSlot(1);
+        SelectSlot(0);
+    }
 
     public void OnResetLevel()
     {
@@ -177,6 +195,11 @@ public class GameManager : MonoBehaviour {
 	public void OnDamageDone(PlayerController player, float damage)
 	{
 		CurrentLevelDamage += damage;
+        if (CurrentLevelDamage > NeededLevelDamage)
+        {
+            WinScreen.gameObject.SetActive(true);
+            GameEventHandler.TriggerOnPause();
+        }
 	}
 
 	public void UpdateProgressUI(bool instant = false)

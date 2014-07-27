@@ -1191,7 +1191,7 @@ MonoBehaviour:
   Skill4Input: _SKILL4
   GroundCheckLayer:
     serializedVersion: 2
-    m_Bits: 4294906079
+    m_Bits: 4294447327
   _animator: {fileID: 9500002}
   jumping: 0
   Level: 0
