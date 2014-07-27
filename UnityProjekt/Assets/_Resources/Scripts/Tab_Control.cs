@@ -9,6 +9,11 @@ public class Tab_Control : MonoBehaviour {
     [SerializeField]
     private int lastTab = 0;
 
+    void OnEnable()
+    {
+        ActivateTab();
+    }
+
     public void ActivateTab()
     {
         if (lastTab < 0)

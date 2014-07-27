@@ -92,20 +92,46 @@ public class PlayerController : MonoBehaviour
 
     public Transform SpotlightTransform;
 
+    public byte[] LastSave;
 
     public void Init()
     {
         PlayerClass.Init(this);
 
-        GameEventHandler.OnDamageDone += DamageDone;
-        GameEventHandler.OnPause += OnPause;
-        GameEventHandler.OnResume += OnResume;
-        GameEventHandler.OnCreateCheckpoint += OnCreateCheckpoint;
-        GameEventHandler.OnResetToCheckpoint += OnResetToCheckpoint;
+        Listen();
 
         transform.position = GameManager.GetLevelSpawnPoint();
 
         ResetPlayer();
+    }
+
+    void OnEnable()
+    {
+        Listen();
+    }
+
+    void OnDisable()
+    {
+        UnListen();
+    }
+
+    void OnDestroy()
+    {
+        UnListen();
+    }
+
+    public void Listen()
+    {
+        GameEventHandler.OnDamageDone += DamageDone;
+        GameEventHandler.OnPause += OnPause;
+        GameEventHandler.OnResume += OnResume;
+    }
+
+    public void UnListen()
+    {
+        GameEventHandler.OnDamageDone -= DamageDone;
+        GameEventHandler.OnPause -= OnPause;
+        GameEventHandler.OnResume -= OnResume;
     }
 
     private void ResetPlayer()
@@ -116,17 +142,21 @@ public class PlayerController : MonoBehaviour
 
         PlayerClass.CurrentHealth = PlayerClass.GetAttributeValue(AttributeType.HEALTH);
 
-
         PlayerClass.ResetPlayerClass();
+
+        LastSave = LevelSerializer.SaveObjectTree(gameObject);
     }
 
-    public void OnCreateCheckpoint()
+    public void CreateCheckpoint()
     {
+        LastSave = LevelSerializer.SaveObjectTree(gameObject);
         checkPointTimer = 0;
     }
 
-    public void OnResetToCheckpoint()
+    public void ResetToCheckpoint()
     {
+        LevelSerializer.LoadObjectTree(LastSave);
+        LastSave = LevelSerializer.SaveObjectTree(gameObject);
         backToCheckPointTimer = BackToCheckPointCooldown;
     }
 
@@ -147,12 +177,16 @@ public class PlayerController : MonoBehaviour
         else if (checkPointTimer > CheckPointCooldown)
             checkPointTimer = CheckPointCooldown;
         else if (InputController.GetClicked(PlayerID() + "_CREATECHECKPOINT"))
-            GameEventHandler.TriggerCreateCheckpoint();
+        {
+            CreateCheckpoint();
+        }
 
         if(backToCheckPointTimer > 0)
             backToCheckPointTimer -= Time.deltaTime;
         else if (InputController.GetClicked(PlayerID() + "_BACKTOCHECKPOINT"))
-            GameEventHandler.TriggerResetToCheckpoint();
+        {
+            ResetToCheckpoint();
+        }
 
 	    if (CanMove)
 	    {
@@ -281,7 +315,7 @@ public class PlayerController : MonoBehaviour
         if (PlayerClass.CurrentHealth <= 0)
         {
             //Dead
-            GameEventHandler.TriggerResetToCheckpoint();
+            ResetToCheckpoint();
         }
     }
 

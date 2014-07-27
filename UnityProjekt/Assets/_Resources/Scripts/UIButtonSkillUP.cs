@@ -40,9 +40,14 @@ public class UIButtonSkillUP : MonoBehaviour {
         playerUI.UpdateSkillPoints();
     }
 
+    public UIRect uperPanel;
+
     public void OnButtonClicked(UIRect rect)
     {
-        playerUI.playerControl.PlayerClass.SkillUpAttribute((int)attributeType);
-        UpdateUI();
+        if (uperPanel.Visible)
+        {
+            playerUI.playerControl.PlayerClass.SkillUpAttribute((int)attributeType);
+            UpdateUI();
+        }
     }
 }

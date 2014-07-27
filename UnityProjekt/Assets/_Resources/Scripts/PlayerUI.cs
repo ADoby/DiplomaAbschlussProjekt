@@ -71,6 +71,11 @@ public class PlayerUI : MonoBehaviour {
 
     public void GenerateItems25(UIRect rect)
     {
+        if (!SkillsAndItemsUI.Visible)
+            return;
+        if (playerControl.Money < MoneyPerItem25)
+            return;
+
         //float money = playerControl.Money * 0.25f;
         //int amount = (int)(money / MoneyPerItem25);
         playerControl.Money -= MoneyPerItem25;
@@ -78,6 +83,12 @@ public class PlayerUI : MonoBehaviour {
     }
     public void GenerateItems50(UIRect rect)
     {
+        if (!SkillsAndItemsUI.Visible)
+            return;
+
+        if (playerControl.Money < MoneyPerItem50)
+            return;
+
         //float money = playerControl.Money * 0.50f;
         //int amount = (int)(money / MoneyPerItem50);
         playerControl.Money -= MoneyPerItem50;
@@ -85,6 +96,11 @@ public class PlayerUI : MonoBehaviour {
     }
     public void GenerateItems75(UIRect rect)
     {
+        if (!SkillsAndItemsUI.Visible)
+            return;
+        if (playerControl.Money < MoneyPerItem75)
+            return;
+
         //float money = playerControl.Money * 0.75f;
         //int amount = (int)(money / MoneyPerItem75);
         playerControl.Money -= MoneyPerItem75;
@@ -92,14 +108,22 @@ public class PlayerUI : MonoBehaviour {
     }
     public void GenerateItems100(UIRect rect)
     {
+        if (!SkillsAndItemsUI.Visible)
+            return;
+        if (playerControl.Money < MoneyPerItem100)
+            return;
         //float money = playerControl.Money * 1f;
         //int amount = (int)(money / MoneyPerItem100);
         playerControl.Money -= MoneyPerItem100;
         GenerateItems(Chances100, 1);
     }
 
+    public UIRect SkillsAndItemsUI;
+
     public void GenerateItems(ValueChances[] values, int amount)
     {
+        
+
         for (int c = 0; c < amount; c++)
         {
             var rnd = Random.value;
@@ -150,6 +174,7 @@ public class PlayerUI : MonoBehaviour {
         if (InputController.GetClicked(playerControl.PlayerID() + "_SKILLMENU"))
         {
             showMenu = !showMenu;
+            //SkillAndItemMenu.gameObject.SetActive(showMenu);
             SkillAndItemMenu.GetComponent<UIRect>().Visible = showMenu;
             if (showMenu)
             {

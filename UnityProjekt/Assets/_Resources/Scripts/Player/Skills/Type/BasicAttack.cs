@@ -24,9 +24,6 @@ public class BasicAttack : PlayerSkill
     {
         base.Do(player);
 
-        if (player == null || player.playerTransform == null)
-            return;
-
         //Shoot Or Something
         Vector3 position = new Vector3(ShootingPosition.x * player.playerTransform.localScale.x, ShootingPosition.y, 0);
         if (player.playerControl.Crouching)

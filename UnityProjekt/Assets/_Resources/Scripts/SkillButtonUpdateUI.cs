@@ -7,7 +7,7 @@ public class SkillButtonUpdateUI : MonoBehaviour {
     [SerializeField]
     public UIButtonSkillUP[] buttons;
 
-    void OnEnable()
+    void Update()
     {
         for (int i = 0; i < buttons.Length; i++)
         {

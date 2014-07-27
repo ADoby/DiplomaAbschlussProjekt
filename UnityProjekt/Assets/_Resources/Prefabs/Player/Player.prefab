@@ -1205,11 +1205,12 @@ MonoBehaviour:
   _skillPreventsMovement: 0
   _skillOverridesMovement: 0
   _skillPreventsSkillUsement: 0
-  CheckPointCooldown: 15
+  CheckPointCooldown: 1
   checkPointTimer: 0
   BackToCheckPointCooldown: 0
   backToCheckPointTimer: 0
   SpotlightTransform: {fileID: 400000}
+  LastSave: 
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

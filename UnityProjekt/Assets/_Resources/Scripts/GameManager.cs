@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour {
 		GameEventHandler.OnPause += OnPause;
 		GameEventHandler.OnResume += OnResume;
 
-        LevelSerializer.MaxGames = 2;
+        //LevelSerializer.MaxGames = 2;
 	}
 
 	#endregion
@@ -73,6 +73,7 @@ public class GameManager : MonoBehaviour {
 
 	public UIButton[] slotButtons;
 
+    [SerializeField]
 	private PlayerController[] Players = {null,null,null,null};
 	private CameraController[] Cameras = {null,null,null,null};
 
@@ -90,7 +91,13 @@ public class GameManager : MonoBehaviour {
 		GameEventHandler.TriggerOnPause();
 
 		GameEventHandler.OnDamageDone += OnDamageDone;
+        GameEventHandler.ResetLevel += OnResetLevel;
 	}
+
+    public void OnResetLevel()
+    {
+        LevelSerializer.LoadNow(LevelSerializer.SavedGames[LevelSerializer.PlayerName][0].Data, false, true);
+    }
 
 	public void LoadLevel(int id)
 	{
@@ -190,8 +197,14 @@ public class GameManager : MonoBehaviour {
 			slotButtons[currentPlayerSelectingClass].ButtonStyle.normal.textColor = Color.red;
 		}
 
+        if (InputController.GetClicked("RESETLEVEL"))
+        {
+            OnResetLevel();
+        }
+
 		if (GamePaused)
 			return;
+
 		DifficultyValue += Time.deltaTime;
 		DifficultyBar.RelativeSize.x = DifficultyValue / DifficultEveryXSecond;
 		if (DifficultyValue >= DifficultEveryXSecond)
@@ -259,6 +272,19 @@ public class GameManager : MonoBehaviour {
 
         LevelSerializer.SaveGame("LevelStart");
 	}
+
+    public void SaveCheckPoint()
+    {
+        if (LevelSerializer.SavedGames[LevelSerializer.PlayerName].Count == 2)
+            LevelSerializer.SavedGames[LevelSerializer.PlayerName][0].Delete();
+
+        LevelSerializer.SaveGame("CheckPoint");
+    }
+
+    public void SaveLastCheckPoint()
+    {
+        LevelSerializer.LoadNow(LevelSerializer.SavedGames[LevelSerializer.PlayerName][0].Data, false, true);
+    }
 
 	public void SelectSlot(int id)
 	{

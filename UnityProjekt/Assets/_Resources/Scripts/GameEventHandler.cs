@@ -117,11 +117,6 @@ public class GameEventHandler : MonoBehaviour {
 
     public static void TriggerCreateCheckpoint()
     {
-        if (LevelSerializer.SavedGames[LevelSerializer.PlayerName].Count == 2)
-            LevelSerializer.SavedGames[LevelSerializer.PlayerName][0].Delete();
-
-        LevelSerializer.SaveGame("CheckPoint");
-
         if (OnCreateCheckpoint != null)
         {
             OnCreateCheckpoint();
@@ -130,8 +125,6 @@ public class GameEventHandler : MonoBehaviour {
 
     public static void TriggerResetToCheckpoint()
     {
-        LevelSerializer.LoadNow(LevelSerializer.SavedGames[LevelSerializer.PlayerName][0].Data, false, true);
-
         if (OnResetToCheckpoint != null)
         {
             OnResetToCheckpoint();

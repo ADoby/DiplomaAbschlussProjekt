@@ -399,40 +399,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &100046
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 400046}
-  - 114: {fileID: 11400054}
-  - 114: {fileID: 11400304}
-  m_Layer: 0
-  m_Name: UIText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!1 &100048
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 400048}
-  - 114: {fileID: 11400056}
-  - 114: {fileID: 11400234}
-  m_Layer: 0
-  m_Name: UIText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
 --- !u!1 &100050
 GameObject:
   m_ObjectHideFlags: 1
@@ -485,23 +451,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &100056
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 400056}
-  - 114: {fileID: 11400106}
-  - 114: {fileID: 11400244}
-  m_Layer: 0
-  m_Name: UIText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
 --- !u!1 &100058
 GameObject:
   m_ObjectHideFlags: 1
@@ -782,23 +731,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &100090
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 400090}
-  - 114: {fileID: 11400124}
-  - 114: {fileID: 11400254}
-  m_Layer: 0
-  m_Name: UIText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
 --- !u!1 &100092
 GameObject:
   m_ObjectHideFlags: 1
@@ -868,40 +800,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &100100
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 400100}
-  - 114: {fileID: 11400134}
-  - 114: {fileID: 11400264}
-  m_Layer: 0
-  m_Name: UIText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!1 &100102
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 400102}
-  - 114: {fileID: 11400136}
-  - 114: {fileID: 11400274}
-  m_Layer: 0
-  m_Name: UIText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
 --- !u!1 &100104
 GameObject:
   m_ObjectHideFlags: 1
@@ -971,23 +869,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &100112
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 400112}
-  - 114: {fileID: 11400146}
-  - 114: {fileID: 11400284}
-  m_Layer: 0
-  m_Name: UIText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
 --- !u!1 &100114
 GameObject:
   m_ObjectHideFlags: 1
@@ -1126,40 +1007,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &100130
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 400130}
-  - 114: {fileID: 11400164}
-  - 114: {fileID: 11400294}
-  m_Layer: 0
-  m_Name: UIText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!1 &100132
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 400132}
-  - 114: {fileID: 11400166}
-  - 114: {fileID: 11400314}
-  m_Layer: 0
-  m_Name: UIText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
 --- !u!1 &100134
 GameObject:
   m_ObjectHideFlags: 1
@@ -1909,7 +1756,6 @@ Transform:
   m_Children:
   - {fileID: 400042}
   - {fileID: 400044}
-  - {fileID: 400046}
   m_Father: {fileID: 400038}
   m_RootOrder: 0
 --- !u!4 &400042
@@ -1936,30 +1782,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 400040}
   m_RootOrder: 1
---- !u!4 &400046
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100046}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 400040}
-  m_RootOrder: 2
---- !u!4 &400048
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100048}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 400054}
-  m_RootOrder: 2
 --- !u!4 &400050
 Transform:
   m_ObjectHideFlags: 1
@@ -1996,21 +1818,8 @@ Transform:
   m_Children:
   - {fileID: 400052}
   - {fileID: 400050}
-  - {fileID: 400048}
   m_Father: {fileID: 400058}
   m_RootOrder: 0
---- !u!4 &400056
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100056}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 400078}
-  m_RootOrder: 2
 --- !u!4 &400058
 Transform:
   m_ObjectHideFlags: 1
@@ -2163,7 +1972,6 @@ Transform:
   m_Children:
   - {fileID: 400076}
   - {fileID: 400074}
-  - {fileID: 400056}
   m_Father: {fileID: 400080}
   m_RootOrder: 0
 --- !u!4 &400080
@@ -2204,7 +2012,6 @@ Transform:
   m_Children:
   - {fileID: 400086}
   - {fileID: 400088}
-  - {fileID: 400090}
   m_Father: {fileID: 400082}
   m_RootOrder: 0
 --- !u!4 &400086
@@ -2231,18 +2038,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 400084}
   m_RootOrder: 1
---- !u!4 &400090
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100090}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 400084}
-  m_RootOrder: 2
 --- !u!4 &400092
 Transform:
   m_ObjectHideFlags: 1
@@ -2268,7 +2063,6 @@ Transform:
   m_Children:
   - {fileID: 400096}
   - {fileID: 400098}
-  - {fileID: 400100}
   m_Father: {fileID: 400092}
   m_RootOrder: 0
 --- !u!4 &400096
@@ -2295,30 +2089,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 400094}
   m_RootOrder: 1
---- !u!4 &400100
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100100}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 400094}
-  m_RootOrder: 2
---- !u!4 &400102
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100102}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 400108}
-  m_RootOrder: 2
 --- !u!4 &400104
 Transform:
   m_ObjectHideFlags: 1
@@ -2355,7 +2125,6 @@ Transform:
   m_Children:
   - {fileID: 400106}
   - {fileID: 400104}
-  - {fileID: 400102}
   m_Father: {fileID: 400110}
   m_RootOrder: 0
 --- !u!4 &400110
@@ -2371,18 +2140,6 @@ Transform:
   - {fileID: 400108}
   m_Father: {fileID: 400066}
   m_RootOrder: 4
---- !u!4 &400112
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100112}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 400118}
-  m_RootOrder: 2
 --- !u!4 &400114
 Transform:
   m_ObjectHideFlags: 1
@@ -2419,7 +2176,6 @@ Transform:
   m_Children:
   - {fileID: 400116}
   - {fileID: 400114}
-  - {fileID: 400112}
   m_Father: {fileID: 400120}
   m_RootOrder: 0
 --- !u!4 &400120
@@ -2460,7 +2216,6 @@ Transform:
   m_Children:
   - {fileID: 400126}
   - {fileID: 400128}
-  - {fileID: 400130}
   m_Father: {fileID: 400122}
   m_RootOrder: 0
 --- !u!4 &400126
@@ -2487,30 +2242,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 400124}
   m_RootOrder: 1
---- !u!4 &400130
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100130}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 400124}
-  m_RootOrder: 2
---- !u!4 &400132
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100132}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 400138}
-  m_RootOrder: 2
 --- !u!4 &400134
 Transform:
   m_ObjectHideFlags: 1
@@ -2547,7 +2278,6 @@ Transform:
   m_Children:
   - {fileID: 400136}
   - {fileID: 400134}
-  - {fileID: 400132}
   m_Father: {fileID: 400140}
   m_RootOrder: 0
 --- !u!4 &400140
@@ -3025,6 +2755,7 @@ MonoBehaviour:
   Button50: {fileID: 11400398}
   Button75: {fileID: 11400396}
   Button100: {fileID: 11400394}
+  SkillsAndItemsUI: {fileID: 11400080}
   showMenu: 0
 --- !u!114 &11400006
 MonoBehaviour:
@@ -3055,9 +2786,9 @@ MonoBehaviour:
   absoluteRect:
     serializedVersion: 2
     x: 3
-    y: 17.3747997
-    width: 142.679993
-    height: 14.3747997
+    y: 18.523201
+    width: 153.119995
+    height: 15.5232
   parent: {fileID: 11400024}
   children:
   - {fileID: 11400008}
@@ -3152,9 +2883,9 @@ MonoBehaviour:
   absoluteRect:
     serializedVersion: 2
     x: 6
-    y: 20.3747978
-    width: 136.679993
-    height: 8.37479973
+    y: 21.523201
+    width: 147.119995
+    height: 9.52320004
   parent: {fileID: 11400006}
   children: []
   ChildCount: 0
@@ -3247,10 +2978,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 34.5360031
-    y: 6
-    width: 108.143997
-    height: 8.37479973
+    x: 36.6239967
+    y: 6.00000048
+    width: 116.495995
+    height: 9.52320004
   parent: {fileID: 11400032}
   children: []
   ChildCount: 0
@@ -3344,9 +3075,9 @@ MonoBehaviour:
   absoluteRect:
     serializedVersion: 2
     x: 3
-    y: 31.7495995
-    width: 142.679993
-    height: 14.3747997
+    y: 34.046402
+    width: 153.119995
+    height: 15.5232
   parent: {fileID: 11400018}
   children:
   - {fileID: 11400214}
@@ -3442,9 +3173,9 @@ MonoBehaviour:
   absoluteRect:
     serializedVersion: 2
     x: -2
-    y: 31.7495995
-    width: 142.679993
-    height: 14.3747997
+    y: 34.046402
+    width: 153.119995
+    height: 15.5232
   parent: {fileID: 11400012}
   children: []
   ChildCount: 0
@@ -3497,7 +3228,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 9
+    m_FontSize: 10
     m_FontStyle: 0
     m_Alignment: 5
     m_WordWrap: 1
@@ -3538,9 +3269,9 @@ MonoBehaviour:
   absoluteRect:
     serializedVersion: 2
     x: 3
-    y: 17.3747997
-    width: 142.679993
-    height: 14.3747997
+    y: 18.523201
+    width: 153.119995
+    height: 15.5232
   parent: {fileID: 11400024}
   children: []
   ChildCount: 0
@@ -3593,7 +3324,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 9
+    m_FontSize: 10
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 1
@@ -3635,8 +3366,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 3
     y: 3
-    width: 142.679993
-    height: 43.5599976
+    width: 153.119995
+    height: 47.0399971
   parent: {fileID: 11400028}
   children:
   - {fileID: 11400022}
@@ -3734,8 +3465,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 3
     y: 3
-    width: 28.5359993
-    height: 14.3747997
+    width: 30.6239986
+    height: 15.5232
   parent: {fileID: 11400026}
   children: []
   ChildCount: 0
@@ -3788,7 +3519,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 9
+    m_FontSize: 10
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 1
@@ -3830,8 +3561,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 3
     y: 3
-    width: 142.679993
-    height: 14.3747997
+    width: 153.119995
+    height: 15.5232
   parent: {fileID: 11400018}
   children:
   - {fileID: 11400026}
@@ -3927,9 +3658,9 @@ MonoBehaviour:
   absoluteRect:
     serializedVersion: 2
     x: 3
-    y: 17.3747997
-    width: 142.679993
-    height: 14.3747997
+    y: 18.523201
+    width: 153.119995
+    height: 15.5232
   parent: {fileID: 11400018}
   children:
   - {fileID: 11400006}
@@ -4026,8 +3757,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 3
     y: 3
-    width: 28.5359993
-    height: 14.3747997
+    width: 30.6239986
+    height: 15.5232
   parent: {fileID: 11400022}
   children:
   - {fileID: 11400020}
@@ -4123,8 +3854,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 148.679993
-    height: 49.5599976
+    width: 159.119995
+    height: 53.0399971
   parent: {fileID: 11400030}
   children:
   - {fileID: 11400018}
@@ -4220,8 +3951,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 743
-    height: 413
+    width: 648
+    height: 442
   parent: {fileID: 0}
   children:
   - {fileID: 11400210}
@@ -4317,10 +4048,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 31.5359993
+    x: 33.6240005
     y: 3
-    width: 114.143997
-    height: 14.3747997
+    width: 122.495995
+    height: 15.5232
   parent: {fileID: 11400038}
   children:
   - {fileID: 11400010}
@@ -4414,10 +4145,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 31.5359993
+    x: 33.6240005
     y: 3
-    width: 114.143997
-    height: 14.3747997
+    width: 122.495995
+    height: 15.5232
   parent: {fileID: 11400038}
   children: []
   ChildCount: 0
@@ -4470,7 +4201,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 9
+    m_FontSize: 10
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 1
@@ -4497,6 +4228,11 @@ MonoBehaviour:
   - buttons:
     - {fileID: 11400070}
     - {fileID: 11400068}
+  - buttons:
+    - {fileID: 11400400}
+    - {fileID: 11400398}
+    - {fileID: 11400396}
+    - {fileID: 11400394}
   currentLine: 0
   currentColumn: 0
 --- !u!114 &11400038
@@ -4527,10 +4263,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 31.5359993
+    x: 33.6240005
     y: 3
-    width: 114.143997
-    height: 14.3747997
+    width: 122.495995
+    height: 15.5232
   parent: {fileID: 11400022}
   children:
   - {fileID: 11400032}
@@ -4684,10 +4420,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 371.5
-    y: 90.7299881
-    width: 257.287506
-    height: 30.7945004
+    x: 373
+    y: 90.9399872
+    width: 257.925018
+    height: 30.8710022
   parent: {fileID: 11400074}
   children:
   - {fileID: 11400048}
@@ -4781,16 +4517,15 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 373.5
-    y: 92.7299881
-    width: 253.287506
-    height: 26.7945004
+    x: 375
+    y: 92.9399872
+    width: 253.925018
+    height: 26.8710022
   parent: {fileID: 11400046}
   children:
   - {fileID: 11400050}
   - {fileID: 11400052}
-  - {fileID: 11400054}
-  ChildCount: 3
+  ChildCount: 2
   Text: 
   Callback:
     MessageReciever: {fileID: 0}
@@ -4883,10 +4618,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 375.5
-    y: 94.7299881
-    width: 22.7945004
-    height: 22.7945004
+    x: 377
+    y: 94.9399872
+    width: 22.8710022
+    height: 22.8710022
   parent: {fileID: 11400048}
   children: []
   ChildCount: 0
@@ -4920,10 +4655,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 403.894501
-    y: 92.7299881
-    width: 253.287506
-    height: 26.7945004
+    x: 405.471008
+    y: 92.9399872
+    width: 253.925018
+    height: 26.8710022
   parent: {fileID: 11400048}
   children: []
   ChildCount: 0
@@ -4936,10 +4671,10 @@ MonoBehaviour:
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
-      m_TextColor: {r: 1, g: .676470578, b: .676470578, a: 1}
+      m_TextColor: {r: .523630917, g: 1, b: .433823526, a: 1}
     m_Active:
       m_Background: {fileID: 0}
-      m_TextColor: {r: .687626779, g: 1, b: .676470578, a: 1}
+      m_TextColor: {r: 1, g: .867241383, b: .433823526, a: 1}
     m_Focused:
       m_Background: {fileID: 0}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
@@ -4988,198 +4723,6 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
---- !u!114 &11400054
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8964c24a1396a3b488680746428a8d69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  identifier: c03385e4-7425-43d6-a1d0-7f19bdd1688b
-  Visible: 1
-  Enabled: 1
-  ShowBackground: 0
-  RelativePosition: {x: .119999997, y: .449999988}
-  AbsolutePosition: {x: 0, y: 0}
-  RelativeSize: {x: 1, y: 1}
-  RelativeSizeBasedOnScreen: 0
-  RelativeWidthBasedOnHeight: 0
-  AbsoluteSize: {x: 0, y: 0}
-  forceHover: 0
-  HorizontalAnchor: 0
-  VerticalAnchor: 0
-  HorizontalAlignment: 0
-  VerticalAlignment: 0
-  absoluteRect:
-    serializedVersion: 2
-    x: 417.140015
-    y: 140.718002
-    width: 347
-    height: 38.0400009
-  parent: {fileID: 11400048}
-  children: []
-  ChildCount: 0
-  Text: <color=#00CC66>Increase by <color=#ff0000>0.2</color> per second</color>
-  fontSize: 7
-  FontStyle:
-    m_Name: label
-    m_Normal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
-    m_Hover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 1, g: .676470578, b: .676470578, a: 1}
-    m_Active:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: .687626779, g: 1, b: .676470578, a: 1}
-    m_Focused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnNormal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnHover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnActive:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnFocused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Border:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Margin:
-      m_Left: 4
-      m_Right: 4
-      m_Top: 4
-      m_Bottom: 4
-    m_Padding:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 3
-      m_Bottom: 3
-    m_Overflow:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 12
-    m_FontStyle: 0
-    m_Alignment: 0
-    m_WordWrap: 1
-    m_RichText: 1
-    m_TextClipping: 1
-    m_ImagePosition: 0
-    m_ContentOffset: {x: 0, y: 0}
-    m_FixedWidth: 0
-    m_FixedHeight: 0
-    m_StretchWidth: 1
-    m_StretchHeight: 0
---- !u!114 &11400056
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8964c24a1396a3b488680746428a8d69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  identifier: c03385e4-7425-43d6-a1d0-7f19bdd1688b
-  Visible: 1
-  Enabled: 1
-  ShowBackground: 0
-  RelativePosition: {x: .119999997, y: .449999988}
-  AbsolutePosition: {x: 0, y: 0}
-  RelativeSize: {x: 1, y: 1}
-  RelativeSizeBasedOnScreen: 0
-  RelativeWidthBasedOnHeight: 0
-  AbsoluteSize: {x: 0, y: 0}
-  forceHover: 0
-  HorizontalAnchor: 0
-  VerticalAnchor: 0
-  HorizontalAlignment: 0
-  VerticalAlignment: 0
-  absoluteRect:
-    serializedVersion: 2
-    x: 64.1399994
-    y: 316.878021
-    width: 347
-    height: 38.0400009
-  parent: {fileID: 11400062}
-  children: []
-  ChildCount: 0
-  Text: <color=#00CC66>Increase by</color> <color=#ff0000>0.01</color>
-  fontSize: 7
-  FontStyle:
-    m_Name: label
-    m_Normal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
-    m_Hover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 1, g: .676470578, b: .676470578, a: 1}
-    m_Active:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: .687626779, g: 1, b: .676470578, a: 1}
-    m_Focused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnNormal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnHover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnActive:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnFocused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Border:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Margin:
-      m_Left: 4
-      m_Right: 4
-      m_Top: 4
-      m_Bottom: 4
-    m_Padding:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 3
-      m_Bottom: 3
-    m_Overflow:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 12
-    m_FontStyle: 0
-    m_Alignment: 0
-    m_WordWrap: 1
-    m_RichText: 1
-    m_TextClipping: 1
-    m_ImagePosition: 0
-    m_ContentOffset: {x: 0, y: 0}
-    m_FixedWidth: 0
-    m_FixedHeight: 0
-    m_StretchWidth: 1
-    m_StretchHeight: 0
 --- !u!114 &11400058
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5208,10 +4751,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 144.606995
-    y: 223.90799
-    width: 253.287506
-    height: 26.7945004
+    x: 145.54599
+    y: 224.423996
+    width: 253.925018
+    height: 26.8710022
   parent: {fileID: 11400062}
   children: []
   ChildCount: 0
@@ -5224,10 +4767,10 @@ MonoBehaviour:
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
-      m_TextColor: {r: 1, g: .676470578, b: .676470578, a: 1}
+      m_TextColor: {r: .523630917, g: 1, b: .433823526, a: 1}
     m_Active:
       m_Background: {fileID: 0}
-      m_TextColor: {r: .687626779, g: 1, b: .676470578, a: 1}
+      m_TextColor: {r: 1, g: .867241383, b: .433823526, a: 1}
     m_Focused:
       m_Background: {fileID: 0}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
@@ -5304,10 +4847,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 116.212494
-    y: 225.90799
-    width: 22.7945004
-    height: 22.7945004
+    x: 117.074982
+    y: 226.423996
+    width: 22.8710022
+    height: 22.8710022
   parent: {fileID: 11400062}
   children: []
   ChildCount: 0
@@ -5341,16 +4884,15 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 114.212494
-    y: 223.90799
-    width: 253.287506
-    height: 26.7945004
+    x: 115.074982
+    y: 224.423996
+    width: 253.925018
+    height: 26.8710022
   parent: {fileID: 11400066}
   children:
   - {fileID: 11400060}
   - {fileID: 11400058}
-  - {fileID: 11400056}
-  ChildCount: 3
+  ChildCount: 2
   Text: 
   Callback:
     MessageReciever: {fileID: 0}
@@ -5433,6 +4975,7 @@ MonoBehaviour:
 
     <color=#00CC66>Increase by <color=#ff0000>#valuePerPoint#</color></color> (#currentSkillUps#/#maxSkillUps#)'
   uiText: {fileID: 11400168}
+  uperPanel: {fileID: 11400080}
 --- !u!114 &11400066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5461,10 +5004,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 112.212494
-    y: 221.90799
-    width: 257.287506
-    height: 30.7945004
+    x: 113.074982
+    y: 222.423996
+    width: 257.925018
+    height: 30.8710022
   parent: {fileID: 11400074}
   children:
   - {fileID: 11400062}
@@ -5558,10 +5101,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 371.5
-    y: 51.6249847
-    width: 263.287506
-    height: 35.1050034
+    x: 373
+    y: 51.7499847
+    width: 263.925018
+    height: 35.1900024
   parent: {fileID: 11400078}
   children: []
   ChildCount: 0
@@ -5657,10 +5200,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 108.212494
-    y: 51.6249847
-    width: 263.287506
-    height: 35.1050034
+    x: 109.074982
+    y: 51.7499847
+    width: 263.925018
+    height: 35.1900024
   parent: {fileID: 11400078}
   children: []
   ChildCount: 0
@@ -5756,10 +5299,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 108.212494
-    y: 86.7299881
-    width: 526.575012
-    height: 315.945007
+    x: 109.074982
+    y: 86.9399872
+    width: 527.850037
+    height: 316.710022
   parent: {fileID: 11400076}
   children:
   - {fileID: 11400404}
@@ -5854,10 +5397,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 112.212494
-    y: 90.7299881
-    width: 518.575012
-    height: 307.945007
+    x: 113.074982
+    y: 90.9399872
+    width: 519.850037
+    height: 308.710022
   parent: {fileID: 11400076}
   children:
   - {fileID: 11400174}
@@ -5959,10 +5502,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 108.212494
-    y: 86.7299881
-    width: 526.575012
-    height: 315.945007
+    x: 109.074982
+    y: 86.9399872
+    width: 527.850037
+    height: 316.710022
   parent: {fileID: 11400080}
   children:
   - {fileID: 11400074}
@@ -6057,10 +5600,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 108.212494
-    y: 51.6249847
-    width: 526.575012
-    height: 35.1050034
+    x: 109.074982
+    y: 51.7499847
+    width: 527.850037
+    height: 35.1900024
   parent: {fileID: 11400080}
   children:
   - {fileID: 11400070}
@@ -6155,10 +5698,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 108.212494
-    y: 51.6249847
-    width: 526.575012
-    height: 351.050018
+    x: 42.2249756
+    y: 55.25
+    width: 563.550049
+    height: 375.700012
   parent: {fileID: 11400030}
   children:
   - {fileID: 11400078}
@@ -6299,6 +5842,7 @@ MonoBehaviour:
 
     <color=#00CC66>Increase by <color=#ff0000>#valuePerPoint#</color></color> (#currentSkillUps#/#maxSkillUps#)'
   uiText: {fileID: 11400052}
+  uperPanel: {fileID: 11400080}
 --- !u!114 &11400092
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6317,6 +5861,7 @@ MonoBehaviour:
 
     <color=#00CC66>Increase by <color=#ff0000>#valuePerPoint#</color></color> (#currentSkillUps#/#maxSkillUps#)'
   uiText: {fileID: 11400162}
+  uperPanel: {fileID: 11400080}
 --- !u!114 &11400094
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6335,6 +5880,7 @@ MonoBehaviour:
 
     <color=#00CC66>Increase by <color=#ff0000>#valuePerPoint#</color></color> (#currentSkillUps#/#maxSkillUps#)'
   uiText: {fileID: 11400148}
+  uperPanel: {fileID: 11400080}
 --- !u!114 &11400096
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6353,6 +5899,7 @@ MonoBehaviour:
 
     <color=#00CC66>Increase by <color=#ff0000>#valuePerPoint#</color></color> (#currentSkillUps#/#maxSkillUps#)'
   uiText: {fileID: 11400138}
+  uperPanel: {fileID: 11400080}
 --- !u!114 &11400098
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6371,6 +5918,7 @@ MonoBehaviour:
 
     <color=#00CC66>Increase by <color=#ff0000>#valuePerPoint#</color></color> (#currentSkillUps#/#maxSkillUps#)'
   uiText: {fileID: 11400132}
+  uperPanel: {fileID: 11400080}
 --- !u!114 &11400100
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6389,6 +5937,7 @@ MonoBehaviour:
 
     <color=#00CC66>Increase by <color=#ff0000>#valuePerPoint#</color></color> (#currentSkillUps#/#maxSkillUps#)'
   uiText: {fileID: 11400122}
+  uperPanel: {fileID: 11400080}
 --- !u!114 &11400102
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6407,6 +5956,7 @@ MonoBehaviour:
 
     <color=#00CC66>Increase by <color=#ff0000>#valuePerPoint#</color></color> (#currentSkillUps#/#maxSkillUps#)'
   uiText: {fileID: 11400108}
+  uperPanel: {fileID: 11400080}
 --- !u!114 &11400104
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6425,102 +5975,7 @@ MonoBehaviour:
 
     <color=#00CC66>Increase by <color=#ff0000>#valuePerPoint#</color></color> (#currentSkillUps#/#maxSkillUps#)'
   uiText: {fileID: 11400058}
---- !u!114 &11400106
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8964c24a1396a3b488680746428a8d69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  identifier: c03385e4-7425-43d6-a1d0-7f19bdd1688b
-  Visible: 1
-  Enabled: 1
-  ShowBackground: 0
-  RelativePosition: {x: .119999997, y: .449999988}
-  AbsolutePosition: {x: 0, y: 0}
-  RelativeSize: {x: 1, y: 1}
-  RelativeSizeBasedOnScreen: 0
-  RelativeWidthBasedOnHeight: 0
-  AbsoluteSize: {x: 0, y: 0}
-  forceHover: 0
-  HorizontalAnchor: 0
-  VerticalAnchor: 0
-  HorizontalAlignment: 0
-  VerticalAlignment: 0
-  absoluteRect:
-    serializedVersion: 2
-    x: 417.140015
-    y: 272.837982
-    width: 347
-    height: 38.0400009
-  parent: {fileID: 11400112}
-  children: []
-  ChildCount: 0
-  Text: <color=#00CC66>Increase by</color> <color=#ff0000>0.05</color>
-  fontSize: 7
-  FontStyle:
-    m_Name: label
-    m_Normal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
-    m_Hover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 1, g: .676470578, b: .676470578, a: 1}
-    m_Active:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: .687626779, g: 1, b: .676470578, a: 1}
-    m_Focused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnNormal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnHover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnActive:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnFocused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Border:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Margin:
-      m_Left: 4
-      m_Right: 4
-      m_Top: 4
-      m_Bottom: 4
-    m_Padding:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 3
-      m_Bottom: 3
-    m_Overflow:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 12
-    m_FontStyle: 0
-    m_Alignment: 0
-    m_WordWrap: 1
-    m_RichText: 1
-    m_TextClipping: 1
-    m_ImagePosition: 0
-    m_ContentOffset: {x: 0, y: 0}
-    m_FixedWidth: 0
-    m_FixedHeight: 0
-    m_StretchWidth: 1
-    m_StretchHeight: 0
+  uperPanel: {fileID: 11400080}
 --- !u!114 &11400108
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6549,10 +6004,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 403.894501
-    y: 191.113495
-    width: 253.287506
-    height: 26.7945004
+    x: 405.471008
+    y: 191.552994
+    width: 253.925018
+    height: 26.8710022
   parent: {fileID: 11400112}
   children: []
   ChildCount: 0
@@ -6565,10 +6020,10 @@ MonoBehaviour:
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
-      m_TextColor: {r: 1, g: .676470578, b: .676470578, a: 1}
+      m_TextColor: {r: .523630917, g: 1, b: .433823526, a: 1}
     m_Active:
       m_Background: {fileID: 0}
-      m_TextColor: {r: .687626779, g: 1, b: .676470578, a: 1}
+      m_TextColor: {r: 1, g: .867241383, b: .433823526, a: 1}
     m_Focused:
       m_Background: {fileID: 0}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
@@ -6645,10 +6100,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 375.5
-    y: 193.113495
-    width: 22.7945004
-    height: 22.7945004
+    x: 377
+    y: 193.552994
+    width: 22.8710022
+    height: 22.8710022
   parent: {fileID: 11400112}
   children: []
   ChildCount: 0
@@ -6682,16 +6137,15 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 373.5
-    y: 191.113495
-    width: 253.287506
-    height: 26.7945004
+    x: 375
+    y: 191.552994
+    width: 253.925018
+    height: 26.8710022
   parent: {fileID: 11400114}
   children:
   - {fileID: 11400110}
   - {fileID: 11400108}
-  - {fileID: 11400106}
-  ChildCount: 3
+  ChildCount: 2
   Text: 
   Callback:
     MessageReciever: {fileID: 0}
@@ -6784,10 +6238,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 371.5
-    y: 189.113495
-    width: 257.287506
-    height: 30.7945004
+    x: 373
+    y: 189.552994
+    width: 257.925018
+    height: 30.8710022
   parent: {fileID: 11400074}
   children:
   - {fileID: 11400112}
@@ -6881,10 +6335,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 112.212494
-    y: 189.113495
-    width: 257.287506
-    height: 30.7945004
+    x: 113.074982
+    y: 189.552994
+    width: 257.925018
+    height: 30.8710022
   parent: {fileID: 11400074}
   children:
   - {fileID: 11400118}
@@ -6978,16 +6432,15 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 114.212494
-    y: 191.113495
-    width: 253.287506
-    height: 26.7945004
+    x: 115.074982
+    y: 191.552994
+    width: 253.925018
+    height: 26.8710022
   parent: {fileID: 11400116}
   children:
   - {fileID: 11400120}
   - {fileID: 11400122}
-  - {fileID: 11400124}
-  ChildCount: 3
+  ChildCount: 2
   Text: 
   Callback:
     MessageReciever: {fileID: 0}
@@ -7080,10 +6533,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 116.212494
-    y: 193.113495
-    width: 22.7945004
-    height: 22.7945004
+    x: 117.074982
+    y: 193.552994
+    width: 22.8710022
+    height: 22.8710022
   parent: {fileID: 11400118}
   children: []
   ChildCount: 0
@@ -7117,10 +6570,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 144.606995
-    y: 191.113495
-    width: 253.287506
-    height: 26.7945004
+    x: 145.54599
+    y: 191.552994
+    width: 253.925018
+    height: 26.8710022
   parent: {fileID: 11400118}
   children: []
   ChildCount: 0
@@ -7133,10 +6586,10 @@ MonoBehaviour:
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
-      m_TextColor: {r: 1, g: .676470578, b: .676470578, a: 1}
+      m_TextColor: {r: .523630917, g: 1, b: .433823526, a: 1}
     m_Active:
       m_Background: {fileID: 0}
-      m_TextColor: {r: .687626779, g: 1, b: .676470578, a: 1}
+      m_TextColor: {r: 1, g: .867241383, b: .433823526, a: 1}
     m_Focused:
       m_Background: {fileID: 0}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
@@ -7185,102 +6638,6 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
---- !u!114 &11400124
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8964c24a1396a3b488680746428a8d69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  identifier: c03385e4-7425-43d6-a1d0-7f19bdd1688b
-  Visible: 1
-  Enabled: 1
-  ShowBackground: 0
-  RelativePosition: {x: .119999997, y: .449999988}
-  AbsolutePosition: {x: 0, y: 0}
-  RelativeSize: {x: 1, y: 1}
-  RelativeSizeBasedOnScreen: 0
-  RelativeWidthBasedOnHeight: 0
-  AbsoluteSize: {x: 0, y: 0}
-  forceHover: 0
-  HorizontalAnchor: 0
-  VerticalAnchor: 0
-  HorizontalAlignment: 0
-  VerticalAlignment: 0
-  absoluteRect:
-    serializedVersion: 2
-    x: 64.1399994
-    y: 272.837982
-    width: 347
-    height: 38.0400009
-  parent: {fileID: 11400118}
-  children: []
-  ChildCount: 0
-  Text: <color=#00CC66>Increase by</color> <color=#ff0000>0.5</color>
-  fontSize: 7
-  FontStyle:
-    m_Name: label
-    m_Normal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
-    m_Hover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 1, g: .676470578, b: .676470578, a: 1}
-    m_Active:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: .687626779, g: 1, b: .676470578, a: 1}
-    m_Focused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnNormal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnHover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnActive:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnFocused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Border:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Margin:
-      m_Left: 4
-      m_Right: 4
-      m_Top: 4
-      m_Bottom: 4
-    m_Padding:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 3
-      m_Bottom: 3
-    m_Overflow:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 12
-    m_FontStyle: 0
-    m_Alignment: 0
-    m_WordWrap: 1
-    m_RichText: 1
-    m_TextClipping: 1
-    m_ImagePosition: 0
-    m_ContentOffset: {x: 0, y: 0}
-    m_FixedWidth: 0
-    m_FixedHeight: 0
-    m_StretchWidth: 1
-    m_StretchHeight: 0
 --- !u!114 &11400126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7309,10 +6666,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 371.5
-    y: 156.319
-    width: 257.287506
-    height: 30.7945004
+    x: 373
+    y: 156.681992
+    width: 257.925018
+    height: 30.8710022
   parent: {fileID: 11400074}
   children:
   - {fileID: 11400128}
@@ -7406,16 +6763,15 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 373.5
-    y: 158.319
-    width: 253.287506
-    height: 26.7945004
+    x: 375
+    y: 158.681992
+    width: 253.925018
+    height: 26.8710022
   parent: {fileID: 11400126}
   children:
   - {fileID: 11400130}
   - {fileID: 11400132}
-  - {fileID: 11400134}
-  ChildCount: 3
+  ChildCount: 2
   Text: 
   Callback:
     MessageReciever: {fileID: 0}
@@ -7508,10 +6864,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 375.5
-    y: 160.319
-    width: 22.7945004
-    height: 22.7945004
+    x: 377
+    y: 160.681992
+    width: 22.8710022
+    height: 22.8710022
   parent: {fileID: 11400128}
   children: []
   ChildCount: 0
@@ -7545,10 +6901,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 403.894501
-    y: 158.319
-    width: 253.287506
-    height: 26.7945004
+    x: 405.471008
+    y: 158.681992
+    width: 253.925018
+    height: 26.8710022
   parent: {fileID: 11400128}
   children: []
   ChildCount: 0
@@ -7561,10 +6917,10 @@ MonoBehaviour:
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
-      m_TextColor: {r: 1, g: .676470578, b: .676470578, a: 1}
+      m_TextColor: {r: .523630917, g: 1, b: .433823526, a: 1}
     m_Active:
       m_Background: {fileID: 0}
-      m_TextColor: {r: .687626779, g: 1, b: .676470578, a: 1}
+      m_TextColor: {r: 1, g: .867241383, b: .433823526, a: 1}
     m_Focused:
       m_Background: {fileID: 0}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
@@ -7613,198 +6969,6 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
---- !u!114 &11400134
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8964c24a1396a3b488680746428a8d69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  identifier: c03385e4-7425-43d6-a1d0-7f19bdd1688b
-  Visible: 1
-  Enabled: 1
-  ShowBackground: 0
-  RelativePosition: {x: .119999997, y: .449999988}
-  AbsolutePosition: {x: 0, y: 0}
-  RelativeSize: {x: 1, y: 1}
-  RelativeSizeBasedOnScreen: 0
-  RelativeWidthBasedOnHeight: 0
-  AbsoluteSize: {x: 0, y: 0}
-  forceHover: 0
-  HorizontalAnchor: 0
-  VerticalAnchor: 0
-  HorizontalAlignment: 0
-  VerticalAlignment: 0
-  absoluteRect:
-    serializedVersion: 2
-    x: 417.140015
-    y: 228.798004
-    width: 347
-    height: 38.0400009
-  parent: {fileID: 11400128}
-  children: []
-  ChildCount: 0
-  Text: <color=#00CC66>Increase by</color> <color=#ff0000>0.5</color>
-  fontSize: 7
-  FontStyle:
-    m_Name: label
-    m_Normal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
-    m_Hover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 1, g: .676470578, b: .676470578, a: 1}
-    m_Active:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: .687626779, g: 1, b: .676470578, a: 1}
-    m_Focused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnNormal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnHover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnActive:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnFocused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Border:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Margin:
-      m_Left: 4
-      m_Right: 4
-      m_Top: 4
-      m_Bottom: 4
-    m_Padding:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 3
-      m_Bottom: 3
-    m_Overflow:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 12
-    m_FontStyle: 0
-    m_Alignment: 0
-    m_WordWrap: 1
-    m_RichText: 1
-    m_TextClipping: 1
-    m_ImagePosition: 0
-    m_ContentOffset: {x: 0, y: 0}
-    m_FixedWidth: 0
-    m_FixedHeight: 0
-    m_StretchWidth: 1
-    m_StretchHeight: 0
---- !u!114 &11400136
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8964c24a1396a3b488680746428a8d69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  identifier: c03385e4-7425-43d6-a1d0-7f19bdd1688b
-  Visible: 1
-  Enabled: 1
-  ShowBackground: 0
-  RelativePosition: {x: .119999997, y: .449999988}
-  AbsolutePosition: {x: 0, y: 0}
-  RelativeSize: {x: 1, y: 1}
-  RelativeSizeBasedOnScreen: 0
-  RelativeWidthBasedOnHeight: 0
-  AbsoluteSize: {x: 0, y: 0}
-  forceHover: 0
-  HorizontalAnchor: 0
-  VerticalAnchor: 0
-  HorizontalAlignment: 0
-  VerticalAlignment: 0
-  absoluteRect:
-    serializedVersion: 2
-    x: 64.1399994
-    y: 228.798004
-    width: 347
-    height: 38.0400009
-  parent: {fileID: 11400142}
-  children: []
-  ChildCount: 0
-  Text: <color=#00CC66>Increase by</color> <color=#ff0000>2</color>
-  fontSize: 7
-  FontStyle:
-    m_Name: label
-    m_Normal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
-    m_Hover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 1, g: .676470578, b: .676470578, a: 1}
-    m_Active:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: .687626779, g: 1, b: .676470578, a: 1}
-    m_Focused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnNormal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnHover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnActive:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnFocused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Border:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Margin:
-      m_Left: 4
-      m_Right: 4
-      m_Top: 4
-      m_Bottom: 4
-    m_Padding:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 3
-      m_Bottom: 3
-    m_Overflow:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 12
-    m_FontStyle: 0
-    m_Alignment: 0
-    m_WordWrap: 1
-    m_RichText: 1
-    m_TextClipping: 1
-    m_ImagePosition: 0
-    m_ContentOffset: {x: 0, y: 0}
-    m_FixedWidth: 0
-    m_FixedHeight: 0
-    m_StretchWidth: 1
-    m_StretchHeight: 0
 --- !u!114 &11400138
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7833,10 +6997,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 144.606995
-    y: 158.319
-    width: 253.287506
-    height: 26.7945004
+    x: 145.54599
+    y: 158.681992
+    width: 253.925018
+    height: 26.8710022
   parent: {fileID: 11400142}
   children: []
   ChildCount: 0
@@ -7849,10 +7013,10 @@ MonoBehaviour:
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
-      m_TextColor: {r: 1, g: .676470578, b: .676470578, a: 1}
+      m_TextColor: {r: .523630917, g: 1, b: .433823526, a: 1}
     m_Active:
       m_Background: {fileID: 0}
-      m_TextColor: {r: .687626779, g: 1, b: .676470578, a: 1}
+      m_TextColor: {r: 1, g: .867241383, b: .433823526, a: 1}
     m_Focused:
       m_Background: {fileID: 0}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
@@ -7929,10 +7093,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 116.212494
-    y: 160.319
-    width: 22.7945004
-    height: 22.7945004
+    x: 117.074982
+    y: 160.681992
+    width: 22.8710022
+    height: 22.8710022
   parent: {fileID: 11400142}
   children: []
   ChildCount: 0
@@ -7966,16 +7130,15 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 114.212494
-    y: 158.319
-    width: 253.287506
-    height: 26.7945004
+    x: 115.074982
+    y: 158.681992
+    width: 253.925018
+    height: 26.8710022
   parent: {fileID: 11400144}
   children:
   - {fileID: 11400140}
   - {fileID: 11400138}
-  - {fileID: 11400136}
-  ChildCount: 3
+  ChildCount: 2
   Text: 
   Callback:
     MessageReciever: {fileID: 0}
@@ -8068,10 +7231,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 112.212494
-    y: 156.319
-    width: 257.287506
-    height: 30.7945004
+    x: 113.074982
+    y: 156.681992
+    width: 257.925018
+    height: 30.8710022
   parent: {fileID: 11400074}
   children:
   - {fileID: 11400142}
@@ -8137,102 +7300,6 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
---- !u!114 &11400146
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8964c24a1396a3b488680746428a8d69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  identifier: c03385e4-7425-43d6-a1d0-7f19bdd1688b
-  Visible: 1
-  Enabled: 1
-  ShowBackground: 0
-  RelativePosition: {x: .119999997, y: .449999988}
-  AbsolutePosition: {x: 0, y: 0}
-  RelativeSize: {x: 1, y: 1}
-  RelativeSizeBasedOnScreen: 0
-  RelativeWidthBasedOnHeight: 0
-  AbsoluteSize: {x: 0, y: 0}
-  forceHover: 0
-  HorizontalAnchor: 0
-  VerticalAnchor: 0
-  HorizontalAlignment: 0
-  VerticalAlignment: 0
-  absoluteRect:
-    serializedVersion: 2
-    x: 417.140015
-    y: 184.758011
-    width: 347
-    height: 38.0400009
-  parent: {fileID: 11400152}
-  children: []
-  ChildCount: 0
-  Text: <color=#00CC66>Increase by</color> <color=#ff0000>5%</color>
-  fontSize: 7
-  FontStyle:
-    m_Name: label
-    m_Normal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
-    m_Hover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 1, g: .676470578, b: .676470578, a: 1}
-    m_Active:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: .687626779, g: 1, b: .676470578, a: 1}
-    m_Focused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnNormal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnHover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnActive:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnFocused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Border:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Margin:
-      m_Left: 4
-      m_Right: 4
-      m_Top: 4
-      m_Bottom: 4
-    m_Padding:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 3
-      m_Bottom: 3
-    m_Overflow:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 12
-    m_FontStyle: 0
-    m_Alignment: 0
-    m_WordWrap: 1
-    m_RichText: 1
-    m_TextClipping: 1
-    m_ImagePosition: 0
-    m_ContentOffset: {x: 0, y: 0}
-    m_FixedWidth: 0
-    m_FixedHeight: 0
-    m_StretchWidth: 1
-    m_StretchHeight: 0
 --- !u!114 &11400148
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8261,10 +7328,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 403.894501
-    y: 125.52449
-    width: 253.287506
-    height: 26.7945004
+    x: 405.471008
+    y: 125.810989
+    width: 253.925018
+    height: 26.8710022
   parent: {fileID: 11400152}
   children: []
   ChildCount: 0
@@ -8277,10 +7344,10 @@ MonoBehaviour:
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
-      m_TextColor: {r: 1, g: .676470578, b: .676470578, a: 1}
+      m_TextColor: {r: .523630917, g: 1, b: .433823526, a: 1}
     m_Active:
       m_Background: {fileID: 0}
-      m_TextColor: {r: .687626779, g: 1, b: .676470578, a: 1}
+      m_TextColor: {r: 1, g: .867241383, b: .433823526, a: 1}
     m_Focused:
       m_Background: {fileID: 0}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
@@ -8357,10 +7424,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 375.5
-    y: 127.52449
-    width: 22.7945004
-    height: 22.7945004
+    x: 377
+    y: 127.810989
+    width: 22.8710022
+    height: 22.8710022
   parent: {fileID: 11400152}
   children: []
   ChildCount: 0
@@ -8394,16 +7461,15 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 373.5
-    y: 125.52449
-    width: 253.287506
-    height: 26.7945004
+    x: 375
+    y: 125.810989
+    width: 253.925018
+    height: 26.8710022
   parent: {fileID: 11400154}
   children:
   - {fileID: 11400150}
   - {fileID: 11400148}
-  - {fileID: 11400146}
-  ChildCount: 3
+  ChildCount: 2
   Text: 
   Callback:
     MessageReciever: {fileID: 0}
@@ -8496,10 +7562,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 371.5
-    y: 123.52449
-    width: 257.287506
-    height: 30.7945004
+    x: 373
+    y: 123.810989
+    width: 257.925018
+    height: 30.8710022
   parent: {fileID: 11400074}
   children:
   - {fileID: 11400152}
@@ -8593,10 +7659,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 112.212494
-    y: 123.52449
-    width: 257.287506
-    height: 30.7945004
+    x: 113.074982
+    y: 123.810989
+    width: 257.925018
+    height: 30.8710022
   parent: {fileID: 11400074}
   children:
   - {fileID: 11400158}
@@ -8690,16 +7756,15 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 114.212494
-    y: 125.52449
-    width: 253.287506
-    height: 26.7945004
+    x: 115.074982
+    y: 125.810989
+    width: 253.925018
+    height: 26.8710022
   parent: {fileID: 11400156}
   children:
   - {fileID: 11400160}
   - {fileID: 11400162}
-  - {fileID: 11400164}
-  ChildCount: 3
+  ChildCount: 2
   Text: 
   Callback:
     MessageReciever: {fileID: 0}
@@ -8792,10 +7857,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 116.212494
-    y: 127.52449
-    width: 22.7945004
-    height: 22.7945004
+    x: 117.074982
+    y: 127.810989
+    width: 22.8710022
+    height: 22.8710022
   parent: {fileID: 11400158}
   children: []
   ChildCount: 0
@@ -8829,10 +7894,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 144.606995
-    y: 125.52449
-    width: 253.287506
-    height: 26.7945004
+    x: 145.54599
+    y: 125.810989
+    width: 253.925018
+    height: 26.8710022
   parent: {fileID: 11400158}
   children: []
   ChildCount: 0
@@ -8845,10 +7910,10 @@ MonoBehaviour:
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
-      m_TextColor: {r: 1, g: .676470578, b: .676470578, a: 1}
+      m_TextColor: {r: .523630917, g: 1, b: .433823526, a: 1}
     m_Active:
       m_Background: {fileID: 0}
-      m_TextColor: {r: .687626779, g: 1, b: .676470578, a: 1}
+      m_TextColor: {r: 1, g: .867241383, b: .433823526, a: 1}
     m_Focused:
       m_Background: {fileID: 0}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
@@ -8897,198 +7962,6 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
---- !u!114 &11400164
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8964c24a1396a3b488680746428a8d69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  identifier: c03385e4-7425-43d6-a1d0-7f19bdd1688b
-  Visible: 1
-  Enabled: 1
-  ShowBackground: 0
-  RelativePosition: {x: .119999997, y: .449999988}
-  AbsolutePosition: {x: 0, y: 0}
-  RelativeSize: {x: 1, y: 1}
-  RelativeSizeBasedOnScreen: 0
-  RelativeWidthBasedOnHeight: 0
-  AbsoluteSize: {x: 0, y: 0}
-  forceHover: 0
-  HorizontalAnchor: 0
-  VerticalAnchor: 0
-  HorizontalAlignment: 0
-  VerticalAlignment: 0
-  absoluteRect:
-    serializedVersion: 2
-    x: 64.1399994
-    y: 184.758011
-    width: 347
-    height: 38.0400009
-  parent: {fileID: 11400158}
-  children: []
-  ChildCount: 0
-  Text: <color=#00CC66>Increase by</color> <color=#ff0000>1</color>
-  fontSize: 7
-  FontStyle:
-    m_Name: label
-    m_Normal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
-    m_Hover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 1, g: .676470578, b: .676470578, a: 1}
-    m_Active:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: .687626779, g: 1, b: .676470578, a: 1}
-    m_Focused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnNormal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnHover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnActive:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnFocused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Border:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Margin:
-      m_Left: 4
-      m_Right: 4
-      m_Top: 4
-      m_Bottom: 4
-    m_Padding:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 3
-      m_Bottom: 3
-    m_Overflow:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 12
-    m_FontStyle: 0
-    m_Alignment: 0
-    m_WordWrap: 1
-    m_RichText: 1
-    m_TextClipping: 1
-    m_ImagePosition: 0
-    m_ContentOffset: {x: 0, y: 0}
-    m_FixedWidth: 0
-    m_FixedHeight: 0
-    m_StretchWidth: 1
-    m_StretchHeight: 0
---- !u!114 &11400166
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8964c24a1396a3b488680746428a8d69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  identifier: c03385e4-7425-43d6-a1d0-7f19bdd1688b
-  Visible: 1
-  Enabled: 1
-  ShowBackground: 0
-  RelativePosition: {x: .119999997, y: .449999988}
-  AbsolutePosition: {x: 0, y: 0}
-  RelativeSize: {x: 1, y: 1}
-  RelativeSizeBasedOnScreen: 0
-  RelativeWidthBasedOnHeight: 0
-  AbsoluteSize: {x: 0, y: 0}
-  forceHover: 0
-  HorizontalAnchor: 0
-  VerticalAnchor: 0
-  HorizontalAlignment: 0
-  VerticalAlignment: 0
-  absoluteRect:
-    serializedVersion: 2
-    x: 64.1399994
-    y: 140.718002
-    width: 347
-    height: 38.0400009
-  parent: {fileID: 11400172}
-  children: []
-  ChildCount: 0
-  Text: <color=#00CC66>Increase by</color> <color=#ff0000>10</color>
-  fontSize: 7
-  FontStyle:
-    m_Name: label
-    m_Normal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
-    m_Hover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 1, g: .676470578, b: .676470578, a: 1}
-    m_Active:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: .687626779, g: 1, b: .676470578, a: 1}
-    m_Focused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnNormal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnHover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnActive:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnFocused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Border:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Margin:
-      m_Left: 4
-      m_Right: 4
-      m_Top: 4
-      m_Bottom: 4
-    m_Padding:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 3
-      m_Bottom: 3
-    m_Overflow:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 12
-    m_FontStyle: 0
-    m_Alignment: 0
-    m_WordWrap: 1
-    m_RichText: 1
-    m_TextClipping: 1
-    m_ImagePosition: 0
-    m_ContentOffset: {x: 0, y: 0}
-    m_FixedWidth: 0
-    m_FixedHeight: 0
-    m_StretchWidth: 1
-    m_StretchHeight: 0
 --- !u!114 &11400168
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9117,10 +7990,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 144.606995
-    y: 92.7299881
-    width: 253.287506
-    height: 26.7945004
+    x: 145.54599
+    y: 92.9399872
+    width: 253.925018
+    height: 26.8710022
   parent: {fileID: 11400172}
   children: []
   ChildCount: 0
@@ -9133,10 +8006,10 @@ MonoBehaviour:
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
-      m_TextColor: {r: 1, g: .676470578, b: .676470578, a: 1}
+      m_TextColor: {r: .523630917, g: 1, b: .433823526, a: 1}
     m_Active:
       m_Background: {fileID: 0}
-      m_TextColor: {r: .687626779, g: 1, b: .676470578, a: 1}
+      m_TextColor: {r: 1, g: .867241383, b: .433823526, a: 1}
     m_Focused:
       m_Background: {fileID: 0}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
@@ -9213,10 +8086,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 116.212494
-    y: 94.7299881
-    width: 22.7945004
-    height: 22.7945004
+    x: 117.074982
+    y: 94.9399872
+    width: 22.8710022
+    height: 22.8710022
   parent: {fileID: 11400172}
   children: []
   ChildCount: 0
@@ -9250,16 +8123,15 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 114.212494
-    y: 92.7299881
-    width: 253.287506
-    height: 26.7945004
+    x: 115.074982
+    y: 92.9399872
+    width: 253.925018
+    height: 26.8710022
   parent: {fileID: 11400174}
   children:
   - {fileID: 11400170}
   - {fileID: 11400168}
-  - {fileID: 11400166}
-  ChildCount: 3
+  ChildCount: 2
   Text: 
   Callback:
     MessageReciever: {fileID: 0}
@@ -9352,10 +8224,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 112.212494
-    y: 90.7299881
-    width: 257.287506
-    height: 30.7945004
+    x: 113.074982
+    y: 90.9399872
+    width: 257.925018
+    height: 30.8710022
   parent: {fileID: 11400074}
   children:
   - {fileID: 11400172}
@@ -9470,10 +8342,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 414.799988
-    y: 379.959991
-    width: 37.3000031
-    height: 33.0400009
+    x: 370.200012
+    y: 406.640015
+    width: 40.2000008
+    height: 35.3600006
   parent: {fileID: 11400210}
   children:
   - {fileID: 11400180}
@@ -9569,10 +8441,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 414.799988
-    y: 379.959991
-    width: 37.3000031
-    height: 33.0400009
+    x: 370.200012
+    y: 406.640015
+    width: 40.2000008
+    height: 35.3600006
   parent: {fileID: 11400178}
   children: []
   ChildCount: 0
@@ -9761,10 +8633,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 414.799988
-    y: 379.959991
-    width: 37.3000031
-    height: 33.0400009
+    x: 370.200012
+    y: 406.640015
+    width: 40.2000008
+    height: 35.3600006
   parent: {fileID: 11400178}
   children: []
   ChildCount: 0
@@ -9817,7 +8689,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 16
+    m_FontSize: 17
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 1
@@ -9857,10 +8729,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 373.5
-    y: 379.959991
-    width: 37.3000031
-    height: 33.0400009
+    x: 326
+    y: 406.640015
+    width: 40.2000008
+    height: 35.3600006
   parent: {fileID: 11400192}
   children: []
   ChildCount: 0
@@ -9913,7 +8785,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 16
+    m_FontSize: 17
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 1
@@ -10049,10 +8921,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 373.5
-    y: 379.959991
-    width: 37.3000031
-    height: 33.0400009
+    x: 326
+    y: 406.640015
+    width: 40.2000008
+    height: 35.3600006
   parent: {fileID: 11400192}
   children: []
   ChildCount: 0
@@ -10145,10 +9017,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 373.5
-    y: 379.959991
-    width: 37.3000031
-    height: 33.0400009
+    x: 326
+    y: 406.640015
+    width: 40.2000008
+    height: 35.3600006
   parent: {fileID: 11400210}
   children:
   - {fileID: 11400190}
@@ -10244,10 +9116,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 332.200012
-    y: 379.959991
-    width: 37.3000031
-    height: 33.0400009
+    x: 281.800018
+    y: 406.640015
+    width: 40.2000008
+    height: 35.3600006
   parent: {fileID: 11400210}
   children:
   - {fileID: 11400196}
@@ -10343,10 +9215,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 332.200012
-    y: 379.959991
-    width: 37.3000031
-    height: 33.0400009
+    x: 281.800018
+    y: 406.640015
+    width: 40.2000008
+    height: 35.3600006
   parent: {fileID: 11400194}
   children: []
   ChildCount: 0
@@ -10535,10 +9407,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 332.200012
-    y: 379.959991
-    width: 37.3000031
-    height: 33.0400009
+    x: 281.800018
+    y: 406.640015
+    width: 40.2000008
+    height: 35.3600006
   parent: {fileID: 11400194}
   children: []
   ChildCount: 0
@@ -10591,7 +9463,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 16
+    m_FontSize: 17
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 1
@@ -10631,10 +9503,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 290.899994
-    y: 379.959991
-    width: 37.3000031
-    height: 33.0400009
+    x: 237.600006
+    y: 406.640015
+    width: 40.2000008
+    height: 35.3600006
   parent: {fileID: 11400208}
   children: []
   ChildCount: 0
@@ -10687,7 +9559,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 16
+    m_FontSize: 17
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 1
@@ -10823,10 +9695,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 290.899994
-    y: 379.959991
-    width: 37.3000031
-    height: 33.0400009
+    x: 237.600006
+    y: 406.640015
+    width: 40.2000008
+    height: 35.3600006
   parent: {fileID: 11400208}
   children: []
   ChildCount: 0
@@ -10919,10 +9791,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 290.899994
-    y: 379.959991
-    width: 37.3000031
-    height: 33.0400009
+    x: 237.600006
+    y: 406.640015
+    width: 40.2000008
+    height: 35.3600006
   parent: {fileID: 11400210}
   children:
   - {fileID: 11400206}
@@ -11018,10 +9890,10 @@ MonoBehaviour:
   VerticalAlignment: 2
   absoluteRect:
     serializedVersion: 2
-    x: 288.899994
-    y: 379.959991
-    width: 165.200012
-    height: 33.0400009
+    x: 235.600006
+    y: 406.640015
+    width: 176.800003
+    height: 35.3600006
   parent: {fileID: 11400030}
   children:
   - {fileID: 11400208}
@@ -11131,9 +10003,9 @@ MonoBehaviour:
   absoluteRect:
     serializedVersion: 2
     x: 8
-    y: 31.7495995
-    width: 142.679993
-    height: 14.3747997
+    y: 34.046402
+    width: 153.119995
+    height: 15.5232
   parent: {fileID: 11400012}
   children: []
   ChildCount: 0
@@ -11186,7 +10058,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 9
+    m_FontSize: 10
     m_FontStyle: 0
     m_Alignment: 3
     m_WordWrap: 1
@@ -11324,20 +10196,6 @@ MonoBehaviour:
   IsDeserializing: 0
   _id: 816cad8a-d844-4415-a3f0-5fa74b06813f
   classId: 9dd43360-a795-45f1-bca4-26374e85ad20
---- !u!114 &11400234
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efc7f0a036bc94ddf9e7626ffd54921d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsDeserializing: 0
-  _id: feb0c582-39eb-430f-9eb5-b95a7634490e
-  classId: bf4a24e8-3fd9-4cd4-b9ee-82e74b584790
 --- !u!114 &11400236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11394,20 +10252,6 @@ MonoBehaviour:
   IsDeserializing: 0
   _id: f708fb23-76ec-4123-b287-e0552939c824
   classId: 79abe1e2-f716-47b4-9b4e-66beb553d88b
---- !u!114 &11400244
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efc7f0a036bc94ddf9e7626ffd54921d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsDeserializing: 0
-  _id: 17f40f2d-4d52-43ed-85c2-b823e3516602
-  classId: 68e006c0-6b0d-4c7f-a2a0-30de64ef194b
 --- !u!114 &11400246
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11464,20 +10308,6 @@ MonoBehaviour:
   IsDeserializing: 0
   _id: 8b70d439-af28-4b92-9b6a-4355aacdfa46
   classId: 2d60b8f8-8d17-47de-80e5-5a83f5105bb4
---- !u!114 &11400254
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efc7f0a036bc94ddf9e7626ffd54921d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsDeserializing: 0
-  _id: b3d660f6-d274-4224-8115-c1c9fe0f3437
-  classId: 53278182-b489-4c4e-8e52-63675b099492
 --- !u!114 &11400256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11534,20 +10364,6 @@ MonoBehaviour:
   IsDeserializing: 0
   _id: b8324b32-92e0-45c6-9203-d662b923bc6c
   classId: f9971364-13ef-4c62-86a0-c92c3c1cf53b
---- !u!114 &11400264
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efc7f0a036bc94ddf9e7626ffd54921d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsDeserializing: 0
-  _id: a25eeb35-f973-4e16-8b25-56ade281cbfd
-  classId: 5a282d7d-b8a8-4610-b95d-cca00a101c83
 --- !u!114 &11400266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11604,20 +10420,6 @@ MonoBehaviour:
   IsDeserializing: 0
   _id: f7aeee67-bb03-4009-8639-8762b79c26d2
   classId: 01f1afb4-c1f5-4369-8240-b4a8dc6689ee
---- !u!114 &11400274
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efc7f0a036bc94ddf9e7626ffd54921d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsDeserializing: 0
-  _id: 3b02b06a-0742-43b1-807a-fcb6dc53d9b1
-  classId: 580145ca-d7e7-4e7f-adaa-cf0462c0597e
 --- !u!114 &11400276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11674,20 +10476,6 @@ MonoBehaviour:
   IsDeserializing: 0
   _id: 10318d4e-b648-4b21-a653-8a3a9602601d
   classId: d72fe206-df48-4d23-bf98-026070e9c926
---- !u!114 &11400284
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efc7f0a036bc94ddf9e7626ffd54921d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsDeserializing: 0
-  _id: 03b98409-95ae-459f-80f9-8d028e95e4b4
-  classId: 53fc56e0-9b64-4e42-ab91-6bb7bba35366
 --- !u!114 &11400286
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11744,20 +10532,6 @@ MonoBehaviour:
   IsDeserializing: 0
   _id: f31f7008-bf4b-448b-83d3-994c320e08bb
   classId: a63b9201-3a94-4ac1-a048-421a86f8a34b
---- !u!114 &11400294
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efc7f0a036bc94ddf9e7626ffd54921d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsDeserializing: 0
-  _id: b3c834f2-5672-47ba-ad93-7a57acfffbb8
-  classId: fc73855a-c96a-45e0-9eff-5b39894fa987
 --- !u!114 &11400296
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11814,20 +10588,6 @@ MonoBehaviour:
   IsDeserializing: 0
   _id: 57430df5-3fd9-4498-913d-86fe9e01328a
   classId: 8bff1c44-8f1c-4bbd-a8f5-e59932500679
---- !u!114 &11400304
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efc7f0a036bc94ddf9e7626ffd54921d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsDeserializing: 0
-  _id: 94f50e99-43d4-47ba-bd88-2b69d53c6c79
-  classId: 554a5299-70c6-434b-bdb3-deee725f3276
 --- !u!114 &11400306
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11884,20 +10644,6 @@ MonoBehaviour:
   IsDeserializing: 0
   _id: 9808c0a4-00e5-421b-8709-a25a282f64df
   classId: 2891ff96-6188-4a1e-9b97-3ae65e39426c
---- !u!114 &11400314
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efc7f0a036bc94ddf9e7626ffd54921d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsDeserializing: 0
-  _id: 43c4d247-410f-4993-8378-76859d138e51
-  classId: f6c5635e-a0ca-4a5c-90d6-b32c10dc9c7d
 --- !u!114 &11400316
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12472,10 +11218,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 526.962524
-    y: 103.740005
-    width: 157.462509
-    height: 30.2327995
+    x: 498.462494
+    y: 86.9399872
+    width: 131.962509
+    height: 25.3368015
   parent: {fileID: 11400404}
   children: []
   ChildCount: 0
@@ -12491,10 +11237,10 @@ MonoBehaviour:
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_Hover:
       m_Background: {fileID: 2800000, guid: 5c3d4b3767a159140bb89f517e9f6de3, type: 3}
-      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+      m_TextColor: {r: 1, g: .544117689, b: .544117689, a: 1}
     m_Active:
       m_Background: {fileID: 2800000, guid: 1fdef29ad911e6f44ac4ff6e6ed16842, type: 3}
-      m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
+      m_TextColor: {r: .711764693, g: 1, b: .573529422, a: 1}
     m_Focused:
       m_Background: {fileID: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
@@ -12531,7 +11277,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 9
+    m_FontSize: 7
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -12571,10 +11317,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 369.5
-    y: 103.740005
-    width: 157.462509
-    height: 30.2327995
+    x: 366.5
+    y: 86.9399872
+    width: 131.962509
+    height: 25.3368015
   parent: {fileID: 11400404}
   children: []
   ChildCount: 0
@@ -12590,10 +11336,10 @@ MonoBehaviour:
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_Hover:
       m_Background: {fileID: 2800000, guid: 5c3d4b3767a159140bb89f517e9f6de3, type: 3}
-      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+      m_TextColor: {r: 1, g: .544117689, b: .544117689, a: 1}
     m_Active:
       m_Background: {fileID: 2800000, guid: 1fdef29ad911e6f44ac4ff6e6ed16842, type: 3}
-      m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
+      m_TextColor: {r: .711764693, g: 1, b: .573529422, a: 1}
     m_Focused:
       m_Background: {fileID: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
@@ -12630,7 +11376,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 9
+    m_FontSize: 7
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -12670,10 +11416,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 212.037491
-    y: 103.740005
-    width: 157.462509
-    height: 30.2327995
+    x: 234.537491
+    y: 86.9399872
+    width: 131.962509
+    height: 25.3368015
   parent: {fileID: 11400404}
   children: []
   ChildCount: 0
@@ -12689,10 +11435,10 @@ MonoBehaviour:
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_Hover:
       m_Background: {fileID: 2800000, guid: 5c3d4b3767a159140bb89f517e9f6de3, type: 3}
-      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+      m_TextColor: {r: 1, g: .544117689, b: .544117689, a: 1}
     m_Active:
       m_Background: {fileID: 2800000, guid: 1fdef29ad911e6f44ac4ff6e6ed16842, type: 3}
-      m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
+      m_TextColor: {r: .711764693, g: 1, b: .573529422, a: 1}
     m_Focused:
       m_Background: {fileID: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
@@ -12729,7 +11475,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 9
+    m_FontSize: 7
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -12769,10 +11515,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 54.5749817
-    y: 103.740005
-    width: 157.462509
-    height: 30.2327995
+    x: 102.574982
+    y: 86.9399872
+    width: 131.962509
+    height: 25.3368015
   parent: {fileID: 11400404}
   children: []
   ChildCount: 0
@@ -12788,10 +11534,10 @@ MonoBehaviour:
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_Hover:
       m_Background: {fileID: 2800000, guid: 5c3d4b3767a159140bb89f517e9f6de3, type: 3}
-      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+      m_TextColor: {r: 1, g: .544117689, b: .544117689, a: 1}
     m_Active:
       m_Background: {fileID: 2800000, guid: 1fdef29ad911e6f44ac4ff6e6ed16842, type: 3}
-      m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
+      m_TextColor: {r: .711764693, g: 1, b: .573529422, a: 1}
     m_Focused:
       m_Background: {fileID: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
@@ -12828,7 +11574,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 9
+    m_FontSize: 7
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -12868,10 +11614,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 54.5749817
-    y: 133.972809
-    width: 629.850037
-    height: 347.677216
+    x: 102.574982
+    y: 112.276787
+    width: 527.850037
+    height: 291.37323
   parent: {fileID: 11400072}
   children: []
   ChildCount: 0
@@ -12964,10 +11710,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 54.5749817
-    y: 103.740005
-    width: 629.850037
-    height: 30.2327995
+    x: 102.574982
+    y: 86.9399872
+    width: 527.850037
+    height: 25.3368015
   parent: {fileID: 11400072}
   children:
   - {fileID: 11400400}
