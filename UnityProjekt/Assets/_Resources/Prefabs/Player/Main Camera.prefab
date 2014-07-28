@@ -2786,9 +2786,9 @@ MonoBehaviour:
   absoluteRect:
     serializedVersion: 2
     x: 3
-    y: 18.523201
-    width: 153.119995
-    height: 15.5232
+    y: 20.9387989
+    width: 175.079987
+    height: 17.9387989
   parent: {fileID: 11400024}
   children:
   - {fileID: 11400008}
@@ -2883,9 +2883,9 @@ MonoBehaviour:
   absoluteRect:
     serializedVersion: 2
     x: 6
-    y: 21.523201
-    width: 147.119995
-    height: 9.52320004
+    y: 23.9388008
+    width: 169.079987
+    height: 11.9387989
   parent: {fileID: 11400006}
   children: []
   ChildCount: 0
@@ -2978,10 +2978,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 36.6239967
-    y: 6.00000048
-    width: 116.495995
-    height: 9.52320004
+    x: 41.0159988
+    y: 6
+    width: 134.063995
+    height: 11.9387989
   parent: {fileID: 11400032}
   children: []
   ChildCount: 0
@@ -3075,9 +3075,9 @@ MonoBehaviour:
   absoluteRect:
     serializedVersion: 2
     x: 3
-    y: 34.046402
-    width: 153.119995
-    height: 15.5232
+    y: 38.8775978
+    width: 175.079987
+    height: 17.9387989
   parent: {fileID: 11400018}
   children:
   - {fileID: 11400214}
@@ -3173,9 +3173,9 @@ MonoBehaviour:
   absoluteRect:
     serializedVersion: 2
     x: -2
-    y: 34.046402
-    width: 153.119995
-    height: 15.5232
+    y: 38.8775978
+    width: 175.079987
+    height: 17.9387989
   parent: {fileID: 11400012}
   children: []
   ChildCount: 0
@@ -3228,7 +3228,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 10
+    m_FontSize: 11
     m_FontStyle: 0
     m_Alignment: 5
     m_WordWrap: 1
@@ -3269,9 +3269,9 @@ MonoBehaviour:
   absoluteRect:
     serializedVersion: 2
     x: 3
-    y: 18.523201
-    width: 153.119995
-    height: 15.5232
+    y: 20.9387989
+    width: 175.079987
+    height: 17.9387989
   parent: {fileID: 11400024}
   children: []
   ChildCount: 0
@@ -3324,7 +3324,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 10
+    m_FontSize: 11
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 1
@@ -3366,8 +3366,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 3
     y: 3
-    width: 153.119995
-    height: 47.0399971
+    width: 175.079987
+    height: 54.3599968
   parent: {fileID: 11400028}
   children:
   - {fileID: 11400022}
@@ -3465,8 +3465,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 3
     y: 3
-    width: 30.6239986
-    height: 15.5232
+    width: 35.0159988
+    height: 17.9387989
   parent: {fileID: 11400026}
   children: []
   ChildCount: 0
@@ -3519,7 +3519,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 10
+    m_FontSize: 11
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 1
@@ -3561,8 +3561,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 3
     y: 3
-    width: 153.119995
-    height: 15.5232
+    width: 175.079987
+    height: 17.9387989
   parent: {fileID: 11400018}
   children:
   - {fileID: 11400026}
@@ -3658,9 +3658,9 @@ MonoBehaviour:
   absoluteRect:
     serializedVersion: 2
     x: 3
-    y: 18.523201
-    width: 153.119995
-    height: 15.5232
+    y: 20.9387989
+    width: 175.079987
+    height: 17.9387989
   parent: {fileID: 11400018}
   children:
   - {fileID: 11400006}
@@ -3757,8 +3757,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 3
     y: 3
-    width: 30.6239986
-    height: 15.5232
+    width: 35.0159988
+    height: 17.9387989
   parent: {fileID: 11400022}
   children:
   - {fileID: 11400020}
@@ -3854,8 +3854,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 159.119995
-    height: 53.0399971
+    width: 181.079987
+    height: 60.3599968
   parent: {fileID: 11400030}
   children:
   - {fileID: 11400018}
@@ -3951,8 +3951,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 648
-    height: 442
+    width: 894
+    height: 503
   parent: {fileID: 0}
   children:
   - {fileID: 11400210}
@@ -4048,10 +4048,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 33.6240005
+    x: 38.0159988
     y: 3
-    width: 122.495995
-    height: 15.5232
+    width: 140.063995
+    height: 17.9387989
   parent: {fileID: 11400038}
   children:
   - {fileID: 11400010}
@@ -4145,10 +4145,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 33.6240005
+    x: 38.0159988
     y: 3
-    width: 122.495995
-    height: 15.5232
+    width: 140.063995
+    height: 17.9387989
   parent: {fileID: 11400038}
   children: []
   ChildCount: 0
@@ -4201,7 +4201,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 10
+    m_FontSize: 11
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 1
@@ -4263,10 +4263,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 33.6240005
+    x: 38.0159988
     y: 3
-    width: 122.495995
-    height: 15.5232
+    width: 140.063995
+    height: 17.9387989
   parent: {fileID: 11400022}
   children:
   - {fileID: 11400032}
@@ -4420,10 +4420,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 373
-    y: 90.9399872
-    width: 257.925018
-    height: 30.8710022
+    x: 447
+    y: 109.62999
+    width: 314.662506
+    height: 37.6795006
   parent: {fileID: 11400074}
   children:
   - {fileID: 11400048}
@@ -4517,10 +4517,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 375
-    y: 92.9399872
-    width: 253.925018
-    height: 26.8710022
+    x: 449
+    y: 111.62999
+    width: 310.662506
+    height: 33.6795006
   parent: {fileID: 11400046}
   children:
   - {fileID: 11400050}
@@ -4578,7 +4578,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 2
+    m_FontSize: 3
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -4618,10 +4618,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 377
-    y: 94.9399872
-    width: 22.8710022
-    height: 22.8710022
+    x: 451
+    y: 113.62999
+    width: 29.6795006
+    height: 29.6795006
   parent: {fileID: 11400048}
   children: []
   ChildCount: 0
@@ -4655,10 +4655,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 405.471008
-    y: 92.9399872
-    width: 253.925018
-    height: 26.8710022
+    x: 486.27951
+    y: 111.62999
+    width: 310.662506
+    height: 33.6795006
   parent: {fileID: 11400048}
   children: []
   ChildCount: 0
@@ -4671,7 +4671,7 @@ MonoBehaviour:
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
-      m_TextColor: {r: .523630917, g: 1, b: .433823526, a: 1}
+      m_TextColor: {r: 1, g: .132352948, b: .132352948, a: 1}
     m_Active:
       m_Background: {fileID: 0}
       m_TextColor: {r: 1, g: .867241383, b: .433823526, a: 1}
@@ -4711,7 +4711,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 8
+    m_FontSize: 11
     m_FontStyle: 0
     m_Alignment: 0
     m_WordWrap: 1
@@ -4751,10 +4751,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 145.54599
-    y: 224.423996
-    width: 253.925018
-    height: 26.8710022
+    x: 169.617004
+    y: 270.347992
+    width: 310.662506
+    height: 33.6795006
   parent: {fileID: 11400062}
   children: []
   ChildCount: 0
@@ -4767,7 +4767,7 @@ MonoBehaviour:
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
-      m_TextColor: {r: .523630917, g: 1, b: .433823526, a: 1}
+      m_TextColor: {r: 1, g: .132352948, b: .132352948, a: 1}
     m_Active:
       m_Background: {fileID: 0}
       m_TextColor: {r: 1, g: .867241383, b: .433823526, a: 1}
@@ -4807,7 +4807,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 8
+    m_FontSize: 11
     m_FontStyle: 0
     m_Alignment: 0
     m_WordWrap: 1
@@ -4847,10 +4847,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 117.074982
-    y: 226.423996
-    width: 22.8710022
-    height: 22.8710022
+    x: 134.337509
+    y: 272.347992
+    width: 29.6795006
+    height: 29.6795006
   parent: {fileID: 11400062}
   children: []
   ChildCount: 0
@@ -4884,10 +4884,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 115.074982
-    y: 224.423996
-    width: 253.925018
-    height: 26.8710022
+    x: 132.337509
+    y: 270.347992
+    width: 310.662506
+    height: 33.6795006
   parent: {fileID: 11400066}
   children:
   - {fileID: 11400060}
@@ -4945,7 +4945,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 2
+    m_FontSize: 3
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -4971,9 +4971,9 @@ MonoBehaviour:
   playerUI: {fileID: 11400004}
   attributeType: 0
   format: '###0'
-  text: '#SkillName#: <color=#ff0000>#value# (#fullValue#)</color>
+  text: '#SkillName#: <color=#AA0000>#value# (#fullValue#)</color>
 
-    <color=#00CC66>Increase by <color=#ff0000>#valuePerPoint#</color></color> (#currentSkillUps#/#maxSkillUps#)'
+    <color=#00CC66>Increase by <color=#AA0000>#valuePerPoint#</color></color> (#currentSkillUps#/#maxSkillUps#)'
   uiText: {fileID: 11400168}
   uperPanel: {fileID: 11400080}
 --- !u!114 &11400066
@@ -5004,10 +5004,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 113.074982
-    y: 222.423996
-    width: 257.925018
-    height: 30.8710022
+    x: 130.337494
+    y: 268.347992
+    width: 314.662506
+    height: 37.6795006
   parent: {fileID: 11400074}
   children:
   - {fileID: 11400062}
@@ -5101,10 +5101,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 373
-    y: 51.7499847
-    width: 263.925018
-    height: 35.1900024
+    x: 447
+    y: 62.8749847
+    width: 320.662506
+    height: 42.7550011
   parent: {fileID: 11400078}
   children: []
   ChildCount: 0
@@ -5160,7 +5160,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 20
+    m_FontSize: 24
     m_FontStyle: 0
     m_Alignment: 7
     m_WordWrap: 0
@@ -5200,10 +5200,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 109.074982
-    y: 51.7499847
-    width: 263.925018
-    height: 35.1900024
+    x: 126.337494
+    y: 62.8749847
+    width: 320.662506
+    height: 42.7550011
   parent: {fileID: 11400078}
   children: []
   ChildCount: 0
@@ -5259,7 +5259,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 20
+    m_FontSize: 24
     m_FontStyle: 0
     m_Alignment: 7
     m_WordWrap: 0
@@ -5299,10 +5299,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 109.074982
-    y: 86.9399872
-    width: 527.850037
-    height: 316.710022
+    x: 126.337494
+    y: 105.62999
+    width: 641.325012
+    height: 384.795013
   parent: {fileID: 11400076}
   children:
   - {fileID: 11400404}
@@ -5397,10 +5397,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 113.074982
-    y: 90.9399872
-    width: 519.850037
-    height: 308.710022
+    x: 130.337494
+    y: 109.62999
+    width: 633.325012
+    height: 376.795013
   parent: {fileID: 11400076}
   children:
   - {fileID: 11400174}
@@ -5502,10 +5502,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 109.074982
-    y: 86.9399872
-    width: 527.850037
-    height: 316.710022
+    x: 126.337494
+    y: 105.62999
+    width: 641.325012
+    height: 384.795013
   parent: {fileID: 11400080}
   children:
   - {fileID: 11400074}
@@ -5600,10 +5600,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 109.074982
-    y: 51.7499847
-    width: 527.850037
-    height: 35.1900024
+    x: 126.337494
+    y: 62.8749847
+    width: 641.325012
+    height: 42.7550011
   parent: {fileID: 11400080}
   children:
   - {fileID: 11400070}
@@ -5698,10 +5698,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 42.2249756
-    y: 55.25
-    width: 563.550049
-    height: 375.700012
+    x: 126.337494
+    y: 62.8749847
+    width: 641.325012
+    height: 427.550018
   parent: {fileID: 11400030}
   children:
   - {fileID: 11400078}
@@ -5838,9 +5838,9 @@ MonoBehaviour:
   playerUI: {fileID: 11400004}
   attributeType: 1
   format: '#0.##/s'
-  text: '#SkillName#: <color=#ff0000>#value# (#fullValue#)</color>
+  text: '#SkillName#: <color=#AA0000>#value# (#fullValue#)</color>
 
-    <color=#00CC66>Increase by <color=#ff0000>#valuePerPoint#</color></color> (#currentSkillUps#/#maxSkillUps#)'
+    <color=#00CC66>Increase by <color=#AA0000>#valuePerPoint#</color></color> (#currentSkillUps#/#maxSkillUps#)'
   uiText: {fileID: 11400052}
   uperPanel: {fileID: 11400080}
 --- !u!114 &11400092
@@ -5857,9 +5857,9 @@ MonoBehaviour:
   playerUI: {fileID: 11400004}
   attributeType: 3
   format: '###'
-  text: '#SkillName#: <color=#ff0000>#value# (#fullValue#)</color>
+  text: '#SkillName#: <color=#AA0000>#value# (#fullValue#)</color>
 
-    <color=#00CC66>Increase by <color=#ff0000>#valuePerPoint#</color></color> (#currentSkillUps#/#maxSkillUps#)'
+    <color=#00CC66>Increase by <color=#AA0000>#valuePerPoint#</color></color> (#currentSkillUps#/#maxSkillUps#)'
   uiText: {fileID: 11400162}
   uperPanel: {fileID: 11400080}
 --- !u!114 &11400094
@@ -5876,9 +5876,9 @@ MonoBehaviour:
   playerUI: {fileID: 11400004}
   attributeType: 2
   format: '##0.##%'
-  text: '#SkillName#: <color=#ff0000>#value# (#fullValue#)</color>
+  text: '#SkillName#: <color=#AA0000>#value# (#fullValue#)</color>
 
-    <color=#00CC66>Increase by <color=#ff0000>#valuePerPoint#</color></color> (#currentSkillUps#/#maxSkillUps#)'
+    <color=#00CC66>Increase by <color=#AA0000>#valuePerPoint#</color></color> (#currentSkillUps#/#maxSkillUps#)'
   uiText: {fileID: 11400148}
   uperPanel: {fileID: 11400080}
 --- !u!114 &11400096
@@ -5895,9 +5895,9 @@ MonoBehaviour:
   playerUI: {fileID: 11400004}
   attributeType: 4
   format: '##0.##'
-  text: '#SkillName#: <color=#ff0000>#value# (#fullValue#)</color>
+  text: '#SkillName#: <color=#AA0000>#value# (#fullValue#)</color>
 
-    <color=#00CC66>Increase by <color=#ff0000>#valuePerPoint#</color></color> (#currentSkillUps#/#maxSkillUps#)'
+    <color=#00CC66>Increase by <color=#AA0000>#valuePerPoint#</color></color> (#currentSkillUps#/#maxSkillUps#)'
   uiText: {fileID: 11400138}
   uperPanel: {fileID: 11400080}
 --- !u!114 &11400098
@@ -5914,9 +5914,9 @@ MonoBehaviour:
   playerUI: {fileID: 11400004}
   attributeType: 5
   format: '##0.##'
-  text: '#SkillName#: <color=#ff0000>#value# (#fullValue#)</color>
+  text: '#SkillName#: <color=#AA0000>#value# (#fullValue#)</color>
 
-    <color=#00CC66>Increase by <color=#ff0000>#valuePerPoint#</color></color> (#currentSkillUps#/#maxSkillUps#)'
+    <color=#00CC66>Increase by <color=#AA0000>#valuePerPoint#</color></color> (#currentSkillUps#/#maxSkillUps#)'
   uiText: {fileID: 11400132}
   uperPanel: {fileID: 11400080}
 --- !u!114 &11400100
@@ -5933,9 +5933,9 @@ MonoBehaviour:
   playerUI: {fileID: 11400004}
   attributeType: 6
   format: '#0.##'
-  text: '#SkillName#: <color=#ff0000>#value# (#fullValue#)</color>
+  text: '#SkillName#: <color=#AA0000>#value# (#fullValue#)</color>
 
-    <color=#00CC66>Increase by <color=#ff0000>#valuePerPoint#</color></color> (#currentSkillUps#/#maxSkillUps#)'
+    <color=#00CC66>Increase by <color=#AA0000>#valuePerPoint#</color></color> (#currentSkillUps#/#maxSkillUps#)'
   uiText: {fileID: 11400122}
   uperPanel: {fileID: 11400080}
 --- !u!114 &11400102
@@ -5952,9 +5952,9 @@ MonoBehaviour:
   playerUI: {fileID: 11400004}
   attributeType: 7
   format: '#0.##'
-  text: '#SkillName#: <color=#ff0000>#value# (#fullValue#)</color>
+  text: '#SkillName#: <color=#AA0000>#value# (#fullValue#)</color>
 
-    <color=#00CC66>Increase by <color=#ff0000>#valuePerPoint#</color></color> (#currentSkillUps#/#maxSkillUps#)'
+    <color=#00CC66>Increase by <color=#AA0000>#valuePerPoint#</color></color> (#currentSkillUps#/#maxSkillUps#)'
   uiText: {fileID: 11400108}
   uperPanel: {fileID: 11400080}
 --- !u!114 &11400104
@@ -5971,9 +5971,9 @@ MonoBehaviour:
   playerUI: {fileID: 11400004}
   attributeType: 8
   format: '##0.##%'
-  text: '#SkillName#: <color=#ff0000>#value# (#fullValue#)</color>
+  text: '#SkillName#: <color=#AA0000>#value# (#fullValue#)</color>
 
-    <color=#00CC66>Increase by <color=#ff0000>#valuePerPoint#</color></color> (#currentSkillUps#/#maxSkillUps#)'
+    <color=#00CC66>Increase by <color=#AA0000>#valuePerPoint#</color></color> (#currentSkillUps#/#maxSkillUps#)'
   uiText: {fileID: 11400058}
   uperPanel: {fileID: 11400080}
 --- !u!114 &11400108
@@ -6004,10 +6004,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 405.471008
-    y: 191.552994
-    width: 253.925018
-    height: 26.8710022
+    x: 486.27951
+    y: 230.668488
+    width: 310.662506
+    height: 33.6795006
   parent: {fileID: 11400112}
   children: []
   ChildCount: 0
@@ -6020,7 +6020,7 @@ MonoBehaviour:
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
-      m_TextColor: {r: .523630917, g: 1, b: .433823526, a: 1}
+      m_TextColor: {r: 1, g: .132352948, b: .132352948, a: 1}
     m_Active:
       m_Background: {fileID: 0}
       m_TextColor: {r: 1, g: .867241383, b: .433823526, a: 1}
@@ -6060,7 +6060,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 8
+    m_FontSize: 11
     m_FontStyle: 0
     m_Alignment: 0
     m_WordWrap: 1
@@ -6100,10 +6100,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 377
-    y: 193.552994
-    width: 22.8710022
-    height: 22.8710022
+    x: 451
+    y: 232.668488
+    width: 29.6795006
+    height: 29.6795006
   parent: {fileID: 11400112}
   children: []
   ChildCount: 0
@@ -6137,10 +6137,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 375
-    y: 191.552994
-    width: 253.925018
-    height: 26.8710022
+    x: 449
+    y: 230.668488
+    width: 310.662506
+    height: 33.6795006
   parent: {fileID: 11400114}
   children:
   - {fileID: 11400110}
@@ -6198,7 +6198,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 2
+    m_FontSize: 3
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -6238,10 +6238,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 373
-    y: 189.552994
-    width: 257.925018
-    height: 30.8710022
+    x: 447
+    y: 228.668488
+    width: 314.662506
+    height: 37.6795006
   parent: {fileID: 11400074}
   children:
   - {fileID: 11400112}
@@ -6335,10 +6335,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 113.074982
-    y: 189.552994
-    width: 257.925018
-    height: 30.8710022
+    x: 130.337494
+    y: 228.668488
+    width: 314.662506
+    height: 37.6795006
   parent: {fileID: 11400074}
   children:
   - {fileID: 11400118}
@@ -6432,10 +6432,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 115.074982
-    y: 191.552994
-    width: 253.925018
-    height: 26.8710022
+    x: 132.337509
+    y: 230.668488
+    width: 310.662506
+    height: 33.6795006
   parent: {fileID: 11400116}
   children:
   - {fileID: 11400120}
@@ -6493,7 +6493,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 2
+    m_FontSize: 3
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -6533,10 +6533,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 117.074982
-    y: 193.552994
-    width: 22.8710022
-    height: 22.8710022
+    x: 134.337509
+    y: 232.668488
+    width: 29.6795006
+    height: 29.6795006
   parent: {fileID: 11400118}
   children: []
   ChildCount: 0
@@ -6570,10 +6570,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 145.54599
-    y: 191.552994
-    width: 253.925018
-    height: 26.8710022
+    x: 169.617004
+    y: 230.668488
+    width: 310.662506
+    height: 33.6795006
   parent: {fileID: 11400118}
   children: []
   ChildCount: 0
@@ -6586,7 +6586,7 @@ MonoBehaviour:
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
-      m_TextColor: {r: .523630917, g: 1, b: .433823526, a: 1}
+      m_TextColor: {r: 1, g: .132352948, b: .132352948, a: 1}
     m_Active:
       m_Background: {fileID: 0}
       m_TextColor: {r: 1, g: .867241383, b: .433823526, a: 1}
@@ -6626,7 +6626,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 8
+    m_FontSize: 11
     m_FontStyle: 0
     m_Alignment: 0
     m_WordWrap: 1
@@ -6666,10 +6666,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 373
-    y: 156.681992
-    width: 257.925018
-    height: 30.8710022
+    x: 447
+    y: 188.988983
+    width: 314.662506
+    height: 37.6795006
   parent: {fileID: 11400074}
   children:
   - {fileID: 11400128}
@@ -6763,10 +6763,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 375
-    y: 158.681992
-    width: 253.925018
-    height: 26.8710022
+    x: 449
+    y: 190.988983
+    width: 310.662506
+    height: 33.6795006
   parent: {fileID: 11400126}
   children:
   - {fileID: 11400130}
@@ -6824,7 +6824,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 2
+    m_FontSize: 3
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -6864,10 +6864,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 377
-    y: 160.681992
-    width: 22.8710022
-    height: 22.8710022
+    x: 451
+    y: 192.988983
+    width: 29.6795006
+    height: 29.6795006
   parent: {fileID: 11400128}
   children: []
   ChildCount: 0
@@ -6901,10 +6901,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 405.471008
-    y: 158.681992
-    width: 253.925018
-    height: 26.8710022
+    x: 486.27951
+    y: 190.988983
+    width: 310.662506
+    height: 33.6795006
   parent: {fileID: 11400128}
   children: []
   ChildCount: 0
@@ -6917,7 +6917,7 @@ MonoBehaviour:
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
-      m_TextColor: {r: .523630917, g: 1, b: .433823526, a: 1}
+      m_TextColor: {r: 1, g: .132352948, b: .132352948, a: 1}
     m_Active:
       m_Background: {fileID: 0}
       m_TextColor: {r: 1, g: .867241383, b: .433823526, a: 1}
@@ -6957,7 +6957,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 8
+    m_FontSize: 11
     m_FontStyle: 0
     m_Alignment: 0
     m_WordWrap: 1
@@ -6997,10 +6997,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 145.54599
-    y: 158.681992
-    width: 253.925018
-    height: 26.8710022
+    x: 169.617004
+    y: 190.988983
+    width: 310.662506
+    height: 33.6795006
   parent: {fileID: 11400142}
   children: []
   ChildCount: 0
@@ -7013,7 +7013,7 @@ MonoBehaviour:
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
-      m_TextColor: {r: .523630917, g: 1, b: .433823526, a: 1}
+      m_TextColor: {r: 1, g: .132352948, b: .132352948, a: 1}
     m_Active:
       m_Background: {fileID: 0}
       m_TextColor: {r: 1, g: .867241383, b: .433823526, a: 1}
@@ -7053,7 +7053,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 8
+    m_FontSize: 11
     m_FontStyle: 0
     m_Alignment: 0
     m_WordWrap: 1
@@ -7093,10 +7093,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 117.074982
-    y: 160.681992
-    width: 22.8710022
-    height: 22.8710022
+    x: 134.337509
+    y: 192.988983
+    width: 29.6795006
+    height: 29.6795006
   parent: {fileID: 11400142}
   children: []
   ChildCount: 0
@@ -7130,10 +7130,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 115.074982
-    y: 158.681992
-    width: 253.925018
-    height: 26.8710022
+    x: 132.337509
+    y: 190.988983
+    width: 310.662506
+    height: 33.6795006
   parent: {fileID: 11400144}
   children:
   - {fileID: 11400140}
@@ -7191,7 +7191,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 2
+    m_FontSize: 3
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -7231,10 +7231,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 113.074982
-    y: 156.681992
-    width: 257.925018
-    height: 30.8710022
+    x: 130.337494
+    y: 188.988983
+    width: 314.662506
+    height: 37.6795006
   parent: {fileID: 11400074}
   children:
   - {fileID: 11400142}
@@ -7328,10 +7328,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 405.471008
-    y: 125.810989
-    width: 253.925018
-    height: 26.8710022
+    x: 486.27951
+    y: 151.309494
+    width: 310.662506
+    height: 33.6795006
   parent: {fileID: 11400152}
   children: []
   ChildCount: 0
@@ -7344,7 +7344,7 @@ MonoBehaviour:
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
-      m_TextColor: {r: .523630917, g: 1, b: .433823526, a: 1}
+      m_TextColor: {r: 1, g: .132352948, b: .132352948, a: 1}
     m_Active:
       m_Background: {fileID: 0}
       m_TextColor: {r: 1, g: .867241383, b: .433823526, a: 1}
@@ -7384,7 +7384,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 8
+    m_FontSize: 11
     m_FontStyle: 0
     m_Alignment: 0
     m_WordWrap: 1
@@ -7424,10 +7424,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 377
-    y: 127.810989
-    width: 22.8710022
-    height: 22.8710022
+    x: 451
+    y: 153.309494
+    width: 29.6795006
+    height: 29.6795006
   parent: {fileID: 11400152}
   children: []
   ChildCount: 0
@@ -7461,10 +7461,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 375
-    y: 125.810989
-    width: 253.925018
-    height: 26.8710022
+    x: 449
+    y: 151.309494
+    width: 310.662506
+    height: 33.6795006
   parent: {fileID: 11400154}
   children:
   - {fileID: 11400150}
@@ -7522,7 +7522,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 2
+    m_FontSize: 3
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -7562,10 +7562,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 373
-    y: 123.810989
-    width: 257.925018
-    height: 30.8710022
+    x: 447
+    y: 149.309494
+    width: 314.662506
+    height: 37.6795006
   parent: {fileID: 11400074}
   children:
   - {fileID: 11400152}
@@ -7659,10 +7659,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 113.074982
-    y: 123.810989
-    width: 257.925018
-    height: 30.8710022
+    x: 130.337494
+    y: 149.309494
+    width: 314.662506
+    height: 37.6795006
   parent: {fileID: 11400074}
   children:
   - {fileID: 11400158}
@@ -7756,10 +7756,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 115.074982
-    y: 125.810989
-    width: 253.925018
-    height: 26.8710022
+    x: 132.337509
+    y: 151.309494
+    width: 310.662506
+    height: 33.6795006
   parent: {fileID: 11400156}
   children:
   - {fileID: 11400160}
@@ -7817,7 +7817,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 2
+    m_FontSize: 3
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -7857,10 +7857,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 117.074982
-    y: 127.810989
-    width: 22.8710022
-    height: 22.8710022
+    x: 134.337509
+    y: 153.309494
+    width: 29.6795006
+    height: 29.6795006
   parent: {fileID: 11400158}
   children: []
   ChildCount: 0
@@ -7894,10 +7894,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 145.54599
-    y: 125.810989
-    width: 253.925018
-    height: 26.8710022
+    x: 169.617004
+    y: 151.309494
+    width: 310.662506
+    height: 33.6795006
   parent: {fileID: 11400158}
   children: []
   ChildCount: 0
@@ -7910,7 +7910,7 @@ MonoBehaviour:
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
-      m_TextColor: {r: .523630917, g: 1, b: .433823526, a: 1}
+      m_TextColor: {r: 1, g: .132352948, b: .132352948, a: 1}
     m_Active:
       m_Background: {fileID: 0}
       m_TextColor: {r: 1, g: .867241383, b: .433823526, a: 1}
@@ -7950,7 +7950,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 8
+    m_FontSize: 11
     m_FontStyle: 0
     m_Alignment: 0
     m_WordWrap: 1
@@ -7990,10 +7990,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 145.54599
-    y: 92.9399872
-    width: 253.925018
-    height: 26.8710022
+    x: 169.617004
+    y: 111.62999
+    width: 310.662506
+    height: 33.6795006
   parent: {fileID: 11400172}
   children: []
   ChildCount: 0
@@ -8006,7 +8006,7 @@ MonoBehaviour:
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
-      m_TextColor: {r: .523630917, g: 1, b: .433823526, a: 1}
+      m_TextColor: {r: 1, g: .132352948, b: .132352948, a: 1}
     m_Active:
       m_Background: {fileID: 0}
       m_TextColor: {r: 1, g: .867241383, b: .433823526, a: 1}
@@ -8046,7 +8046,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 8
+    m_FontSize: 11
     m_FontStyle: 0
     m_Alignment: 0
     m_WordWrap: 1
@@ -8086,10 +8086,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 117.074982
-    y: 94.9399872
-    width: 22.8710022
-    height: 22.8710022
+    x: 134.337509
+    y: 113.62999
+    width: 29.6795006
+    height: 29.6795006
   parent: {fileID: 11400172}
   children: []
   ChildCount: 0
@@ -8123,10 +8123,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 115.074982
-    y: 92.9399872
-    width: 253.925018
-    height: 26.8710022
+    x: 132.337509
+    y: 111.62999
+    width: 310.662506
+    height: 33.6795006
   parent: {fileID: 11400174}
   children:
   - {fileID: 11400170}
@@ -8184,7 +8184,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 2
+    m_FontSize: 3
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -8224,10 +8224,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 113.074982
-    y: 90.9399872
-    width: 257.925018
-    height: 30.8710022
+    x: 130.337494
+    y: 109.62999
+    width: 314.662506
+    height: 37.6795006
   parent: {fileID: 11400074}
   children:
   - {fileID: 11400172}
@@ -8342,10 +8342,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 370.200012
-    y: 406.640015
-    width: 40.2000008
-    height: 35.3600006
+    x: 499.300018
+    y: 462.76001
+    width: 46.2999954
+    height: 40.2399979
   parent: {fileID: 11400210}
   children:
   - {fileID: 11400180}
@@ -8441,10 +8441,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 370.200012
-    y: 406.640015
-    width: 40.2000008
-    height: 35.3600006
+    x: 499.300018
+    y: 462.76001
+    width: 46.2999954
+    height: 40.2399979
   parent: {fileID: 11400178}
   children: []
   ChildCount: 0
@@ -8633,10 +8633,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 370.200012
-    y: 406.640015
-    width: 40.2000008
-    height: 35.3600006
+    x: 499.300018
+    y: 462.76001
+    width: 46.2999954
+    height: 40.2399979
   parent: {fileID: 11400178}
   children: []
   ChildCount: 0
@@ -8689,7 +8689,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 17
+    m_FontSize: 20
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 1
@@ -8729,10 +8729,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 326
-    y: 406.640015
-    width: 40.2000008
-    height: 35.3600006
+    x: 449
+    y: 462.76001
+    width: 46.2999954
+    height: 40.2399979
   parent: {fileID: 11400192}
   children: []
   ChildCount: 0
@@ -8785,7 +8785,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 17
+    m_FontSize: 20
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 1
@@ -8921,10 +8921,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 326
-    y: 406.640015
-    width: 40.2000008
-    height: 35.3600006
+    x: 449
+    y: 462.76001
+    width: 46.2999954
+    height: 40.2399979
   parent: {fileID: 11400192}
   children: []
   ChildCount: 0
@@ -9017,10 +9017,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 326
-    y: 406.640015
-    width: 40.2000008
-    height: 35.3600006
+    x: 449
+    y: 462.76001
+    width: 46.2999954
+    height: 40.2399979
   parent: {fileID: 11400210}
   children:
   - {fileID: 11400190}
@@ -9116,10 +9116,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 281.800018
-    y: 406.640015
-    width: 40.2000008
-    height: 35.3600006
+    x: 398.700012
+    y: 462.76001
+    width: 46.2999954
+    height: 40.2399979
   parent: {fileID: 11400210}
   children:
   - {fileID: 11400196}
@@ -9215,10 +9215,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 281.800018
-    y: 406.640015
-    width: 40.2000008
-    height: 35.3600006
+    x: 398.700012
+    y: 462.76001
+    width: 46.2999954
+    height: 40.2399979
   parent: {fileID: 11400194}
   children: []
   ChildCount: 0
@@ -9407,10 +9407,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 281.800018
-    y: 406.640015
-    width: 40.2000008
-    height: 35.3600006
+    x: 398.700012
+    y: 462.76001
+    width: 46.2999954
+    height: 40.2399979
   parent: {fileID: 11400194}
   children: []
   ChildCount: 0
@@ -9463,7 +9463,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 17
+    m_FontSize: 20
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 1
@@ -9503,10 +9503,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 237.600006
-    y: 406.640015
-    width: 40.2000008
-    height: 35.3600006
+    x: 348.400024
+    y: 462.76001
+    width: 46.2999954
+    height: 40.2399979
   parent: {fileID: 11400208}
   children: []
   ChildCount: 0
@@ -9559,7 +9559,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 17
+    m_FontSize: 20
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 1
@@ -9695,10 +9695,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 237.600006
-    y: 406.640015
-    width: 40.2000008
-    height: 35.3600006
+    x: 348.400024
+    y: 462.76001
+    width: 46.2999954
+    height: 40.2399979
   parent: {fileID: 11400208}
   children: []
   ChildCount: 0
@@ -9791,10 +9791,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 237.600006
-    y: 406.640015
-    width: 40.2000008
-    height: 35.3600006
+    x: 348.400024
+    y: 462.76001
+    width: 46.2999954
+    height: 40.2399979
   parent: {fileID: 11400210}
   children:
   - {fileID: 11400206}
@@ -9890,10 +9890,10 @@ MonoBehaviour:
   VerticalAlignment: 2
   absoluteRect:
     serializedVersion: 2
-    x: 235.600006
-    y: 406.640015
-    width: 176.800003
-    height: 35.3600006
+    x: 346.400024
+    y: 462.76001
+    width: 201.199982
+    height: 40.2399979
   parent: {fileID: 11400030}
   children:
   - {fileID: 11400208}
@@ -10003,9 +10003,9 @@ MonoBehaviour:
   absoluteRect:
     serializedVersion: 2
     x: 8
-    y: 34.046402
-    width: 153.119995
-    height: 15.5232
+    y: 38.8775978
+    width: 175.079987
+    height: 17.9387989
   parent: {fileID: 11400012}
   children: []
   ChildCount: 0
@@ -10058,7 +10058,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 10
+    m_FontSize: 11
     m_FontStyle: 0
     m_Alignment: 3
     m_WordWrap: 1

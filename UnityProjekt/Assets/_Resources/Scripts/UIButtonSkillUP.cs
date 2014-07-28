@@ -10,7 +10,7 @@ public class UIButtonSkillUP : MonoBehaviour {
     public string format;
 
     [Multiline(2)]
-    public string text = "#SkillName#: <color=#ff0000>#value# (#fullValue#)</color>\n<color=#00CC66>Increase by <color=#ff0000>#valuePerPoint#</color></color>";
+    public string text = "#SkillName#: <color=#AA0000>#value# (#fullValue#)</color>\n<color=#00CC66>Increase by <color=#AA0000>#valuePerPoint#</color></color>";
 
     public UIText uiText;
 
