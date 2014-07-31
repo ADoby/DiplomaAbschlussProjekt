@@ -4,6 +4,7 @@ using System.Collections;
 public class OnEnemieDeathSpawnBase : MonoBehaviour
 {
 
+    [SerializeThis]
     public SpawnInfo[] basePoolNames;
 
     public float spawnChance = 0.5f;
@@ -13,11 +14,20 @@ public class OnEnemieDeathSpawnBase : MonoBehaviour
     public LayerMask GroundLayer;
     public LayerMask BaseLayer;
 
-	// Use this for initialization
-	void Start ()
-	{
-	    GameEventHandler.EnemieDied += OnEnemieDied;
-	}
+    void OnEnable()
+    {
+        GameEventHandler.EnemieDied += OnEnemieDied;
+    }
+
+    void OnDisable()
+    {
+        GameEventHandler.EnemieDied -= OnEnemieDied;
+    }
+
+    void OnDestroy()
+    {
+        GameEventHandler.EnemieDied -= OnEnemieDied;
+    }
 
     public void OnEnemieDied(EnemieController enemie)
     {

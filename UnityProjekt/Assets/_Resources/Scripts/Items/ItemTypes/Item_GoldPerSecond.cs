@@ -15,7 +15,7 @@ public class Item_GoldPerSecond : Item
     {
         get
         {
-            return "<color=" + colors[prefixID] + ">" + Name + "</color>\nGeld per second: " + GoldPerSecond.ToString("#0");
+            return "<color=" + colors[prefixID] + ">" + Name + "</color>\n<color=#226622>Geld per second: " + GoldPerSecond.ToString("#0") + "</color>";
         }
     }
 
@@ -23,6 +23,7 @@ public class Item_GoldPerSecond : Item
 
     public override void UpdateStats(float value)
     {
+        base.UpdateStats(value);
         GoldPerSecond = (int)(GoldPerSecond * value);
     }
 

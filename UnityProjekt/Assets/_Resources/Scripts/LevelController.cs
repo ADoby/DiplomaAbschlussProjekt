@@ -16,9 +16,24 @@ public class LevelController : MonoBehaviour {
 
     public float NeededLevelDamage = 20000f;
 
-    void Awake()
+    void OnEnable()
     {
         GameEventHandler.CameraMoved += OnCameraMoved;
+    }
+
+    void OnDisable()
+    {
+        GameEventHandler.CameraMoved -= OnCameraMoved;
+    }
+
+    void OnDestroy()
+    {
+        GameEventHandler.CameraMoved -= OnCameraMoved;
+    }
+
+    void Start()
+    {
+        gameObject.SetActive(false);
     }
 
     private void OnCameraMoved(Vector2 direction)
@@ -29,10 +44,5 @@ public class LevelController : MonoBehaviour {
             direction.y *= item.movement.y;
             item.transform.Translate(direction);
         }
-    }
-
-    public void Reset()
-    {
-
     }
 }

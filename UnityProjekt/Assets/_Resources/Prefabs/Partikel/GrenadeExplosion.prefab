@@ -80,7 +80,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -10.9088669, y: 1.81939101, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -133,9 +133,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 3
   m_Type: 2
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
-  m_Range: 6
+  m_Color: {r: .617647052, g: .889249504, b: 1, a: 1}
+  m_Intensity: 8
+  m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -152,8 +152,8 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
-  m_Lightmapping: 1
+    m_Bits: 38400
+  m_Lightmapping: 0
   m_ShadowSamples: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: daced705-42fa-40f2-b5a2-60748e2f112e
+  _id: a1332a2b-b15a-4059-ae75-871eb1bf117f
   classId: e2618b4d-688c-4e4d-9983-81c41b20b879
   StoreAllComponents: 1
   Components: []
@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 85e38473-1d20-4a1b-9bd9-2a053d305818
+  _id: 0d2d3b27-116d-44a9-8b65-b64bca5b239d
   classId: 3f809d78-e931-44dc-a5ad-540dce1060a6
 --- !u!114 &11400008
 MonoBehaviour:
@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 2db1533a-0764-46de-85bd-b42357f37d9d
+  _id: f02270e1-d479-4daf-a902-0451564145df
   classId: 6c063710-1582-424f-9e6d-592b5c767d60
 --- !u!114 &11400010
 MonoBehaviour:
@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 716691cd-3d82-409e-a48d-270e1b6207d4
+  _id: ea404743-ae38-401d-a5c8-1b12e7a11513
   classId: 3af533d0-dd3f-462a-a421-8fe77aaa6dfb
 --- !u!198 &19800000
 ParticleSystem:
@@ -1595,10 +1595,10 @@ ParticleSystem:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 4283294975
+          rgba: 4294948173
         key1:
           serializedVersion: 2
-          rgba: 3498128
+          rgba: 9459765
         key2:
           serializedVersion: 2
           rgba: 0

@@ -15,7 +15,7 @@ public class Item_RelHealthBonus : Item
     {
         get
         {
-            return "<color=" + colors[prefixID] + ">" + Name + "</color>\nHealth bonus: " + RelativeHealth.ToString("#0%");
+            return "<color=" + colors[prefixID] + ">" + Name + "</color>\n<color=#226622>Health bonus: " + RelativeHealth.ToString("#0%") + "</color>";
         }
     }
 
@@ -23,6 +23,7 @@ public class Item_RelHealthBonus : Item
 
     public override void UpdateStats(float value)
     {
+        base.UpdateStats(value);
         RelativeHealth *= value;
     }
 

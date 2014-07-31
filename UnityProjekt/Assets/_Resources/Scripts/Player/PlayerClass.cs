@@ -104,6 +104,8 @@ public class PlayerClass : MonoBehaviour
 
     public void AddBuff(PlayerBuff buff)
     {
+        Debug.Log("Add Buff: " + buff.BuffName);
+
         PlayerBuff oldBuff = playerBuffs.FirstOrDefault(o => o.BuffName == buff.BuffName);
         PlayerBuff newBuff = null;
         if (oldBuff == null)
@@ -183,6 +185,8 @@ public class PlayerClass : MonoBehaviour
 
     public Texture classThumbnail;
 
+    public string UIItemPickupPoolName = "UIItemPickup";
+
     public void UpdateClass()
     {
         foreach (PlayerSkill skill in playerSkills)
@@ -219,6 +223,7 @@ public class PlayerClass : MonoBehaviour
         for (int i = 0; i < playerSkills.Length; i++)
         {
             playerSkills[i] = (PlayerSkill)PlayerSkill.Instantiate(playerSkills[i]);
+            playerSkills[i].transform.parent = transform;
         }
     }
 
@@ -252,6 +257,7 @@ public class PlayerClass : MonoBehaviour
         {
             skill.UpdateAttributesOnLevelUp();
         }
+        OnPlayerLevelUp();
     }
 
     public void SkillUpAttribute(int id)
@@ -316,10 +322,7 @@ public class PlayerClass : MonoBehaviour
         {
             skill.Do(this);
 
-            if (skill.SkillRunTime > 0)
-            {
-                skillsRunning++;
-            }
+            skillsRunning++;
 
             if (skill.PreventsMovement)
                 playerControl.AddSkillPreventingMovement();
@@ -341,12 +344,16 @@ public class PlayerClass : MonoBehaviour
         CurrentHealth = Mathf.Clamp(CurrentHealth + amount, 0, GetAttributeValue(AttributeType.HEALTH));
     }
 
+    [SerializeField]
     public List<Item> items = new List<Item>();
 
     public void AddItem(Item item)
     {
         items.Add(item);
         item.Start(this);
+
+        GameObject go = GameObjectPool.Instance.Spawns(UIItemPickupPoolName, transform.position, Quaternion.identity);
+        go.GetComponent<UIItemPickup>().text = item.Description;
     }
 
     public void RemoveItem(Item item)
@@ -407,6 +414,13 @@ public class PlayerClass : MonoBehaviour
         for (int i = 0; i < items.Count; i++)
         {
             items[i].OnPlayerDied(this);
+        }
+    }
+    public void OnPlayerLevelUp()
+    {
+        for (int i = 0; i < items.Count; i++)
+        {
+            items[i].OnPlayerLevelUp(this);
         }
     }
 }

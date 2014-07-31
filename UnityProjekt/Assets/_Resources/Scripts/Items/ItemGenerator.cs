@@ -14,7 +14,8 @@ public class ItemGenerator {
                                                  typeof(Item_Vampire), 
                                                  typeof(Item_AbsHealthBonus), 
                                                  typeof(Item_RelHealthBonus), 
-                                                 typeof(Item_GoldPerSecond) };
+                                                 typeof(Item_GoldPerSecond), 
+                                                 typeof(Item_RelMovementBonus) };
 
     public static Item GenerateItem(int value)
     {
@@ -25,7 +26,7 @@ public class ItemGenerator {
         Item item = (Item)System.Activator.CreateInstance(itemType);
         item.prefixID = value;
         item.GenerateName(prefix[(value)], suffix[Random.Range(0, suffix.Length)]);
-        item.UpdateStats((value+1)/10f);
+        item.UpdateStats((float)(value+1)/10f);
 
         return item;
     }

@@ -2,6 +2,7 @@
 
 //Only an attack without projectil
 //Its an sphere or raycast or something
+[System.Serializable]
 public class BasicAttack : PlayerSkill
 {
     public string Projectile;
@@ -30,12 +31,12 @@ public class BasicAttack : PlayerSkill
         {
             position = new Vector3(CrouchShootingPosition.x * player.playerTransform.localScale.x, CrouchShootingPosition.y, 0);
         }
-        GameObject go = GameObjectPool.Instance.Spawn(Projectile, player.playerTransform.position + position, player.playerTransform.rotation);
-        go.SendMessage("SetDirection", Vector2.right * player.playerTransform.localScale.x);
-        go.SendMessage("SetPlayer", player.playerControl);
-        go.SendMessage("SetDamage", DamageMult * player.GetAttributeValue(AttributeType.DAMAGE));
-        go.SendMessage("SetPierceAmount", pierceAmount);
-        go.SendMessage("SetForce", force);
+        GameObject go = GameObjectPool.Instance.Spawns(Projectile, player.playerTransform.position + position, player.playerTransform.rotation);
+        go.SendMessage("SetDirection", Vector2.right * player.playerTransform.localScale.x, SendMessageOptions.DontRequireReceiver);
+        go.SendMessage("SetPlayer", player.playerControl, SendMessageOptions.DontRequireReceiver);
+        go.SendMessage("SetDamage", DamageMult * player.GetAttributeValue(AttributeType.DAMAGE), SendMessageOptions.DontRequireReceiver);
+        go.SendMessage("SetPierceAmount", pierceAmount, SendMessageOptions.DontRequireReceiver);
+        go.SendMessage("SetForce", force, SendMessageOptions.DontRequireReceiver);
 
         player.playerControl.rigidbody2D.MovePosition(player.playerControl.rigidbody2D.position + KnockBack * player.playerTransform.localScale.x * Time.fixedDeltaTime);
     }

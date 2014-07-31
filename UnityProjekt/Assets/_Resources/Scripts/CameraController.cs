@@ -20,7 +20,9 @@ public class CameraController : MonoBehaviour {
 
     public float changeDamping = 2.0f;
 
+    [SerializeField]
     private float cameraWantedSize = 10;
+    [SerializeField]
     private Vector3 wantedPositionDiff = Vector3.zero;
 
     public float crouchTimer = 0f;

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[System.Serializable]
 public class AttributeBoost : PlayerSkill
 {
     public AttributeBoost(string name, float skillCooldown)

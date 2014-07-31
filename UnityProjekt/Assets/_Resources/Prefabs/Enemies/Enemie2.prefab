@@ -47,6 +47,7 @@ GameObject:
   - 50: {fileID: 5000000}
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400004}
+  - 114: {fileID: 11400014}
   m_Layer: 10
   m_Name: Enemie2
   m_TagString: Untagged
@@ -232,16 +233,34 @@ MonoBehaviour:
   speedChange: 10
   currentSpeed: 0
   target: {fileID: 0}
-  findTargetDistance: 10
+  findTargetDistance: 15
   distanceToTarget: 0
   findTargetTime: 1
+  findTargetTimer: 0
   findTargetLayer:
     serializedVersion: 2
     m_Bits: 512
-  poolName: Enemie1
+  poolName: Enemie2
   gravityMult: 3
   lastVelocity: {x: 0, y: 0}
-  attackAnim: {fileID: 7400000, guid: d7277d1b8dc740d4a8ddc2eb2941af66, type: 2}
+  Drops:
+  - chance: 1
+    minAmount: 3
+    maxAmount: 7
+    spawnInfos:
+    - poolName: Gold
+      weight: 1
+  aggressive: 0
+  turnTimer: 0
+  MinTurnTime: .100000001
+  MaxTurnTime: .300000012
+  jumpDownDistance: 2
+  jumpUpDistance: 2
+  jumpPower: 2
+  pathFindingLayer:
+    serializedVersion: 2
+    m_Bits: 4294447304
+  chanceForRandomJump: .0500000007
   anim: {fileID: 9500000}
   attackTimer: 0
   attackTime: .5
@@ -252,17 +271,10 @@ MonoBehaviour:
   randomTimer: 0
   randomTimeMin: 3
   randomTimeMax: 10
+  randomJumpTimer: 0
+  randomJumpMinTime: 1
+  randomJumpMaxTime: 3
   targetPos: {x: 0, y: 0, z: 0}
-  turnTimer: 0
-  MinTurnTime: .100000001
-  MaxTurnTime: .300000012
-  jumpDownDistance: 2
-  jumpUpDistance: 2
-  jumpPower: 2
-  pathFindingLayer:
-    serializedVersion: 2
-    m_Bits: 4294840543
-  chanceForRandomJump: .100000001
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -351,6 +363,27 @@ MonoBehaviour:
   IsDeserializing: 0
   _id: cfe998bc-ce8c-4664-8f64-643a8e1928f2
   classId: 95591723-3da9-4bdf-a11b-73df332c4b30
+--- !u!114 &11400014
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8b15e28a4936b949adf19337784792d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - clip: {fileID: 8300000, guid: 6e220f5e4cd7c8141972f18e55f490a4, type: 3}
+    volumeScale: 1.5
+    randomPitch: 1
+    minPitch: .800000012
+    maxPitch: 1.60000002
+    pitch: 0
+  timer: 0
+  minTime: 2
+  maxTime: 4
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

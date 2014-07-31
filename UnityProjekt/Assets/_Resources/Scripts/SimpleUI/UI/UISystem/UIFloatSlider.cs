@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 
+[System.Serializable]
 public class UIFloatSlider : UIRect
 {
+    [SerializeField]
     private float lastValue = 0;
     public float currentValue = 0;
 

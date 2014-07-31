@@ -11,29 +11,29 @@ public class EnemieBase : HitAble {
     public float wantedHealth = 1;
     public float MaxHealth = 100;
 
+    public float MaxHealthPerDifficulty = 30f;
+
     public string poolName = "EnemieBase1";
 
     public float HealthRegenPerSec = 2f;
+    public float HealthRegenPerSecPerDifficulty = 1f;
 
     public bool isAlive = false;
 
     public bool StartFull = false, RestartFull = false;
 
-
     public LayerMask GroundLayer;
 
-    void Awake()
-    {
-        GameEventHandler.OnPause += OnPause;
-        GameEventHandler.OnResume += OnResume;
-    }
+    public float HealthChangeSpeed = 10f;
+
+    public SpawnInfos[] Drops;
 
     void Start()
     {
         Reset();
         if (StartFull)
         {
-            CurrentHealth = MaxHealth;
+            CurrentHealth = MaxHealth + GameManager.Instance.CurrentDifficulty * MaxHealthPerDifficulty;
             wantedHealth = CurrentHealth;
             UpdateHealthBar(true);
         }
@@ -46,22 +46,12 @@ public class EnemieBase : HitAble {
         }
     }
 
-    void OnPause()
-    {
-        enabled = false;
-    }
-
-    void OnResume()
-    {
-        enabled = true;
-    }
-
     public void Reset()
     {
         isAlive = true;
         if (RestartFull)
         {
-            CurrentHealth = MaxHealth;
+            CurrentHealth = MaxHealth + GameManager.Instance.CurrentDifficulty * MaxHealthPerDifficulty;
         }
         else
         {
@@ -73,13 +63,14 @@ public class EnemieBase : HitAble {
         UpdateHealthBar(true);
     }
 
-    public float HealthChangeSpeed = 10f;
-
     void Update()
     {
+        if (GameManager.GamePaused)
+            return;
+
         if (isAlive)
         {
-            Heal(HealthRegenPerSec*Time.deltaTime);
+            Heal((HealthRegenPerSec + + GameManager.Instance.CurrentDifficulty * HealthRegenPerSecPerDifficulty)*Time.deltaTime);
         }
         CurrentHealth = Mathf.Lerp(CurrentHealth, wantedHealth, Time.deltaTime * HealthChangeSpeed);
         UpdateHealthBar();
@@ -132,7 +123,20 @@ public class EnemieBase : HitAble {
 
     public void Die()
     {
-        GameObjectPool.Instance.Despawn(poolName, gameObject);
+        
+        for (int i = 0; i < Drops.Length; i++)
+        {
+            if (Drops[i].WantsToSpawn)
+            {
+                for (int a = 0; a < Drops[i].Amount; a++)
+                {
+                    string pool = Drops[i].Next().poolName;
+                    EntitySpawnManager.Spawn(pool, transform.position, Quaternion.identity, queue: true);
+                }
+            }
+        }
+
+        EntitySpawnManager.Despawn(poolName, gameObject, true);
     }
 
     public void HealFull()

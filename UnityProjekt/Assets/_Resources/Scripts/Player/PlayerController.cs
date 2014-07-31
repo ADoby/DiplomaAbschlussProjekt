@@ -5,12 +5,32 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
+    public PlayerUI playerUI;
+
+    public void GenerateItem25()
+    {
+        playerUI.GenerateItem(playerUI.Chances25);
+    }
+    public void GenerateItem50()
+    {
+        playerUI.GenerateItem(playerUI.Chances50);
+    }
+    public void GenerateItem75()
+    {
+        playerUI.GenerateItem(playerUI.Chances75);
+    }
+    public void GenerateItem100()
+    {
+        playerUI.GenerateItem(playerUI.Chances100);
+    }
+
     #region Public Members
     public int PlayerId = 0;
     public string Name = "Player1";
     public int Money = 0;
 
     public int MoneyPerSecond = 1;
+    [SerializeField]
     private float MoneyTimer = 0f;
 
     public PlayerClass PlayerClass;
@@ -98,8 +118,6 @@ public class PlayerController : MonoBehaviour
     {
         PlayerClass.Init(this);
 
-        Listen();
-
         transform.position = GameManager.GetLevelSpawnPoint();
 
         ResetPlayer();
@@ -125,6 +143,8 @@ public class PlayerController : MonoBehaviour
         GameEventHandler.OnDamageDone += DamageDone;
         GameEventHandler.OnPause += OnPause;
         GameEventHandler.OnResume += OnResume;
+
+        GameEventHandler.EnemieDied += OnEnemieDied;
     }
 
     public void UnListen()
@@ -149,20 +169,28 @@ public class PlayerController : MonoBehaviour
 
     public void CreateCheckpoint()
     {
-        LastSave = LevelSerializer.SaveObjectTree(gameObject);
+
         checkPointTimer = 0;
+        GameEventHandler.TriggerCreateCheckpoint();
+        return;
+
+        LastSave = LevelSerializer.SaveObjectTree(gameObject);
     }
 
     public void ResetToCheckpoint()
     {
+
+        backToCheckPointTimer = BackToCheckPointCooldown;
+        GameEventHandler.TriggerResetToCheckpoint();
+        return;
+
         LevelSerializer.LoadObjectTree(LastSave);
         LastSave = LevelSerializer.SaveObjectTree(gameObject);
-        backToCheckPointTimer = BackToCheckPointCooldown;
     }
 
 	// Update is called once per frame
 	void Update () {
-        if (GameManager.Instance.GamePaused)
+        if (GameManager.GamePaused)
             return;
 
         MoneyTimer += Time.deltaTime;
@@ -226,7 +254,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (GameManager.Instance.GamePaused)
+        if (GameManager.GamePaused)
             return;
 
         _currentVelocity = rigidbody2D.velocity;
@@ -258,14 +286,32 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateLookDirection()
     {
-        if (_currentInput.x < -0.05f && transform.localScale.x == 1)
+        float lookDirection = (InputController.GetValue(PlayerID() + "_LOOKRIGHT") - InputController.GetValue(PlayerID() + "_LOOKLEFT"));
+
+        if (lookDirection == 0)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            if (_currentInput.x < -0.05f && transform.localScale.x == 1)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else if (_currentInput.x > 0.05f && transform.localScale.x == -1)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
         }
-        else if (_currentInput.x > 0.05f && transform.localScale.x == -1)
+        else
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            if (lookDirection < 0)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
         }
+
+        
 
         if (SpotlightTransform)
         {
@@ -308,14 +354,18 @@ public class PlayerController : MonoBehaviour
         if (!PlayerClass.damageImune)
         {
             damage = PlayerClass.OnPlayerGetsDamage(damage);
+            if (PlayerClass.CurrentHealth - damage <= 0)
+                damage = PlayerClass.OnPlayerLethalDamage(damage);
+
             PlayerClass.CurrentHealth -= damage;
             PlayerClass.OnPlayerDamaged(damage);
         }
         
         if (PlayerClass.CurrentHealth <= 0)
         {
+            PlayerClass.OnPlayerDied();
             //Dead
-            ResetToCheckpoint();
+            GameEventHandler.TriggerResetToCheckpoint();
         }
     }
 
@@ -357,7 +407,7 @@ public class PlayerController : MonoBehaviour
             //If we move upwards not grounded
             //return false;
         }
-        bool grounded = Physics2D.OverlapArea(transform.position - transform.right * PlayerClass.playerWidth * Half, transform.position + transform.right * PlayerClass.playerWidth * Half + (-Vector3.up * PlayerClass.footHeight), GroundCheckLayer);
+        bool grounded = Physics2D.OverlapArea(transform.position - transform.right * PlayerClass.playerWidth * Half * 0.8f, transform.position + transform.right * PlayerClass.playerWidth * Half * 0.8f + (-Vector3.up * PlayerClass.footHeight), GroundCheckLayer);
         if (grounded)
         {
             PlayerClass.ResetJump();
@@ -367,8 +417,8 @@ public class PlayerController : MonoBehaviour
 
     private bool CheckUp()
     {
-        
-        if (Physics2D.OverlapArea(transform.position - transform.right * PlayerClass.playerWidth * Half + transform.up * PlayerClass.playerHeight, transform.position + transform.right * PlayerClass.playerWidth * Half + Vector3.up * PlayerClass.playerHeight + Vector3.up * PlayerClass.footHeight, GroundCheckLayer))
+
+        if (Physics2D.OverlapArea(transform.position - transform.right * PlayerClass.playerWidth * Half * 0.8f + transform.up * PlayerClass.playerHeight, transform.position + transform.right * PlayerClass.playerWidth * Half * 0.8f + Vector3.up * PlayerClass.playerHeight + Vector3.up * PlayerClass.footHeight, GroundCheckLayer))
         {
             //_currentVelocity.y = 0;
             return true;
@@ -420,6 +470,10 @@ public class PlayerController : MonoBehaviour
         return false;
     }
 
+    public float ClimbStrength = 6f;
+
+    public float WalkUPStrength = 1f;
+
     private void Move()
     {
         groundNormal = Vector2.right;
@@ -430,49 +484,51 @@ public class PlayerController : MonoBehaviour
 
         if (Grounded)
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position + transform.up, Vector3.down, 5f, GroundCheckLayer);
+            /*
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.down, 1f, GroundCheckLayer);
 
             if (hit)
             {
                 groundNormal.x = Mathf.Abs(hit.normal.y);
                 groundNormal.y = -Mathf.Abs(hit.normal.x) * inputDirection;
-            }
 
-            if (hit.normal.x * inputDirection < 0)
-            {
-                //When we run uphill slow down maxSpeed, because walking uphill is hard
-                maxSpeedMult = Mathf.Clamp(Mathf.Clamp(groundNormal.x - 0.8f, 0f, 1f) * 5f, 0f, 1f);
+                if (hit.normal.x * inputDirection < 0)
+                {
+                    //When we run uphill slow down maxSpeed, because walking uphill is hard
+                    //maxSpeedMult = Mathf.Clamp(Mathf.Clamp(groundNormal.x - 0.3f, 0f, 1f) * 5f, 0f, 1f);
+                }
             }
-            else
+             * 
+             * RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.right * walkDirection, 1f, GroundCheckLayer);
+            if (hit)
             {
-                //_currentVelocity.x -= _currentVelocity.x * friction;
+                groundNormal.y = WalkUPStrength * walkDirection;
             }
+            */
+
+
         }
         else
         {
-            Vector3 startPoint = transform.position + transform.right * PlayerClass.playerWidth * Half * inputDirection + 
-                                Vector3.up * PlayerClass.playerHeight;
-            Vector3 endPoint = transform.position + transform.right * PlayerClass.playerWidth * Half * inputDirection +
-                                transform.right * 0.2f * inputDirection;
             
-            Debug.DrawLine(startPoint, endPoint);
-
-            if (Physics2D.OverlapArea(startPoint, endPoint, GroundCheckLayer))
-            {
-                speedChangeMult = 0f;
-                if (!CheckUp())
-                {
-                    //speedChangeMult = 2f;
-                    //groundNormal.x = 0;
-                    //groundNormal.y = 1 * inputDirection;
-                    _currentVelocity.y = 4f;
-                }
-                else
-                {
-                    //speedChangeMult = 0f;
-                }
-            }
                 
+        }
+
+        Vector3 startPoint = transform.position + transform.right * PlayerClass.playerWidth * Half * inputDirection +
+                                Vector3.up * PlayerClass.playerHeight;
+        Vector3 endPoint = transform.position + transform.right * PlayerClass.playerWidth * Half * inputDirection +
+                            transform.right * 0.2f * inputDirection;
+
+        //Climbing ?
+        if (Physics2D.OverlapArea(startPoint, endPoint, GroundCheckLayer))
+        {
+            if (!CheckUp())
+            {
+                groundNormal.y = WalkUPStrength * walkDirection;
+                if(!Grounded)
+                    _currentVelocity.y = ClimbStrength;
+            }
+            
         }
 
         Vector2 change = speedChangeMult * groundNormal * _currentInput.x * Time.fixedDeltaTime * 
@@ -487,7 +543,12 @@ public class PlayerController : MonoBehaviour
 
         _currentVelocity += change;
 
-        float SlowDownXValue = walkDirection * Time.fixedDeltaTime * (PlayerClass.GetAttributeValue(AttributeType.MOVEMENTCHANGE) / 2f);
+        
+
+        //_currentVelocity.x -= (_currentVelocity.x) * (PlayerClass.GetAttributeValue(AttributeType.MOVEMENTCHANGE)/ 10.0f) * Time.fixedDeltaTime;
+
+        
+        float SlowDownXValue = walkDirection * Time.fixedDeltaTime * (PlayerClass.GetAttributeValue(AttributeType.MOVEMENTCHANGE) / 4f);
         if (Mathf.Abs(_currentVelocity.x) - Mathf.Abs(SlowDownXValue) <= 0)
         {
             _currentVelocity.x = 0;
@@ -558,5 +619,10 @@ public class PlayerController : MonoBehaviour
     public void RemoveSkillMakingImune()
     {
         _skillMakesImune--;
+    }
+
+    public void OnEnemieDied(EnemieController sender)
+    {
+        PlayerClass.OnPlayerKilledEntity();
     }
 }

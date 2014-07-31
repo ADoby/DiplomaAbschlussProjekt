@@ -22,7 +22,7 @@ public class HitAble : MonoBehaviour {
             RaycastHit2D hit = Physics2D.RaycastAll(HitPosition - HitDirection, HitDirection, HitDirection.magnitude * 2f, layermask).FirstOrDefault(o => o.collider == collider2D);
             if (hit)
             {
-                GameObjectPool.Instance.Spawn(SpawnPoolName, HitPosition, Quaternion.FromToRotation(Vector3.back, hit.normal));
+                EntitySpawnManager.Spawn(SpawnPoolName, HitPosition, Quaternion.FromToRotation(Vector3.back, hit.normal), countEntity:false, forceDirectSpawn:true);
                 if (forceAmount != 0)
                 {
                     Force(HitPosition, HitDirection.normalized, forceAmount);

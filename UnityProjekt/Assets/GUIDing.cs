@@ -9,7 +9,10 @@ public class GUIDing : MonoBehaviour {
 	void Update () {
         if (InputController.GetClicked("ESCAPE"))
         {
-            if (!GameManager.Instance.GamePaused)
+            if (GameManager.GamePaused && !ingameMenu.activeSelf)
+                return;
+
+            if (!GameManager.GamePaused)
             {
                 ingameMenu.SetActive(true);
                 GameEventHandler.TriggerOnPause();

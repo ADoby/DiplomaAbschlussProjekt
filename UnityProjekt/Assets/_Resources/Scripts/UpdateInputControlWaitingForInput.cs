@@ -41,9 +41,9 @@ public class UpdateInputControlWaitingForInput : MonoBehaviour
             actionName = action;
         }
         
-        
         DisabledUiRectRect.Enabled = false;
         myUIRect.Visible = true;
+
     }
 
     public void ResetUI()
@@ -52,6 +52,7 @@ public class UpdateInputControlWaitingForInput : MonoBehaviour
             DisabledUiRectRect.Enabled = true;
 
         myUIRect.Visible = false;
+
     }
 
 	// Update is called once per frame
@@ -89,6 +90,13 @@ public class UpdateInputControlWaitingForInput : MonoBehaviour
         {
             InputController.Instance.RebindKey(inputString);
             rebindSend = true;
+
+            GameManager.AllowMenuInput = false;
+        }
+        else if (!myUIRect.Visible && rebindSend)
+        {
+
+            GameManager.AllowMenuInput = true;
         }
     }
 }

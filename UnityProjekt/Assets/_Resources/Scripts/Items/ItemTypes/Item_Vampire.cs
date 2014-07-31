@@ -15,7 +15,7 @@ public class Item_Vampire : Item
     {
         get
         {
-            return "<color=" + colors[prefixID] + ">" + Name + "</color>\nVampire: " + Vampire.ToString("#0%");
+            return "<color=" + colors[prefixID] + ">" + Name + "</color>\n<color=#226622>Vampire: " + Vampire.ToString("#0%") + "</color>";
         }
     }
 
@@ -23,6 +23,7 @@ public class Item_Vampire : Item
 
     public override void UpdateStats(float value)
     {
+        base.UpdateStats(value);
         Vampire *= value;
     }
 

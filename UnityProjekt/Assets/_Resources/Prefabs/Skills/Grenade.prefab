@@ -57,8 +57,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Grenade
-  SkillCooldown: 10
+  SkillCooldown: 6
+  CooldownTimer: 0
   SkillRunTime: 0
+  SkillRunTimer: 0
+  skillRunning: 0
   PreventsMovement: 0
   PreventsDamage: 0
   PreventsUsingSkills: 0
@@ -66,6 +69,7 @@ MonoBehaviour:
   Projectile: Grenade
   ShootingPosition: {x: .800000012, y: 1.29999995}
   DamageMult: 5
+  amount: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

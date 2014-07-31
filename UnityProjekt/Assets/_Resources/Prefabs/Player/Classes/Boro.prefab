@@ -59,25 +59,25 @@ MonoBehaviour:
     ValuePerSkillPoint: 1
     MinValue: 0
     MaxValue: 2000
-    MaxSkillUps: 50
+    MaxSkillUps: 100
     currentSkillUps: 0
   - Name: Attack Speed
     Value: 1
     ValuePerLevel: 0
     valueMultiply: 1
-    ValuePerSkillPoint: .0500000007
+    ValuePerSkillPoint: .0299999993
     MinValue: 0
     MaxValue: 4
-    MaxSkillUps: 20
+    MaxSkillUps: 30
     currentSkillUps: 0
   - Name: Damage
-    Value: 10
+    Value: 30
     ValuePerLevel: 2
     valueMultiply: 1
-    ValuePerSkillPoint: 5
+    ValuePerSkillPoint: 3
     MinValue: 0
     MaxValue: 5000
-    MaxSkillUps: 100
+    MaxSkillUps: 200
     currentSkillUps: 0
   - Name: Movement Speed
     Value: 5
@@ -128,18 +128,22 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e498e8fd35d281845b4cd1bfe62bc78f, type: 2}
   - {fileID: 11400000, guid: 936cd7626d9574b4ab4e28b2d0636f21, type: 2}
   - {fileID: 11400002, guid: ce2c3b18860fa114ca8613e5764c187f, type: 2}
-  - {fileID: 11400000, guid: 4138e676b74154142aded402a86090d6, type: 2}
+  - {fileID: 11400002, guid: b9b0f5cb02b3f184585e4e9f980eef53, type: 2}
   playerBuffs: []
   CurrentHealth: 0
+  skillsRunning: 0
   GravityMultiply: 2
   playerWidth: 1
   playerHeight: 2
-  footHeight: .100000001
+  footHeight: .200000003
   MaxJumpCount: 1
+  currentJumpNumber: 0
+  playerTransform: {fileID: 0}
   overrideVelocity: {x: 0, y: 0}
   skillPoints: 0
   damageImune: 0
   classThumbnail: {fileID: 0}
+  UIItemPickupPoolName: UIItemPickup
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

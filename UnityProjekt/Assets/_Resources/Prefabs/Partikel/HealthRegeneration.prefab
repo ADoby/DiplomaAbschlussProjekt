@@ -11,6 +11,7 @@ GameObject:
   - 198: {fileID: 19800000}
   - 199: {fileID: 19900000}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400002}
   m_Layer: 0
   m_Name: HealthRegeneration
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: .0170291662, y: 1.74631667, z: -.0246582069}
+  m_LocalPosition: {x: -5.85861254, y: 2.98790693, z: -.0246581547}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -42,21 +43,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 
+  _id: dc9efa6b-3657-4973-b2ce-6a0dc8408acf
   classId: 74d03ed6-3b8b-4fec-984a-4e3ee097fcf6
   StoreAllComponents: 1
   Components: []
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b71ea6e6f72183a4ca2c983768194482, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolName: HealthRegenParticle
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  lengthInSec: 1
+  lengthInSec: 3
   startDelay: 0
   speed: 1
   randomSeed: 0
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   moveWithTransform: 0
@@ -203,7 +216,7 @@ ParticleSystem:
         rgba: 4294967295
       minMaxState: 0
     startSize:
-      scalar: .5
+      scalar: .699999988
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -218,7 +231,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: .200000003
+          value: .214285731
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -278,7 +291,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 0
     rate:
-      scalar: 1
+      scalar: 4
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -310,7 +323,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
       minMaxState: 0
-    cnt0: 30
+    cnt0: 1
     cnt1: 30
     cnt2: 30
     cnt3: 30
@@ -318,7 +331,7 @@ ParticleSystem:
     time1: 0
     time2: 0
     time3: 0
-    m_BurstCount: 0
+    m_BurstCount: 1
   SizeModule:
     enabled: 1
     curve:
@@ -654,7 +667,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     y:
-      scalar: 1
+      scalar: 2
       maxCurve:
         serializedVersion: 2
         m_Curve:

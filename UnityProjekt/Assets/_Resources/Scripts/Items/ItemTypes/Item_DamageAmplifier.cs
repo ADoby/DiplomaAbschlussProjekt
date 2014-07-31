@@ -15,7 +15,7 @@ public class Item_DamageAmplifier : Item
     {
         get
         {
-            return "<color=" + colors[prefixID] + ">" + Name + "</color>\nDamage mult: " + DamageAmplifier.ToString("#0%");
+            return "<color=" + colors[prefixID] + ">" + Name + "</color>\n<color=#226622>Damage mult: " + DamageAmplifier.ToString("#0%") + "</color>";
         }
     }
 
@@ -23,6 +23,7 @@ public class Item_DamageAmplifier : Item
 
     public override void UpdateStats(float value)
     {
+        base.UpdateStats(value);
         DamageAmplifier *= value;
     }
 

@@ -2671,6 +2671,8 @@ MonoBehaviour:
   currentExtraDiff: {x: 0, y: 0, z: 0}
   size: 30
   changeDamping: 1
+  cameraWantedSize: 10
+  wantedPositionDiff: {x: 0, y: 0, z: 0}
   crouchTimer: 0
   crouchMinTime: .800000012
 --- !u!114 &11400004
@@ -2717,40 +2719,40 @@ MonoBehaviour:
   MoneyPerItem100: 3000
   Chances25:
   - value: 0
-    weight: 40
+    weight: .25
   - value: 1
-    weight: 30
+    weight: .25
   - value: 2
-    weight: 20
+    weight: .25
   - value: 3
-    weight: 10
+    weight: .25
   Chances50:
   - value: 2
-    weight: 25
+    weight: .25
   - value: 3
-    weight: 25
+    weight: .25
   - value: 4
-    weight: 25
+    weight: .25
   - value: 5
-    weight: 25
+    weight: .25
   Chances75:
   - value: 4
-    weight: 25
+    weight: .25
   - value: 5
-    weight: 25
+    weight: .25
   - value: 6
-    weight: 25
+    weight: .25
   - value: 7
-    weight: 25
+    weight: .25
   Chances100:
   - value: 6
-    weight: 40
+    weight: .25
   - value: 7
-    weight: 30
+    weight: .25
   - value: 8
-    weight: 20
+    weight: .25
   - value: 9
-    weight: 10
+    weight: .25
   Button25: {fileID: 11400400}
   Button50: {fileID: 11400398}
   Button75: {fileID: 11400396}
@@ -2786,9 +2788,9 @@ MonoBehaviour:
   absoluteRect:
     serializedVersion: 2
     x: 3
-    y: 20.9387989
-    width: 175.079987
-    height: 17.9387989
+    y: 18.6420002
+    width: 154.199997
+    height: 15.6420002
   parent: {fileID: 11400024}
   children:
   - {fileID: 11400008}
@@ -2883,9 +2885,9 @@ MonoBehaviour:
   absoluteRect:
     serializedVersion: 2
     x: 6
-    y: 23.9388008
-    width: 169.079987
-    height: 11.9387989
+    y: 21.6420021
+    width: 148.199997
+    height: 9.6420002
   parent: {fileID: 11400006}
   children: []
   ChildCount: 0
@@ -2978,10 +2980,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 41.0159988
+    x: 36.840004
     y: 6
-    width: 134.063995
-    height: 11.9387989
+    width: 117.360001
+    height: 9.6420002
   parent: {fileID: 11400032}
   children: []
   ChildCount: 0
@@ -3075,9 +3077,9 @@ MonoBehaviour:
   absoluteRect:
     serializedVersion: 2
     x: 3
-    y: 38.8775978
-    width: 175.079987
-    height: 17.9387989
+    y: 34.2840004
+    width: 154.199997
+    height: 15.6420002
   parent: {fileID: 11400018}
   children:
   - {fileID: 11400214}
@@ -3173,9 +3175,9 @@ MonoBehaviour:
   absoluteRect:
     serializedVersion: 2
     x: -2
-    y: 38.8775978
-    width: 175.079987
-    height: 17.9387989
+    y: 34.2840004
+    width: 154.199997
+    height: 15.6420002
   parent: {fileID: 11400012}
   children: []
   ChildCount: 0
@@ -3228,7 +3230,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 11
+    m_FontSize: 10
     m_FontStyle: 0
     m_Alignment: 5
     m_WordWrap: 1
@@ -3240,6 +3242,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  isInitialized: 1
+  normalTextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &11400016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3269,9 +3274,9 @@ MonoBehaviour:
   absoluteRect:
     serializedVersion: 2
     x: 3
-    y: 20.9387989
-    width: 175.079987
-    height: 17.9387989
+    y: 18.6420002
+    width: 154.199997
+    height: 15.6420002
   parent: {fileID: 11400024}
   children: []
   ChildCount: 0
@@ -3324,7 +3329,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 11
+    m_FontSize: 10
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 1
@@ -3336,6 +3341,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  isInitialized: 1
+  normalTextColor: {r: 1, g: 1, b: 1, a: 1}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &11400018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3366,8 +3374,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 3
     y: 3
-    width: 175.079987
-    height: 54.3599968
+    width: 154.199997
+    height: 47.3999977
   parent: {fileID: 11400028}
   children:
   - {fileID: 11400022}
@@ -3465,8 +3473,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 3
     y: 3
-    width: 35.0159988
-    height: 17.9387989
+    width: 30.8400002
+    height: 15.6420002
   parent: {fileID: 11400026}
   children: []
   ChildCount: 0
@@ -3519,7 +3527,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 11
+    m_FontSize: 10
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 1
@@ -3531,6 +3539,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  isInitialized: 1
+  normalTextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &11400022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3561,8 +3572,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 3
     y: 3
-    width: 175.079987
-    height: 17.9387989
+    width: 154.199997
+    height: 15.6420002
   parent: {fileID: 11400018}
   children:
   - {fileID: 11400026}
@@ -3658,9 +3669,9 @@ MonoBehaviour:
   absoluteRect:
     serializedVersion: 2
     x: 3
-    y: 20.9387989
-    width: 175.079987
-    height: 17.9387989
+    y: 18.6420002
+    width: 154.199997
+    height: 15.6420002
   parent: {fileID: 11400018}
   children:
   - {fileID: 11400006}
@@ -3757,8 +3768,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 3
     y: 3
-    width: 35.0159988
-    height: 17.9387989
+    width: 30.8400002
+    height: 15.6420002
   parent: {fileID: 11400022}
   children:
   - {fileID: 11400020}
@@ -3854,8 +3865,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 181.079987
-    height: 60.3599968
+    width: 160.199997
+    height: 53.3999977
   parent: {fileID: 11400030}
   children:
   - {fileID: 11400018}
@@ -3951,8 +3962,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 894
-    height: 503
+    width: 662
+    height: 445
   parent: {fileID: 0}
   children:
   - {fileID: 11400210}
@@ -4048,10 +4059,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 38.0159988
+    x: 33.8400002
     y: 3
-    width: 140.063995
-    height: 17.9387989
+    width: 123.360001
+    height: 15.6420002
   parent: {fileID: 11400038}
   children:
   - {fileID: 11400010}
@@ -4145,10 +4156,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 38.0159988
+    x: 33.8400002
     y: 3
-    width: 140.063995
-    height: 17.9387989
+    width: 123.360001
+    height: 15.6420002
   parent: {fileID: 11400038}
   children: []
   ChildCount: 0
@@ -4201,7 +4212,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 11
+    m_FontSize: 10
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 1
@@ -4213,6 +4224,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  isInitialized: 1
+  normalTextColor: {r: 1, g: 1, b: 1, a: 1}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &11400036
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4263,10 +4277,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 38.0159988
+    x: 33.8400002
     y: 3
-    width: 140.063995
-    height: 17.9387989
+    width: 123.360001
+    height: 15.6420002
   parent: {fileID: 11400022}
   children:
   - {fileID: 11400032}
@@ -4590,6 +4604,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  isInitialized: 0
+  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11400050
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4723,6 +4740,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  isInitialized: 0
+  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11400058
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4819,6 +4839,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  isInitialized: 0
+  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11400060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4957,6 +4980,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  isInitialized: 0
+  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11400064
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5172,6 +5198,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  isInitialized: 0
+  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11400070
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5271,6 +5300,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  isInitialized: 0
+  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11400072
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5698,10 +5730,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 126.337494
-    y: 62.8749847
-    width: 641.325012
-    height: 427.550018
+    x: 47.3125
+    y: 55.625
+    width: 567.375
+    height: 378.25
   parent: {fileID: 11400030}
   children:
   - {fileID: 11400078}
@@ -6072,6 +6104,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  isInitialized: 0
+  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11400110
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6210,6 +6245,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  isInitialized: 0
+  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11400114
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6505,6 +6543,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  isInitialized: 0
+  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11400120
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6638,6 +6679,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  isInitialized: 0
+  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11400126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6836,6 +6880,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  isInitialized: 0
+  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11400130
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6969,6 +7016,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  isInitialized: 0
+  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11400138
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7065,6 +7115,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  isInitialized: 0
+  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11400140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7203,6 +7256,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  isInitialized: 0
+  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11400144
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7396,6 +7452,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  isInitialized: 0
+  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11400150
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7534,6 +7593,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  isInitialized: 0
+  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11400154
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7829,6 +7891,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  isInitialized: 0
+  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11400160
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7962,6 +8027,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  isInitialized: 0
+  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11400168
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8058,6 +8126,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  isInitialized: 0
+  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11400170
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8196,6 +8267,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  isInitialized: 0
+  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11400174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8342,10 +8416,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 499.300018
-    y: 462.76001
-    width: 46.2999954
-    height: 40.2399979
+    x: 377.5
+    y: 409.399994
+    width: 40.5
+    height: 35.5999985
   parent: {fileID: 11400210}
   children:
   - {fileID: 11400180}
@@ -8441,10 +8515,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 499.300018
-    y: 462.76001
-    width: 46.2999954
-    height: 40.2399979
+    x: 377.5
+    y: 409.399994
+    width: 40.5
+    height: 35.5999985
   parent: {fileID: 11400178}
   children: []
   ChildCount: 0
@@ -8633,10 +8707,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 499.300018
-    y: 462.76001
-    width: 46.2999954
-    height: 40.2399979
+    x: 377.5
+    y: 409.399994
+    width: 40.5
+    height: 35.5999985
   parent: {fileID: 11400178}
   children: []
   ChildCount: 0
@@ -8689,7 +8763,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 20
+    m_FontSize: 17
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 1
@@ -8701,6 +8775,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  isInitialized: 1
+  normalTextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &11400186
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8729,10 +8806,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 449
-    y: 462.76001
-    width: 46.2999954
-    height: 40.2399979
+    x: 333
+    y: 409.399994
+    width: 40.5
+    height: 35.5999985
   parent: {fileID: 11400192}
   children: []
   ChildCount: 0
@@ -8785,7 +8862,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 20
+    m_FontSize: 17
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 1
@@ -8797,6 +8874,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  isInitialized: 1
+  normalTextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &11400188
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8921,10 +9001,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 449
-    y: 462.76001
-    width: 46.2999954
-    height: 40.2399979
+    x: 333
+    y: 409.399994
+    width: 40.5
+    height: 35.5999985
   parent: {fileID: 11400192}
   children: []
   ChildCount: 0
@@ -9017,10 +9097,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 449
-    y: 462.76001
-    width: 46.2999954
-    height: 40.2399979
+    x: 333
+    y: 409.399994
+    width: 40.5
+    height: 35.5999985
   parent: {fileID: 11400210}
   children:
   - {fileID: 11400190}
@@ -9116,10 +9196,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 398.700012
-    y: 462.76001
-    width: 46.2999954
-    height: 40.2399979
+    x: 288.5
+    y: 409.399994
+    width: 40.5
+    height: 35.5999985
   parent: {fileID: 11400210}
   children:
   - {fileID: 11400196}
@@ -9215,10 +9295,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 398.700012
-    y: 462.76001
-    width: 46.2999954
-    height: 40.2399979
+    x: 288.5
+    y: 409.399994
+    width: 40.5
+    height: 35.5999985
   parent: {fileID: 11400194}
   children: []
   ChildCount: 0
@@ -9407,10 +9487,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 398.700012
-    y: 462.76001
-    width: 46.2999954
-    height: 40.2399979
+    x: 288.5
+    y: 409.399994
+    width: 40.5
+    height: 35.5999985
   parent: {fileID: 11400194}
   children: []
   ChildCount: 0
@@ -9463,7 +9543,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 20
+    m_FontSize: 17
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 1
@@ -9475,6 +9555,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  isInitialized: 1
+  normalTextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &11400202
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9503,10 +9586,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 348.400024
-    y: 462.76001
-    width: 46.2999954
-    height: 40.2399979
+    x: 244
+    y: 409.399994
+    width: 40.5
+    height: 35.5999985
   parent: {fileID: 11400208}
   children: []
   ChildCount: 0
@@ -9559,7 +9642,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 20
+    m_FontSize: 17
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 1
@@ -9571,6 +9654,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  isInitialized: 1
+  normalTextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &11400204
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9695,10 +9781,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 348.400024
-    y: 462.76001
-    width: 46.2999954
-    height: 40.2399979
+    x: 244
+    y: 409.399994
+    width: 40.5
+    height: 35.5999985
   parent: {fileID: 11400208}
   children: []
   ChildCount: 0
@@ -9791,10 +9877,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 348.400024
-    y: 462.76001
-    width: 46.2999954
-    height: 40.2399979
+    x: 244
+    y: 409.399994
+    width: 40.5
+    height: 35.5999985
   parent: {fileID: 11400210}
   children:
   - {fileID: 11400206}
@@ -9890,10 +9976,10 @@ MonoBehaviour:
   VerticalAlignment: 2
   absoluteRect:
     serializedVersion: 2
-    x: 346.400024
-    y: 462.76001
-    width: 201.199982
-    height: 40.2399979
+    x: 242
+    y: 409.399994
+    width: 178
+    height: 35.5999985
   parent: {fileID: 11400030}
   children:
   - {fileID: 11400208}
@@ -10003,9 +10089,9 @@ MonoBehaviour:
   absoluteRect:
     serializedVersion: 2
     x: 8
-    y: 38.8775978
-    width: 175.079987
-    height: 17.9387989
+    y: 34.2840004
+    width: 154.199997
+    height: 15.6420002
   parent: {fileID: 11400012}
   children: []
   ChildCount: 0
@@ -10058,7 +10144,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 11
+    m_FontSize: 10
     m_FontStyle: 0
     m_Alignment: 3
     m_WordWrap: 1
@@ -10070,6 +10156,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  isInitialized: 1
+  normalTextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &11400216
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10082,7 +10171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: def9aafd-d6e5-414c-bccb-5a4b2dd52f95
+  _id: eef17eac-a4bd-4cb5-abde-f8d0374a2de2
   classId: 0d468ab2-10f0-4339-a5b5-e104b03e4057
 --- !u!114 &11400218
 MonoBehaviour:
@@ -10096,7 +10185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 99eb96ce-9013-489e-a971-547a03881f55
+  _id: a4a2c85c-fb47-405a-ad98-61cd990f7a19
   classId: 870511d5-85a0-493d-966c-8e17c701906a
 --- !u!114 &11400220
 MonoBehaviour:
@@ -10110,7 +10199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 2d83518d-1645-42b8-8cea-15e245a382dd
+  _id: ca7807ad-e71a-4f76-9b34-c4d8f05ff453
   classId: 39415fb8-3fd6-4cb4-b7fc-bd1cd10aad7a
 --- !u!114 &11400222
 MonoBehaviour:
@@ -10124,7 +10213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: fbe1aad1-4ca6-4be1-b560-c13dc0f49319
+  _id: 1b028911-2976-44a9-836a-f2cdf0e19b6e
   classId: 918c136c-f531-4322-9844-382e1c2b08a4
 --- !u!114 &11400224
 MonoBehaviour:
@@ -10138,7 +10227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: e1e7e7e5-39c8-4231-8f7a-bc2751ce4d8d
+  _id: 3864d997-768f-4155-994e-771c7b651ef7
   classId: 11eef930-e65a-4a35-99a5-dde5127843c7
 --- !u!114 &11400226
 MonoBehaviour:
@@ -10152,7 +10241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: ca537c89-f6ae-4bad-9f38-11b49fb80901
+  _id: 60dab151-a9c2-417a-959c-f719531fc2bc
   classId: a42e03cd-4a6e-48c0-8cf0-0137a9925365
 --- !u!114 &11400228
 MonoBehaviour:
@@ -10166,7 +10255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 58e62989-8686-4752-a805-bbc41a53d3cf
+  _id: f541686f-f374-453d-8b32-ec9b28f5cccc
   classId: e626339f-54c9-47ec-bd09-bab794452d24
 --- !u!114 &11400230
 MonoBehaviour:
@@ -10180,7 +10269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 8a57b1c9-9cbc-4fbe-8e42-2beb17cd536c
+  _id: 96c21977-5113-4fc0-ba89-da4aa5c2b9cd
   classId: 539c90ed-7208-4540-a307-af680f306a51
 --- !u!114 &11400232
 MonoBehaviour:
@@ -10194,7 +10283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 816cad8a-d844-4415-a3f0-5fa74b06813f
+  _id: 9dc85100-d2a4-422e-9f2d-372a79ea6c7f
   classId: 9dd43360-a795-45f1-bca4-26374e85ad20
 --- !u!114 &11400236
 MonoBehaviour:
@@ -10208,7 +10297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 9ebf8dd2-fac1-4fe2-bce5-f4efcd52d647
+  _id: dc4c9e3a-8c46-42a9-b657-6f911efa2356
   classId: 87d62bf3-6405-422e-af83-4b12b4117e81
 --- !u!114 &11400238
 MonoBehaviour:
@@ -10222,7 +10311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 80896251-08a8-460e-8399-8d9ea7e1ea8c
+  _id: 26684223-08be-4be7-ba68-3f0253afa458
   classId: 79137ad6-9c50-4ef2-b955-e53817533d13
 --- !u!114 &11400240
 MonoBehaviour:
@@ -10236,7 +10325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 9f3e2209-4369-4b84-9dfa-f05a1a5bf62d
+  _id: 171d6d7e-e192-4323-a505-a51c3fb1cac3
   classId: c0cc228e-c04d-4dfb-a367-53beeaac0efb
 --- !u!114 &11400242
 MonoBehaviour:
@@ -10250,7 +10339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: f708fb23-76ec-4123-b287-e0552939c824
+  _id: 41cdae2a-c7da-4b0e-a5f6-839cd221a8f1
   classId: 79abe1e2-f716-47b4-9b4e-66beb553d88b
 --- !u!114 &11400246
 MonoBehaviour:
@@ -10264,7 +10353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: f43368bc-a9d0-4820-9cf0-550e348ff9e9
+  _id: db3c84bf-8288-4507-b248-54db030fe743
   classId: 7ec176cc-7375-405c-b444-02240c243ba6
 --- !u!114 &11400248
 MonoBehaviour:
@@ -10278,7 +10367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: a79a99c1-9892-46ab-b75f-4bc1fcd171d9
+  _id: bddd184a-0eb1-45a9-8c74-2891b869e949
   classId: 0d4df0d2-bb87-4259-87fa-5ec5485493ff
 --- !u!114 &11400250
 MonoBehaviour:
@@ -10292,7 +10381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 88d308f6-0171-4c91-9bc3-3eaa06e85157
+  _id: 3187db97-7109-44e1-a728-670744105f3b
   classId: 38ffee3f-8fc0-44ad-99bb-acc80b2277e2
 --- !u!114 &11400252
 MonoBehaviour:
@@ -10306,7 +10395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 8b70d439-af28-4b92-9b6a-4355aacdfa46
+  _id: 3235c6ac-ae83-43fc-ae87-c45e6232ef7f
   classId: 2d60b8f8-8d17-47de-80e5-5a83f5105bb4
 --- !u!114 &11400256
 MonoBehaviour:
@@ -10320,7 +10409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: adf97b00-7577-4ed3-bc9e-ed5f50663ff9
+  _id: 8268e600-cfad-4924-9c27-75162bb145d5
   classId: ddcc3f57-5d35-431b-950c-ab4fafd78679
 --- !u!114 &11400258
 MonoBehaviour:
@@ -10334,7 +10423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 29a4590f-8801-4511-a5f2-61509c0b4c79
+  _id: 03c14085-b668-4043-b148-c90a34d4778a
   classId: 3f3d29c0-6a34-422a-abaa-5e72ac10e808
 --- !u!114 &11400260
 MonoBehaviour:
@@ -10348,7 +10437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 457ed0f1-8486-47c8-af0c-877727d093cd
+  _id: 81c0db2c-fc2a-43ba-89ae-ad00015da30c
   classId: 4e3eae9a-ef51-466a-aae8-fe192034c223
 --- !u!114 &11400262
 MonoBehaviour:
@@ -10362,7 +10451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: b8324b32-92e0-45c6-9203-d662b923bc6c
+  _id: b982e5e4-9198-4bda-822b-4cc9c2685946
   classId: f9971364-13ef-4c62-86a0-c92c3c1cf53b
 --- !u!114 &11400266
 MonoBehaviour:
@@ -10376,7 +10465,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 5953ab2b-50e9-4d9c-a19e-2ab82f4e2456
+  _id: 6d1aa7cd-7f04-4959-b645-157d15d1364a
   classId: aa31d59d-c542-4137-a069-0300fb4c4649
 --- !u!114 &11400268
 MonoBehaviour:
@@ -10390,7 +10479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: e3496409-61d5-45b8-ae66-12ae9fb91609
+  _id: 7fc1df0e-a663-4965-9eb8-afdedbe851db
   classId: fc481353-0afe-4fbe-83c5-7274dfa0b66c
 --- !u!114 &11400270
 MonoBehaviour:
@@ -10404,7 +10493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 1ed489d7-0520-420f-a357-36444dff7067
+  _id: a31fdbd1-f901-4c21-8183-827bd3e2e33d
   classId: a9979d82-16d7-4463-bf45-0a154c814e55
 --- !u!114 &11400272
 MonoBehaviour:
@@ -10418,7 +10507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: f7aeee67-bb03-4009-8639-8762b79c26d2
+  _id: aa1b9e79-a822-4a87-900b-5398b82f6df5
   classId: 01f1afb4-c1f5-4369-8240-b4a8dc6689ee
 --- !u!114 &11400276
 MonoBehaviour:
@@ -10432,7 +10521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: b6de4955-3be9-4fd4-b2f7-b68ef81fe8c5
+  _id: b58af714-a643-4b24-8cdb-99012301b83f
   classId: 2035dbf7-d4cc-44c5-9399-2b7cd1d6379e
 --- !u!114 &11400278
 MonoBehaviour:
@@ -10446,7 +10535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 2c502a58-2b02-49e7-a7cc-a281715de670
+  _id: 2624c2a3-face-4909-9052-c7bca311395f
   classId: 86ebcb2f-dff6-479b-8071-cf954394f613
 --- !u!114 &11400280
 MonoBehaviour:
@@ -10460,7 +10549,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: ffbc8b80-4234-4b5e-abc9-95b4e0f459a5
+  _id: 5bc3a4b2-54c0-4db3-9060-324122a9159e
   classId: b64f60ef-a591-4cd4-8c35-02bdc6cd1ec2
 --- !u!114 &11400282
 MonoBehaviour:
@@ -10474,7 +10563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 10318d4e-b648-4b21-a653-8a3a9602601d
+  _id: 8d89e226-ef93-4e4d-ae90-0ce2fa706384
   classId: d72fe206-df48-4d23-bf98-026070e9c926
 --- !u!114 &11400286
 MonoBehaviour:
@@ -10488,7 +10577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 3dd2b971-9e1e-46d5-9a3c-1ea8147e3ced
+  _id: ff6f0215-a610-49a6-b4e6-f42f077cc177
   classId: d5fb88dd-6b7a-4e09-85b2-bc8cc08b1fb4
 --- !u!114 &11400288
 MonoBehaviour:
@@ -10502,7 +10591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 67cadf44-286d-47cc-9282-bde5b5e2aace
+  _id: 6ef158fa-e065-4be1-b75d-4c4c50ce2367
   classId: a532d886-054d-4510-a498-30ee78022ba6
 --- !u!114 &11400290
 MonoBehaviour:
@@ -10516,7 +10605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: f19c8a01-6c89-4b1e-baa4-23b5a2c36a82
+  _id: 27f1948d-fc16-40ef-b413-88f84b1071e3
   classId: 4b3ab3bd-c52d-4a81-a949-ad760c4d06a4
 --- !u!114 &11400292
 MonoBehaviour:
@@ -10530,7 +10619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: f31f7008-bf4b-448b-83d3-994c320e08bb
+  _id: 14371f13-a1b8-4e74-9cb3-7cdfc9982164
   classId: a63b9201-3a94-4ac1-a048-421a86f8a34b
 --- !u!114 &11400296
 MonoBehaviour:
@@ -10544,7 +10633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 5df55f8a-7c2f-4eb0-9d3f-88198ac136d2
+  _id: cbfbcf94-6514-4ca5-8a5c-bc07ed944369
   classId: 1b259a49-23e5-40ac-a35b-9a449e739115
 --- !u!114 &11400298
 MonoBehaviour:
@@ -10558,7 +10647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 50baf4e8-d321-48c7-a2e8-bf41b32f9194
+  _id: f349a4a8-8628-4227-9b08-56837b8e9fad
   classId: deca2907-504d-4f09-8c42-e39b3b1ca8a8
 --- !u!114 &11400300
 MonoBehaviour:
@@ -10572,7 +10661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 9104e28e-8cd5-4b40-9326-2853b94c9da7
+  _id: 8234a914-4214-49fb-acaa-f7c9e602f102
   classId: 1d6ea7c6-d6a7-4313-9016-444e0ba603bc
 --- !u!114 &11400302
 MonoBehaviour:
@@ -10586,7 +10675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 57430df5-3fd9-4498-913d-86fe9e01328a
+  _id: db48a70f-b405-4078-a666-d22a31ef7690
   classId: 8bff1c44-8f1c-4bbd-a8f5-e59932500679
 --- !u!114 &11400306
 MonoBehaviour:
@@ -10600,7 +10689,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 4866b6a2-c3ff-4f80-ba80-5f2452445b32
+  _id: 581930fe-d14c-48f8-b566-8f3bade25be2
   classId: 3311390d-2fad-48d9-b37e-b60c9a11254d
 --- !u!114 &11400308
 MonoBehaviour:
@@ -10614,7 +10703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 185c805c-bc03-4c36-8f02-d6432b389dd8
+  _id: c4e6130c-08fb-4800-8fd8-17fe30783f0d
   classId: a7f266ad-5831-446b-9afe-42cd2c4d4d3f
 --- !u!114 &11400310
 MonoBehaviour:
@@ -10628,7 +10717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 69669b5c-5af8-4981-8c16-ab93282fd281
+  _id: 88df75b9-83da-4f4a-93cc-573c4eab440c
   classId: 60dbcf82-e59e-46b9-8d24-08fecbfaca95
 --- !u!114 &11400312
 MonoBehaviour:
@@ -10642,7 +10731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 9808c0a4-00e5-421b-8709-a25a282f64df
+  _id: a05e5668-2341-4243-8ebf-87efc822b2a9
   classId: 2891ff96-6188-4a1e-9b97-3ae65e39426c
 --- !u!114 &11400316
 MonoBehaviour:
@@ -10656,7 +10745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: cf8f24c9-72d3-4c86-bb86-44c7955380c0
+  _id: 2651f3cd-4155-4321-9040-e09b1c8b2839
   classId: 4ba3fc25-a86a-490a-bae7-e772e1a5df08
 --- !u!114 &11400318
 MonoBehaviour:
@@ -10670,7 +10759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 143b35b0-744f-4a74-8719-03e3908b6551
+  _id: a45775e1-eca2-4631-ba0c-c75d3b91ca6a
   classId: 1eaeaa3a-5c01-4f19-9482-1f00de1ff3f0
 --- !u!114 &11400320
 MonoBehaviour:
@@ -10684,7 +10773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 4213c124-1de7-41c4-90bb-ae0d7e308c79
+  _id: 25473a82-3a27-4121-b521-0e00c04a6d9a
   classId: c0b15afe-b2b7-4da0-8f2c-be193f5da0eb
 --- !u!114 &11400322
 MonoBehaviour:
@@ -10698,7 +10787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 1315dfca-71dc-4c4c-a966-5472a43fe818
+  _id: 4fc3db38-dd88-4ace-a4fd-da2a1fd134c6
   classId: b3f39104-4754-46dc-b974-32a0a61101a3
 --- !u!114 &11400324
 MonoBehaviour:
@@ -10712,7 +10801,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 8ac09b1c-c4d7-477e-b906-4c548c5b100c
+  _id: 9cabfc87-de7e-4175-aa64-4b6444a8b6f4
   classId: be970d20-6abc-4949-bdf3-c0b6a6a837b9
 --- !u!114 &11400326
 MonoBehaviour:
@@ -10726,7 +10815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: fe299a02-9d05-4bea-b099-442a0db25170
+  _id: ade2b6e2-a885-4bd0-92f9-928a8d369e7d
   classId: 85a85cd7-dac4-4bbb-a4f1-807e6f4f28aa
 --- !u!114 &11400328
 MonoBehaviour:
@@ -10740,7 +10829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 4ac67ec0-85f0-4259-ac5b-fa59e73e3827
+  _id: 08450b76-901a-4dc2-82d3-0bdaf6147529
   classId: 414c2b50-848b-42dc-b4ad-aabb1df80909
 --- !u!114 &11400330
 MonoBehaviour:
@@ -10754,7 +10843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: ef9f01d8-3216-4a66-874c-d49f2b12a42d
+  _id: 4881f8c1-7aee-4d9c-8501-a7f9cae85e7e
   classId: f3de8e35-c04e-4d1f-afc1-6033f1451a33
 --- !u!114 &11400332
 MonoBehaviour:
@@ -10768,7 +10857,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 74579fc5-c2d6-4f84-a045-af9ec876135b
+  _id: 86d3bc67-57fe-4482-a5ec-dcedb10321be
   classId: 535978de-8eac-463d-b529-e6a7a75ea810
 --- !u!114 &11400334
 MonoBehaviour:
@@ -10782,7 +10871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 45708559-6a85-43fd-ab6e-6bf4cdaf78a0
+  _id: e85d626a-5c96-4a7b-86fd-971e847c9d4c
   classId: 2cfa6247-812e-4758-846e-0d95129dfba5
 --- !u!114 &11400336
 MonoBehaviour:
@@ -10796,7 +10885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: d0c25b0b-6caf-47ea-846b-7d58ef90bb05
+  _id: 9722110b-ae5d-4f19-96d0-855ea8c3fb6d
   classId: f854ff92-2656-4efa-9e47-45807b747018
 --- !u!114 &11400338
 MonoBehaviour:
@@ -10810,7 +10899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 0c74e164-45c4-48a3-9438-27295e27e627
+  _id: cc47e17f-e749-45f3-b104-665726041286
   classId: c82f66e3-a344-424f-a158-60dec34eb1b4
 --- !u!114 &11400340
 MonoBehaviour:
@@ -10824,7 +10913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 4bfb7e8b-5a61-48ba-9541-31eec067dc27
+  _id: 66bd38f6-319d-4460-9b88-557e98bb2d90
   classId: c2f2d6d2-ddfc-4aae-8e6b-77f6984a7bda
 --- !u!114 &11400342
 MonoBehaviour:
@@ -10838,7 +10927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 6b1427d7-de92-4c62-975d-d8acc4badd1f
+  _id: 1ee33167-9e99-4155-bbb5-02b242694f87
   classId: a4e69d6b-6e7e-45bb-8394-03111dbb1f05
 --- !u!114 &11400344
 MonoBehaviour:
@@ -10852,7 +10941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 63f6f2d0-f671-4b63-87e1-254a7f1fa35c
+  _id: 7b78d46e-b7fc-432e-9994-44fc149f6445
   classId: 10bc1fd3-e88f-4f0a-bb86-704f43203f35
 --- !u!114 &11400346
 MonoBehaviour:
@@ -10866,7 +10955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: d0be0491-1b99-4211-b4a9-dae32e6a866a
+  _id: fbe8632f-f387-45e5-a96b-a30366b710cb
   classId: 7d3819c1-2cbe-40c6-874c-2ffec3b7b30c
 --- !u!114 &11400348
 MonoBehaviour:
@@ -10880,7 +10969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 84faf586-5c06-4a92-b1e1-bd6b5a30cb53
+  _id: e192724e-b560-42f8-bfe0-f45500999fad
   classId: e1e4a19a-a64d-4a1d-95eb-eae193555ccc
 --- !u!114 &11400350
 MonoBehaviour:
@@ -10894,7 +10983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: e805714f-2172-408d-abb2-7bde4cecfb7c
+  _id: c1928320-4bdc-4a13-b3e3-37fb21aca333
   classId: 8d3a9855-24dd-4126-9e97-bb9e5aae017f
 --- !u!114 &11400352
 MonoBehaviour:
@@ -10908,7 +10997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: ba21b052-30aa-4b30-8f18-ad282997217b
+  _id: b186a27a-2acc-44b3-9de1-6505c5baceda
   classId: d66b2f11-1daf-414d-a6ca-3e301e169698
 --- !u!114 &11400354
 MonoBehaviour:
@@ -10922,7 +11011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: cc1d7117-04bf-4ebe-8d2e-3161fbcb6783
+  _id: 784b89f2-d97c-442c-a89a-2c13e645e33d
   classId: d897d603-a4cc-4042-96cf-73a04aa6a284
 --- !u!114 &11400356
 MonoBehaviour:
@@ -10936,7 +11025,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 88092644-085b-425d-8e9b-e6beae6e1c0f
+  _id: 6ddf2a03-6518-482a-80b0-dfcf1a62e095
   classId: d758f3df-aeee-4c6c-9e03-6fd60235861f
 --- !u!114 &11400358
 MonoBehaviour:
@@ -10950,7 +11039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 60e97525-c064-4dda-9866-bc34b887f56d
+  _id: 27a124b2-39b4-42ea-9809-0461a2ecc0cf
   classId: f713dda1-d1ad-47a2-a1ef-74087f27a52f
 --- !u!114 &11400360
 MonoBehaviour:
@@ -10964,7 +11053,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: e1b20302-8e14-4161-a8f8-0d2dad4f3724
+  _id: 1810a68c-3253-45f8-af9a-e5713cc5134e
   classId: f1c674b8-cc11-4c49-bea7-2ca6be5105a5
 --- !u!114 &11400362
 MonoBehaviour:
@@ -10978,7 +11067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 1a68cd0f-7cec-455d-9261-4ddf93977511
+  _id: d9655824-354a-4cdf-9a27-c03a4872e86d
   classId: e6ff0cc5-9d4e-46d5-ab11-da9da795db85
 --- !u!114 &11400364
 MonoBehaviour:
@@ -10992,7 +11081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 041f1fd7-3b37-4be9-ae52-8c2ef791ecfd
+  _id: 36a72c91-b90c-4624-acc1-b23b4079f42c
   classId: e4a00542-fb59-4bc1-af88-11a807539064
 --- !u!114 &11400366
 MonoBehaviour:
@@ -11006,7 +11095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: f238f7a2-56ec-493d-8338-8eb4d2efec21
+  _id: ad2a0fef-08fe-4102-94c7-bb5050be4421
   classId: eb279702-c962-407e-8c6c-5735b7a4eb54
 --- !u!114 &11400368
 MonoBehaviour:
@@ -11020,7 +11109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 33d50032-6e15-49ad-bafb-93281ba3f44c
+  _id: 4a26a8f5-dfa6-41b5-8c1a-82767b8b8d1a
   classId: f76da510-6c58-48ac-90a1-b1d878e2891c
 --- !u!114 &11400370
 MonoBehaviour:
@@ -11034,7 +11123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: f11f0ab8-97f8-4a95-88cf-d0df7cf1f212
+  _id: bada698a-350a-46e6-bb9e-61d929dec2d7
   classId: a5f574e9-7024-495f-b404-f68d70da2116
 --- !u!114 &11400372
 MonoBehaviour:
@@ -11048,7 +11137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: c89a22c2-80e7-4b16-8b31-938fbd5b30a8
+  _id: 0ee715fd-48b7-4fa7-87c4-2b6d82918758
   classId: c15a00ea-523d-4ab1-9c5e-5352e27e17e7
 --- !u!114 &11400374
 MonoBehaviour:
@@ -11062,7 +11151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: e7436f16-8ce9-4627-aa6d-65dfe9e80c7d
+  _id: dab6a0f0-be5c-4574-be79-ed7aee9282c0
   classId: 370c0a69-0314-4628-8ea6-7562c666fc8f
 --- !u!114 &11400376
 MonoBehaviour:
@@ -11076,7 +11165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 59494e34-427d-42e8-baa3-554b65be8b63
+  _id: 7a672b16-9436-40ae-8b6b-678de4e1b2c7
   classId: adac6b55-7fb3-4937-a9f5-8eab40f098ab
 --- !u!114 &11400378
 MonoBehaviour:
@@ -11090,7 +11179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 2694ae31-6b42-4a94-a200-a47fde077e49
+  _id: 8ecb0329-ceea-4e8a-bacc-38a78b0a6296
   classId: 9deb5ab9-453a-466d-a1b1-b8f53c01eb66
 --- !u!114 &11400380
 MonoBehaviour:
@@ -11104,7 +11193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: c256096f-a494-434d-96e5-4c344f945eb4
+  _id: 93897dcb-eca7-48a1-ac00-95c1581dcc46
   classId: ece165e5-9ae0-48db-88f9-1bdf1762195d
 --- !u!114 &11400382
 MonoBehaviour:
@@ -11118,7 +11207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 29c6febc-1897-410e-83fe-e1848732021f
+  _id: b04337f4-e8cb-47ff-aed5-dce758376d94
   classId: 3dac3428-b20e-4740-9ef6-1a1edddddc0a
 --- !u!114 &11400384
 MonoBehaviour:
@@ -11132,7 +11221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 37f14141-206d-46d9-b06d-eadc77b755dd
+  _id: 40e097dc-24d6-4e2c-b22a-687e587e8a08
   classId: f1c2af1d-64f8-468f-b709-0d5603eaedbc
 --- !u!114 &11400386
 MonoBehaviour:
@@ -11146,7 +11235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 2a65db2f-3aab-4c21-9d7c-4a10167feab5
+  _id: 2cc39392-6546-4ae2-9e07-fa59532437f8
   classId: 625e8bcc-a525-4568-9f58-ad58310a10e4
 --- !u!114 &11400388
 MonoBehaviour:
@@ -11160,7 +11249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: d8d4c700-93fe-442a-a20d-38616c7925a7
+  _id: 869e71db-9bf3-43f2-9eb1-0a302394e089
   classId: 5a865b61-1a62-40ed-93f8-bb3b1e15d2b8
 --- !u!114 &11400390
 MonoBehaviour:
@@ -11174,7 +11263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: d61f33c5-eba9-427d-a647-fdcd77e88dbd
+  _id: ea346bcf-1fc0-42a4-951c-992e79469d9d
   classId: 357b3eba-8354-49b8-9b88-64bbbf591314
 --- !u!114 &11400392
 MonoBehaviour:
@@ -11188,7 +11277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 849a5b02-3f77-45fc-a472-502d31a5b43c
+  _id: e556513f-4d1f-4817-ab80-1f8088c273c0
   classId: 3e0de39c-2a41-46a6-8382-c1ed266d1737
 --- !u!114 &11400394
 MonoBehaviour:
@@ -11289,6 +11378,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  isInitialized: 0
+  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11400396
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11388,6 +11480,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  isInitialized: 0
+  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11400398
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11487,6 +11582,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  isInitialized: 0
+  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11400400
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11586,6 +11684,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  isInitialized: 0
+  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11400402
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11794,7 +11895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: fa4411c6-d688-4227-8fd0-757a929eac83
+  _id: 01f3bfe9-b396-4644-ad9f-1bd09a44eb91
   classId: 30f70c10-7b4a-4a72-9c32-85d250345937
 --- !u!114 &11400408
 MonoBehaviour:
@@ -11808,7 +11909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: c9cce630-f730-4ab7-88a2-6714606ff24f
+  _id: 34d44077-4d26-4747-8404-2f46329f2897
   classId: ee8d99fa-1cda-45d7-9c9c-d2d9a6a9c790
 --- !u!114 &11400410
 MonoBehaviour:
@@ -11822,7 +11923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: e321f99a-a4d6-4f51-903e-66ca92753202
+  _id: c43da3f4-d144-422d-8baf-942c6b950dad
   classId: eddf02ef-62a7-4c4f-afb1-a046551efb94
 --- !u!114 &11400412
 MonoBehaviour:
@@ -11836,7 +11937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: d329d0ed-de59-418e-8749-7fa9ed4dc3ef
+  _id: 82769218-6e2e-4510-a67e-ac71a117bd06
   classId: dd676531-f0e7-42e8-b380-205fd9a6959d
 --- !u!114 &11400414
 MonoBehaviour:
@@ -11850,7 +11951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 61d0f19d-c2b8-43d9-9973-05cfce9c7219
+  _id: 07ff717a-6dfc-40d7-aa74-31cc5f649208
   classId: ed045bb3-96fa-4c43-9146-1905cdb7529d
 --- !u!114 &11400416
 MonoBehaviour:
@@ -11864,7 +11965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: b0427844-95d4-4e79-b521-c36eb4b36cec
+  _id: ed128192-750a-4b43-8150-4ca71507aaea
   classId: 46e5b6cc-cd6d-4a41-8771-876cc7092203
   StoreAllComponents: 1
   Components: []

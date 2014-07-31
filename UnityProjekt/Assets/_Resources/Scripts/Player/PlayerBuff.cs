@@ -7,14 +7,32 @@ public class PlayerBuff
     public AttributeType attribute;
 
     public float BuffAbsAmount = 0f;
+    public float BuffAbsPerLevelAmount = 0f;
     public float BuffRelAmount = 0f;
+    public float BuffRelPerLevelAmount = 0f;
 
     public float BuffRunTime = 0f;
     public float runTimer = 0.0f;
 
+    [SerializeField]
     private bool BuffRunning = false;
 
-    public PlayerClass PlayerClass { protected get; set; }
+    [SerializeField]
+    private PlayerClass playerClass;
+    public PlayerClass PlayerClass 
+    {
+        protected get
+        {
+            return playerClass;
+        }
+        set
+        {
+            playerClass = value;
+        }
+    }
+
+    public float AbsAmountAdded = 0f;
+    public float RelAmountAdded = 0f;
 
     public PlayerBuff Clone()
     {
@@ -22,7 +40,9 @@ public class PlayerBuff
         buff.BuffName = BuffName;
         buff.attribute = attribute;
         buff.BuffAbsAmount = BuffAbsAmount;
+        buff.BuffAbsPerLevelAmount = BuffAbsPerLevelAmount;
         buff.BuffRelAmount = BuffRelAmount;
+        buff.BuffRelPerLevelAmount = BuffRelPerLevelAmount;
         buff.BuffRunTime = BuffRunTime;
         return buff;
     }
@@ -32,8 +52,11 @@ public class PlayerBuff
         PlayerClass = player;
         if (!BuffRunning)
         {
-            PlayerClass.GetAttribute(attribute).AddValue(BuffAbsAmount);
-            PlayerClass.GetAttribute(attribute).AddMult(BuffRelAmount);
+            AbsAmountAdded = BuffAbsAmount + BuffAbsPerLevelAmount * player.playerControl.Level;
+            RelAmountAdded = BuffRelAmount + BuffRelPerLevelAmount * player.playerControl.Level;
+
+            PlayerClass.GetAttribute(attribute).AddValue(AbsAmountAdded);
+            PlayerClass.GetAttribute(attribute).AddMult(RelAmountAdded);
         }
 
         Renew();
@@ -55,8 +78,8 @@ public class PlayerBuff
     {
         if (BuffRunning)
         {
-            PlayerClass.GetAttribute(attribute).AddValue(-BuffAbsAmount);
-            PlayerClass.GetAttribute(attribute).AddMult(-BuffRelAmount);
+            PlayerClass.GetAttribute(attribute).AddValue(-AbsAmountAdded);
+            PlayerClass.GetAttribute(attribute).AddMult(-RelAmountAdded);
             BuffRunning = false;
         }
     }

@@ -18,8 +18,10 @@ public class UIButton : UIRect
     public ButtonEvent OnButtonClicked;
     public static ButtonEvent OnAnyButtonClicked;
 
+    [SerializeField]
     private bool isInitialized = false;
 
+    [SerializeField]
     private Color normalTextColor, hoverTextColor;
 
     public override void DrawMe()

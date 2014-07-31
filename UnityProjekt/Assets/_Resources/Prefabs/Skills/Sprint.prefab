@@ -57,19 +57,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Sprint
-  SkillCooldown: 5
+  SkillCooldown: 8
+  CooldownTimer: 0
   SkillRunTime: 0
+  SkillRunTimer: 0
+  skillRunning: 0
   PreventsMovement: 0
   PreventsDamage: 0
   PreventsUsingSkills: 0
   MovesPlayer: 0
-  buff:
-    BuffName: Sprint
+  buffs:
+  - BuffName: Sprint
     attribute: 5
     BuffAbsAmount: 0
     BuffRelAmount: .5
     BuffRunTime: 5
     runTimer: 5
+    BuffRunning: 0
+  - BuffName: SprintSpeed
+    attribute: 4
+    BuffAbsAmount: 0
+    BuffRelAmount: .5
+    BuffRunTime: 5
+    runTimer: 5
+    BuffRunning: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

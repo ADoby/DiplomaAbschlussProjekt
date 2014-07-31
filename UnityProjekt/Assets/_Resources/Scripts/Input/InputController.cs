@@ -243,7 +243,7 @@ public class InputController : MonoBehaviour{
 
 	// Use this for initialization
 	void Awake () {
-        Instance = this;
+        instance = this;
 
         UpdateActionToInfo();
 
@@ -438,7 +438,21 @@ public class InputController : MonoBehaviour{
         }
 	}
 
-    public static InputController Instance;
+    #region Singleton
+    [SerializeField]
+    private static InputController instance;
+
+    public static InputController Instance
+    {
+        get
+        {
+            if (!instance)
+                instance = FindObjectOfType<InputController>();
+
+            return instance;
+        }
+    }
+    #endregion
 
     public static float GetValue(string ActionName)
     {

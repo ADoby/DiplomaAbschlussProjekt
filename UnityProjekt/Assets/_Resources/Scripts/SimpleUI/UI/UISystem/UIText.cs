@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[System.Serializable]
 public class UIText : UIRect
 {
     [Multiline(5)]
@@ -9,8 +10,10 @@ public class UIText : UIRect
 
     public GUIStyle FontStyle;
 
+    [SerializeField]
     private bool isInitialized = false;
 
+    [SerializeField]
     private Color normalTextColor, hoverTextColor;
 
     public override void DrawMe()

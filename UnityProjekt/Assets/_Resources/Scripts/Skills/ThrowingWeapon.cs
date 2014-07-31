@@ -9,12 +9,14 @@ public class ThrowingWeapon : MonoBehaviour {
 
     public float speed = 2.0f;
 
+    [SerializeField]
     private Vector2 direction = Vector2.zero;
 
     public string poolName;
 
     public string hitEffektPoolName;
 
+    [SerializeField]
     private float detonateTimer = 0f;
     public float detonateTime = 2f;
 
@@ -61,13 +63,14 @@ public class ThrowingWeapon : MonoBehaviour {
     public void SetPlayer(PlayerController playerControl)
     {
         player = playerControl;
-        detonateTimer = detonateTime * playerControl.PlayerClass.GetAttributeValue(AttributeType.ATTACKSPEED);
+        detonateTimer = detonateTime;
     }
 
     public void SetDirection(Vector2 p_direction)
     {
         direction = p_direction;
-        rigidbody2D.velocity = direction * powerForward + Vector2.up * powerUp;
+        rigidbody2D.velocity = direction * (powerForward + Random.value * powerForward/2f)  + Vector2.up * powerUp;
+        rigidbody2D.angularVelocity = rigidbody2D.velocity.magnitude * 90f;
     }
 
     public float distance = 5f;
@@ -89,13 +92,13 @@ public class ThrowingWeapon : MonoBehaviour {
                 target.Damage(damageMult * damage);
                 target.Hit(item.transform.position, (item.transform.position - transform.position), force);
 
-                GameEventHandler.TriggerDamageDone(player, damage);
-
-                AudioEffectController.Instance.PlayOneShot(explosion, transform.position);
+                GameEventHandler.TriggerDamageDone(player, damage);                
             }
         }
 
-        GameObjectPool.Instance.Spawn(hitEffektPoolName, transform.position, Quaternion.identity);
+        AudioEffectController.Instance.PlayOneShot(explosion, transform.position);
+        GameObjectPool.Instance.Spawns(hitEffektPoolName, transform.position, Quaternion.identity);
+
         GameObjectPool.Instance.Despawn(poolName, gameObject);
     }
 }

@@ -11,6 +11,8 @@ GameObject:
   - 82: {fileID: 8200000}
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400002}
+  - 168: {fileID: 16800000}
+  - 164: {fileID: 16400000}
   m_Layer: 0
   m_Name: SoundEffect
   m_TagString: Untagged
@@ -25,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.84513712, y: -1.36146283, z: 5.31982422}
+  m_LocalPosition: {x: -6.80959606, y: 3.56849241, z: 5.31982422}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -39,7 +41,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 3
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -99,6 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac8e92d3d55651f4c8baa8191c6db5f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  extraTime: 2
   timer: 0
 --- !u!114 &11400002
 MonoBehaviour:
@@ -112,10 +115,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 
+  _id: 5c93097f-ac18-4754-9889-a0da3045e6e3
   classId: a5abbe67-68f1-4948-9aaa-d47148237cf8
   StoreAllComponents: 1
   Components: []
+--- !u!164 &16400000
+AudioReverbFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_DryLevel: 0
+  m_Room: -1000
+  m_RoomHF: 0
+  m_RoomRolloff: 0
+  m_DecayTime: 2.91000009
+  m_DecayHFRatio: 1.29999995
+  m_ReflectionsLevel: -602
+  m_ReverbLevel: -302
+  m_ReverbDelay: .0219999999
+  m_Diffusion: 100
+  m_Density: 100
+  m_HFReference: 5000
+  m_RoomLF: 0
+  m_LFReference: 250
+  m_ReflectionsDelay: 0
+  m_ReverbPreset: 9
+--- !u!168 &16800000
+AudioEchoFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_Delay: 500
+  m_DecayRatio: .100000001
+  m_WetMix: .100000001
+  m_DryMix: .800000012
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

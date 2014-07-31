@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 
+[System.Serializable]
 public class PlayerSkill : MonoBehaviour
 {
     //Default Attributes
     public string Name = "Name";
     [Range(0f, 100f)]
     public float SkillCooldown = 1.0f;
+    [SerializeField]
     protected float CooldownTimer = 0.0f;
 
     public float Cooldown
@@ -17,7 +19,9 @@ public class PlayerSkill : MonoBehaviour
     }
 
     public float SkillRunTime = 0f;
+    [SerializeField]
     protected float SkillRunTimer = 0.0f;
+    [SerializeField]
     protected bool skillRunning = false;
 
     public bool PreventsMovement = false;

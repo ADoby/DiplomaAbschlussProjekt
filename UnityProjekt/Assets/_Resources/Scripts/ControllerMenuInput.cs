@@ -34,6 +34,9 @@ public class ControllerMenuInput : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (!GameManager.AllowMenuInput)
+            return;
+
         int lineBefore = currentLine;
         int columnBefore = currentColumn;
         bool input = false;
@@ -82,6 +85,6 @@ public class ControllerMenuInput : MonoBehaviour {
 
     public void StopControllerMenu()
     {
-        lines[currentLine].buttons[currentColumn].SetForceHover(false);
+        //lines[currentLine].buttons[currentColumn].SetForceHover(false);
     }
 }

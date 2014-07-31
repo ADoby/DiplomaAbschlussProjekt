@@ -32,7 +32,9 @@ public class EnemieController : HitAble {
 
     public float findTargetDistance = 20.0f;
     public float distanceToTarget = 1.0f;
+
     public float findTargetTime = 1.0f;
+    public float findTargetTimer = 0f;
 
     public LayerMask findTargetLayer;
 
@@ -41,6 +43,48 @@ public class EnemieController : HitAble {
     public float gravityMult = 3.0f;
 
     public Vector2 lastVelocity = Vector2.zero;
+
+    public SpawnInfos[] Drops;
+
+    public bool aggressive = false;
+
+    [SerializeField]
+    private float turnTimer = 0f;
+    public float MinTurnTime = 0.5f, MaxTurnTime = 1f;
+
+    public float jumpDownDistance = 2.0f;
+    public float jumpUpDistance = 2.0f;
+
+    public float jumpPower = 5.0f;
+
+    public LayerMask pathFindingLayer;
+
+    public float chanceForRandomJump = 0.1f;
+
+    public Animator anim;
+
+    [SerializeField]
+    private float attackTimer = 0f;
+    public float attackTime = 1.0f;
+
+    [SerializeField]
+    private float lockTimer = 0f;
+    [SerializeField]
+    private float lockTime = 0.5f;
+
+    [SerializeField]
+    private bool targetLocked = false;
+
+    public float attackDistance = 2.0f;
+
+    public float randomTimer = 0f;
+    public float randomTimeMin = 3.0f, randomTimeMax = 10f;
+
+    public float randomJumpTimer = 0f;
+    public float randomJumpMinTime = 1f, randomJumpMaxTime = 3f;
+
+    [SerializeField]
+    private Vector3 targetPos = Vector3.zero;
 
 	// Use this for initialization
 	void Start ()
@@ -67,13 +111,11 @@ public class EnemieController : HitAble {
 
     void OnDisable()
     {
-        StopCoroutine(findTarget());
         UnListen();
     }
 
     void OnDestroy()
     {
-        StopCoroutine(findTarget());
         UnListen();
     }
 
@@ -120,15 +162,23 @@ public class EnemieController : HitAble {
     {
         base.Damage(damage);
 
+        aggressive = true;
+
         Health -= damage;
         healthBar.UpdateBar(Health, MaxHealth);
         if (Health <= 0)
         {
-            int amount = Random.Range(3, 7);
-            for (int i = 0; i < amount; i++)
+            for (int i = 0; i < Drops.Length; i++)
             {
-                EntitySpawnManager.Spawn("Gold", transform.position, Quaternion.identity, MoneySpawned, true);
+                if (Drops[i].WantsToSpawn)
+                {
+                    for (int a = 0; a < Drops[i].Amount; a++)
+                    {
+                        EntitySpawnManager.Spawn(Drops[i].Next().poolName, transform.position, Quaternion.identity, queue: true);
+                    }
+                }
             }
+
 
             //TODO Sterbe
             EntitySpawnManager.Despawn(poolName, gameObject, true);
@@ -142,73 +192,76 @@ public class EnemieController : HitAble {
         {
             direction = -1;
         }
-        MaxHealth = StartMaxHealth + GameManager.CurrentDifficulty * MaxHealthPerDifficulty;
+        MaxHealth = StartMaxHealth + GameManager.Instance.CurrentDifficulty * MaxHealthPerDifficulty;
         Health = MaxHealth;
 
-        StartCoroutine(findTarget());
-
-        lockTime = attackAnim.length;
-
         healthBar.Reset();
+
+        targetPos = transform.position;
     }
-
-    public AnimationClip attackAnim;
-
-    public Animator anim;
-
-    [SerializeField]
-    private float attackTimer = 0f;
-    public float attackTime = 1.0f;
-
-    [SerializeField]
-    private float lockTimer = 0f;
-    [SerializeField]
-    private float lockTime = 0.5f;
-
-    [SerializeField]
-    private bool targetLocked = false;
-
-    public float attackDistance = 2.0f;
-
-    public float randomTimer = 0f;
-    public float randomTimeMin = 3.0f, randomTimeMax = 10f;
-
-    [SerializeField]
-    private Vector3 targetPos = Vector3.zero;
 
 	// Update is called once per frame
 	void Update () {
-        if (GameManager.Instance.GamePaused)
+        if (GameManager.GamePaused)
             return;
+
+        randomJumpTimer -= Time.deltaTime;
+
+        findTargetTimer += Time.deltaTime;
+        if (findTargetTimer > findTargetTime)
+        {
+            findTarget();
+            findTargetTimer = 0;
+        }
+
+        float currentMaxSpeed = maxSpeed;
+        float currentSpeedChance = speedChange;
+        if (aggressive)
+        {
+            currentMaxSpeed *= 1.5f;
+            currentSpeedChance *= 1.5f;
+        }
 
         if (target)
         {
-            //We save last targetPos
-            //Its like remembering where the target was the last time I saw him
             targetPos = target.position;
-
-            //We check the distance to the target
             if (Vector3.Distance(target.position, transform.position) > findTargetDistance)
             {
-                //Target is to far away, lets throw him out, we cant see him
                 target = null;
             }
         }
         else
         {
-            targetPos = transform.position;
+            if (Vector3.Distance(targetPos, transform.position) < distanceToTarget)
+            {
+                DumpPositionFinder();
+            }
         }
 
-        if (Vector3.Distance(targetPos, transform.position) < distanceToTarget)
-        {
-            //DumpWalk updates the targetPos to something new;
-            DumpWalk();
-        }
+        currentSpeed = Mathf.Lerp(currentSpeed, direction * currentMaxSpeed, currentSpeedChance * Time.deltaTime);
 
         TargetWalk();
 
-        currentSpeed = Mathf.Lerp(currentSpeed, direction * maxSpeed, speedChange * Time.deltaTime);
+        TryAttack();
 
+        if (anim)
+        {
+            anim.SetFloat("Forward", Mathf.Abs(direction));
+        }
+
+        if (direction == 1 && transform.localScale.x == -1)
+        {
+            transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+        }
+        else if (direction == -1 && transform.localScale.x == 1)
+        {
+            transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+        }
+
+	}
+
+    void TryAttack()
+    {
         attackTimer -= Time.deltaTime;
         if (!target)
         {
@@ -223,11 +276,11 @@ public class EnemieController : HitAble {
             }
             else
             {
-                
+
                 lockTimer -= Time.deltaTime;
                 if (lockTimer <= 0)
                 {
-                    target.GetComponent<PlayerController>().Damage(MyDamage + GameManager.CurrentDifficulty * DamagePerDifficulty);
+                    target.GetComponent<PlayerController>().Damage(MyDamage + GameManager.Instance.CurrentDifficulty * DamagePerDifficulty);
                     //Effekt
 
                     targetLocked = false;
@@ -242,7 +295,6 @@ public class EnemieController : HitAble {
             {
                 Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, attackDistance, findTargetLayer);
 
-                //Collider2D[] collider = Physics2D.OverlapAreaAll(transform.position + new Vector3(-attackDistance / 2f, 2, 0), transform.position + new Vector3(attackDistance/2f, 2, 0), findTargetLayer);
                 foreach (var item in collider)
                 {
                     if (item.gameObject.GetComponent<PlayerController>())
@@ -262,26 +314,11 @@ public class EnemieController : HitAble {
 
             }
         }
-
-        if (anim)
-        {
-            anim.SetFloat("Forward", Mathf.Abs(direction));
-        }
-
-        if (direction == 1 && transform.localScale.x == -1)
-        {
-            transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
-        }
-        else if (direction == -1 && transform.localScale.x == 1)
-        {
-            transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
-        }
-
-	}
+    }
 
     void FixedUpdate()
     {
-        if (GameManager.Instance.GamePaused)
+        if (GameManager.GamePaused)
             return;
 
         rigidbody2D.velocity += Physics2D.gravity * Time.fixedDeltaTime;
@@ -291,11 +328,6 @@ public class EnemieController : HitAble {
 
     public void OnFoundTarget(Transform sender, Transform newTarget)
     {
-        if (this == null)
-        {
-            UnListen();
-        }
-
         if (!target && newTarget && transform)
         {
             if (Vector3.Distance(newTarget.position, transform.position) > findTargetDistance)
@@ -310,34 +342,25 @@ public class EnemieController : HitAble {
         }
     }
 
-    IEnumerator findTarget()
+    void findTarget()
     {
         if (!target)
         {
             Collider2D[] targets = Physics2D.OverlapCircleAll(transform.position, findTargetDistance, findTargetLayer);
             if (targets.Length != 0)
             {
-                target = targets[0].transform;
-                GameEventHandler.TriggerFoundTarget(transform, target);
+                for (int i = 0; i < targets.Length; i++)
+                {
+                    if (Physics2D.Raycast(transform.position, targets[i].bounds.center, findTargetDistance, findTargetLayer))
+                    {
+                        target = targets[i].transform;
+                        GameEventHandler.TriggerFoundTarget(transform, target);
+                    }
+                }
+                
             }
         }
-
-        yield return new WaitForSeconds(findTargetTime);
-        StartCoroutine(findTarget());
     }
-
-    [SerializeField]
-    private float turnTimer = 0f;
-    public float MinTurnTime = 0.5f, MaxTurnTime = 1f;
-
-    public float jumpDownDistance = 2.0f;
-    public float jumpUpDistance = 2.0f;
-
-    public float jumpPower = 5.0f;
-
-    public LayerMask pathFindingLayer;
-
-    public float chanceForRandomJump = 0.1f;
 
     public void TryJump()
     {
@@ -350,17 +373,18 @@ public class EnemieController : HitAble {
 
     public void TargetWalk()
     {
-        if ((targetPos - transform.position).x < -distanceToTarget && CheckFloorLeft())
+        if ((targetPos - transform.position).x < -distanceToTarget)
         {
             if(Physics2D.Raycast(transform.position + Vector3.up * 0.1f, Vector3.left, 1f, pathFindingLayer))
             {
                 TryJump();
             }
-            if (rigidbody2D.velocity.y <= 0)
+            if (rigidbody2D.velocity.y <= 0 && randomJumpTimer <= 0)
             {
                 float random = Random.value;
                 if (random < chanceForRandomJump)
                 {
+                    randomJumpTimer = Random.Range(randomJumpMinTime, randomJumpMaxTime);
                     TryJump();
                 }
             }
@@ -372,17 +396,18 @@ public class EnemieController : HitAble {
                 direction = -1;
             }
         }
-        else if ((targetPos - transform.position).x > distanceToTarget && CheckFloorRight())
+        else if ((targetPos - transform.position).x > distanceToTarget)
         {
             if (Physics2D.Raycast(transform.position + Vector3.up * 0.1f, Vector3.right, 1f, pathFindingLayer))
             {
                 TryJump();
             }
-            if (rigidbody2D.velocity.y <= 0)
+            if (rigidbody2D.velocity.y <= 0 && randomJumpTimer <= 0)
             {
-                float random = Random.Range(0f, 1000f);
+                float random = Random.value;
                 if (random < chanceForRandomJump)
                 {
+                    randomJumpTimer = Random.Range(randomJumpMinTime, randomJumpMaxTime);
                     TryJump();
                 }
             }
@@ -398,7 +423,7 @@ public class EnemieController : HitAble {
         }
     }
 
-    public void DumpWalk()
+    public void DumpPositionFinder()
     {
         randomTimer -= Time.deltaTime;
         if (randomTimer <= 0)

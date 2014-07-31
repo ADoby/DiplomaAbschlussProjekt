@@ -894,7 +894,6 @@ GameObject:
   - 4: {fileID: 400100}
   - 114: {fileID: 11400076}
   - 114: {fileID: 11400074}
-  - 114: {fileID: 11400070}
   - 114: {fileID: 11400212}
   m_Layer: 15
   m_Name: AlienRace1_Base2
@@ -2557,19 +2556,6 @@ MonoBehaviour:
   currentBaseStateIndex: 2
   manualUserScale: 0
   BaseStateList: []
---- !u!114 &11400070
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afcd83474817b2c49a37bb21703db607, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemieBase: {fileID: 11400074}
-  alienBase: {fileID: 11400076}
 --- !u!114 &11400072
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2605,8 +2591,10 @@ MonoBehaviour:
   CurrentHealth: 0
   wantedHealth: 1
   MaxHealth: 500
+  MaxHealthPerDifficulty: 300
   poolName: AlienRace1_Base2
-  HealthRegenPerSec: 5
+  HealthRegenPerSec: 10
+  HealthRegenPerSecPerDifficulty: 1
   isAlive: 0
   StartFull: 0
   RestartFull: 0
@@ -2614,6 +2602,25 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4096
   HealthChangeSpeed: 10
+  Drops:
+  - chance: 1
+    minAmount: 4
+    maxAmount: 6
+    spawnInfos:
+    - poolName: Gold
+      weight: 1
+  - chance: .100000001
+    minAmount: 1
+    maxAmount: 1
+    spawnInfos:
+    - poolName: RandomItem25
+      weight: 1
+  - chance: .0500000007
+    minAmount: 1
+    maxAmount: 1
+    spawnInfos:
+    - poolName: RandomItem50
+      weight: 1
 --- !u!114 &11400076
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2645,8 +2652,8 @@ MonoBehaviour:
       weight: .5
     - poolName: Enemie2
       weight: 10
-    spawnCooldown: 2
-    Range: 10
+    spawnCooldown: 4
+    Range: 40
     Name: SpawnState 1
     startTime: 8
     endTime: 10
@@ -2711,6 +2718,8 @@ MonoBehaviour:
   EndTime: 10
   minNeededTime: 0
   maxNeededTime: 10
+  HealthBaseScript: {fileID: 0}
+  useHealthAsTime: 1
 --- !u!114 &11400078
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour {
 
     public float speed = 2.0f;
 
+    [SerializeField]
     private Vector2 direction = Vector2.zero;
 
     public string poolName;
@@ -16,6 +17,7 @@ public class Bullet : MonoBehaviour {
     public string hitEffektPoolName;
 
     public float DespawnTime = 10.0f;
+    [SerializeField]
     private float _despawnTimer = 0.0f;
 
     public float force = 2.0f;
@@ -26,6 +28,7 @@ public class Bullet : MonoBehaviour {
     }
 
     public int pierceAmount = 0;
+    [SerializeField]
     private int pierceCount = 0;
 
     public void SetPierceAmount(int amount)
@@ -43,15 +46,30 @@ public class Bullet : MonoBehaviour {
 
     private List<GameObject> gameObjectHitted = new List<GameObject>();
 
-    void Awake()
+    void OnEnable()
     {
         GameEventHandler.OnPause += OnPause;
         GameEventHandler.OnResume += OnResume;
     }
 
+    void OnDestroy()
+    {
+        UnListen();
+    }
+    void OnDisable()
+    {
+        UnListen();
+    }
+
+    void UnListen()
+    {
+        GameEventHandler.OnPause -= OnPause;
+        GameEventHandler.OnResume -= OnResume;
+    }
+
     void FixedUpdate()
     {
-        if (GameManager.Instance.GamePaused)
+        if (GameManager.GamePaused)
             return;
 
 
@@ -132,14 +150,14 @@ public class Bullet : MonoBehaviour {
         }
         else
         {
-            GameObjectPool.Instance.Spawn(hitEffektPoolName, position, Quaternion.identity);
+            GameObjectPool.Instance.Spawns(hitEffektPoolName, position, Quaternion.identity);
             
             GameObjectPool.Instance.Despawn(poolName, gameObject);
             return;
         }
 
 
-        GameObjectPool.Instance.Spawn(hitEffektPoolName, position, Quaternion.identity);
+        GameObjectPool.Instance.Spawns(hitEffektPoolName, position, Quaternion.identity);
 
         if (pierceCount >= pierceAmount)
         {

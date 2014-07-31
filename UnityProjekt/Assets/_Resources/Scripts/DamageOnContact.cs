@@ -12,7 +12,7 @@ public class DamageOnContact : MonoBehaviour {
         {
             GetComponent<EnemieBase>().Damage(amount);
 
-            GameObjectPool.Instance.Spawn("Blood", transform.position + Vector3.up * 0.2f, Quaternion.identity);
+            GameObjectPool.Instance.Spawns("Blood", transform.position + Vector3.up * 0.2f, Quaternion.identity);
         }
     }
     

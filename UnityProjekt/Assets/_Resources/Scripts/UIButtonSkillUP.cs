@@ -37,7 +37,7 @@ public class UIButtonSkillUP : MonoBehaviour {
             Replace("#currentSkillUps#", playerUI.playerControl.PlayerClass.GetAttribute(attributeType).currentSkillUps.ToString("##0")).
             Replace("#maxSkillUps#", playerUI.playerControl.PlayerClass.GetAttribute(attributeType).MaxSkillUps.ToString("##0"));
 
-        playerUI.UpdateSkillPoints();
+        playerUI.UpdateAfterSkillPointUP();
     }
 
     public UIRect uperPanel;

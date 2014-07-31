@@ -44,107 +44,106 @@ MonoBehaviour:
   Description: Beschreibung
   Attributes:
   - Name: Health
-    Value: 100
-    ValuePerLevel: 5
+    Value: 200
+    ValuePerLevel: 30
     valueMultiply: 1
-    ValuePerSkillPoint: 10
+    ValuePerSkillPoint: 100
     MinValue: 0
-    MaxValue: 0
-    MaxSkillUps: 100
+    MaxValue: 999999
+    MaxSkillUps: 200
     currentSkillUps: 0
-  - Name: Health Regen
-    Value: 1
-    ValuePerLevel: .100000001
+  - Name: Health Regeneration
+    Value: 5
+    ValuePerLevel: 1
     valueMultiply: 1
-    ValuePerSkillPoint: .200000003
+    ValuePerSkillPoint: 1
     MinValue: 0
-    MaxValue: 0
-    MaxSkillUps: 100
-    currentSkillUps: 0
-  - Name: Armor
-    Value: 10
-    ValuePerLevel: 2
-    valueMultiply: 1
-    ValuePerSkillPoint: 5
-    MinValue: 0
-    MaxValue: 0
+    MaxValue: 2000
     MaxSkillUps: 100
     currentSkillUps: 0
   - Name: Attack Speed
     Value: 1
-    ValuePerLevel: .100000001
+    ValuePerLevel: 0
     valueMultiply: 1
-    ValuePerSkillPoint: .200000003
+    ValuePerSkillPoint: .0299999993
     MinValue: 0
-    MaxValue: 0
-    MaxSkillUps: 100
+    MaxValue: 4
+    MaxSkillUps: 30
     currentSkillUps: 0
   - Name: Damage
-    Value: 10
+    Value: 30
     ValuePerLevel: 2
     valueMultiply: 1
-    ValuePerSkillPoint: 4
+    ValuePerSkillPoint: 3
     MinValue: 0
-    MaxValue: 0
-    MaxSkillUps: 100
+    MaxValue: 5000
+    MaxSkillUps: 200
     currentSkillUps: 0
-  - Name: Max Movement Speed
-    Value: 10
-    ValuePerLevel: .100000001
-    valueMultiply: 1
-    ValuePerSkillPoint: .200000003
-    MinValue: 0
-    MaxValue: 0
-    MaxSkillUps: 100
-    currentSkillUps: 0
-  - Name: Movement Change
-    Value: 50
-    ValuePerLevel: 2
-    valueMultiply: 1
-    ValuePerSkillPoint: 4
-    MinValue: 0
-    MaxValue: 0
-    MaxSkillUps: 100
-    currentSkillUps: 0
-  - Name: Jump Power
-    Value: 10
-    ValuePerLevel: .100000001
-    valueMultiply: 1
-    ValuePerSkillPoint: .200000003
-    MinValue: 0
-    MaxValue: 0
-    MaxSkillUps: 100
-    currentSkillUps: 0
-  - Name: More Jump Power
+  - Name: Movement Speed
     Value: 5
-    ValuePerLevel: .200000003
+    ValuePerLevel: 0
     valueMultiply: 1
     ValuePerSkillPoint: .5
     MinValue: 0
-    MaxValue: 0
-    MaxSkillUps: 100
+    MaxValue: 30
+    MaxSkillUps: 20
     currentSkillUps: 0
-  - Name: Spell Vampire
+  - Name: Acceleration
+    Value: 25
+    ValuePerLevel: 0
+    valueMultiply: 1
+    ValuePerSkillPoint: 3
+    MinValue: 0
+    MaxValue: 200
+    MaxSkillUps: 40
+    currentSkillUps: 0
+  - Name: Jump Power
+    Value: 10
+    ValuePerLevel: 0
+    valueMultiply: 1
+    ValuePerSkillPoint: .400000006
+    MinValue: 0
+    MaxValue: 25
+    MaxSkillUps: 30
+    currentSkillUps: 0
+  - Name: More Jump Power
+    Value: 5
+    ValuePerLevel: 0
+    valueMultiply: 1
+    ValuePerSkillPoint: .200000003
+    MinValue: 0
+    MaxValue: 15
+    MaxSkillUps: 20
+    currentSkillUps: 0
+  - Name: Vampire
     Value: 0
     ValuePerLevel: 0
     valueMultiply: 1
-    ValuePerSkillPoint: .100000001
+    ValuePerSkillPoint: .00499999989
     MinValue: 0
-    MaxValue: 0
-    MaxSkillUps: 100
+    MaxValue: .25
+    MaxSkillUps: 20
     currentSkillUps: 0
-  playerSkills: []
+  playerSkills:
+  - {fileID: 11400002, guid: 3e4c1d3747f57504eae6c7d8f7a15690, type: 2}
+  - {fileID: 11400000, guid: 936cd7626d9574b4ab4e28b2d0636f21, type: 2}
+  - {fileID: 11400002, guid: 7457108a77ea50a4e8c1d2ef8d784a19, type: 2}
+  - {fileID: 11400002, guid: f78a33201bd83544ca26663484f1c4b8, type: 2}
   playerBuffs: []
   CurrentHealth: 0
+  skillsRunning: 0
   GravityMultiply: 2
   playerWidth: 1
   playerHeight: 2
-  footHeight: .100000001
+  footHeight: .200000003
   MaxJumpCount: 1
+  currentJumpNumber: 0
+  playerTransform: {fileID: 0}
   overrideVelocity: {x: 0, y: 0}
   skillPoints: 0
   damageImune: 0
   classThumbnail: {fileID: 0}
+  UIItemPickupPoolName: UIItemPickup
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -158,7 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsDeserializing: 0
   _id: 
-  classId: 7f3e1559-7aed-43c5-a137-3f587fafef3a
+  classId: e0988664-a218-4de9-b08d-c659d64527fc
   StoreAllComponents: 1
   Components: []
 --- !u!1001 &100100000

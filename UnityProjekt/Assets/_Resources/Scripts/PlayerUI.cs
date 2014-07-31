@@ -76,23 +76,18 @@ public class PlayerUI : MonoBehaviour {
         if (playerControl.Money < MoneyPerItem25)
             return;
 
-        //float money = playerControl.Money * 0.25f;
-        //int amount = (int)(money / MoneyPerItem25);
         playerControl.Money -= MoneyPerItem25;
-        GenerateItems(Chances25, 1);
+        GenerateItem(Chances25);
     }
     public void GenerateItems50(UIRect rect)
     {
         if (!SkillsAndItemsUI.Visible)
             return;
-
         if (playerControl.Money < MoneyPerItem50)
             return;
 
-        //float money = playerControl.Money * 0.50f;
-        //int amount = (int)(money / MoneyPerItem50);
         playerControl.Money -= MoneyPerItem50;
-        GenerateItems(Chances50, 1);
+        GenerateItem(Chances50);
     }
     public void GenerateItems75(UIRect rect)
     {
@@ -101,10 +96,8 @@ public class PlayerUI : MonoBehaviour {
         if (playerControl.Money < MoneyPerItem75)
             return;
 
-        //float money = playerControl.Money * 0.75f;
-        //int amount = (int)(money / MoneyPerItem75);
         playerControl.Money -= MoneyPerItem75;
-        GenerateItems(Chances75, 1);
+        GenerateItem(Chances75);
     }
     public void GenerateItems100(UIRect rect)
     {
@@ -112,32 +105,25 @@ public class PlayerUI : MonoBehaviour {
             return;
         if (playerControl.Money < MoneyPerItem100)
             return;
-        //float money = playerControl.Money * 1f;
-        //int amount = (int)(money / MoneyPerItem100);
+
         playerControl.Money -= MoneyPerItem100;
-        GenerateItems(Chances100, 1);
+        GenerateItem(Chances100);
     }
 
     public UIRect SkillsAndItemsUI;
 
-    public void GenerateItems(ValueChances[] values, int amount)
+    public void GenerateItem(ValueChances[] values)
     {
-        
-
-        for (int c = 0; c < amount; c++)
+        var rnd = Random.value;
+        for (int i = 0; i < values.Length; i++)
         {
-            var rnd = Random.value;
-            for (int i = 0; i < values.Length; i++)
+            if (rnd < values[i].weight)
             {
-                if (rnd < values[i].weight)
-                {
-                    AddItem(values[i].value);
-                    return;
-                }
-                rnd -= values[i].weight;
+                AddItem(values[i].value);
+                return;
             }
+            rnd -= values[i].weight;
         }
-        
     }
 
     public void AddItem(int value)
@@ -146,7 +132,7 @@ public class PlayerUI : MonoBehaviour {
 
         playerControl.PlayerClass.AddItem(newItem);
 
-        GameObject go = GameObjectPool.Instance.Spawn(UIItemPoolName, Vector3.zero, Quaternion.identity);
+        GameObject go = GameObjectPool.Instance.Spawns(UIItemPoolName, Vector3.zero, Quaternion.identity);
         go.transform.parent = UIItemHolder.transform;
 
         float y = (int)((playerControl.PlayerClass.items.Count-1) / 4) * 0.05f;
@@ -163,18 +149,15 @@ public class PlayerUI : MonoBehaviour {
 
     void Update()
     {
-        UpdateUI();
-
-        currentExp = Mathf.Lerp(currentExp, wantedExp, Time.deltaTime * speed);
-        currentMoney = Mathf.Lerp(currentMoney, wantedMoney, Time.deltaTime * speed);
-        currentHealth = Mathf.Lerp(currentHealth, wantedHealth, Time.deltaTime * speed);
-
-        ChangeUI();
+        if (playerControl.playerUI == null)
+            playerControl.playerUI = this;
 
         if (InputController.GetClicked(playerControl.PlayerID() + "_SKILLMENU"))
         {
+            if (GameManager.GamePaused && !showMenu)
+                return;
+
             showMenu = !showMenu;
-            //SkillAndItemMenu.gameObject.SetActive(showMenu);
             SkillAndItemMenu.GetComponent<UIRect>().Visible = showMenu;
             if (showMenu)
             {
@@ -186,6 +169,19 @@ public class PlayerUI : MonoBehaviour {
                 GameEventHandler.TriggerOnResume();
             }
         }
+
+        if (GameManager.GamePaused)
+        {
+            return;
+        }
+
+        UpdateUI();
+
+        currentExp = Mathf.Lerp(currentExp, wantedExp, Time.deltaTime * speed);
+        currentMoney = Mathf.Lerp(currentMoney, wantedMoney, Time.deltaTime * speed);
+        currentHealth = Mathf.Lerp(currentHealth, wantedHealth, Time.deltaTime * speed);
+
+        ChangeUI();
     }
 
     private void ChangeUI()
@@ -248,5 +244,12 @@ public class PlayerUI : MonoBehaviour {
     public void UpdateSkillPoints()
     {
         SkillTabButton.Text = "Skill/Attribute(" + playerControl.PlayerClass.skillPoints.ToString() + ")";
+    }
+
+    public void UpdateAfterSkillPointUP()
+    {
+        UpdateUI();
+        currentMoney = wantedMoney;
+        ChangeUI();
     }
 }

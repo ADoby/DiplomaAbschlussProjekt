@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[System.Serializable]
 public class BoostJump : PlayerSkill
 {
     public Vector2 direction;

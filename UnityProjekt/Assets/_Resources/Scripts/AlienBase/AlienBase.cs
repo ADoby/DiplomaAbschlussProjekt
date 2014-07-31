@@ -17,6 +17,7 @@ public class AlienBase : MonoBehaviour
 
     public float currentTime = 0;
 
+    [SerializeField]
     public List<GrowingPart> parts = new List<GrowingPart>();
 
     public bool UpdateGrowingParts = false;
@@ -40,6 +41,9 @@ public class AlienBase : MonoBehaviour
 
     #endregion
 
+    public EnemieBase HealthBaseScript;
+    public bool useHealthAsTime = false;
+
     public float GetMinTime(int stateIndex)
     {
         if (stateIndex >= StateOrder.Count || StateOrder.Count == 0 || stateIndex < 0)
@@ -53,36 +57,33 @@ public class AlienBase : MonoBehaviour
         return StateOrder[stateIndex].endTime;
     }
 
-    void Awake()
-    {
-        GameEventHandler.OnPause += OnPause;
-        GameEventHandler.OnResume += OnResume;
-    }
-
     void Start()
     {
         Reset();
-
-        
     }
 
     public void Reset()
     {
         currentTime = StartUpTime;
-        
+
+        if (useHealthAsTime)
+        {
+            HealthBaseScript = GetComponent<EnemieBase>();
+
+            if (HealthBaseScript)
+            {
+                UpdateTime = false;
+                SetCurrentTime(minNeededTime + HealthBaseScript.ProzentHealth() * maxNeededTime);
+            }
+            else
+            {
+                useHealthAsTime = false;
+            }
+        }
+
         FindCorrectState();
 
         UpdateParts();
-    }
-
-    void OnPause()
-    {
-        enabled = false;
-    }
-
-    void OnResume()
-    {
-        enabled = true;
     }
 
     public void FindCorrectState()
@@ -172,6 +173,9 @@ public class AlienBase : MonoBehaviour
 
     // Update is called once per frame
 	void Update () {
+        if (GameManager.GamePaused)
+            return;
+
 	    if (Application.isPlaying)
 	    {
 	        StateOrder[currentState].Update();
@@ -181,13 +185,17 @@ public class AlienBase : MonoBehaviour
                 currentTime += Time.deltaTime;
                 currentTime = Mathf.Clamp(currentTime, minNeededTime, maxNeededTime);
 
-	            if (currentTime > StateOrder[currentState].endTime)
-	            {
-	                NextState();
-	            }
-	        }
-            
-	        UpdateParts();
+                if (currentTime > StateOrder[currentState].endTime)
+                {
+                    NextState();
+                }
+
+                UpdateParts();
+            }
+            else if (useHealthAsTime)
+            {
+                SetCurrentTime(minNeededTime + HealthBaseScript.ProzentHealth() * maxNeededTime);
+            }
 	    }
 	    else
 	    {

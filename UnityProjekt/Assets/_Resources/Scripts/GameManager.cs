@@ -17,46 +17,33 @@ public enum PlayerSlots
 	COUNT
 }
 
+[System.Serializable]
 public class GameManager : MonoBehaviour {
 
-	#region Singleton
+	public static GameManager Instance;
 
-	private static GameManager instance;
+    public static bool GamePaused = false;
 
-	public static GameManager Instance
-	{
-		get
-		{
-			if(!instance)
-				instance = FindObjectOfType<GameManager>();
-
-			return instance;
-		}
-	}
-
-	void Awake()
-	{
-		instance = this;
-
-		GameEventHandler.OnPause += OnPause;
-		GameEventHandler.OnResume += OnResume;
-
-        //LevelSerializer.MaxGames = 2;
-	}
-
-	#endregion
+    public static bool AllowMenuInput = true;
 
 	public int CurrentSpawnedEntityCount = 0;
 	public int MaxSpawnedEntityCount = 40;
 
 	public GameObject[] levels;
 	public int DefaultLevel = 0;
+    [SerializeThis]
 	private int currentLevel = 0;
 
 	public static bool CanSpawnEntity
 	{
-		get { return (instance.CurrentSpawnedEntityCount < instance.MaxSpawnedEntityCount); }
+		get { return (Instance.CurrentSpawnedEntityCount < Instance.MaxSpawnedEntityCount); }
 	}
+
+    public GameObject playerPrefab;
+    public GameObject cameraPrefab;
+    public PlayerClass[] PlayerClasses;
+
+    public GameObject GameContainer;
 
 	public void AddEntity()
 	{
@@ -72,8 +59,9 @@ public class GameManager : MonoBehaviour {
 
 	public UIButton[] slotButtons;
 
-    [SerializeField]
+    [SerializeThis]
 	private PlayerController[] Players = {null,null,null,null};
+    [SerializeThis]
 	private CameraController[] Cameras = {null,null,null,null};
 
 	public CameraController[] GetCameras()
@@ -81,19 +69,65 @@ public class GameManager : MonoBehaviour {
 		return Cameras;
 	}
 
-	public static float CurrentDifficulty = 0;
-	public static float DifficultyValue = 0;
+    public float CurrentDifficulty = 0;
+	public float DifficultyValue = 0f;
 	public float DifficultEveryXSecond = 5f;
 
+    public float LastDifficulty = 0f;
+    public float LastDifficultyValue = 0f;
+    public float LastLevelDamage = 0f;
+
+    public float CurrentLevelDamage = 0f;
+
     public UIRect WinScreen;
+    public UIRect DifficultyBar;
+    public UIText DifficultyText;
+
+    public UIText ProgressText;
+    public UIRect ProgressBar;
+
+    void Awake()
+    {
+        Instance = this;
+
+        LevelSerializer.MaxGames = 2;
+    }
 
 	void Start()
 	{
 		GameEventHandler.TriggerOnPause();
-
-		GameEventHandler.OnDamageDone += OnDamageDone;
-        GameEventHandler.ResetLevel += OnResetLevel;
+        SelectSlot(0);
 	}
+
+    void OnEnable()
+    {
+        GameEventHandler.OnDamageDone += OnDamageDone;
+        GameEventHandler.OnPause += OnPause;
+        GameEventHandler.OnResume += OnResume;
+
+        GameEventHandler.OnCreateCheckpoint += SaveCheckPoint;
+        GameEventHandler.OnResetToCheckpoint += LoadLastCheckPoint;
+    }
+
+    void OnDisable()
+    {
+        UnListen();
+    }
+
+    void OnDestroy()
+    {
+        UnListen();   
+    }
+
+    void UnListen()
+    {
+        GameEventHandler.OnDamageDone -= OnDamageDone;
+        GameEventHandler.OnPause -= OnPause;
+        GameEventHandler.OnResume -= OnResume;
+
+        GameEventHandler.OnCreateCheckpoint -= SaveCheckPoint;
+        GameEventHandler.OnResetToCheckpoint -= LoadLastCheckPoint;
+    }
 
     public void StopGame()
     {
@@ -102,19 +136,44 @@ public class GameManager : MonoBehaviour {
             RemovePlayer(Players[i]);
 
         }
-        CurrentDifficulty = 0;
-        DifficultyValue = 0;
-        CurrentLevelDamage = 0;
+
+        ResetDifficultyAndDamage();
 
         SelectSlot(3);
         SelectSlot(2);
         SelectSlot(1);
         SelectSlot(0);
+
+        for (int i = 0; i < levels.Length; i++)
+        {
+            levels[i].SetActive(false);
+        }
+
+        for (int i = 0; i < LevelSerializer.SavedGames[LevelSerializer.PlayerName].Count; i++)
+        {
+            LevelSerializer.SavedGames[LevelSerializer.PlayerName][0].Delete();
+        }
     }
 
-    public void OnResetLevel()
+    public void ResetDifficultyAndDamage()
     {
-        LevelSerializer.LoadNow(LevelSerializer.SavedGames[LevelSerializer.PlayerName][0].Data, false, true);
+        CurrentDifficulty = 0;
+        DifficultyValue = 0;
+        CurrentLevelDamage = 0;
+        UpdateDifficulty();
+    }
+
+    public void ResetLevel()
+    {
+        if (LevelSerializer.SavedGames[LevelSerializer.PlayerName].Count == 2)
+        {
+            LevelSerializer.LoadNow(LevelSerializer.SavedGames[LevelSerializer.PlayerName][1].Data, false, true);
+        }
+        else
+        {
+            LevelSerializer.LoadNow(LevelSerializer.SavedGames[LevelSerializer.PlayerName][0].Data, false, true);
+        }
+        ResetDifficultyAndDamage();
     }
 
 	public void LoadLevel(int id)
@@ -176,12 +235,6 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	public UIRect DifficultyBar;
-	public UIText DifficultyText;
-
-	public UIText ProgressText;
-	public UIRect ProgressBar;
-
 	private float NeededLevelDamage
 	{
 		get
@@ -189,7 +242,6 @@ public class GameManager : MonoBehaviour {
 			return levels[currentLevel].GetComponent<LevelController>().NeededLevelDamage;
 		}
 	}
-	private float CurrentLevelDamage = 0f;
 	
 
 	public void OnDamageDone(PlayerController player, float damage)
@@ -212,30 +264,30 @@ public class GameManager : MonoBehaviour {
 		ProgressBar.RelativeSize.y = progress;
 	}
 
+    void UpdateDifficulty()
+    {
+        DifficultyValue += Time.deltaTime;
+        DifficultyBar.RelativeSize.x = DifficultyValue / DifficultEveryXSecond;
+        if (DifficultyValue >= DifficultEveryXSecond)
+        {
+            CurrentDifficulty++;
+            DifficultyValue = 0;
+
+        } 
+        DifficultyText.Text = "Difficulty: " + CurrentDifficulty.ToString("####0");
+    }
+
 	void Update()
 	{
-		if (currentPlayerSelectingClass != -1 && slotButtons.Length > 0)
-		{
-			slotButtons[currentPlayerSelectingClass].Text = "Player " + (currentPlayerSelectingClass + 1) + " Select";
-			slotButtons[currentPlayerSelectingClass].ButtonStyle.normal.textColor = Color.red;
-		}
+        if (GamePaused)
+            return;
 
         if (InputController.GetClicked("RESETLEVEL"))
         {
-            OnResetLevel();
+            ResetLevel();
         }
 
-		if (GamePaused)
-			return;
-
-		DifficultyValue += Time.deltaTime;
-		DifficultyBar.RelativeSize.x = DifficultyValue / DifficultEveryXSecond;
-		if (DifficultyValue >= DifficultEveryXSecond)
-		{
-			CurrentDifficulty++;
-			DifficultyValue = 0;
-			DifficultyText.Text = "Difficulty: " + CurrentDifficulty.ToString("####0");
-		}
+        UpdateDifficulty();
 
 		UpdateProgressUI();
 	}
@@ -248,9 +300,7 @@ public class GameManager : MonoBehaviour {
 	public void StartGame()
 	{
 
-		DifficultyValue = 0;
-		CurrentDifficulty = 0;
-		DifficultyText.Text = "Difficulty: " + CurrentDifficulty.ToString("####0");
+        ResetDifficultyAndDamage();
 
 		foreach (var playerController in Players)
 		{
@@ -298,15 +348,23 @@ public class GameManager : MonoBehaviour {
 
     public void SaveCheckPoint()
     {
+
         if (LevelSerializer.SavedGames[LevelSerializer.PlayerName].Count == 2)
             LevelSerializer.SavedGames[LevelSerializer.PlayerName][0].Delete();
 
+        LastDifficulty = CurrentDifficulty;
+        LastDifficultyValue = DifficultyValue;
+        LastLevelDamage = CurrentLevelDamage;
         LevelSerializer.SaveGame("CheckPoint");
+
     }
 
-    public void SaveLastCheckPoint()
+    public void LoadLastCheckPoint()
     {
         LevelSerializer.LoadNow(LevelSerializer.SavedGames[LevelSerializer.PlayerName][0].Data, false, true);
+        CurrentDifficulty = LastDifficulty;
+        DifficultyValue = LastDifficultyValue;
+        CurrentLevelDamage = LastLevelDamage;
     }
 
 	public void SelectSlot(int id)
@@ -317,51 +375,51 @@ public class GameManager : MonoBehaviour {
 		RemovePlayer(Players[id]);
 
 		currentPlayerSelectingClass = id;
+
+        slotButtons[currentPlayerSelectingClass].Text = "Player " + (currentPlayerSelectingClass + 1) + " Select";
+        slotButtons[currentPlayerSelectingClass].ButtonStyle.normal.textColor = Color.red;
 	}
 
-	public GameObject playerPrefab;
-	public GameObject cameraPrefab;
-	public PlayerClass[] PlayerClasses;
+    private void SelectNextPlayerSlot()
+    {
+        currentPlayerSelectingClass = -1;
+        for (int i = 0; i < 4; i++)
+        {
+            if (Players[i] == null)
+            {
+                currentPlayerSelectingClass = i;
+                break;
+            }
+        }
+        SelectSlot(currentPlayerSelectingClass);
+    }
 
-	public GameObject GameContainer;
+    public void SelectClass(int id)
+    {
+        GameObject newPlayer = (GameObject)Object.Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
+        newPlayer.SetActive(false);
+        Players[currentPlayerSelectingClass] = newPlayer.GetComponent<PlayerController>();
 
-	public void SelectClass(int id)
-	{
-		GameObject newPlayer = (GameObject)Object.Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
-		newPlayer.SetActive(false);
-		Players[currentPlayerSelectingClass] = newPlayer.GetComponent<PlayerController>();
+        GameObject newCam = (GameObject)Object.Instantiate(cameraPrefab, new Vector3(0, 0, -10), Quaternion.identity);
+        newCam.SetActive(false);
 
-		GameObject newCam = (GameObject) Object.Instantiate(cameraPrefab, new Vector3(0,0,-10), Quaternion.identity);
-		newCam.SetActive(false);
+        newCam.GetComponent<PlayerUI>().playerControl = Players[currentPlayerSelectingClass];
 
-		newCam.GetComponent<PlayerUI>().playerControl = Players[currentPlayerSelectingClass];
+        Cameras[currentPlayerSelectingClass] = newCam.GetComponent<CameraController>();
+        Cameras[currentPlayerSelectingClass].player = newPlayer.transform;
+        Cameras[currentPlayerSelectingClass].playerControl = newPlayer.GetComponent<PlayerController>();
 
-		Cameras[currentPlayerSelectingClass] = newCam.GetComponent<CameraController>();
-		Cameras[currentPlayerSelectingClass].player = newPlayer.transform;
-		Cameras[currentPlayerSelectingClass].playerControl = newPlayer.GetComponent<PlayerController>();
+        Players[currentPlayerSelectingClass].PlayerId = currentPlayerSelectingClass;
 
-		Players[currentPlayerSelectingClass].PlayerId = currentPlayerSelectingClass;
+        PlayerClass playerClass = (PlayerClass)Object.Instantiate(PlayerClasses[id]);
+        playerClass.transform.parent = newPlayer.transform;
+        Players[currentPlayerSelectingClass].PlayerClass = playerClass;
 
-		PlayerClass playerClass = (PlayerClass) Object.Instantiate(PlayerClasses[id]);
-		playerClass.transform.parent = newPlayer.transform;
-		Players[currentPlayerSelectingClass].PlayerClass = playerClass;
+        slotButtons[currentPlayerSelectingClass].Text = "Selected: " + Players[currentPlayerSelectingClass].PlayerClass.name.Replace("(Clone)", "");
+        slotButtons[currentPlayerSelectingClass].ButtonStyle.normal.textColor = Color.green;
 
-		slotButtons[currentPlayerSelectingClass].Text = "Selected: " + Players[currentPlayerSelectingClass].PlayerClass.name.Replace("(Clone)", "");
-		slotButtons[currentPlayerSelectingClass].ButtonStyle.normal.textColor = Color.green;
-
-
-		currentPlayerSelectingClass = -1;
-		for (int i = 0; i < 4; i++)
-		{
-			if (Players[i] == null)
-			{
-				currentPlayerSelectingClass = i;
-				break;
-			}
-		}
-	}
-
-	public bool GamePaused = false;
+        SelectNextPlayerSlot();
+    }
 
 	public static Vector3 GetLevelSpawnPoint()
 	{

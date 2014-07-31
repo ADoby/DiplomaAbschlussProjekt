@@ -9,6 +9,45 @@ public class SpawnInfo
 }
 
 [System.Serializable]
+public class SpawnInfos
+{
+    [Range(0f, 1f)]
+    public float chance = 1.0f;
+    public int minAmount = 1, maxAmount = 1;
+    public SpawnInfo[] spawnInfos;
+
+    public bool WantsToSpawn
+    {
+        get
+        {
+            return (Random.value < chance);
+        }
+    }
+
+    public int Amount
+    {
+        get
+        {
+            return Random.Range(minAmount, maxAmount);
+        }
+    }
+
+    public SpawnInfo Next()
+    {
+        var rnd = Random.value;
+        for (int i = 0; i < spawnInfos.Length; i++)
+        {
+            if (rnd < spawnInfos[i].weight)
+            {
+                return spawnInfos[i];
+            }
+            rnd -= spawnInfos[i].weight;
+        }
+        return null;
+    }
+}
+
+[System.Serializable]
 public class AlienBaseState
 {
     public bool attacking, spawning;

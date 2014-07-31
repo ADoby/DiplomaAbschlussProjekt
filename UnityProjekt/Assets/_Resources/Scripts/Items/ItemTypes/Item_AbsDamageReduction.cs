@@ -15,19 +15,35 @@ public class Item_AbsDamageReduction : Item
     {
         get
         {
-            return "<color=" + colors[prefixID] + ">" + Name + "</color>\nDamage reduction: " + AbsoluteDamageReduction.ToString("##0");
+            return "<color=" + colors[prefixID] + ">" + Name + "</color>\n<color=#226622>Damage reduction: " + AbsoluteDamageReduction.ToString("##0") + "</color>";
         }
     }
 
-    public float AbsoluteDamageReduction = 200f;
+    public float AbsoluteDamageReduction = 100f;
+
+    public float AbsoluteDamageReductionPerLevel = 5f;
 
     public override void UpdateStats(float value)
     {
+        base.UpdateStats(value);
         AbsoluteDamageReduction *= value;
+    }
+
+    public override void Start(PlayerClass playerClass)
+    {
+        base.Start(playerClass);
+        AbsoluteDamageReduction += AbsoluteDamageReductionPerLevel * Value * playerClass.playerControl.Level;
     }
 
     public override float OnPlayerGetsDamage(PlayerClass playerClass, float damage)
     {
         return Mathf.Clamp(damage - AbsoluteDamageReduction, 0, damage);
+    }
+
+    public override void OnPlayerLevelUp(PlayerClass playerClass)
+    {
+        base.OnPlayerLevelUp(playerClass);
+
+        AbsoluteDamageReduction += AbsoluteDamageReductionPerLevel * Value;
     }
 }

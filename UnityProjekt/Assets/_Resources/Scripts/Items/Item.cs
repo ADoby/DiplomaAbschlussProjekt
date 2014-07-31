@@ -4,10 +4,12 @@ using System.Collections;
 [System.Serializable]
 public abstract class Item {
 
+    [SerializeField]
     protected string[] colors = { 
                                     "#A0A0A0", "#D0D0D0", "#FFFFFF", "#33FF66", "#00FF00", 
                                     "#FFFF33", "#FF66CC", "#CC3366", "#CC9933", "#FF6600"};
 
+    [SerializeField]
     protected virtual string[] names
     {
         get
@@ -17,6 +19,8 @@ public abstract class Item {
     }
 
     public int prefixID = 0;
+
+    public float Value = 1f;
 
     public string Name = "Item";
     public virtual string Description
@@ -32,7 +36,10 @@ public abstract class Item {
         Name = prefix + " " + names[Random.Range(0, names.Length)] + " " + suffix;
     }
 
-    public abstract void UpdateStats(float value);
+    public virtual void UpdateStats(float value)
+    {
+        Value = value;
+    }
 
     //Once when item gets created
     public virtual void Start(PlayerClass playerClass)
@@ -78,6 +85,11 @@ public abstract class Item {
         return damage;
     }
     public virtual void OnPlayerDied(PlayerClass playerClass)
+    {
+
+    }
+
+    public virtual void OnPlayerLevelUp(PlayerClass playerClass)
     {
 
     }

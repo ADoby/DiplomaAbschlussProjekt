@@ -15,7 +15,7 @@ public class Item_RelDamageReduction : Item
     {
         get
         {
-            return "<color=" + colors[prefixID] + ">" + Name + "</color>\nDamage reduction: " + RelativeDamageReduction.ToString("#0%");
+            return "<color=" + colors[prefixID] + ">" + Name + "</color>\n<color=#226622>Damage reduction: " + RelativeDamageReduction.ToString("#0%") + "</color>";
         }
     }
 
@@ -23,6 +23,7 @@ public class Item_RelDamageReduction : Item
 
     public override void UpdateStats(float value)
     {
+        base.UpdateStats(value);
         RelativeDamageReduction *= value;
     }
 

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+[System.Serializable]
 public struct SpawnQueueInfo
 {
     public string poolName;
@@ -11,6 +12,7 @@ public struct SpawnQueueInfo
     public bool countEntity;
 }
 
+[System.Serializable]
 public class EntitySpawnManager : MonoBehaviour
 {
 
@@ -18,9 +20,12 @@ public class EntitySpawnManager : MonoBehaviour
 
     public static EntitySpawnManager instance;
 
+    [SerializeThis]
     private Queue<SpawnQueueInfo> EntitySpawnQueue = new Queue<SpawnQueueInfo>();
 
     public float timing = 0.1f;
+    [SerializeThis]
+    private float timer = 0;
 
     public int SpawnsPerTick = 10;
 
@@ -29,12 +34,17 @@ public class EntitySpawnManager : MonoBehaviour
         instance = this;
     }
 
-	// Use this for initialization
-	void Start () {
-        StartCoroutine(SpawnTimer());
-	}
+    void Update()
+    {
+        timer -= Time.deltaTime;
+        if (timer < 0)
+        {
+            timer = timing;
+            TrySpawning();
+        }
+    }
 
-    private IEnumerator SpawnTimer()
+    private void TrySpawning()
     {
         if (GameManager.CanSpawnEntity && EntitySpawnQueue.Count > 0)
         {
@@ -46,14 +56,11 @@ public class EntitySpawnManager : MonoBehaviour
                 Spawn(EntitySpawnQueue.Dequeue());
             }
         }
-        
-        yield return new WaitForSeconds(timing);
-        StartCoroutine(SpawnTimer());
     }
 
     public void Spawn(SpawnQueueInfo info)
     {
-        GameObject go = GameObjectPool.Instance.Spawn(info.poolName, info.position + Vector3.forward * 0.0001f * GameManager.Instance.CurrentSpawnedEntityCount, info.rotation);
+        GameObject go = GameObjectPool.Instance.Spawns(info.poolName, info.position + Vector3.forward * 0.0001f * GameManager.Instance.CurrentSpawnedEntityCount, info.rotation);
 
         if (info.callBack != null)
         {

@@ -63,6 +63,8 @@ public class AlienBaseEditor : Editor
 
         GUILayout.Space(5);
 
+        myTarget.useHealthAsTime = EditorGUILayout.Toggle("Use EnemieBase Health Script", myTarget.useHealthAsTime);
+
         showTestingGroup = EditorGUILayout.BeginToggleGroup("Testing: ", showTestingGroup);
         myTarget.UpdateGrowingParts = showTestingGroup;
 

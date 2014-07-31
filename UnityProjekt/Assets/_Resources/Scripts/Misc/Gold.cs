@@ -15,7 +15,10 @@ public class Gold : MonoBehaviour {
 
     public float gravity = 3f;
 
+    [SerializeField]
     private bool flyToPlayer = false;
+
+    public bool disableColliderOnFlight = true;
 
     public void Reset()
     {
@@ -28,6 +31,8 @@ public class Gold : MonoBehaviour {
     void FlyToPlayer()
     {
         flyToPlayer = true;
+        if(disableColliderOnFlight)
+            worldCollider.enabled = false;
     }
 
     void Update()
@@ -44,7 +49,7 @@ public class Gold : MonoBehaviour {
     {
         if (other && other.gameObject && other.gameObject.tag == "Player")
         {
-            other.gameObject.SendMessage("AddMoney", amount + (int)(amountPerDifficulty * GameManager.CurrentDifficulty), SendMessageOptions.DontRequireReceiver);
+            other.gameObject.SendMessage("AddMoney", amount + (int)(amountPerDifficulty * GameManager.Instance.CurrentDifficulty), SendMessageOptions.DontRequireReceiver);
             EntitySpawnManager.Despawn(poolName, gameObject, true);
         }
     }
