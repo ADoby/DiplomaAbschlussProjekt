@@ -182,9 +182,14 @@ public class UIRect : MonoBehaviour
 
     #region Virtual Functions
 
-    public virtual void DrawMe() 
+    public virtual void DrawMeBeforeChildren() 
     { 
         //Override me
+    }
+
+    public virtual void DrawMeAfterChildern()
+    {
+
     }
 
     public void Draw()
@@ -194,7 +199,7 @@ public class UIRect : MonoBehaviour
             GUI.Box(absoluteRect, "");
         }
         
-        DrawMe();
+        DrawMeBeforeChildren();
     }
 
     #endregion
@@ -234,6 +239,8 @@ public class UIRect : MonoBehaviour
                 if (child)
                     child.UpdateUI();
             }
+
+            DrawMeAfterChildern();
         }
         
 
@@ -243,12 +250,21 @@ public class UIRect : MonoBehaviour
         }
     }
 
+    public void UpdateRects()
+    {
+        UpdateRect();
+        for (int i = 0; i < children.Count; i++)
+        {
+            children[i].UpdateRects();
+        }
+    }
+
     #endregion
 
 
     #region Protected Functions
 
-    protected void UpdateRect()
+    public void UpdateRect()
     {
         absoluteRect = new Rect(AbsolutePosition.x, AbsolutePosition.y, AbsoluteSize.x, AbsoluteSize.y);
         if (parent == null)

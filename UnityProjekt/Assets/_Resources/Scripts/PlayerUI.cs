@@ -135,6 +135,8 @@ public class PlayerUI : MonoBehaviour {
         GameObject go = GameObjectPool.Instance.Spawns(UIItemPoolName, Vector3.zero, Quaternion.identity);
         go.transform.parent = UIItemHolder.transform;
 
+        
+
         float y = (int)((playerControl.PlayerClass.items.Count-1) / 4) * 0.05f;
         float x = (int)((playerControl.PlayerClass.items.Count-1) % 4) * 0.25f;
         go.GetComponent<UIButton>().Text = newItem.Description;
@@ -142,7 +144,12 @@ public class PlayerUI : MonoBehaviour {
         go.GetComponent<UIButton>().RelativePosition.y = y;
 
         UIItemHolder.GetComponent<UIRect>().AddChild(go.GetComponent<UIButton>());
-        go.GetComponent<UIButton>().UpdateChildren();
+        UIItemHolder.GetComponent<UIRect>().UpdateChildren();
+
+        if (UIItemHolder.GetComponent<UIScrollPanel>())
+        {
+            UIItemHolder.GetComponent<UIScrollPanel>().RelHeight = (y + 0.05f);
+        }
     }
 
     public bool showMenu = false;

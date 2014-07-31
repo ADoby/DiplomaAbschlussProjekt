@@ -9,7 +9,7 @@ public class UITexture : UIRect
 
     public ScaleMode ScaleMode;
 
-    public override void DrawMe()
+    public override void DrawMeBeforeChildren()
     {
         GUI.DrawTexture(absoluteRect, Texture, ScaleMode);
     }

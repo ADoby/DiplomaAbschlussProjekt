@@ -54,6 +54,7 @@ public class Rocket : MonoBehaviour {
 	// Use this for initialization
 	void Reset () {
         target = null;
+        collider2D.enabled = true;
         targetPos = transform.position;
         NewRandomFlyingDirection();
         FindNewTarget();
@@ -130,8 +131,16 @@ public class Rocket : MonoBehaviour {
 
     public void UpdateRotation()
     {
-        targetPos += transform.up * RightAndLeftFront(0.5f);
-        
+        if (target)
+        {
+            targetPos += transform.up * RightAndLeftFront();
+        }
+        else
+        {
+            targetPos += transform.up * RightAndLeftFront();
+            targetPos += Vector3.up * FrontUpAndDown();
+        }
+
         Vector3 dir = targetPos - transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         wantedRotation = Quaternion.AngleAxis(angle, Vector3.forward);
@@ -158,12 +167,21 @@ public class Rocket : MonoBehaviour {
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, MaxSightRange, targetLayer);
         for (int i = 0; i < hits.Length; i++)
         {
-            if (Physics2D.Raycast(transform.position, (hits[i].bounds.center - transform.position), MaxSightRange, sightLayer).collider == hits[i])
+            if (Physics2D.Raycast(transform.position, (hits[i].bounds.center - transform.position), MaxSightRange, sightLayer).transform == hits[i].transform)
             {
                 target = hits[i].transform;
                 break;
             }
         }
+    }
+
+    public float FrontUpAndDown(float rangeMult = 1f)
+    {
+        float dist = (WantedWallDistance * rangeMult);
+        RaycastHit2D up = Physics2D.Raycast(transform.position, Vector3.right * flyingDirectionX + Vector3.up * 0.5f, dist, navLayer);
+        RaycastHit2D down = Physics2D.Raycast(transform.position, Vector3.right * flyingDirectionX + Vector3.down * 0.5f, dist, navLayer);
+
+        return (Mathf.Abs(up.distance - dist) / dist) - (Mathf.Abs(down.distance - dist) / dist);
     }
 
     public float RightAndLeftFront(float rangeMult = 1f)
@@ -218,6 +236,7 @@ public class Rocket : MonoBehaviour {
     public float RightOrLeft(float rangeMult = 1f)
     {
         float dist = (WantedWallDistance * rangeMult);
+
         RaycastHit2D right = Physics2D.Raycast(transform.position, Vector3.right, dist, navLayer);
         RaycastHit2D left = Physics2D.Raycast(transform.position, Vector3.left, dist, navLayer);
 
@@ -238,6 +257,7 @@ public class Rocket : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D coll)
     {
         Explode();
+        collider2D.enabled = false;
     }
 
     public void Explode()

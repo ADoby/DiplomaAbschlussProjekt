@@ -15,7 +15,8 @@ public class ItemGenerator {
                                                  typeof(Item_AbsHealthBonus), 
                                                  typeof(Item_RelHealthBonus), 
                                                  typeof(Item_GoldPerSecond), 
-                                                 typeof(Item_RelMovementBonus) };
+                                                 typeof(Item_RelMovementBonus), 
+                                                 typeof(Item_RocketOnAttack) };
 
     public static Item GenerateItem(int value)
     {

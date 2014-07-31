@@ -17,7 +17,7 @@ public class UIFloatSlider : UIRect
     public FloatSliderEvent OnFloatSliderChanged;
     public static FloatSliderEvent OnAnyFloatSliderChanged;
 
-    public override void DrawMe()
+    public override void DrawMeBeforeChildren()
     {
         currentValue = Mathf.Clamp(currentValue, minValue, maxValue);
         currentValue = GUI.HorizontalSlider(absoluteRect, currentValue, minValue, maxValue);

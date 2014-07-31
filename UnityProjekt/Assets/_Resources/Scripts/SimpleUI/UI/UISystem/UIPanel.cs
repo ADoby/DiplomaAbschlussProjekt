@@ -8,7 +8,7 @@ public class UIPanel : UIRect
 
     public GUIStyle BoxStyle;
 
-    public override void DrawMe()
+    public override void DrawMeBeforeChildren()
     {
         if (BoxStyle == null)
             BoxStyle = new GUIStyle(GUI.skin.box);

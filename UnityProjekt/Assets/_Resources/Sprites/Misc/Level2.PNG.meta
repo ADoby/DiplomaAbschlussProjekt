@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a2e2269c25380f74a8ff31975d3d8e62
+guid: 0db3ce9acc8f3d345937f58b16212a1f
 TextureImporter:
   fileIDToRecycleName:
     21300000: Level1
@@ -17,8 +17,8 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 1
     externalNormalMap: 1
-    heightScale: .25
-    normalMapFilter: 0
+    heightScale: .0500000007
+    normalMapFilter: 1
   isReadable: 0
   grayScaleToAlpha: 0
   generateCubemap: 0

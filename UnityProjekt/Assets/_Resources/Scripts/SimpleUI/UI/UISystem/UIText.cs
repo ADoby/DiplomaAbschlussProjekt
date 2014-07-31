@@ -16,7 +16,7 @@ public class UIText : UIRect
     [SerializeField]
     private Color normalTextColor, hoverTextColor;
 
-    public override void DrawMe()
+    public override void DrawMeBeforeChildren()
     {
         if (!isInitialized)
         {
