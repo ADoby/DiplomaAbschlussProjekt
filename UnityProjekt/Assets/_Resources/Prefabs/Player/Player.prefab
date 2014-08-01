@@ -1068,8 +1068,8 @@ MonoBehaviour:
   playerUI: {fileID: 0}
   PlayerId: 0
   Name: Player1
-  Money: 30000
-  MoneyPerSecond: 100
+  Money: 0
+  MoneyPerSecond: 5
   MoneyTimer: 0
   PlayerClass: {fileID: 11400000, guid: 9e629a6a7e8101e46b1fac310d79803c, type: 2}
   MinXMovement: .100000001

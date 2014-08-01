@@ -18,7 +18,7 @@ RenderSettings:
   m_FogDensity: .00999999978
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientLight: {r: .164143592, g: .242647052, b: .210162863, a: 1}
+  m_AmbientLight: {r: .0304930676, g: .0441176295, b: .0384798795, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: .5
   m_FlareStrength: 1
@@ -2228,10 +2228,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 379.200012
-    y: 245.179993
-    width: 189.600006
-    height: 47.9699974
+    x: 329.600006
+    y: 213.440002
+    width: 164.800003
+    height: 41.7600021
   parent: {fileID: 1974104217}
   children: []
   ChildCount: 0
@@ -2287,7 +2287,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 19
+    m_FontSize: 16
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -10697,10 +10697,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 379.200012
-    y: 303.809998
-    width: 189.600006
-    height: 47.9699974
+    x: 329.600006
+    y: 264.480011
+    width: 164.800003
+    height: 41.7600021
   parent: {fileID: 1974104217}
   children: []
   ChildCount: 0
@@ -10756,7 +10756,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 19
+    m_FontSize: 16
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -11224,10 +11224,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 379.200012
-    y: 183.884995
-    width: 189.600006
-    height: 47.9699974
+    x: 329.600006
+    y: 160.080002
+    width: 164.800003
+    height: 41.7600021
   parent: {fileID: 1974104217}
   children: []
   ChildCount: 0
@@ -11283,7 +11283,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 19
+    m_FontSize: 16
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -26981,8 +26981,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 948
-    height: 533
+    width: 824
+    height: 464
   parent: {fileID: 0}
   children:
   - {fileID: 1974104217}
@@ -27528,10 +27528,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 355.5
-    y: 159.899994
-    width: 237
-    height: 213.199997
+    x: 309
+    y: 139.199997
+    width: 206
+    height: 185.600006
   parent: {fileID: 1906325896}
   children:
   - {fileID: 691127879}

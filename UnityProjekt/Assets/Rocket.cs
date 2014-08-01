@@ -54,7 +54,6 @@ public class Rocket : MonoBehaviour {
 	// Use this for initialization
 	void Reset () {
         target = null;
-        collider2D.enabled = true;
         targetPos = transform.position;
         NewRandomFlyingDirection();
         FindNewTarget();
@@ -256,8 +255,8 @@ public class Rocket : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D coll)
     {
-        Explode();
-        collider2D.enabled = false;
+        StartCoroutine("Explode");
+        //Explode();
     }
 
     public void Explode()
