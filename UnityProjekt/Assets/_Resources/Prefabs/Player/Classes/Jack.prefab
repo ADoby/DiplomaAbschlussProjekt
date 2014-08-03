@@ -44,8 +44,8 @@ MonoBehaviour:
   Description: Beschreibung
   Attributes:
   - Name: Health
-    Value: 200
-    ValuePerLevel: 30
+    Value: 100
+    ValuePerLevel: 25
     valueMultiply: 1
     ValuePerSkillPoint: 100
     MinValue: 0
@@ -54,48 +54,39 @@ MonoBehaviour:
     currentSkillUps: 0
   - Name: Health Regeneration
     Value: 5
-    ValuePerLevel: 1
+    ValuePerLevel: .5
     valueMultiply: 1
     ValuePerSkillPoint: 1
     MinValue: 0
     MaxValue: 2000
-    MaxSkillUps: 100
+    MaxSkillUps: 50
     currentSkillUps: 0
   - Name: Attack Speed
     Value: 1
     ValuePerLevel: 0
     valueMultiply: 1
-    ValuePerSkillPoint: .0299999993
+    ValuePerSkillPoint: .0500000007
     MinValue: 0
     MaxValue: 4
-    MaxSkillUps: 30
+    MaxSkillUps: 20
     currentSkillUps: 0
   - Name: Damage
-    Value: 30
+    Value: 10
     ValuePerLevel: 2
     valueMultiply: 1
-    ValuePerSkillPoint: 3
+    ValuePerSkillPoint: 5
     MinValue: 0
     MaxValue: 5000
-    MaxSkillUps: 200
+    MaxSkillUps: 100
     currentSkillUps: 0
   - Name: Movement Speed
-    Value: 5
+    Value: 8
     ValuePerLevel: 0
     valueMultiply: 1
     ValuePerSkillPoint: .5
     MinValue: 0
     MaxValue: 30
     MaxSkillUps: 20
-    currentSkillUps: 0
-  - Name: Acceleration
-    Value: 25
-    ValuePerLevel: 0
-    valueMultiply: 1
-    ValuePerSkillPoint: 3
-    MinValue: 0
-    MaxValue: 200
-    MaxSkillUps: 40
     currentSkillUps: 0
   - Name: Jump Power
     Value: 10
@@ -135,7 +126,7 @@ MonoBehaviour:
   GravityMultiply: 2
   playerWidth: 1
   playerHeight: 2
-  footHeight: .200000003
+  footHeight: .300000012
   MaxJumpCount: 1
   currentJumpNumber: 0
   playerTransform: {fileID: 0}

@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
 
     public PlayerClass PlayerClass;
 
+    public float friction = 1.0f;
+
     [Range(0f, 1.0f)]
     public float MinXMovement = 0.1f;
 
@@ -44,8 +46,6 @@ public class PlayerController : MonoBehaviour
     public float NeededExperienceMultPerLevel = 1.5f;
     public float ExperiencePerDamageDone = 2.0f;
     public float MinUpMotionForExtraJump = 0.2f;
-
-    public float friction = 1f;
 
     public string JumpInput = "_JUMP",
                     Skill1Input = "_SKILL1",
@@ -169,12 +169,8 @@ public class PlayerController : MonoBehaviour
 
     public void CreateCheckpoint()
     {
-
         checkPointTimer = 0;
         GameEventHandler.TriggerCreateCheckpoint();
-        return;
-
-        LastSave = LevelSerializer.SaveObjectTree(gameObject);
     }
 
     public void ResetToCheckpoint()
@@ -183,9 +179,6 @@ public class PlayerController : MonoBehaviour
         backToCheckPointTimer = BackToCheckPointCooldown;
         GameEventHandler.TriggerResetToCheckpoint();
         return;
-
-        LevelSerializer.LoadObjectTree(LastSave);
-        LastSave = LevelSerializer.SaveObjectTree(gameObject);
     }
 
 	// Update is called once per frame
@@ -325,7 +318,16 @@ public class PlayerController : MonoBehaviour
     {
         if (_animator)
         {
-            _animator.SetBool("Crouching", _crouching);
+            if(Grounded)
+            {
+                _animator.SetBool("Crouching", Crouching);
+            }
+            else
+            {
+                _animator.SetBool("Crouching", false);
+            }
+
+            _animator.SetFloat("SpeedY", _currentVelocity.y);
 
             _animator.SetFloat("Speed", Mathf.Abs(_currentVelocity.x));
         }
@@ -474,17 +476,38 @@ public class PlayerController : MonoBehaviour
 
     public float WalkUPStrength = 1f;
 
+    public float MaxSpeedMult = 0f;
+
+    public float SpeedUpMult = 4.0f;
+    public float DirectionChangeMult = 1.0f;
+
+    public float WalkingDirection = 0f;
+
+    public float StoppingSpeedMult = 1.0f;
+
     private void Move()
     {
         groundNormal = Vector2.right;
         int inputDirection = (int)Mathf.Clamp(_currentInput.x * 1000, -1, 1);
         int walkDirection = (int)Mathf.Clamp(_currentVelocity.x * 1000, -1, 1);
-        float speedChangeMult = 1f;
-        float maxSpeedMult = 1f;
+
+        float MoveMentChange = PlayerClass.GetAttributeValue(AttributeType.MAXMOVESPEED) * SpeedUpMult;
+        float MaxSpeed = PlayerClass.GetAttributeValue(AttributeType.MAXMOVESPEED);
+
+
+        if (WalkingDirection < 0 && inputDirection > 0)
+            WalkingDirection = 0;
+        if (WalkingDirection > 0 && inputDirection < 0)
+            WalkingDirection = 0;
+
+        WalkingDirection = Mathf.Lerp(WalkingDirection, (float)inputDirection, Time.deltaTime * (DirectionChangeMult * MaxSpeed));
+
+        MaxSpeedMult = Mathf.Abs(WalkingDirection);
+
+        MaxSpeed *= MaxSpeedMult;
 
         if (Grounded)
-        {
-            /*
+        {            
             RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.down, 1f, GroundCheckLayer);
 
             if (hit)
@@ -492,27 +515,21 @@ public class PlayerController : MonoBehaviour
                 groundNormal.x = Mathf.Abs(hit.normal.y);
                 groundNormal.y = -Mathf.Abs(hit.normal.x) * inputDirection;
 
+                if (groundNormal.x > 0 && groundNormal.x < 1f)
+                {
+                    groundNormal.y *= 1f / groundNormal.x;
+                    groundNormal.x = 1f;
+                }
+                
+
                 if (hit.normal.x * inputDirection < 0)
                 {
                     //When we run uphill slow down maxSpeed, because walking uphill is hard
                     //maxSpeedMult = Mathf.Clamp(Mathf.Clamp(groundNormal.x - 0.3f, 0f, 1f) * 5f, 0f, 1f);
                 }
             }
-             * 
-             * RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.right * walkDirection, 1f, GroundCheckLayer);
-            if (hit)
-            {
-                groundNormal.y = WalkUPStrength * walkDirection;
-            }
-            */
-
-
         }
-        else
-        {
-            
-                
-        }
+
 
         Vector3 startPoint = transform.position + transform.right * PlayerClass.playerWidth * Half * inputDirection +
                                 Vector3.up * PlayerClass.playerHeight;
@@ -524,39 +541,39 @@ public class PlayerController : MonoBehaviour
         {
             if (!CheckUp())
             {
-                groundNormal.y = WalkUPStrength * walkDirection;
+                //_currentVelocity.y += WalkUPStrength * walkDirection;
+                //groundNormal.y = WalkUPStrength * walkDirection;
                 if(!Grounded)
                     _currentVelocity.y = ClimbStrength;
             }
             
         }
 
-        Vector2 change = speedChangeMult * groundNormal * _currentInput.x * Time.fixedDeltaTime * 
-                         PlayerClass.GetAttributeValue(AttributeType.MOVEMENTCHANGE);
+        Vector2 change = groundNormal * _currentInput.x * Time.fixedDeltaTime * MoveMentChange;
 
-        if (Mathf.Abs((_currentVelocity + change).x) > PlayerClass.GetAttributeValue(AttributeType.MAXMOVESPEED) * maxSpeedMult)
+        if (Mathf.Abs((_currentVelocity + change).x) > MaxSpeed)
         {
-            float clampMagnitude = 1f - Mathf.Clamp(Mathf.Abs((_currentVelocity + change).x) -
-                          PlayerClass.GetAttributeValue(AttributeType.MAXMOVESPEED), 0f, 1f);
+            float clampMagnitude = 1f - Mathf.Clamp(
+                Mathf.Abs((_currentVelocity + change).x) - MaxSpeed, 0f, 1f);
             change = Vector2.ClampMagnitude(change, clampMagnitude);
         }
 
         _currentVelocity += change;
 
-        
-
-        //_currentVelocity.x -= (_currentVelocity.x) * (PlayerClass.GetAttributeValue(AttributeType.MOVEMENTCHANGE)/ 10.0f) * Time.fixedDeltaTime;
-
-        
-        float SlowDownXValue = walkDirection * Time.fixedDeltaTime * (PlayerClass.GetAttributeValue(AttributeType.MOVEMENTCHANGE) / 4f);
-        if (Mathf.Abs(_currentVelocity.x) - Mathf.Abs(SlowDownXValue) <= 0)
+        if (inputDirection == 0)
         {
-            _currentVelocity.x = 0;
+            float SlowDownXValue = walkDirection * Time.fixedDeltaTime * (PlayerClass.GetAttributeValue(AttributeType.MAXMOVESPEED) * StoppingSpeedMult);
+            if (Mathf.Abs(_currentVelocity.x) - Mathf.Abs(SlowDownXValue) <= 0)
+            {
+                _currentVelocity.x = 0;
+            }
+            else
+            {
+                _currentVelocity.x -= SlowDownXValue;
+            }
         }
-        else
-        {
-            _currentVelocity.x -= SlowDownXValue;
-        }
+        
+        
     }
 
     private void Jump()

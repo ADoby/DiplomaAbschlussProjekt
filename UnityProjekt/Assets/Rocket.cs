@@ -51,10 +51,14 @@ public class Rocket : MonoBehaviour {
 
     public float MinDistanceForMaxSpeed = 1.0f;
 
+    public bool exploded = false;
+
 	// Use this for initialization
 	void Reset () {
         target = null;
+        collider2D.enabled = true;
         targetPos = transform.position;
+        exploded = false;
         NewRandomFlyingDirection();
         FindNewTarget();
 	}
@@ -93,7 +97,7 @@ public class Rocket : MonoBehaviour {
 
         if (target)
         {
-            if (Physics2D.Raycast(transform.position, (targetPos - transform.position), MaxSightRange, sightLayer).transform != target)
+            if (Physics2D.Raycast(transform.position, (target.collider2D.bounds.center - transform.position), MaxSightRange, sightLayer).transform != target)
             {
                 //target out of sight;
                 target = null;
@@ -132,7 +136,7 @@ public class Rocket : MonoBehaviour {
     {
         if (target)
         {
-            targetPos += transform.up * RightAndLeftFront();
+            targetPos += transform.up * RightAndLeftFront() * 2.0f;
         }
         else
         {
@@ -255,8 +259,12 @@ public class Rocket : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D coll)
     {
-        StartCoroutine("Explode");
-        //Explode();
+        if (!exploded)
+        {
+            collider2D.enabled = true;
+            exploded = true;
+            Explode();
+        }
     }
 
     public void Explode()

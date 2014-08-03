@@ -43,6 +43,15 @@ ModelImporter:
     100074: HandFrontIK
     100076: PlayerRig
     100078: ShoulderHandleIK
+    100080: FootBack 1
+    100082: FootFront 1
+    100084: FrontFootBack
+    100086: FrontFootFront
+    100088: HandBack 1
+    100090: HandFront 1
+    100092: Hips1
+    100094: Shoulder
+    100096: ZLookAt
     400000: FootBack
     400002: FootFront
     400004: FootStepBack
@@ -83,6 +92,15 @@ ModelImporter:
     400074: HandFrontIK
     400076: PlayerRig
     400078: ShoulderHandleIK
+    400080: FootBack 1
+    400082: FootFront 1
+    400084: FrontFootBack
+    400086: FrontFootFront
+    400088: HandBack 1
+    400090: HandFront 1
+    400092: Hips1
+    400094: Shoulder
+    400096: ZLookAt
     2300000: polySurface1
     2300002: polySurface2
     2300004: polySurface3
@@ -127,7 +145,7 @@ ModelImporter:
       name: Standing
       takeName: Take 001
       firstFrame: 1
-      lastFrame: 2
+      lastFrame: 15
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -153,17 +171,17 @@ ModelImporter:
         weight: 1
       - path: PlayerRig
         weight: 1
-      - path: PlayerRig/FootBacktIK
+      - path: PlayerRig/FootBack
         weight: 1
-      - path: PlayerRig/FootBacktIK/ikHandle4
+      - path: PlayerRig/FootBack/FrontFootBack
         weight: 1
-      - path: PlayerRig/FootFrontIK
+      - path: PlayerRig/FootFront
         weight: 1
-      - path: PlayerRig/FootFrontIK/ikHandle6
+      - path: PlayerRig/FootFront/FrontFootFront
         weight: 1
-      - path: PlayerRig/HandBackIK
+      - path: PlayerRig/HandBack
         weight: 1
-      - path: PlayerRig/HandFrontIK
+      - path: PlayerRig/HandFront
         weight: 1
       - path: PlayerRig/Hips
         weight: 1
@@ -178,30 +196,36 @@ ModelImporter:
       - path: PlayerRig/Hips/MidleBody/UperBody/UperArmBack/MidleArmBack
         weight: 1
       - path: PlayerRig/Hips/MidleBody/UperBody/UperArmBack/MidleArmBack/HandBack
+          1
         weight: 1
       - path: PlayerRig/Hips/MidleBody/UperBody/UperArmFront
         weight: 1
       - path: PlayerRig/Hips/MidleBody/UperBody/UperArmFront/MidleArmFront
         weight: 1
       - path: PlayerRig/Hips/MidleBody/UperBody/UperArmFront/MidleArmFront/HandFront
+          1
         weight: 1
       - path: PlayerRig/Hips/UperLegBack
         weight: 1
       - path: PlayerRig/Hips/UperLegBack/MidleLegBack
         weight: 1
-      - path: PlayerRig/Hips/UperLegBack/MidleLegBack/FootBack
+      - path: PlayerRig/Hips/UperLegBack/MidleLegBack/FootBack 1
         weight: 1
-      - path: PlayerRig/Hips/UperLegBack/MidleLegBack/FootBack/FootStepBack
+      - path: PlayerRig/Hips/UperLegBack/MidleLegBack/FootBack 1/FootStepBack
         weight: 1
       - path: PlayerRig/Hips/UperLegFront
         weight: 1
       - path: PlayerRig/Hips/UperLegFront/MidleLegFront
         weight: 1
-      - path: PlayerRig/Hips/UperLegFront/MidleLegFront/FootFront
+      - path: PlayerRig/Hips/UperLegFront/MidleLegFront/FootFront 1
         weight: 1
-      - path: PlayerRig/Hips/UperLegFront/MidleLegFront/FootFront/FootStepFront
+      - path: PlayerRig/Hips/UperLegFront/MidleLegFront/FootFront 1/FootStepFront
         weight: 1
-      - path: PlayerRig/ShoulderHandleIK
+      - path: PlayerRig/Hips1
+        weight: 1
+      - path: PlayerRig/Shoulder
+        weight: 1
+      - path: PlayerRig/ZLookAt
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
@@ -402,7 +426,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: UperLegBack
+    - boneName: UperLegFront
       humanName: LeftUpperLeg
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -410,7 +434,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: UperLegFront
+    - boneName: UperLegBack
       humanName: RightUpperLeg
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -418,7 +442,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: MidleLegBack
+    - boneName: MidleLegFront
       humanName: LeftLowerLeg
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -426,7 +450,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: MidleLegFront
+    - boneName: MidleLegBack
       humanName: RightLowerLeg
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -434,7 +458,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: FootBack
+    - boneName: FootFront 1
       humanName: LeftFoot
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -442,7 +466,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: FootFront
+    - boneName: FootBack 1
       humanName: RightFoot
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -474,7 +498,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: UperArmBack
+    - boneName: UperArmFront
       humanName: LeftUpperArm
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -482,7 +506,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: UperArmFront
+    - boneName: UperArmBack
       humanName: RightUpperArm
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -490,7 +514,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: MidleArmBack
+    - boneName: MidleArmFront
       humanName: LeftLowerArm
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -498,7 +522,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: HandBack
+    - boneName: HandFront 1
       humanName: LeftHand
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -506,7 +530,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: MidleArmFront
+    - boneName: MidleArmBack
       humanName: RightLowerArm
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -514,7 +538,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: HandFront
+    - boneName: HandBack 1
       humanName: RightHand
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -522,7 +546,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: FootStepBack
+    - boneName: FootStepFront
       humanName: LeftToes
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -530,7 +554,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: FootStepFront
+    - boneName: FootStepBack
       humanName: RightToes
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -540,138 +564,153 @@ ModelImporter:
         modified: 0
     skeleton:
     - name: PlayerMesh(Clone)
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
-    - name: Hips
-      position: {x: -1.73472348e-18, y: 2.80007458, z: 0}
-      rotation: {x: -.703211069, y: .710981131, z: 1.26219113e-09, w: -1.27613753e-09}
+    - name: PlayerMesh
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
-    - name: MidleBody
-      position: {x: -.671766162, y: .160833389, z: 1.96964078e-17}
-      rotation: {x: -4.68653611e-32, y: -1.64329749e-31, z: -.000989901484, w: .999999523}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: UperBody
-      position: {x: -.824139535, y: -.146023616, z: 6.53602783e-17}
-      rotation: {x: .999974728, y: -.00710846577, z: 3.47470835e-16, w: 6.37039318e-17}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: Head
-      position: {x: -.386328667, y: -.0053889933, z: .5}
-      rotation: {x: 0, y: 0, z: .705262959, w: .708945811}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: UperArmBack
-      position: {x: .0373264365, y: .49980557, z: 1}
-      rotation: {x: .999925077, y: .0122426711, z: -3.00928553e-11, w: -1.79464443e-09}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: MidleArmBack
-      position: {x: .744014144, y: .128623903, z: -2.0627976e-16}
-      rotation: {x: 6.01861932e-36, y: 5.28343749e-18, z: .00541425031, w: .999985337}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: HandBack
-      position: {x: .787368298, y: -.144092515, z: -1.76561139e-17}
-      rotation: {x: 1.58900726e-32, y: 7.15412431e-17, z: .99992758, w: -.0120366951}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: UperArmFront
-      position: {x: -.00260413135, y: -.499993205, z: -1}
-      rotation: {x: 2.91077544e-11, y: -1.7946612e-09, z: .99984777, w: .0174503792}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: MidleArmFront
-      position: {x: -.849264562, y: .111310601, z: -1.70456513e-16}
-      rotation: {x: 7.45047135e-09, y: 4.03393048e-11, z: .00541425031, w: .999985337}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: HandFront
-      position: {x: -.781673551, y: -.157729238, z: -2.59131519e-16}
-      rotation: {x: -1.26827202e-10, y: 1.0535949e-08, z: .99992758, w: -.0120366951}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: UperLegBack
-      position: {x: .503435075, y: -.218634441, z: -.5}
-      rotation: {x: .99998492, y: -.0054942565, z: -7.74398531e-11, w: -1.79322523e-09}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: MidleLegBack
-      position: {x: .875761986, y: .146254718, z: 1.11021919e-16}
-      rotation: {x: .999898016, y: .0142813437, z: 8.73912181e-19, w: -6.125107e-17}
+    - name: PlayerRig
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: FootBack
-      position: {x: .768835962, y: .248720959, z: -2.52503592e-16}
-      rotation: {x: -1.35674771e-09, y: -1.17511234e-09, z: .775459766, w: .631397009}
+      position: {x: .0686666071, y: .154971674, z: .126898423}
+      rotation: {x: -.667709947, y: .744421542, z: -3.39560255e-17, w: 5.38478465e-17}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
-    - name: FootStepBack
-      position: {x: -.257071584, y: .0450978503, z: 2.65751108e-16}
-      rotation: {x: .769881487, y: .638186932, z: -1.80783632e-16, w: -2.18089676e-16}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: UperLegFront
-      position: {x: .487261921, y: .318104595, z: .5}
-      rotation: {x: 5.63834847e-11, y: -1.79401083e-09, z: .99998492, w: .0054942565}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: MidleLegFront
-      position: {x: -.888124943, y: .150332734, z: 2.41815042e-16}
-      rotation: {x: .999898016, y: .0142813437, z: -2.62287247e-18, w: -6.12011215e-17}
+    - name: FrontFootBack
+      position: {x: -.0278759673, y: -.257435173, z: 2.77555756e-17}
+      rotation: {x: -8.65473384e-17, y: 8.65473384e-17, z: .730317891, w: .683107436}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: FootFront
-      position: {x: -.760648787, y: .189363152, z: 1.79563229e-16}
-      rotation: {x: .722785413, y: .691072524, z: 1.33723999e-09, w: 1.19726495e-09}
+      position: {x: -.395679951, y: .143077523, z: -.0949999988}
+      rotation: {x: 7.73490834e-17, y: 9.48537405e-17, z: .649751484, w: .760146737}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: FrontFootFront
+      position: {x: .0380704142, y: -.252934158, z: -9.71445147e-17}
+      rotation: {x: .681529164, y: .73179096, z: 1.4825222e-16, w: -2.49031128e-16}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: HandBack
+      position: {x: .347052693, y: 1.94025111, z: .141893014}
+      rotation: {x: .792113006, y: -.61037451, z: -5.13655338e-17, w: 3.77220531e-17}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: HandFront
+      position: {x: -.177315146, y: 1.98180556, z: -.0969528258}
+      rotation: {x: 1.03546866e-16, y: 6.51095168e-17, z: .812951267, w: .582331836}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Hips
+      position: {x: -.0243028142, y: 2.0274272, z: 0}
+      rotation: {x: -.67388624, y: .738835156, z: -8.65042324e-17, w: -3.9769752e-18}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: MidleBody
+      position: {x: -.633702099, y: .323819101, z: 4.01922692e-17}
+      rotation: {x: 0, y: -0, z: -.00831269845, w: .999965489}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: UperBody
+      position: {x: -.824139595, y: -.146023616, z: 6.53602783e-17}
+      rotation: {x: .999974728, y: -.00710846577, z: -2.80975678e-16, w: 5.92365279e-17}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Head
+      position: {x: -.310072422, y: -.0172826946, z: .0615963638}
+      rotation: {x: 0, y: 0, z: .710456967, w: .703740656}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: UperArmBack
+      position: {x: .0636965483, y: .151966915, z: .141893014}
+      rotation: {x: .996251047, y: .0865095854, z: 3.74353904e-18, w: -6.17878308e-17}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: MidleArmBack
+      position: {x: .745000005, y: .129999995, z: 0}
+      rotation: {x: 0, y: -0, z: -.0631360039, w: .998004973}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: HandBack 1
+      position: {x: .787368357, y: -.144092515, z: -1.76561139e-17}
+      rotation: {x: 0, y: 0, z: .99992758, w: -.0120366644}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: UperArmFront
+      position: {x: .038899295, y: -.228068218, z: -.0969528258}
+      rotation: {x: 0, y: 0, z: .997543216, w: .070054017}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: MidleArmFront
+      position: {x: -.849264622, y: .111310601, z: -1.70456526e-16}
+      rotation: {x: 0, y: 0, z: .269594193, w: .962974072}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: HandFront 1
+      position: {x: -.78167361, y: -.157729253, z: -2.59131519e-16}
+      rotation: {x: 0, y: 0, z: .99992758, w: -.0120366644}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: UperLegBack
+      position: {x: .314852625, y: -.152215391, z: -.126898423}
+      rotation: {x: .987900019, y: -.155092016, z: -8.4059467e-18, w: -6.33019882e-17}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: MidleLegBack
+      position: {x: .875, y: .144999996, z: 0}
+      rotation: {x: .982851565, y: -.184398562, z: -1.21163001e-17, w: -6.45739075e-17}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: FootBack 1
+      position: {x: .768835962, y: .248720974, z: -2.52503619e-16}
+      rotation: {x: 0, y: 0, z: .715547562, w: .698564112}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: FootStepBack
+      position: {x: -.254999995, y: .0450000018, z: 0}
+      rotation: {x: .769881487, y: .638186872, z: -3.90776764e-17, w: -4.71416451e-17}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: UperLegFront
+      position: {x: .324999988, y: .254999995, z: .0949999988}
+      rotation: {x: 0, y: 0, z: .995481908, w: .0949515626}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: MidleLegFront
+      position: {x: -.889999986, y: .150000006, z: 0}
+      rotation: {x: .990210354, y: .139583051, z: 6.54292668e-18, w: -6.27600195e-17}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: FootFront 1
+      position: {x: -.75999999, y: .189999998, z: 0}
+      rotation: {x: .672145009, y: .740419567, z: -4.18060969e-18, w: -8.64946304e-17}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: FootStepFront
-      position: {x: -.25454998, y: .0197923537, z: 1.3119557e-16}
+      position: {x: -.254999995, y: .0199999996, z: 0}
       rotation: {x: 0, y: 0, z: -.728830278, w: .684694409}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
-    - name: ikHandle1
-      position: {x: .552435935, y: 2.72962022, z: 1}
-      rotation: {x: .713745236, y: -.700405419, z: -4.52621386e-17, w: 4.1373996e-17}
-      scale: {x: 1, y: 1.00000012, z: 1}
+    - name: Hips1
+      position: {x: -.0243028142, y: 2.0274272, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.05056083, y: .260012686, z: 1}
       transformModified: 1
-    - name: ikHandle2
-      position: {x: -2.77555756e-17, y: 4.29635811, z: -8.30431565e-17}
-      rotation: {x: -.703914583, y: .71028471, z: 4.35777309e-17, w: -4.30162307e-17}
+    - name: Shoulder
+      position: {x: -.0810355842, y: 3.49899578, z: -9.87919739e-17}
+      rotation: {x: -.662020862, y: .749485433, z: 4.13304995e-17, w: -4.57020862e-17}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
-    - name: ikHandle3
-      position: {x: -.493520826, y: 2.66626263, z: -1}
-      rotation: {x: 8.60243683e-17, y: 8.71574602e-17, z: .700405419, w: .713745236}
-      scale: {x: 1, y: 1.00000012, z: 1}
-      transformModified: 1
-    - name: ikHandle4
-      position: {x: -.384116709, y: .673282027, z: -.5}
-      rotation: {x: 8.70667152e-17, y: 8.61151928e-17, z: .69693625, w: .717133105}
-      scale: {x: 1, y: .99999994, z: 1}
-      transformModified: 1
-    - name: ikHandle5
-      position: {x: -.12880066, y: .674349785, z: -.5}
-      rotation: {x: .0366998985, y: .999326348, z: -2.7268987e-16, w: -2.93482358e-16}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: ikHandle6
-      position: {x: .393679172, y: .642392993, z: .5}
-      rotation: {x: .0876503289, y: .996151328, z: -5.56296432e-17, w: -6.63637079e-17}
-      scale: {x: .99999994, y: 1.00000012, z: 1}
-      transformModified: 1
-    - name: ikHandle7
-      position: {x: .132682309, y: .642879546, z: .5}
-      rotation: {x: .717133105, y: -.69693625, z: 4.21927923e-17, w: -4.43804005e-17}
-      scale: {x: 1, y: .99999994, z: 1}
-      transformModified: 1
-    - name: PlayerMesh
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: 0, w: 1}
+    - name: ZLookAt
+      position: {x: 5.50433588, y: 3.52148843, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     armTwist: .5

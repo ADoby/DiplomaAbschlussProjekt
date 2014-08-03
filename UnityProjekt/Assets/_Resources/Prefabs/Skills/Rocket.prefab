@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: RocketAttack
-  SkillCooldown: 1
+  SkillCooldown: .800000012
   CooldownTimer: 0
   SkillRunTime: 0
   SkillRunTimer: 0

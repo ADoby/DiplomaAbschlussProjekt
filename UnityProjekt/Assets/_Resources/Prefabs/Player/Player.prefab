@@ -940,7 +940,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: .0500000007
   m_GravityScale: 0
   m_FixedAngle: 1
@@ -1072,6 +1072,7 @@ MonoBehaviour:
   MoneyPerSecond: 5
   MoneyTimer: 0
   PlayerClass: {fileID: 11400000, guid: 9e629a6a7e8101e46b1fac310d79803c, type: 2}
+  friction: 1
   MinXMovement: .100000001
   PrevNeededExperience: 0
   NeededExperience: 200
@@ -1079,7 +1080,6 @@ MonoBehaviour:
   NeededExperienceMultPerLevel: 1.10000002
   ExperiencePerDamageDone: .5
   MinUpMotionForExtraJump: .200000003
-  friction: 1
   JumpInput: _JUMP
   Skill1Input: _SKILL1
   Skill2Input: _SKILL2
@@ -1109,6 +1109,11 @@ MonoBehaviour:
   LastSave: 
   ClimbStrength: 6
   WalkUPStrength: 1
+  MaxSpeedMult: 0
+  SpeedUpMult: 15
+  DirectionChangeMult: .400000006
+  WalkingDirection: 0
+  StoppingSpeedMult: 1.5
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1

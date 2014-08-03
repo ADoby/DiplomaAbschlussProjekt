@@ -112,7 +112,7 @@ MonoBehaviour:
     m_Bits: 33792
   sightLayer:
     serializedVersion: 2
-    m_Bits: 38400
+    m_Bits: 37888
   navLayer:
     serializedVersion: 2
     m_Bits: 4096
@@ -138,6 +138,7 @@ MonoBehaviour:
   DiffAngle: 0
   TargetChangeSpeed: 5
   MinDistanceForMaxSpeed: 1.14999998
+  exploded: 0
   distance: 0
 --- !u!212 &21200000
 SpriteRenderer:

@@ -32,6 +32,5 @@ public class Item_RelMovementBonus : Item
         base.Start(playerClass);
 
         playerClass.GetAttribute(AttributeType.MAXMOVESPEED).AddMult(RelMovementBonus);
-        playerClass.GetAttribute(AttributeType.MOVEMENTCHANGE).AddMult(RelMovementBonus);
     }
 }

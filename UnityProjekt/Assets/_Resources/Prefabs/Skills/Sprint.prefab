@@ -68,19 +68,18 @@ MonoBehaviour:
   MovesPlayer: 0
   buffs:
   - BuffName: Sprint
-    attribute: 5
-    BuffAbsAmount: 0
-    BuffRelAmount: .5
-    BuffRunTime: 5
-    runTimer: 5
-    BuffRunning: 0
-  - BuffName: SprintSpeed
     attribute: 4
     BuffAbsAmount: 0
+    BuffAbsPerLevelAmount: 0
     BuffRelAmount: .5
+    BuffRelPerLevelAmount: 0
     BuffRunTime: 5
     runTimer: 5
     BuffRunning: 0
+    playerClass: {fileID: 0}
+    AbsAmountAdded: 0
+    RelAmountAdded: 0
+  Effects: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

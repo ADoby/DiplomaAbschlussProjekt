@@ -9,7 +9,6 @@ public enum AttributeType
     ATTACKSPEED,
     DAMAGE,
     MAXMOVESPEED,
-    MOVEMENTCHANGE,
     JUMPPOWER,
     MOREJUMPPOWER,
     SPELLVAMP,
@@ -90,7 +89,6 @@ public class PlayerClass : MonoBehaviour
         new Attribute() { Name = "Attack Speed",        Value = 1f,   ValuePerLevel = 0f,   ValuePerSkillPoint = 0.05f,  MaxValue = 4f,      MaxSkillUps = 20 },
         new Attribute() { Name = "Damage",              Value = 10f,  ValuePerLevel = 2f,   ValuePerSkillPoint = 5f,     MaxValue = 5000f,   MaxSkillUps = 100 },
         new Attribute() { Name = "Movement Speed",      Value = 5f,   ValuePerLevel = 0f,   ValuePerSkillPoint = 0.5f,   MaxValue = 30f,     MaxSkillUps = 20 },
-        new Attribute() { Name = "Acceleration",        Value = 30f,  ValuePerLevel = 0f,   ValuePerSkillPoint = 3f,     MaxValue = 200f,    MaxSkillUps = 40 },
         new Attribute() { Name = "Jump Power",          Value = 5f,   ValuePerLevel = 0f,   ValuePerSkillPoint = 0.4f,   MaxValue = 25f,     MaxSkillUps = 30 },
         new Attribute() { Name = "More Jump Power",     Value = 5f,   ValuePerLevel = 0f,   ValuePerSkillPoint = 0.2f,   MaxValue = 15f,     MaxSkillUps = 20 },
         new Attribute() { Name = "Vampire",             Value = 0f,   ValuePerLevel = 0f,   ValuePerSkillPoint = 0.005f, MaxValue = 0.25f,   MaxSkillUps = 20 }
@@ -102,10 +100,24 @@ public class PlayerClass : MonoBehaviour
     [SerializeField]
     public List<PlayerBuff> playerBuffs;
 
+    [ContextMenu("Reset Attributes")]
+    public void ResetAttributes()
+    {
+        Attributes = new Attribute[]
+    {
+        new Attribute() { Name = "Health",              Value = 100f, ValuePerLevel = 25f,  ValuePerSkillPoint = 100f,   MaxValue = 999999f, MaxSkillUps = 200 },
+        new Attribute() { Name = "Health Regeneration", Value = 5f,   ValuePerLevel = 0.5f, ValuePerSkillPoint = 1f,     MaxValue = 2000f,   MaxSkillUps = 50 },
+        new Attribute() { Name = "Attack Speed",        Value = 1f,   ValuePerLevel = 0f,   ValuePerSkillPoint = 0.05f,  MaxValue = 4f,      MaxSkillUps = 20 },
+        new Attribute() { Name = "Damage",              Value = 10f,  ValuePerLevel = 2f,   ValuePerSkillPoint = 5f,     MaxValue = 5000f,   MaxSkillUps = 100 },
+        new Attribute() { Name = "Movement Speed",      Value = 8f,   ValuePerLevel = 0f,   ValuePerSkillPoint = 0.5f,   MaxValue = 30f,     MaxSkillUps = 20 },
+        new Attribute() { Name = "Jump Power",          Value = 10f,   ValuePerLevel = 0f,   ValuePerSkillPoint = 0.4f,   MaxValue = 25f,     MaxSkillUps = 30 },
+        new Attribute() { Name = "More Jump Power",     Value = 5f,   ValuePerLevel = 0f,   ValuePerSkillPoint = 0.2f,   MaxValue = 15f,     MaxSkillUps = 20 },
+        new Attribute() { Name = "Vampire",             Value = 0f,   ValuePerLevel = 0f,   ValuePerSkillPoint = 0.005f, MaxValue = 0.25f,   MaxSkillUps = 20 }
+    };
+    }
+
     public void AddBuff(PlayerBuff buff)
     {
-        Debug.Log("Add Buff: " + buff.BuffName);
-
         PlayerBuff oldBuff = playerBuffs.FirstOrDefault(o => o.BuffName == buff.BuffName);
         PlayerBuff newBuff = null;
         if (oldBuff == null)
@@ -275,16 +287,21 @@ public class PlayerClass : MonoBehaviour
     {
         return GetAttributeValue((int)type);
     }
-    public float GetAttributeValue(int id)
+    private float GetAttributeValue(int id)
     {
         return Attributes[id].AbsoluteValue;
     }
 
     public Attribute GetAttribute(AttributeType type)
     {
+        if ((int)type >= (int)AttributeType.COUNT)
+        {
+            Debug.Log("Someone tries to get ID: " + (int)type);
+            return null;
+        }
         return Attributes[(int)type];
     }
-    public Attribute GetAttribute(int id)
+    private Attribute GetAttribute(int id)
     {
         return Attributes[id];
     }
