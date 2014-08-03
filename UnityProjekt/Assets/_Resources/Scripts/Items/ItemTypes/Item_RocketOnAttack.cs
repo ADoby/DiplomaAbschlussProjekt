@@ -23,6 +23,9 @@
 
         public string RocketPoolName = "SelfFindingRocket";
 
+        public float cooldown = 0.5f;
+        public float timer = 0f;
+
         public override void UpdateStats(float value)
         {
             base.UpdateStats(value);
@@ -35,6 +38,12 @@
             RocketDamage += RocketDamagePerLevel * Value * playerClass.playerControl.Level;
         }
 
+        public override void Update(PlayerClass playerClass)
+        {
+            base.Update(playerClass);
+            timer -= Time.deltaTime;
+        }
+
         public override void OnPlayerLevelUp(PlayerClass playerClass)
         {
             base.OnPlayerLevelUp(playerClass);
@@ -44,6 +53,15 @@
         public override void OnPlayerDidDamage(PlayerClass playerClass, float damage)
         {
             base.OnPlayerDidDamage(playerClass, damage);
+            if (timer <= 0)
+            {
+                timer = cooldown;
+                SpawnRocket(playerClass);
+            }
+        }
+
+        private void SpawnRocket(PlayerClass playerClass)
+        {
             GameObject go = GameObjectPool.Instance.Spawns(RocketPoolName, playerClass.playerTransform.position, Quaternion.identity);
             go.GetComponent<Rocket>().Impulse(Vector3.up * 10.0f);
         }

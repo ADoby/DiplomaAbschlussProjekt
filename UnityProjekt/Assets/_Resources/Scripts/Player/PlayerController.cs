@@ -330,6 +330,8 @@ public class PlayerController : MonoBehaviour
             _animator.SetFloat("SpeedY", _currentVelocity.y);
 
             _animator.SetFloat("Speed", Mathf.Abs(_currentVelocity.x));
+
+
         }
     }
 
@@ -584,6 +586,10 @@ public class PlayerController : MonoBehaviour
     private bool UseSkill(int skillID)
     {
         bool result = PlayerClass.UseSkill(skillID);
+        if (result && _animator)
+        {
+            _animator.SetTrigger("ShootShotgun");
+        }
         return result;
     }
 
