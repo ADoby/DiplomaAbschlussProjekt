@@ -101,11 +101,14 @@ MonoBehaviour:
   player: {fileID: 0}
   damage: 10
   speed: 100
+  direction: {x: 0, y: 0}
   poolName: Bullet
   hitEffektPoolName: BulletExplosion
   DespawnTime: 5
+  _despawnTimer: 0
   force: 20
   pierceAmount: 2
+  pierceCount: 0
   HitLayer:
     serializedVersion: 2
     m_Bits: 37888

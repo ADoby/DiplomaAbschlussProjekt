@@ -40,16 +40,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f416c5bb3960b184ea95fbd01c39f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBase: {fileID: 0}
   minTime: 0
   maxTime: 0
   startTime: 0
   endTime: 1
   startScale: {x: 0, y: 0, z: 0}
   endScale: {x: 1, y: 1, z: 1}
-  currentTime: 0
   currentBaseStateIndex: 0
   manualUserScale: 0
+  BaseStateList: []
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

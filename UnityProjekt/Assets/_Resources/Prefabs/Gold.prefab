@@ -117,6 +117,8 @@ MonoBehaviour:
   waitTime: 3
   maxSpeed: 10
   gravity: 3
+  flyToPlayer: 0
+  disableColliderOnFlight: 1
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
