@@ -62,7 +62,7 @@
 
         private void SpawnRocket(PlayerClass playerClass)
         {
-            GameObject go = GameObjectPool.Instance.Spawns(RocketPoolName, playerClass.playerTransform.position, Quaternion.identity);
+            GameObject go = GameObjectPool.Instance.Spawns(RocketPoolName, playerClass.playerTransform.position + Vector3.up*2f, Quaternion.identity);
             go.GetComponent<Rocket>().Impulse(Vector3.up * 10.0f);
         }
     }

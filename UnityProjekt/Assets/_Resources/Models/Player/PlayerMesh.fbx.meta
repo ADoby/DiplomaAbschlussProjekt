@@ -177,7 +177,9 @@ ModelImporter:
     7400000: Standing
     7400002: Walking
     7400004: Crouching
-    7400006: ShotgunShooting
+    7400006: StandingShotgunShooting
+    7400008: CrouchWalking
+    7400010: CrouchShotgunShooting
     9500000: //RootNode
     13700000: PlayerMesh
   materials:
@@ -471,8 +473,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Crouching
       takeName: Take 001
-      firstFrame: 1
-      lastFrame: 10
+      firstFrame: 36
+      lastFrame: 40
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -605,10 +607,282 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: ShotgunShooting
+      name: StandingShotgunShooting
       takeName: Take 001
       firstFrame: 31
       lastFrame: 35
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 1
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 00000000000000000000000000000000000000000100000001000000010000000100000000000000000000000000000000000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: FootBackHolder
+        weight: 0
+      - path: FootBackHolder/FootBackBack
+        weight: 0
+      - path: FootBackHolder/FootBackFront
+        weight: 0
+      - path: FootFrontHolder
+        weight: 0
+      - path: FootFrontHolder/FootFrontBack
+        weight: 0
+      - path: FootFrontHolder/FootFrontFront
+        weight: 0
+      - path: HandBackHolder
+        weight: 0
+      - path: HandFrontHolder
+        weight: 0
+      - path: Pistol
+        weight: 0
+      - path: Pistol/PistolIK
+        weight: 0
+      - path: Pistol/PistolIK/Pistol 1
+        weight: 0
+      - path: Pistol/PistolIK/PistolHolderBack
+        weight: 0
+      - path: Pistol/PistolIK/PistolHolderFront
+        weight: 0
+      - path: Pistol/PistolTarget
+        weight: 0
+      - path: Pistol/PistolTarget/nurbsCircle2
+        weight: 0
+      - path: Player
+        weight: 1
+      - path: Player/Hips1
+        weight: 0
+      - path: Player/PlayerMesh
+        weight: 0
+      - path: Player/PlayerRig
+        weight: 1
+      - path: Player/PlayerRig/FootBack
+        weight: 0
+      - path: Player/PlayerRig/FootFront
+        weight: 0
+      - path: Player/PlayerRig/FrontFootBack
+        weight: 0
+      - path: Player/PlayerRig/FrontFootFront
+        weight: 0
+      - path: Player/PlayerRig/HandBack
+        weight: 0
+      - path: Player/PlayerRig/HandFront
+        weight: 0
+      - path: Player/PlayerRig/Hips
+        weight: 1
+      - path: Player/PlayerRig/Hips/MidleBody
+        weight: 1
+      - path: Player/PlayerRig/Hips/MidleBody/UperBody
+        weight: 1
+      - path: Player/PlayerRig/Hips/MidleBody/UperBody/Head
+        weight: 1
+      - path: Player/PlayerRig/Hips/MidleBody/UperBody/UperArmBack
+        weight: 1
+      - path: Player/PlayerRig/Hips/MidleBody/UperBody/UperArmBack/MidleArmBack
+        weight: 1
+      - path: Player/PlayerRig/Hips/MidleBody/UperBody/UperArmBack/MidleArmBack/HandBack
+          1
+        weight: 1
+      - path: Player/PlayerRig/Hips/MidleBody/UperBody/UperArmFront
+        weight: 1
+      - path: Player/PlayerRig/Hips/MidleBody/UperBody/UperArmFront/MidleArmFront
+        weight: 1
+      - path: Player/PlayerRig/Hips/MidleBody/UperBody/UperArmFront/MidleArmFront/HandFront
+          1
+        weight: 1
+      - path: Player/PlayerRig/Hips/UperLegBack
+        weight: 1
+      - path: Player/PlayerRig/Hips/UperLegBack/MidleLegBack
+        weight: 1
+      - path: Player/PlayerRig/Hips/UperLegBack/MidleLegBack/FootBack 1
+        weight: 1
+      - path: Player/PlayerRig/Hips/UperLegBack/MidleLegBack/FootBack 1/FootStepBack
+        weight: 1
+      - path: Player/PlayerRig/Hips/UperLegFront
+        weight: 1
+      - path: Player/PlayerRig/Hips/UperLegFront/MidleLegFront
+        weight: 1
+      - path: Player/PlayerRig/Hips/UperLegFront/MidleLegFront/FootFront 1
+        weight: 1
+      - path: Player/PlayerRig/Hips/UperLegFront/MidleLegFront/FootFront 1/FootStepFront
+        weight: 1
+      - path: Player/PlayerRig/Shoulder 1
+        weight: 0
+      - path: Player/Shoulder
+        weight: 0
+      - path: Player/ZLookAt
+        weight: 0
+      - path: Shotgun
+        weight: 1
+      - path: Shotgun/ShotgunIK
+        weight: 1
+      - path: Shotgun/ShotgunIK/Shotgun 1
+        weight: 1
+      - path: Shotgun/ShotgunIK/ShotgunHolderBack
+        weight: 1
+      - path: Shotgun/ShotgunIK/ShotGunHolderFront
+        weight: 1
+      - path: Shotgun/TargetShotgun
+        weight: 1
+      - path: Shotgun/TargetShotgun/MidleShotgunTarget
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: CrouchWalking
+      takeName: Take 001
+      firstFrame: 41
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 1
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: FootBackHolder
+        weight: 0
+      - path: FootBackHolder/FootBackBack
+        weight: 0
+      - path: FootBackHolder/FootBackFront
+        weight: 0
+      - path: FootFrontHolder
+        weight: 0
+      - path: FootFrontHolder/FootFrontBack
+        weight: 0
+      - path: FootFrontHolder/FootFrontFront
+        weight: 0
+      - path: HandBackHolder
+        weight: 0
+      - path: HandFrontHolder
+        weight: 0
+      - path: Pistol
+        weight: 0
+      - path: Pistol/PistolIK
+        weight: 0
+      - path: Pistol/PistolIK/Pistol 1
+        weight: 0
+      - path: Pistol/PistolIK/PistolHolderBack
+        weight: 0
+      - path: Pistol/PistolIK/PistolHolderFront
+        weight: 0
+      - path: Pistol/PistolTarget
+        weight: 0
+      - path: Pistol/PistolTarget/nurbsCircle2
+        weight: 0
+      - path: Player
+        weight: 1
+      - path: Player/Hips1
+        weight: 0
+      - path: Player/PlayerMesh
+        weight: 0
+      - path: Player/PlayerRig
+        weight: 1
+      - path: Player/PlayerRig/FootBack
+        weight: 0
+      - path: Player/PlayerRig/FootFront
+        weight: 0
+      - path: Player/PlayerRig/FrontFootBack
+        weight: 0
+      - path: Player/PlayerRig/FrontFootFront
+        weight: 0
+      - path: Player/PlayerRig/HandBack
+        weight: 0
+      - path: Player/PlayerRig/HandFront
+        weight: 0
+      - path: Player/PlayerRig/Hips
+        weight: 1
+      - path: Player/PlayerRig/Hips/MidleBody
+        weight: 1
+      - path: Player/PlayerRig/Hips/MidleBody/UperBody
+        weight: 1
+      - path: Player/PlayerRig/Hips/MidleBody/UperBody/Head
+        weight: 1
+      - path: Player/PlayerRig/Hips/MidleBody/UperBody/UperArmBack
+        weight: 1
+      - path: Player/PlayerRig/Hips/MidleBody/UperBody/UperArmBack/MidleArmBack
+        weight: 1
+      - path: Player/PlayerRig/Hips/MidleBody/UperBody/UperArmBack/MidleArmBack/HandBack
+          1
+        weight: 1
+      - path: Player/PlayerRig/Hips/MidleBody/UperBody/UperArmFront
+        weight: 1
+      - path: Player/PlayerRig/Hips/MidleBody/UperBody/UperArmFront/MidleArmFront
+        weight: 1
+      - path: Player/PlayerRig/Hips/MidleBody/UperBody/UperArmFront/MidleArmFront/HandFront
+          1
+        weight: 1
+      - path: Player/PlayerRig/Hips/UperLegBack
+        weight: 1
+      - path: Player/PlayerRig/Hips/UperLegBack/MidleLegBack
+        weight: 1
+      - path: Player/PlayerRig/Hips/UperLegBack/MidleLegBack/FootBack 1
+        weight: 1
+      - path: Player/PlayerRig/Hips/UperLegBack/MidleLegBack/FootBack 1/FootStepBack
+        weight: 1
+      - path: Player/PlayerRig/Hips/UperLegFront
+        weight: 1
+      - path: Player/PlayerRig/Hips/UperLegFront/MidleLegFront
+        weight: 1
+      - path: Player/PlayerRig/Hips/UperLegFront/MidleLegFront/FootFront 1
+        weight: 1
+      - path: Player/PlayerRig/Hips/UperLegFront/MidleLegFront/FootFront 1/FootStepFront
+        weight: 1
+      - path: Player/PlayerRig/Shoulder 1
+        weight: 0
+      - path: Player/Shoulder
+        weight: 0
+      - path: Player/ZLookAt
+        weight: 0
+      - path: Shotgun
+        weight: 0
+      - path: Shotgun/ShotgunIK
+        weight: 0
+      - path: Shotgun/ShotgunIK/Shotgun 1
+        weight: 0
+      - path: Shotgun/ShotgunIK/ShotgunHolderBack
+        weight: 0
+      - path: Shotgun/ShotgunIK/ShotGunHolderFront
+        weight: 0
+      - path: Shotgun/TargetShotgun
+        weight: 0
+      - path: Shotgun/TargetShotgun/MidleShotgunTarget
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: CrouchShotgunShooting
+      takeName: Take 001
+      firstFrame: 51
+      lastFrame: 55
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

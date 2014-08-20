@@ -2327,10 +2327,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 308
-    y: 199.179993
-    width: 154
-    height: 38.9699974
+    x: 283.600006
+    y: 183.540009
+    width: 141.800003
+    height: 35.9099998
   parent: {fileID: 1974104217}
   children: []
   ChildCount: 0
@@ -2386,7 +2386,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 15
+    m_FontSize: 14
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -11393,10 +11393,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 308
-    y: 246.809998
-    width: 154
-    height: 38.9699974
+    x: 283.600006
+    y: 227.429993
+    width: 141.800003
+    height: 35.9099998
   parent: {fileID: 1974104217}
   children: []
   ChildCount: 0
@@ -11452,7 +11452,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 15
+    m_FontSize: 14
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -12064,10 +12064,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 308
-    y: 149.384995
-    width: 154
-    height: 38.9699974
+    x: 283.600006
+    y: 137.654999
+    width: 141.800003
+    height: 35.9099998
   parent: {fileID: 1974104217}
   children: []
   ChildCount: 0
@@ -12123,7 +12123,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 15
+    m_FontSize: 14
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -14633,6 +14633,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9e629a6a7e8101e46b1fac310d79803c, type: 2}
   - {fileID: 11400000, guid: 87cd02ea8a27c854fbec01650e9efa37, type: 2}
   GameContainer: {fileID: 202544440}
+  ReadyButton: {fileID: 14530760}
   currentPlayerSelectingClass: 0
   slotButtons:
   - {fileID: 984513047}
@@ -14669,7 +14670,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 846884939}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31b64bba5cf07114f82378978834b504, type: 3}
   m_Name: 
@@ -16872,7 +16873,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b4166fdbcb1b005499561f36aa52467c, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: b4166fdbcb1b005499561f36aa52467c, type: 2}
       propertyPath: m_IsActive
@@ -29174,8 +29175,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 770
-    height: 433
+    width: 709
+    height: 399
   parent: {fileID: 0}
   children:
   - {fileID: 1974104217}
@@ -29810,10 +29811,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 288.75
-    y: 129.899994
-    width: 192.5
-    height: 173.199997
+    x: 265.875
+    y: 119.699997
+    width: 177.25
+    height: 159.600006
   parent: {fileID: 1906325896}
   children:
   - {fileID: 691127879}

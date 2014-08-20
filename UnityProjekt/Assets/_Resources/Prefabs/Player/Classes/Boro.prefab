@@ -119,7 +119,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e498e8fd35d281845b4cd1bfe62bc78f, type: 2}
   - {fileID: 11400000, guid: 936cd7626d9574b4ab4e28b2d0636f21, type: 2}
   - {fileID: 11400002, guid: ce2c3b18860fa114ca8613e5764c187f, type: 2}
-  - {fileID: 11400002, guid: b9b0f5cb02b3f184585e4e9f980eef53, type: 2}
+  - {fileID: 11400000, guid: 4138e676b74154142aded402a86090d6, type: 2}
   playerBuffs: []
   CurrentHealth: 0
   skillsRunning: 0

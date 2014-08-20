@@ -45,6 +45,8 @@ public class GameManager : MonoBehaviour {
 
     public GameObject GameContainer;
 
+    public UIRect ReadyButton;
+
 	public void AddEntity()
 	{
 		CurrentSpawnedEntityCount++;
@@ -97,6 +99,8 @@ public class GameManager : MonoBehaviour {
 	{
 		GameEventHandler.TriggerOnPause();
         SelectSlot(0);
+
+        ReadyButton.Enabled = false;
 	}
 
     void OnEnable()
@@ -378,7 +382,21 @@ public class GameManager : MonoBehaviour {
 
         slotButtons[currentPlayerSelectingClass].Text = "Player " + (currentPlayerSelectingClass + 1) + " Select";
         slotButtons[currentPlayerSelectingClass].ButtonStyle.normal.textColor = Color.red;
+
+        UpdateReadyButton();
 	}
+
+    private void UpdateReadyButton()
+    {
+        if (PlayerCount > 0)
+        {
+            ReadyButton.Enabled = true;
+        }
+        else
+        {
+            ReadyButton.Enabled = false;
+        }
+    }
 
     private void SelectNextPlayerSlot()
     {
@@ -417,6 +435,8 @@ public class GameManager : MonoBehaviour {
 
         slotButtons[currentPlayerSelectingClass].Text = "Selected: " + Players[currentPlayerSelectingClass].PlayerClass.name.Replace("(Clone)", "");
         slotButtons[currentPlayerSelectingClass].ButtonStyle.normal.textColor = Color.green;
+
+        UpdateReadyButton();
 
         SelectNextPlayerSlot();
     }
