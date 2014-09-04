@@ -18,6 +18,27 @@ public class GrowingPart : MonoBehaviour
 
     public string[] BaseStateList;
 
+    public float currentTime = -1;
+
+    public Vector3 wantedScale;
+
+    public int UpdateScaleCounter = 0;
+
+    void Start()
+    {
+        UpdateTime(startTime, true);
+    }
+
+    void Update()
+    {
+        UpdateScaleCounter++;
+        if (UpdateScaleCounter == EnemieBase.UpdateScaleEveryFrames)
+        {
+            UpdateScaleCounter = 0;
+            UpdateScale(EnemieBase.GrowingSpeed * Time.deltaTime * EnemieBase.UpdateScaleEveryFrames);
+        }
+    }
+
     public void UpdateMinMaxTime(AlienBase myBase)
     {
         if (currentBaseStateIndex < 0 || currentBaseStateIndex > myBase.StateCount)
@@ -59,26 +80,35 @@ public class GrowingPart : MonoBehaviour
         startScale = new Vector3(0, 0, 0);
         endScale = new Vector3(1, 1, 1);
 
-        UpdateScale(0);
+        UpdateTime(startTime, true);
     }
 
-    public void UpdateScale(float currentTime)
+    public void UpdateTime(float newTime, bool instantScale = false)
     {
-        currentTime = Mathf.Clamp(currentTime, startTime, endTime);
+        currentTime = Mathf.Clamp(newTime, startTime, endTime);
+        RecalculateScale();
 
+        if (instantScale)
+        {
+            UpdateScale(1f);
+        }
+    }
+
+    public void RecalculateScale()
+    {
         float prozent = (currentTime - startTime) / (endTime - startTime);
+        if (float.IsNaN(prozent))
+        {
+            prozent = 0f;
+        }
 
         prozent = (float)Math.Round(prozent, 3);
 
-        Vector3 wantedScale = startScale + (endScale - startScale) * prozent;
+        wantedScale = startScale + (endScale - startScale) * prozent;
+    }
 
-        if (float.IsNaN(wantedScale.x))
-            wantedScale.x = 1;
-        if (float.IsNaN(wantedScale.y))
-            wantedScale.y = 1;
-        if (float.IsNaN(wantedScale.z))
-            wantedScale.z = 1;
-
-        transform.localScale = wantedScale;
+    public void UpdateScale(float value)
+    {
+        transform.localScale = Vector3.Slerp(transform.localScale, wantedScale, value);
     }
 }

@@ -201,24 +201,24 @@ public class PlayerController : MonoBehaviour
 			checkPointTimer += Time.deltaTime;
 		else if (checkPointTimer > CheckPointCooldown)
 			checkPointTimer = CheckPointCooldown;
-		else if (InputController.GetClicked(PlayerID() + "_CREATECHECKPOINT"))
+		else if (InputController.GetClicked(System.String.Format("{0}_CREATECHECKPOINT", PlayerID())))
 		{
 			CreateCheckpoint();
 		}
 
 		if(backToCheckPointTimer > 0)
 			backToCheckPointTimer -= Time.deltaTime;
-		else if (InputController.GetClicked(PlayerID() + "_BACKTOCHECKPOINT"))
+		else if (InputController.GetClicked(System.String.Format("{0}_BACKTOCHECKPOINT", PlayerID())))
 		{
 			ResetToCheckpoint();
 		}
 
 		if (CanMove)
 		{
-			_currentInput.x = Mathf.Abs(InputController.GetValue(PlayerID() + "_RIGHT")) -
-							 Mathf.Abs(InputController.GetValue(PlayerID() + "_LEFT"));
+			_currentInput.x = Mathf.Abs(InputController.GetValue(System.String.Format("{0}_RIGHT", PlayerID()))) -
+							 Mathf.Abs(InputController.GetValue(System.String.Format("{0}_LEFT", PlayerID())));
 
-			_crouching = InputController.GetDown(PlayerID() + "_CROUCH");
+			_crouching = InputController.GetDown(System.String.Format("{0}_CROUCH", PlayerID()));
 		}
 		else
 		{
@@ -246,7 +246,7 @@ public class PlayerController : MonoBehaviour
 
 	public string PlayerID()
 	{
-		return (PlayerId + 1).ToString();
+		return System.String.Format("{0}", (PlayerId + 1));
 	}
 
 	void FixedUpdate()
@@ -283,7 +283,7 @@ public class PlayerController : MonoBehaviour
 
 	private void UpdateLookDirection()
 	{
-		float lookDirection = (InputController.GetValue(PlayerID() + "_LOOKRIGHT") - InputController.GetValue(PlayerID() + "_LOOKLEFT"));
+		float lookDirection = (InputController.GetValue(System.String.Format("{0}_LOOKRIGHT", PlayerID())) - InputController.GetValue(System.String.Format("{0}_LOOKLEFT", PlayerID())));
 
 		if (lookDirection == 0)
 		{
@@ -441,7 +441,7 @@ public class PlayerController : MonoBehaviour
 			jumping = false;
 		}
 
-		if (Grounded && !jumping && InputController.GetDown(PlayerID() + JumpInput) && PlayerClass.Jump(Grounded))
+        if (Grounded && !jumping && InputController.GetDown(System.String.Format("{0}{1}", PlayerID(), JumpInput)) && PlayerClass.Jump(Grounded))
 		{
 			Jump();
 			jumping = true;
@@ -459,19 +459,19 @@ public class PlayerController : MonoBehaviour
 	private bool TryUseSkill()
 	{
 		//Check Input for skill usement
-		if (InputController.GetDown(PlayerID() + Skill1Input) && UseSkill(0))
+		if (InputController.GetDown(System.String.Format("{0}{1}", PlayerID(), Skill1Input)) && UseSkill(0))
 		{
 			return true;
 		}
-		if (InputController.GetDown(PlayerID() + Skill2Input) && UseSkill(1))
+        if (InputController.GetDown(System.String.Format("{0}{1}", PlayerID(), Skill2Input)) && UseSkill(1))
 		{
 			return true;
 		}
-		if (InputController.GetDown(PlayerID() + Skill3Input) && UseSkill(2))
+        if (InputController.GetDown(System.String.Format("{0}{1}", PlayerID(), Skill3Input)) && UseSkill(2))
 		{
 			return true;
 		}
-		if (InputController.GetDown(PlayerID() + Skill4Input) && UseSkill(3))
+        if (InputController.GetDown(System.String.Format("{0}{1}", PlayerID(), Skill4Input)) && UseSkill(3))
 		{
 			return true;
 		}

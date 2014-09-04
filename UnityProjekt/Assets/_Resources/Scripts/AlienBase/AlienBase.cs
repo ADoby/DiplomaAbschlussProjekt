@@ -83,7 +83,7 @@ public class AlienBase : MonoBehaviour
 
         FindCorrectState();
 
-        UpdateParts();
+        UpdateParts(true);
     }
 
     public void FindCorrectState()
@@ -170,6 +170,14 @@ public class AlienBase : MonoBehaviour
         UpdateParts();
     }
 
+    #region Performance
+
+    public bool ShowTestInEditor = true;
+
+    public float UpdateBaseTime = 0.2f;
+    public float UpdateBaseTimer = 0f;
+
+    #endregion
 
     // Update is called once per frame
 	void Update () {
@@ -178,43 +186,53 @@ public class AlienBase : MonoBehaviour
 
 	    if (Application.isPlaying)
 	    {
-	        StateOrder[currentState].Update();
+            UpdateBaseTimer += Time.deltaTime;
+            if (UpdateBaseTimer >= UpdateBaseTime)
+            {
 
-	        if (UpdateTime)
-	        {
-                currentTime += Time.deltaTime;
-                currentTime = Mathf.Clamp(currentTime, minNeededTime, maxNeededTime);
+                StateOrder[currentState].Update();
 
-                if (currentTime > StateOrder[currentState].endTime)
+                if (UpdateTime)
                 {
-                    NextState();
+                    currentTime += UpdateBaseTimer;
+                    currentTime = Mathf.Clamp(currentTime, minNeededTime, maxNeededTime);
+
+                    if (currentTime > StateOrder[currentState].endTime)
+                    {
+                        NextState();
+                    }
+
+                    UpdateParts();
+                }
+                else if (useHealthAsTime)
+                {
+                    SetCurrentTime(minNeededTime + HealthBaseScript.ProzentHealth() * maxNeededTime);
                 }
 
-                UpdateParts();
-            }
-            else if (useHealthAsTime)
-            {
-                SetCurrentTime(minNeededTime + HealthBaseScript.ProzentHealth() * maxNeededTime);
+                UpdateBaseTimer = 0f;
             }
 	    }
 	    else
 	    {
             if (UpdateGrowingParts)
             {
-                UpdateParts();
+                UpdateParts(true);
             }
 	    }
 	}
 
-    public void UpdateParts()
+    public void UpdateParts(bool updateTime = false, bool updateScaleInstant = false)
     {
-        for (int index = 0; index < parts.ToArray().Length; index++)
+        GrowingPart[] parts_array = parts.ToArray();
+        for (int index = 0; index < parts_array.Length; index++)
         {
-            var growingPart = parts.ToArray()[index];
+            GrowingPart growingPart = parts[index];
             if (growingPart)
             {
-                growingPart.UpdateMinMaxTime(this);
-                growingPart.UpdateScale(currentTime);
+                if (updateTime)
+                    growingPart.UpdateMinMaxTime(this);
+
+                growingPart.UpdateTime(currentTime, updateScaleInstant);
             }
             else
             {

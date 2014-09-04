@@ -8,8 +8,22 @@ public class HitAble : MonoBehaviour {
     public bool sendFurther = false;
     public HitAble reciever;
 
+    
+    public Collider2D usedCollider;
+
     public bool SpawnPool = true;
     public string SpawnPoolName = "Blood";
+
+    void Start()
+    {
+        if (!usedCollider)
+        {
+            if (collider2D)
+            {
+                usedCollider = collider2D;
+            }
+        }
+    }
 
     public virtual void Hit(Vector3 HitPosition, Vector3 HitDirection, float forceAmount = 0f)
     {

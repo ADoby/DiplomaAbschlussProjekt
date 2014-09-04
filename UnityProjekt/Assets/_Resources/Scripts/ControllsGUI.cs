@@ -22,7 +22,7 @@ public class ControllsGUI : MonoBehaviour {
             if (e.isKey && e.keyCode != KeyCode.None)
             {
                 Debug.Log("Detected key code: " + e.keyCode);
-                input = e.keyCode.ToString();
+                input = System.String.Format("{0}", e.keyCode);
                 timer = 0;
             }
         }

@@ -2,9 +2,9 @@
 using System.Collections;
 
 [System.Serializable]
-public class HealthBar : MonoBehaviour {
+public class HealthBar : MonoBehaviour 
+{
 
-    
     public Transform healthBar;
     
     [SerializeField]
@@ -21,6 +21,7 @@ public class HealthBar : MonoBehaviour {
         currentHealth = 0;
         maxHealth = 1;
         health = 0;
+        UpdateBar(true);
     }
 
     public void UpdateBar(float phealth, float pmaxHealth, bool instant = false)
@@ -38,8 +39,20 @@ public class HealthBar : MonoBehaviour {
     {
         if (updatebar)
         {
-            currentHealth = Mathf.Lerp(currentHealth, health, Time.deltaTime * change);
-            healthBar.localScale = new Vector3(currentHealth / maxHealth, healthBar.localScale.y, healthBar.localScale.z);
+            UpdateBar();
         }
+    }
+
+    public void UpdateBar(bool instant = false)
+    {
+        if (!instant)
+        {
+            currentHealth = Mathf.Lerp(currentHealth, health, Time.deltaTime * change);
+        }
+        else
+        {
+            currentHealth = health;
+        }
+        healthBar.localScale = new Vector3(currentHealth / maxHealth, healthBar.localScale.y, healthBar.localScale.z);
     }
 }

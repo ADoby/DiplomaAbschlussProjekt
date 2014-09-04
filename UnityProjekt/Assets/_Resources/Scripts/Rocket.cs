@@ -19,7 +19,8 @@ public class Rocket : MonoBehaviour {
 	public int flyingDirectionX = 0;
 	public int flyingDirectionY = 0;
 
-	public Transform target;
+	public Collider2D target;
+    public Transform targetTransform;
 
 	public Vector3 targetPos;
 
@@ -36,9 +37,6 @@ public class Rocket : MonoBehaviour {
 
 	public float ExplosionRange = 5f;
 	public float force;
-
-	public float RandomUpDownTimer = 0f;
-	public float RandomUpDownTiming = 2f;
 
 	public float upOrDown = 0;
 	public float rightOrLeft = 0;
@@ -64,8 +62,8 @@ public class Rocket : MonoBehaviour {
 	public float UpdateTargetTime = 1.0f;
 	public float UpdateTargetTimer = 0f;
 
-	public float UpdateRotationTime = 1.0f;
-	public float UpdateRotationTimer = 0f;
+    public float FindNewTargetTime = 1f;
+    public float FindNewTargetTimer = 0f;
 
 	public float UpdateRandomTime = 1.0f;
 	public float UpdateRandomTimer = 0f;
@@ -122,14 +120,7 @@ public class Rocket : MonoBehaviour {
 
 		UpdateTarget();
 
-		UpdateRotationTimer += Time.deltaTime;
-		if (UpdateRotationTimer >= UpdateRotationTime)
-		{
-			UpdateRotation();
-			UpdateRotationTimer = 0f;
-		}
-
-		transform.rotation = Quaternion.Lerp(transform.rotation, wantedRotation, UpdateRotationTimer * RotateSpeed);
+		transform.rotation = Quaternion.Lerp(transform.rotation, wantedRotation, Time.deltaTime * RotateSpeed);
 	}
 
 	void FixedUpdate()
@@ -152,27 +143,33 @@ public class Rocket : MonoBehaviour {
 
 	public void UpdateTarget()
 	{
-
+        FindNewTargetTimer += Time.deltaTime;
+        UpdateTargetTimer += Time.deltaTime;
+        if (UpdateTargetTimer >= UpdateTargetTime)
+        {
+            if (target)
+            {
+                if (Physics2D.Raycast(transform.position, (target.bounds.center - transform.position), MaxSightRange, sightLayer).collider != target)
+                {
+                    //target out of sight;
+                    target = null;
+                }
+            }
+            if (!target)
+            {
+                if (FindNewTargetTimer >= FindNewTargetTime)
+                {
+                    StartCoroutine(FindNewTarget());
+                    FindNewTargetTime = 0f;
+                }
+            }
+            UpdateTargetTimer = 0f;
+        }
+		
 		if (target)
 		{
-			if (Physics2D.Raycast(transform.position, (target.collider2D.bounds.center - transform.position), MaxSightRange, sightLayer).transform != target)
-			{
-				//target out of sight;
-				target = null;
-			}
-		}
-		if (!target)
-		{
-			UpdateTargetTimer += Time.deltaTime;
-			if (UpdateTargetTimer >= UpdateTargetTime)
-			{
-				StartCoroutine(FindNewTarget());
-				UpdateTargetTimer = 0f;
-			}
-		}
-		if (target)
-		{
-			targetPos = target.position;
+            targetPos = targetTransform.position;
+            UpdateRotation();
 		}
 		else
 		{
@@ -196,22 +193,23 @@ public class Rocket : MonoBehaviour {
 		targetPos = transform.position;
 		targetPos += Vector3.right * rightOrLeft * RightLeftAmount;
 		targetPos += Vector3.up * UpOrDownValue() * UpDownAmount;
-
+        UpdateRotation();
 	}
 
 	public void UpdateRotation()
 	{
+        Vector3 addToTargetPos = Vector3.zero;
 		if (target)
 		{
-			targetPos += transform.up * RightAndLeftFront() * 2.0f;
+            addToTargetPos += transform.up * RightAndLeftFront(2f) * 1.0f;
 		}
 		else
 		{
-			targetPos += transform.up * RightAndLeftFront();
-			targetPos += Vector3.up * FrontUpAndDown();
+            addToTargetPos += transform.up * RightAndLeftFront();
+            addToTargetPos += Vector3.up * FrontUpAndDown();
 		}
 
-		Vector3 dir = targetPos - transform.position;
+        Vector3 dir = (targetPos + addToTargetPos) - transform.position;
 		float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 		wantedRotation = Quaternion.AngleAxis(angle, Vector3.forward);
 		
@@ -234,6 +232,19 @@ public class Rocket : MonoBehaviour {
 
 	IEnumerator FindNewTarget()
 	{
+        HitAbleInfo[] enemiesInRange = EntitySpawnManager.instance.GetEnemiesHitAbleInCircle(transform.position, MaxSightRange);
+        for (int i = 0; i < enemiesInRange.Length; i++)
+        {
+            HitAble enemie = enemiesInRange[i].hitAble;
+            if (Physics2D.Raycast(transform.position, (enemie.usedCollider.bounds.center - transform.position), MaxSightRange, sightLayer).collider == enemie.usedCollider)
+            {
+                target = enemie.usedCollider;
+                targetTransform = enemie.transform;
+                break;
+            }
+        }
+
+        /*
 		Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, MaxSightRange, targetLayer);
 		for (int i = 0; i < hits.Length; i++)
 		{
@@ -243,7 +254,8 @@ public class Rocket : MonoBehaviour {
 				break;
 			}
 		}
-		yield return null;
+		*/
+        yield return null;
 	}
 
 	public float FrontUpAndDown(float rangeMult = 1f)
@@ -258,8 +270,8 @@ public class Rocket : MonoBehaviour {
 	public float RightAndLeftFront(float rangeMult = 1f)
 	{
 		float dist = (WantedWallDistance * rangeMult);
-		RaycastHit2D right = Physics2D.Raycast(transform.position, transform.right + transform.up, dist, navLayer);
-		RaycastHit2D left = Physics2D.Raycast(transform.position, transform.right - transform.up, dist, navLayer);
+        RaycastHit2D right = Physics2D.Raycast(transform.position, transform.right * 0.25f + transform.up, dist, navLayer);
+        RaycastHit2D left = Physics2D.Raycast(transform.position, transform.right * 0.25f - transform.up, dist, navLayer);
 
 		return (Mathf.Abs(right.distance - dist) / dist) - (Mathf.Abs(left.distance - dist) / dist);
 	}
@@ -290,7 +302,7 @@ public class Rocket : MonoBehaviour {
 
 		if (!up && !down)
 		{
-			upOrDown = Mathf.Lerp(upOrDown, 0f, Time.deltaTime * TargetChangeSpeed);
+            upOrDown = Mathf.Lerp(upOrDown, 0f, UpdateRandomTime * TargetChangeSpeed);
 		}
 		else
 		{
@@ -320,7 +332,7 @@ public class Rocket : MonoBehaviour {
 			flyingDirectionX = 1;
 		}
 
-		rightOrLeft = Mathf.Lerp(rightOrLeft, flyingDirectionX, Time.deltaTime * TargetChangeSpeed);
+		rightOrLeft = Mathf.Lerp(rightOrLeft, flyingDirectionX, UpdateRandomTime * TargetChangeSpeed);
 
 		return rightOrLeft;
 	}
@@ -342,22 +354,19 @@ public class Rocket : MonoBehaviour {
 
 	public void Explode()
 	{
-		Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, ExplosionRange, targetLayer);
+		//Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, ExplosionRange, targetLayer);
+        HitAbleInfo[] collider = EntitySpawnManager.instance.GetEnemiesHitAbleInCircle(transform.position, ExplosionRange);
+
 		foreach (var item in collider)
 		{
-			if (item.GetComponent<HitAble>())
-			{
-				HitAble target = item.GetComponent<HitAble>();
+			float distanceToTarget = Vector2.Distance(item.transform.position, transform.position);
 
-				float distanceToTarget = Vector2.Distance(item.transform.position, transform.position);
+			float damageMult = (ExplosionRange - distanceToTarget);
 
-				float damageMult = (ExplosionRange - distanceToTarget);
+            item.hitAble.Damage(damageMult * damage);
+            item.hitAble.Hit(item.transform.position, (item.transform.position - transform.position), force);
 
-				target.Damage(damageMult * damage);
-				target.Hit(item.transform.position, (item.transform.position - transform.position), force);
-
-				GameEventHandler.TriggerDamageDone(player, damage);
-			}
+			GameEventHandler.TriggerDamageDone(player, damage);
 		}
 
 		AudioEffectController.Instance.PlayOneShot(explosion, transform.position);

@@ -123,31 +123,27 @@ MonoBehaviour:
   targetPos: {x: 0, y: 0, z: 0}
   MaxSightRange: 20
   wantedRotation: {x: 0, y: 0, z: 0, w: 0}
-  RotateSpeed: 3
-  MaxMovementAngle: 90
-  MaxMovementSpeed: 6500
+  RotateSpeed: 6
+  MaxMovementAngle: 60
+  MaxMovementSpeed: 5000
   ExplosionRange: 5
   force: 0
-  RandomUpDownTimer: 0
-  RandomUpDownTiming: 2
   upOrDown: 0
   rightOrLeft: 0
   currentSpeed: 0
   DiffAngle: 0
-  TargetChangeSpeed: 4
-  MinDistanceForMaxSpeed: 1.14999998
+  TargetChangeSpeed: 10
+  MinDistanceForMaxSpeed: 1
   exploded: 0
   savedVelocity: {x: 0, y: 0, z: 0}
   LifeTime: 10
   LifeTimer: 0
   UpdateTargetTime: 1
   UpdateTargetTimer: 0
-  UpdateRotationTime: .0500000007
-  UpdateRotationTimer: 0
-  UpdateRandomTime: .0500000007
+  UpdateRandomTime: .100000001
   UpdateRandomTimer: 0
-  RightLeftAmount: 2
-  UpDownAmount: 3
+  RightLeftAmount: 1
+  UpDownAmount: 1
   distance: 0
 --- !u!212 &21200000
 SpriteRenderer:

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 [System.Serializable]
 public class ValueChances
@@ -14,6 +15,8 @@ public class PlayerUI : MonoBehaviour {
     public PlayerController playerControl;
 
     public float UpdateTimer = 0.5f;
+
+    
 
     public UIEditorPanel panel;
 
@@ -67,6 +70,11 @@ public class PlayerUI : MonoBehaviour {
         Button50.OnButtonClicked += GenerateItems50;
         Button75.OnButtonClicked += GenerateItems75;
         Button100.OnButtonClicked += GenerateItems100;
+
+        Button25.Text = String.Format("Buy Item for {0}", MoneyPerItem25);
+        Button50.Text = String.Format("Buy Item for {0}", MoneyPerItem50);
+        Button75.Text = String.Format("Buy Item for {0}", MoneyPerItem75);
+        Button100.Text = String.Format("Buy Item for {0}", MoneyPerItem100);
 	}
 
     public void GenerateItems25(UIRect rect)
@@ -114,7 +122,7 @@ public class PlayerUI : MonoBehaviour {
 
     public void GenerateItem(ValueChances[] values)
     {
-        var rnd = Random.value;
+        var rnd = UnityEngine.Random.value;
         for (int i = 0; i < values.Length; i++)
         {
             if (rnd < values[i].weight)
@@ -159,7 +167,7 @@ public class PlayerUI : MonoBehaviour {
         if (playerControl.playerUI == null)
             playerControl.playerUI = this;
 
-        if (InputController.GetClicked(playerControl.PlayerID() + "_SKILLMENU"))
+        if (InputController.GetClicked(String.Format("{0}_SKILLMENU", playerControl.PlayerID())))
         {
             if (GameManager.GamePaused && !showMenu)
                 return;
@@ -193,27 +201,24 @@ public class PlayerUI : MonoBehaviour {
 
     private void ChangeUI()
     {
-        level.Text = playerControl.Level.ToString("##0");
+        level.Text = String.Format("{0:##0}", playerControl.Level);
         HealthBar.RelativeSize.x = currentHealth / currentMaxHealth;
 
-        HealthText.Text = currentHealth.ToString("###0") + "/" + currentMaxHealth.ToString("###0");
+        HealthText.Text = String.Format("{0:###0}/{1:###0}", currentHealth, currentMaxHealth);
 
-        Money.Text = "Money:" + currentMoney.ToString("#####0");
+        Money.Text = String.Format("Money:{0:#####0}", currentMoney);
 
-        Exp.Text = "Experience:" + (currentExp * 100).ToString("##0") + "%";
+        Exp.Text = String.Format("Experience:{0:##0%}", currentExp);
         ExpBar.RelativeSize.x = currentExp;
 
-        skillCD1.Text = playerControl.PlayerClass.playerSkills[0].Cooldown.ToString("#0.0");
-        skillCD2.Text = playerControl.PlayerClass.playerSkills[1].Cooldown.ToString("#0.0");
-        skillCD3.Text = playerControl.PlayerClass.playerSkills[2].Cooldown.ToString("#0.0");
-        skillCD4.Text = playerControl.PlayerClass.playerSkills[3].Cooldown.ToString("#0.0");
+        skillCD1.Text = String.Format("{0:#0.0}", playerControl.PlayerClass.playerSkills[0].Cooldown);
+        skillCD2.Text = String.Format("{0:#0.0}", playerControl.PlayerClass.playerSkills[1].Cooldown);
+        skillCD3.Text = String.Format("{0:#0.0}", playerControl.PlayerClass.playerSkills[2].Cooldown);
+        skillCD4.Text = String.Format("{0:#0.0}", playerControl.PlayerClass.playerSkills[3].Cooldown);
 
-        CheckPointText.Text = "Checkpoint: " + playerControl.ProcentageCheckpointTimer.ToString("##0%");
+        CheckPointText.Text = String.Format("Checkpoint:{0:##0%}", playerControl.ProcentageCheckpointTimer);
 
-        Button25.Text = "Buy Item for " + MoneyPerItem25.ToString();
-        Button50.Text = "Buy Item for " + MoneyPerItem50.ToString();
-        Button75.Text = "Buy Item for " + MoneyPerItem75.ToString();
-        Button100.Text = "Buy Item for " + MoneyPerItem100.ToString();
+        
 
         Button25.Enabled = false;
         Button50.Enabled = false;
@@ -250,7 +255,7 @@ public class PlayerUI : MonoBehaviour {
 
     public void UpdateSkillPoints()
     {
-        SkillTabButton.Text = "Skill/Attribute(" + playerControl.PlayerClass.skillPoints.ToString() + ")";
+        SkillTabButton.Text = String.Format("Skill/Attribute({0})", playerControl.PlayerClass.skillPoints);
     }
 
     public void UpdateAfterSkillPointUP()

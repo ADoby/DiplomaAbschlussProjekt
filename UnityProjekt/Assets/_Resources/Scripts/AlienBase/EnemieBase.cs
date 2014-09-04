@@ -63,6 +63,18 @@ public class EnemieBase : HitAble {
         UpdateHealthBar(true);
     }
 
+    #region performance
+
+    public int HealthRegenEveryFrames = 5;
+    public int HealthRegenFrameCounter = 0;
+
+    [SerializeField]
+    public static float GrowingSpeed = 5f;
+    [SerializeField]
+    public static int UpdateScaleEveryFrames = 5;
+
+    #endregion
+
     void Update()
     {
         if (GameManager.GamePaused)
@@ -70,8 +82,14 @@ public class EnemieBase : HitAble {
 
         if (isAlive)
         {
-            Heal((HealthRegenPerSec + + GameManager.Instance.CurrentDifficulty * HealthRegenPerSecPerDifficulty)*Time.deltaTime);
+            HealthRegenFrameCounter++;
+            if (HealthRegenFrameCounter == HealthRegenEveryFrames)
+            {
+                HealthRegenFrameCounter = 0;
+                Heal((HealthRegenPerSec + GameManager.Instance.CurrentDifficulty * HealthRegenPerSecPerDifficulty) * Time.deltaTime * HealthRegenEveryFrames);
+            }
         }
+
         CurrentHealth = Mathf.Lerp(CurrentHealth, wantedHealth, Time.deltaTime * HealthChangeSpeed);
         UpdateHealthBar();
 

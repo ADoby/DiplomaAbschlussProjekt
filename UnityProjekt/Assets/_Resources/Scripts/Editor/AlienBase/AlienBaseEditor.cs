@@ -16,8 +16,6 @@ public class AlienBaseEditor : Editor
     private int currentStateIndex = 0;
     private int deleteStateIndex = -1;
 
-    private bool showTestingGroup;
-
     public void UpdatePartList()
     {
         for (int index = 0; index < myTarget.parts.ToArray().Length; index++)
@@ -50,7 +48,7 @@ public class AlienBaseEditor : Editor
         if (myTarget.parts.Count == 0)
             UpdatePartList();
 
-        showTestingGroup = myTarget.UpdateGrowingParts;
+        myTarget.ShowTestInEditor = myTarget.UpdateGrowingParts;
     }
 
     public override void OnInspectorGUI()
@@ -61,14 +59,16 @@ public class AlienBaseEditor : Editor
 
         currentStateIndex = 0;
 
+        myTarget.UpdateBaseTime = EditorGUILayout.FloatField("Performance: UpdateBaseTime", myTarget.UpdateBaseTime);
+
         GUILayout.Space(5);
 
         myTarget.useHealthAsTime = EditorGUILayout.Toggle("Use EnemieBase Health Script", myTarget.useHealthAsTime);
 
-        showTestingGroup = EditorGUILayout.BeginToggleGroup("Testing: ", showTestingGroup);
-        myTarget.UpdateGrowingParts = showTestingGroup;
+        myTarget.ShowTestInEditor = EditorGUILayout.BeginToggleGroup("Testing: ", myTarget.ShowTestInEditor);
+        myTarget.UpdateGrowingParts = myTarget.ShowTestInEditor;
 
-        if (showTestingGroup)
+        if (myTarget.ShowTestInEditor)
         {
             GUILayout.Label("Testing:");
             if (GUILayout.Button("Update Growing Part List"))
@@ -136,7 +136,7 @@ public class AlienBaseEditor : Editor
 
             UpdateMinMaxTime();
 
-            myTarget.UpdateParts();
+            myTarget.UpdateParts(true, true);
 
             EditorUtility.SetDirty(myTarget);
         }
