@@ -8,11 +8,12 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400000}
-  - 114: {fileID: 11400000}
-  - 61: {fileID: 6100000}
   - 50: {fileID: 5000000}
-  m_Layer: 14
-  m_Name: SelfFindingRocket
+  - 61: {fileID: 6100002}
+  - 114: {fileID: 11400006}
+  - 114: {fileID: 11400002}
+  m_Layer: 16
+  m_Name: RandomItem75
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +28,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 400002}
   - 212: {fileID: 21200000}
-  m_Layer: 14
+  - 58: {fileID: 5800000}
+  - 114: {fileID: 11400004}
+  m_Layer: 11
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +44,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .772412658, z: 0}
+  m_LocalPosition: {x: -6.80179739, y: 3.14255452, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -53,9 +56,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_LocalRotation: {x: 0, y: 0, z: -.707106829, w: .707106829}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .0500000007, y: .150000006, z: 1}
+  m_LocalScale: {x: .200000003, y: .200000003, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
   m_RootOrder: 0
@@ -66,26 +69,37 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_Mass: 1
-  m_LinearDrag: 12
+  m_LinearDrag: 5
   m_AngularDrag: .0500000007
-  m_GravityScale: 0
+  m_GravityScale: 3
   m_FixedAngle: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!61 &6100000
+--- !u!58 &5800000
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: d496036a6e79f004e9f722430ef022cc, type: 2}
+  m_IsTrigger: 0
+  m_Radius: 2
+  m_Center: {x: 0, y: 0}
+--- !u!61 &6100002
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Size: {x: .521803141, y: .161100507}
-  m_Center: {x: -.0135045946, y: .0040499568}
---- !u!114 &11400000
+  m_Material: {fileID: 6200000, guid: d496036a6e79f004e9f722430ef022cc, type: 2}
+  m_IsTrigger: 1
+  m_Size: {x: 1, y: 1}
+  m_Center: {x: 0, y: 0}
+--- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -93,62 +107,49 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19b69ab8c0c68824b9520c4dfe5c7df3, type: 3}
+  m_Script: {fileID: 11500000, guid: f5ac6d84dca7648fab1a3a905dbc55b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  damage: 10
-  explosion:
-    clip: {fileID: 8300000, guid: 72808a466e5dd5741a6399797b4101a6, type: 3}
-    volumeScale: 1
-    randomPitch: 0
-    minPitch: 1
-    maxPitch: 1
-    pitch: 1
-  hitEffektPoolName: GrenadeExplosion
-  poolName: SelfFindingRocket
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 33792
-  sightLayer:
-    serializedVersion: 2
-    m_Bits: 37888
-  navLayer:
-    serializedVersion: 2
-    m_Bits: 4096
-  WantedWallDistance: 2
-  flyingDirectionX: 0
-  flyingDirectionY: 0
-  target: {fileID: 0}
-  targetPos: {x: 0, y: 0, z: 0}
-  MaxSightRange: 20
-  wantedRotation: {x: 0, y: 0, z: 0, w: 0}
-  RotateSpeed: 3
-  MaxMovementAngle: 90
-  MaxMovementSpeed: 6500
-  ExplosionRange: 5
-  force: 0
-  RandomUpDownTimer: 0
-  RandomUpDownTiming: 2
-  upOrDown: 0
-  rightOrLeft: 0
+  IsDeserializing: 0
+  _id: 3ff24894-1d4f-4312-bb5f-a9c0cca69e12
+  classId: e881a65f-5246-4165-a3e4-95c41753fc02
+  StoreAllComponents: 1
+  Components: []
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc7f0a036bc94ddf9e7626ffd54921d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: 70f6669d-5b5b-472b-9e23-8576ae053367
+  classId: 9da3f473-b254-486b-8c6f-ccbe51d89195
+--- !u!114 &11400006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4db45097454fc6499b1c51710424135, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolName: RandomItem50
+  itemType: 2
+  worldCollider: {fileID: 5800000}
+  waitTime: 3
   currentSpeed: 0
-  DiffAngle: 0
-  TargetChangeSpeed: 4
-  MinDistanceForMaxSpeed: 1.14999998
-  exploded: 0
-  savedVelocity: {x: 0, y: 0, z: 0}
-  LifeTime: 10
-  LifeTimer: 0
-  UpdateTargetTime: 1
-  UpdateTargetTimer: 0
-  UpdateRotationTime: .0500000007
-  UpdateRotationTimer: 0
-  UpdateRandomTime: .0500000007
-  UpdateRandomTimer: 0
-  RightLeftAmount: 2
-  UpDownAmount: 3
-  distance: 0
+  SpeedChange: 1
+  maxSpeed: 6
+  gravity: 3
+  flyToPlayer: 0
+  disableColliderOnFlight: 1
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -169,8 +170,8 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c639618d0e26da642a0f7a6034c7e6b8, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 716bfe755ce6f3346b369f69296a32af, type: 3}
+  m_Color: {r: 1, g: .855172396, b: .25, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

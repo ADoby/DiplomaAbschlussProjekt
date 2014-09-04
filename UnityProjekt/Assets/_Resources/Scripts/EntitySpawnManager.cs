@@ -62,6 +62,8 @@ public class EntitySpawnManager : MonoBehaviour
     {
         GameObject go = GameObjectPool.Instance.Spawns(info.poolName, info.position + Vector3.forward * 0.0001f * GameManager.Instance.CurrentSpawnedEntityCount, info.rotation);
 
+        go.SendMessage("SetPoolName", info.poolName, SendMessageOptions.DontRequireReceiver);
+
         if (info.callBack != null)
         {
             info.callBack(go);
