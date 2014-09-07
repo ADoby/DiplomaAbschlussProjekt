@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
+#region Enums
 public enum AttributeType
 {
     HEALTH,
@@ -14,6 +15,36 @@ public enum AttributeType
     SPELLVAMP,
     COUNT
 }
+
+public enum DamageType
+{
+    MEELE,
+    RANGED,
+    EXPLOSION
+}
+
+#endregion
+
+[System.Serializable]
+public struct Damage
+{
+    public DamageType type;
+    public float amount;
+    public Transform other;
+
+    public bool DamageFromAPlayer;
+    public PlayerController player;
+}
+
+[System.Serializable]
+public class DamageResistence
+{
+    public DamageType damageType;
+    public float Procentage = 1.0f;
+}
+
+#region Attributes
+
 
 [System.Serializable]
 public class Attribute
@@ -74,6 +105,8 @@ public class Attribute
     }
 }
 
+#endregion
+
 [System.Serializable]
 public class PlayerClass : MonoBehaviour
 {
@@ -99,6 +132,25 @@ public class PlayerClass : MonoBehaviour
     #region PlayerBuffs
     [SerializeField]
     public List<PlayerBuff> playerBuffs;
+
+    [SerializeField]
+    public DamageResistence[] resitences =
+    {
+        new DamageResistence() { damageType = DamageType.MEELE, Procentage = 1.0f },
+        new DamageResistence() { damageType = DamageType.RANGED, Procentage = 1.0f },
+        new DamageResistence() { damageType = DamageType.EXPLOSION, Procentage = 1.0f }
+    };
+
+    [ContextMenu("Reset Resistences")]
+    public void ResetResistence()
+    {
+        resitences = new DamageResistence[]
+    {
+        new DamageResistence() { damageType = DamageType.MEELE, Procentage = 1.0f },
+        new DamageResistence() { damageType = DamageType.RANGED, Procentage = 1.0f },
+        new DamageResistence() { damageType = DamageType.EXPLOSION, Procentage = 1.0f }
+    };
+    }
 
     [ContextMenu("Reset Attributes")]
     public void ResetAttributes()
@@ -369,7 +421,7 @@ public class PlayerClass : MonoBehaviour
         items.Add(item);
         item.Start(this);
 
-        GameObject go = GameObjectPool.Instance.Spawns(UIItemPickupPoolName, transform.position, Quaternion.identity);
+        GameObject go = EntitySpawnManager.InstantSpawn(UIItemPickupPoolName, transform.position, Quaternion.identity, countEntity:false);
         go.GetComponent<UIItemPickup>().text = item.Description;
     }
 
@@ -380,30 +432,36 @@ public class PlayerClass : MonoBehaviour
     }
 
 
-    public virtual float OnPlayerGetsDamage(float damage)
+    public virtual void OnPlayerGetsDamage(ref Damage damage)
     {
+        for (int i = 0; i < resitences.Length; i++)
+        {
+            if (resitences[i].damageType == damage.type)
+            {
+                damage.amount *= resitences[i].Procentage;
+                break;
+            }
+        }
         for (int i = 0; i < items.Count; i++)
         {
-            damage = items[i].OnPlayerGetsDamage(this, damage);
+            items[i].OnPlayerGetsDamage(this, ref damage);
         }
-        return damage;
     }
-    public virtual void OnPlayerDamaged(float damage)
+    public virtual void OnPlayerDamaged(Damage damage)
     {
         for (int i = 0; i < items.Count; i++)
         {
             items[i].OnPlayerDamaged(this, damage);
         }
     }
-    public virtual float OnPlayerDoesDamage(float damage)
+    public virtual void OnPlayerDoesDamage(ref Damage damage)
     {
         for (int i = 0; i < items.Count; i++)
         {
-            damage = items[i].OnPlayerDoesDamage(this, damage);
+            items[i].OnPlayerDoesDamage(this, ref damage);
         }
-        return damage;
     }
-    public virtual void OnPlayerDidDamage(float damage)
+    public virtual void OnPlayerDidDamage(Damage damage)
     {
         for (int i = 0; i < items.Count; i++)
         {
@@ -418,13 +476,12 @@ public class PlayerClass : MonoBehaviour
         }
     }
 
-    public virtual float OnPlayerLethalDamage(float damage)
+    public virtual void OnPlayerLethalDamage(ref Damage damage)
     {
         for (int i = 0; i < items.Count; i++)
         {
-            damage = items[i].OnPlayerLethalDamage(this, damage);
+            items[i].OnPlayerLethalDamage(this, ref damage);
         }
-        return damage;
     }
     public virtual void OnPlayerDied()
     {

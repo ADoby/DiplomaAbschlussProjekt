@@ -31,7 +31,7 @@ public class BasicAttack : PlayerSkill
         {
             position = new Vector3(CrouchShootingPosition.x * player.playerTransform.localScale.x, CrouchShootingPosition.y, 0);
         }
-        GameObject go = GameObjectPool.Instance.Spawns(Projectile, player.playerTransform.position + position, player.playerTransform.rotation);
+        GameObject go = EntitySpawnManager.InstantSpawn(Projectile, player.playerTransform.position + position, player.playerTransform.rotation, countEntity:false);
         go.SendMessage("SetDirection", Vector2.right * player.playerTransform.localScale.x, SendMessageOptions.DontRequireReceiver);
         go.SendMessage("SetPlayer", player.playerControl, SendMessageOptions.DontRequireReceiver);
         go.SendMessage("SetDamage", DamageMult * player.GetAttributeValue(AttributeType.DAMAGE), SendMessageOptions.DontRequireReceiver);

@@ -588,7 +588,7 @@ MonoBehaviour:
     spawnInfos:
     - poolName: Enemie3
       weight: 1
-    spawnCooldown: 2
+    spawnCooldown: 3
     Range: 8
     Name: BaseState 1
     startTime: 3
@@ -957,7 +957,7 @@ MonoBehaviour:
   MaxHealthPerDifficulty: 100
   poolName: AlienRace1_Base1
   HealthRegenPerSec: 5
-  HealthRegenPerSecPerDifficulty: 1
+  HealthRegenPerSecPerDifficulty: .5
   isAlive: 0
   StartFull: 0
   RestartFull: 0

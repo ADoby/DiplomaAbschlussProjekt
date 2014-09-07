@@ -263,11 +263,11 @@ MonoBehaviour:
   chanceForRandomJump: .0199999996
   anim: {fileID: 0}
   attackTimer: 0
-  attackTime: 1
+  attackTime: 1.5
   lockTimer: 0
   lockTime: .5
   targetLocked: 0
-  attackDistance: 2
+  attackDistance: 1
   randomTimer: 0
   randomTimeMin: 3
   randomTimeMax: 10

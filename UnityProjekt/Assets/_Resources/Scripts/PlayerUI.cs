@@ -140,7 +140,7 @@ public class PlayerUI : MonoBehaviour {
 
         playerControl.PlayerClass.AddItem(newItem);
 
-        GameObject go = GameObjectPool.Instance.Spawns(UIItemPoolName, Vector3.zero, Quaternion.identity);
+        GameObject go = EntitySpawnManager.InstantSpawn(UIItemPoolName, Vector3.zero, Quaternion.identity, countEntity:false);
         go.transform.parent = UIItemHolder.transform;
 
         

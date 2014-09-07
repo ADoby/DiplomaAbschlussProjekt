@@ -25,7 +25,7 @@ public class ThrowingAttack : PlayerSkill {
         for (int i = 0; i < amount; i++)
         {
             //Shoot Or Something
-            GameObject go = GameObjectPool.Instance.Spawns(Projectile, player.playerTransform.position + new Vector3(ShootingPosition.x * player.playerTransform.localScale.x, ShootingPosition.y, 0) + Random.insideUnitSphere * randomPositioning, player.playerTransform.rotation);
+            GameObject go = EntitySpawnManager.InstantSpawn(Projectile, player.playerTransform.position + new Vector3(ShootingPosition.x * player.playerTransform.localScale.x, ShootingPosition.y, 0) + Random.insideUnitSphere * randomPositioning, player.playerTransform.rotation, countEntity:false);
             go.SendMessage("SetDirection", Vector2.right * player.playerTransform.localScale.x, SendMessageOptions.DontRequireReceiver);
             go.SendMessage("SetPlayer", player.playerControl, SendMessageOptions.DontRequireReceiver);
             go.SendMessage("SetDamage", DamageMult * player.GetAttributeValue(AttributeType.DAMAGE), SendMessageOptions.DontRequireReceiver);

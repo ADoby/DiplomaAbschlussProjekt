@@ -139,10 +139,15 @@ public class Bullet : MonoBehaviour {
             }
 
             HitAble target = other.GetComponent<HitAble>();
-            target.Damage(damage);
+            target.Damage(new Damage()
+            {
+                DamageFromAPlayer = true,
+                player = player,
+                amount = damage,
+                type = DamageType.RANGED,
+                other = player.transform
+            });
             target.Hit(position, rigidbody2D.velocity * Time.fixedDeltaTime, force);
-
-            GameEventHandler.TriggerDamageDone(player, damage);
 
             gameObjectHitted.Add(other);
 
@@ -150,14 +155,14 @@ public class Bullet : MonoBehaviour {
         }
         else
         {
-            GameObjectPool.Instance.Spawns(hitEffektPoolName, position, Quaternion.identity);
-            
-            GameObjectPool.Instance.Despawn(poolName, gameObject);
+            EntitySpawnManager.InstantSpawn(hitEffektPoolName, position, Quaternion.identity, countEntity:false);
+
+            EntitySpawnManager.Despawn(poolName, gameObject, false);
             return;
         }
 
 
-        GameObjectPool.Instance.Spawns(hitEffektPoolName, position, Quaternion.identity);
+        EntitySpawnManager.InstantSpawn(hitEffektPoolName, position, Quaternion.identity, countEntity: false);
 
         if (pierceCount >= pierceAmount)
         {

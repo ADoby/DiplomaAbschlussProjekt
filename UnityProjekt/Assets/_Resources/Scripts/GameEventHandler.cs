@@ -3,7 +3,7 @@ using System.Collections;
 
 public class GameEventHandler : MonoBehaviour {
 
-    public delegate void DamageEvent(PlayerController player, float damage);
+    public delegate void DamageEvent(PlayerController player, Damage damage);
     public static event DamageEvent OnDamageDone;
 
     public delegate void EnemieEvent(Transform sender, Transform target);
@@ -61,7 +61,7 @@ public class GameEventHandler : MonoBehaviour {
         }
     }
 
-	public static void TriggerDamageDone(PlayerController player, float damage){
+	public static void TriggerDamageDone(PlayerController player, Damage damage){
         if (OnDamageDone != null)
         {
             OnDamageDone(player, damage);

@@ -27,8 +27,8 @@ public class Item_Vampire : Item
         Vampire *= value;
     }
 
-    public override void OnPlayerDidDamage(PlayerClass playerClass, float damage)
+    public override void OnPlayerDidDamage(PlayerClass playerClass, Damage damage)
     {
-        playerClass.Heal(damage * Vampire);
+        playerClass.Heal(damage.amount * Vampire);
     }
 }

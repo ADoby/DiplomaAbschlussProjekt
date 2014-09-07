@@ -78,27 +78,26 @@ public class ThrowingWeapon : MonoBehaviour {
 
     public void Explode()
     {
-        Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, distance);
-        foreach (var item in collider)
+        HitAbleInfo[] collider = EntitySpawnManager.Instance.GetHitAbleInCircle(transform.position, distance);
+        //Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, distance);
+        for (int i = 0; i < collider.Length; i++)
         {
-            if (item.GetComponent<HitAble>())
+            float distanceToTarget = Vector2.Distance(collider[i].transform.position, transform.position);
+
+            collider[i].hitAble.Damage(new Damage()
             {
-                HitAble target = item.GetComponent<HitAble>();
-
-                float distanceToTarget = Vector2.Distance(item.transform.position, transform.position);
-
-                float damageMult = (distance - distanceToTarget);
-
-                target.Damage(damageMult * damage);
-                target.Hit(item.transform.position, (item.transform.position - transform.position), force);
-
-                GameEventHandler.TriggerDamageDone(player, damage);                
-            }
+                DamageFromAPlayer = true,
+                player = player,
+                amount = distance - distanceToTarget,
+                type = DamageType.RANGED,
+                other = player.transform
+            });
+            collider[i].hitAble.Hit(collider[i].transform.position, (collider[i].transform.position - transform.position), force);
         }
 
         AudioEffectController.Instance.PlayOneShot(explosion, transform.position);
-        GameObjectPool.Instance.Spawns(hitEffektPoolName, transform.position, Quaternion.identity);
+        EntitySpawnManager.Spawn(hitEffektPoolName, transform.position, Quaternion.identity, forceDirectSpawn:true, countEntity:false);
 
-        GameObjectPool.Instance.Despawn(poolName, gameObject);
+        EntitySpawnManager.Despawn(poolName, gameObject, false);
     }
 }

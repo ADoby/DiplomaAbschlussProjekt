@@ -10,9 +10,14 @@ public class DamageOnContact : MonoBehaviour {
     {
         if (other && other.gameObject && other.gameObject.tag == "Player" && GetComponent<EnemieBase>())
         {
-            GetComponent<EnemieBase>().Damage(amount);
+            GetComponent<EnemieBase>().Damage(new Damage()
+            {
+                amount = amount,
+                type = DamageType.MEELE,
+                other = transform
+            });
 
-            GameObjectPool.Instance.Spawns("Blood", transform.position + Vector3.up * 0.2f, Quaternion.identity);
+            EntitySpawnManager.InstantSpawn("Blood", transform.position + Vector3.up * 0.2f, Quaternion.identity, countEntity:false);
         }
     }
     

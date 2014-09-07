@@ -23,7 +23,7 @@ public class RocketRelease : PlayerSkill
 
         for (int i = 0; i < amount; i++)
         {
-            GameObject go = GameObjectPool.Instance.Spawns(Projectile, player.playerTransform.position + ShootingPosition, Quaternion.FromToRotation(Vector3.up, Vector3.left));
+            GameObject go = EntitySpawnManager.InstantSpawn(Projectile, player.playerTransform.position + ShootingPosition, Quaternion.FromToRotation(Vector3.up, Vector3.left), countEntity:false);
             go.GetComponent<Rocket>().Impulse(Vector3.up * 5.0f);
             go.GetComponent<Rocket>().player = player.playerControl;
             go.GetComponent<Rocket>().damage = player.GetAttributeValue(AttributeType.DAMAGE) * DamageMult;

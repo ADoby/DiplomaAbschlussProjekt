@@ -27,8 +27,8 @@ public class Item_RelDamageReduction : Item
         RelativeDamageReduction *= value;
     }
 
-    public override float OnPlayerGetsDamage(PlayerClass playerClass, float damage)
+    public override void OnPlayerGetsDamage(PlayerClass playerClass, ref Damage damage)
     {
-        return Mathf.Clamp(damage - damage * RelativeDamageReduction, 0, damage);
+        damage.amount = Mathf.Max(0.0f, damage.amount - damage.amount * RelativeDamageReduction);
     }
 }

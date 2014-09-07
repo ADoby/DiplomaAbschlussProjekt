@@ -3,8 +3,8 @@ using UnityEngine;
 
 public enum PlayerClasses
 {
-	BORO,
 	JACK,
+	BORO,
 	COUNT
 }
 
@@ -70,6 +70,10 @@ public class GameManager : MonoBehaviour {
 	{
 		return Cameras;
 	}
+    public PlayerController[] GetPlayers()
+    {
+        return Players;
+    }
 
     public float CurrentDifficulty = 0;
 	public float DifficultyValue = 0f;
@@ -221,6 +225,7 @@ public class GameManager : MonoBehaviour {
 		GameEventHandler.TriggerPlayerLeft(player, player.Name);
 
 		Players[index] = null;
+        EntitySpawnManager.RemoveHitAble(player.GetComponent<HitAble>());
 		Destroy(player.gameObject);
 	}
 
@@ -248,9 +253,9 @@ public class GameManager : MonoBehaviour {
 	}
 	
 
-	public void OnDamageDone(PlayerController player, float damage)
+	public void OnDamageDone(PlayerController player, Damage damage)
 	{
-		CurrentLevelDamage += damage;
+		CurrentLevelDamage += damage.amount;
         if (CurrentLevelDamage > NeededLevelDamage)
         {
             WinScreen.gameObject.SetActive(true);
@@ -415,6 +420,8 @@ public class GameManager : MonoBehaviour {
     public void SelectClass(int id)
     {
         GameObject newPlayer = (GameObject)Object.Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
+        EntitySpawnManager.AddHitAble(newPlayer.GetComponent<HitAble>());
+
         newPlayer.SetActive(false);
         Players[currentPlayerSelectingClass] = newPlayer.GetComponent<PlayerController>();
 

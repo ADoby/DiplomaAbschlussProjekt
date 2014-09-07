@@ -59,19 +59,19 @@ public abstract class Item {
 
     }
 
-    public virtual float OnPlayerGetsDamage(PlayerClass playerClass, float damage)
-    {
-        return damage;
-    }
-    public virtual void OnPlayerDamaged(PlayerClass playerClass, float damage)
+    public virtual void OnPlayerGetsDamage(PlayerClass playerClass, ref Damage damage)
     {
 
     }
-    public virtual float OnPlayerDoesDamage(PlayerClass playerClass, float damage)
+    public virtual void OnPlayerDamaged(PlayerClass playerClass, Damage damage)
     {
-        return damage;
+
     }
-    public virtual void OnPlayerDidDamage(PlayerClass playerClass, float damage)
+    public virtual void OnPlayerDoesDamage(PlayerClass playerClass, ref Damage damage)
+    {
+
+    }
+    public virtual void OnPlayerDidDamage(PlayerClass playerClass, Damage damage)
     {
 
     }
@@ -80,9 +80,9 @@ public abstract class Item {
 
     }
 
-    public virtual float OnPlayerLethalDamage(PlayerClass playerClass, float damage)
+    public virtual void OnPlayerLethalDamage(PlayerClass playerClass, ref Damage damage)
     {
-        return damage;
+
     }
     public virtual void OnPlayerDied(PlayerClass playerClass)
     {

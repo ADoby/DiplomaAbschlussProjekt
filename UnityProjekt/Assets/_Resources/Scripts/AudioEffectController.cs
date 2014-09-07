@@ -19,7 +19,7 @@ public class AudioEffectController : MonoBehaviour {
 
     public void PlayOneShot(SoundEffect effect)
     {
-        GameObject go = GameObjectPool.Instance.Spawns("SoundEffect", transform.position, Quaternion.identity);
+        GameObject go = EntitySpawnManager.InstantSpawn("SoundEffect", transform.position, Quaternion.identity, countEntity:false);
         go.GetComponent<SoundEffectObject>().PlayOneShot(effect);
     }
 
@@ -30,7 +30,7 @@ public class AudioEffectController : MonoBehaviour {
             if (GameManager.Instance.GetCameras()[i] != null)
             {
                 Vector3 camDiffPos = position - GameManager.Instance.GetCameras()[i].transform.position;
-                GameObject go = GameObjectPool.Instance.Spawns("SoundEffect", camDiffPos, Quaternion.identity);
+                GameObject go = EntitySpawnManager.InstantSpawn("SoundEffect", camDiffPos, Quaternion.identity, countEntity: false);
                 if(go && go.GetComponent<SoundEffectObject>())
                     go.GetComponent<SoundEffectObject>().PlayOneShot(effect);
             }

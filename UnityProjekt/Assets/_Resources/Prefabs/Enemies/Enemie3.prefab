@@ -261,7 +261,7 @@ MonoBehaviour:
   lockTimer: 0
   lockTime: .5
   targetLocked: 0
-  attackDistance: 2
+  attackDistance: 1
   randomTimer: 0
   randomTimeMin: 3
   randomTimeMax: 10

@@ -28,7 +28,7 @@ public class AddBuffToPlayer : PlayerSkill
             {
                 for (int a = 0; a < Effects[i].Amount; a++)
                 {
-                    GameObject go = GameObjectPool.Instance.Spawns(Effects[i].Next().poolName, player.playerTransform.position + Vector3.up * 1.5f, Quaternion.identity);
+                    GameObject go = EntitySpawnManager.InstantSpawn(Effects[i].Next().poolName, player.playerTransform.position + Vector3.up * 1.5f, Quaternion.identity, countEntity:false);
                     go.transform.parent = player.playerTransform;
                 }
             }

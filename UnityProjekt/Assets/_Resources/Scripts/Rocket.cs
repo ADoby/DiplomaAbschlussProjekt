@@ -232,7 +232,7 @@ public class Rocket : MonoBehaviour {
 
 	IEnumerator FindNewTarget()
 	{
-		HitAbleInfo[] enemiesInRange = EntitySpawnManager.instance.GetEnemiesHitAbleInCircle(transform.position, MaxSightRange);
+		HitAbleInfo[] enemiesInRange = EntitySpawnManager.Instance.GetHitAbleInCircle(transform.position, MaxSightRange);
 		for (int i = 0; i < enemiesInRange.Length; i++)
 		{
 			HitAble enemie = enemiesInRange[i].hitAble;
@@ -354,8 +354,7 @@ public class Rocket : MonoBehaviour {
 
 	public void Explode()
 	{
-		//Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, ExplosionRange, targetLayer);
-		HitAbleInfo[] collider = EntitySpawnManager.instance.GetEnemiesHitAbleInCircle(transform.position, ExplosionRange);
+		HitAbleInfo[] collider = EntitySpawnManager.Instance.GetHitAbleInCircle(transform.position, ExplosionRange);
 
 		foreach (var item in collider)
 		{
@@ -363,14 +362,19 @@ public class Rocket : MonoBehaviour {
 
 			float damageMult = (ExplosionRange - distanceToTarget);
 
-			item.hitAble.Damage(damageMult * damage);
+            item.hitAble.Damage(new Damage()
+            {
+                type = DamageType.EXPLOSION,
+                amount = damageMult * damage,
+                DamageFromAPlayer = true,
+                player = player,
+                other = player.transform
+            });
 			item.hitAble.Hit(item.transform.position, (item.transform.position - transform.position), force);
-
-			GameEventHandler.TriggerDamageDone(player, damage);
 		}
 
 		AudioEffectController.Instance.PlayOneShot(explosion, transform.position);
-		GameObjectPool.Instance.Spawns(hitEffektPoolName, transform.position, Quaternion.identity);
+		EntitySpawnManager.InstantSpawn(hitEffektPoolName, transform.position, Quaternion.identity, countEntity:false);
 
 		GameObjectPool.Instance.Despawn(poolName, gameObject);
 	}

@@ -158,13 +158,18 @@ public class EnemieController : HitAble {
 		}
 	}
 
-	public override void Damage(float damage)
+    public override void Damage(Damage damage)
 	{
 		base.Damage(damage);
 
 		aggressive = true;
 
-		Health -= damage;
+        //Min of Health or Damage
+        //This should fix health going under 0
+        damage.amount = Mathf.Min(damage.amount, Health);
+        Health -= Health;
+        GameEventHandler.TriggerDamageDone(damage.other.GetComponent<PlayerController>(), damage);
+
 		healthBar.UpdateBar(Health, MaxHealth);
 		if (Health <= 0)
 		{
@@ -280,7 +285,13 @@ public class EnemieController : HitAble {
 				lockTimer -= Time.deltaTime;
 				if (lockTimer <= 0)
 				{
-					target.GetComponent<PlayerController>().Damage(MyDamage + GameManager.Instance.CurrentDifficulty * DamagePerDifficulty);
+                    target.GetComponent<PlayerController>().Damage(
+                        new Damage()
+                        {
+                            amount = MyDamage + GameManager.Instance.CurrentDifficulty * DamagePerDifficulty,
+                            type = DamageType.MEELE,
+                            other = transform
+                        });
 					//Effekt
 
 					targetLocked = false;

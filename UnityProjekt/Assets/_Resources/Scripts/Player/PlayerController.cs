@@ -357,15 +357,15 @@ public class PlayerController : HitAble
 		}
 	}
 
-	public override void Damage(float damage)
+    public override void Damage(Damage damage)
 	{
 		if (!PlayerClass.damageImune)
 		{
-			damage = PlayerClass.OnPlayerGetsDamage(damage);
-			if (PlayerClass.CurrentHealth - damage <= 0)
-				damage = PlayerClass.OnPlayerLethalDamage(damage);
+			PlayerClass.OnPlayerGetsDamage(ref damage);
+			if (PlayerClass.CurrentHealth - damage.amount <= 0)
+				PlayerClass.OnPlayerLethalDamage(ref damage);
 
-			PlayerClass.CurrentHealth -= damage;
+			PlayerClass.CurrentHealth -= damage.amount;
 			PlayerClass.OnPlayerDamaged(damage);
 		}
 		
@@ -377,13 +377,13 @@ public class PlayerController : HitAble
 		}
 	}
 
-	public void DamageDone(PlayerController player, float damage)
+    public void DamageDone(PlayerController player, Damage damage)
 	{
 		if (player == this)
 		{
 			PlayerClass.OnPlayerDidDamage(damage);
-			CurrentExperience += ExperiencePerDamageDone * damage;
-			PlayerClass.CurrentHealth += damage * PlayerClass.GetAttributeValue(AttributeType.SPELLVAMP);
+			CurrentExperience += ExperiencePerDamageDone * damage.amount;
+			PlayerClass.CurrentHealth += damage.amount * PlayerClass.GetAttributeValue(AttributeType.SPELLVAMP);
 		}
 		if (CurrentExperience >= NeededExperience)
 		{

@@ -47,10 +47,10 @@ public class HitAble : MonoBehaviour {
         
     }
 
-    public virtual void Damage(float amount)
+    public virtual void Damage(Damage damage)
     {
         if (sendFurther && reciever)
-            reciever.Damage(amount);
+            reciever.Damage(damage);
     }
 
     public void RecieveForce(Vector3 position, Vector3 direction, float amount)

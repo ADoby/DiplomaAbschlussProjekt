@@ -35,9 +35,9 @@ public class Item_AbsDamageReduction : Item
         AbsoluteDamageReduction += AbsoluteDamageReductionPerLevel * Value * playerClass.playerControl.Level;
     }
 
-    public override float OnPlayerGetsDamage(PlayerClass playerClass, float damage)
+    public override void OnPlayerGetsDamage(PlayerClass playerClass, ref Damage damage)
     {
-        return Mathf.Clamp(damage - AbsoluteDamageReduction, 0, damage);
+        damage.amount = Mathf.Max(0.0f, damage.amount - AbsoluteDamageReduction);
     }
 
     public override void OnPlayerLevelUp(PlayerClass playerClass)

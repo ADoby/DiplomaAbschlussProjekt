@@ -50,7 +50,7 @@
             RocketDamage += RocketDamagePerLevel * Value;
         }
 
-        public override void OnPlayerDidDamage(PlayerClass playerClass, float damage)
+        public override void OnPlayerDidDamage(PlayerClass playerClass, Damage damage)
         {
             base.OnPlayerDidDamage(playerClass, damage);
             if (timer <= 0)
@@ -60,10 +60,14 @@
             }
         }
 
+        public void RocketSpawned(GameObject go)
+        {
+            go.GetComponent<Rocket>().Impulse(Vector3.up * 10.0f);
+        }
+
         private void SpawnRocket(PlayerClass playerClass)
         {
-            GameObject go = GameObjectPool.Instance.Spawns(RocketPoolName, playerClass.playerTransform.position + Vector3.up*2f, Quaternion.identity);
-            go.GetComponent<Rocket>().Impulse(Vector3.up * 10.0f);
+            EntitySpawnManager.Spawn(RocketPoolName, playerClass.playerTransform.position + Vector3.up*2f, Quaternion.identity, callBack:RocketSpawned);
         }
     }
 

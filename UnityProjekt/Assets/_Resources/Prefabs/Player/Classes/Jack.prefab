@@ -41,7 +41,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Jack
-  Description: Beschreibung
+  Description: Machine Gunner
   Attributes:
   - Name: Health
     Value: 100
@@ -80,7 +80,7 @@ MonoBehaviour:
     MaxSkillUps: 100
     currentSkillUps: 0
   - Name: Movement Speed
-    Value: 8
+    Value: 5
     ValuePerLevel: 0
     valueMultiply: 1
     ValuePerSkillPoint: .5
@@ -116,11 +116,18 @@ MonoBehaviour:
     MaxSkillUps: 20
     currentSkillUps: 0
   playerSkills:
-  - {fileID: 11400002, guid: 3e4c1d3747f57504eae6c7d8f7a15690, type: 2}
+  - {fileID: 11400000, guid: e498e8fd35d281845b4cd1bfe62bc78f, type: 2}
   - {fileID: 11400000, guid: 936cd7626d9574b4ab4e28b2d0636f21, type: 2}
-  - {fileID: 11400002, guid: 7457108a77ea50a4e8c1d2ef8d784a19, type: 2}
-  - {fileID: 11400002, guid: f78a33201bd83544ca26663484f1c4b8, type: 2}
+  - {fileID: 11400002, guid: ce2c3b18860fa114ca8613e5764c187f, type: 2}
+  - {fileID: 11400000, guid: 4138e676b74154142aded402a86090d6, type: 2}
   playerBuffs: []
+  resitences:
+  - damageType: 0
+    Procentage: 1
+  - damageType: 1
+    Procentage: 1
+  - damageType: 2
+    Procentage: 1
   CurrentHealth: 0
   skillsRunning: 0
   GravityMultiply: 2

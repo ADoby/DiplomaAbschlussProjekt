@@ -116,17 +116,11 @@ public class EnemieBase : HitAble {
         UpdateHealthBar(true);
     }
 
-    [ContextMenu("Kill")]
-    public void Kill()
+    public override void Damage(Damage damage)
     {
-        Damage(MaxHealth);
-    }
+        base.Damage(damage);
 
-    public override void Damage(float amount)
-    {
-        base.Damage(amount);
-
-        wantedHealth = Mathf.Clamp(wantedHealth - amount, 0f, MaxHealth);
+        wantedHealth = Mathf.Clamp(wantedHealth - damage.amount, 0f, MaxHealth);
 
         if (wantedHealth <= 0)
         {

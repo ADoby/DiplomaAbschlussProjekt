@@ -135,10 +135,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 663
-    y: 399.490021
-    width: 113.099998
-    height: 35.1200027
+    x: 622.200012
+    y: 374.919983
+    width: 106.139999
+    height: 32.9600029
   parent: {fileID: 2110167300}
   children: []
   ChildCount: 0
@@ -194,7 +194,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 14
+    m_FontSize: 13
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -206,9 +206,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
-  isInitialized: 0
-  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
-  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
+  isInitialized: 1
+  normalTextColor: {r: 1, g: 1, b: 1, a: 1}
+  hoverTextColor: {r: 1, g: .566176474, b: .566176474, a: 1}
 --- !u!4 &14530761
 Transform:
   m_ObjectHideFlags: 0
@@ -2106,10 +2106,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 195.083984
-    y: 128.49527
-    width: 230.475021
-    height: 17.779501
+    x: 183.071991
+    y: 176.212372
+    width: 216.300018
+    height: 16.6860008
   parent: {fileID: 520547854}
   children: []
   ChildCount: 0
@@ -2174,9 +2174,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
-  isInitialized: 0
-  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
-  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
+  isInitialized: 1
+  normalTextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
+  hoverTextColor: {r: 1, g: .617647052, b: .617647052, a: 1}
 --- !u!1 &177482911
 GameObject:
   m_ObjectHideFlags: 0
@@ -2327,10 +2327,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 357.600006
-    y: 231.380005
-    width: 178.800003
-    height: 45.2699966
+    x: 292.799988
+    y: 189.520004
+    width: 146.400009
+    height: 37.079998
   parent: {fileID: 1974104217}
   children: []
   ChildCount: 0
@@ -2386,7 +2386,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 18
+    m_FontSize: 14
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -3173,10 +3173,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 126.599976
-    y: 100.969971
-    width: 526.800049
-    height: 26.3400021
+    x: 118.799988
+    y: 94.7599792
+    width: 494.400024
+    height: 24.7200012
   parent: {fileID: 537064885}
   children:
   - {fileID: 984513047}
@@ -3301,10 +3301,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 126.599976
-    y: 186.574982
-    width: 65.8500061
-    height: 59.2650032
+    x: 118.799988
+    y: 119.47998
+    width: 61.8000031
+    height: 55.6200027
   parent: {fileID: 891592285}
   children: []
   ChildCount: 0
@@ -4275,10 +4275,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 195.083984
-    y: 186.574982
-    width: 230.475021
-    height: 59.2650032
+    x: 183.071991
+    y: 119.47998
+    width: 216.300018
+    height: 55.6200027
   parent: {fileID: 891592285}
   children:
   - {fileID: 2005015971}
@@ -4416,10 +4416,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 521.700012
-    y: 100.969971
-    width: 131.700012
-    height: 26.3400021
+    x: 489.600006
+    y: 94.7599792
+    width: 123.600006
+    height: 24.7200012
   parent: {fileID: 246998729}
   children: []
   ChildCount: 0
@@ -4487,9 +4487,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
-  isInitialized: 0
-  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
-  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
+  isInitialized: 1
+  normalTextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
+  hoverTextColor: {r: 1, g: .551470578, b: .551470578, a: 1}
 --- !u!114 &302877476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6495,7 +6495,7 @@ Transform:
   - {fileID: 520547855}
   - {fileID: 2038480152}
   m_Father: {fileID: 1774546689}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!114 &437681295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6511,7 +6511,7 @@ MonoBehaviour:
   Visible: 1
   Enabled: 1
   ShowBackground: 1
-  RelativePosition: {x: 0, y: 0}
+  RelativePosition: {x: 0, y: .25}
   AbsolutePosition: {x: 0, y: 0}
   RelativeSize: {x: 1, y: .25}
   RelativeSizeBasedOnScreen: 0
@@ -6524,10 +6524,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 126.599976
-    y: 127.309975
-    width: 526.800049
-    height: 59.2650032
+    x: 118.799988
+    y: 175.099976
+    width: 494.400024
+    height: 55.6200027
   parent: {fileID: 1774546690}
   children:
   - {fileID: 1889536205}
@@ -6598,9 +6598,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
-  isInitialized: 0
-  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
-  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
+  isInitialized: 1
+  normalTextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
+  hoverTextColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &437681296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6612,7 +6612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d66afb27d6d9a694c9123ac64d2066a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerClass: 0
+  playerClass: 1
 --- !u!1 &444336467
 GameObject:
   m_ObjectHideFlags: 0
@@ -7297,10 +7297,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 195.083984
-    y: 201.391235
-    width: 230.475021
-    height: 41.4855003
+    x: 183.071991
+    y: 133.384979
+    width: 216.300018
+    height: 38.9340019
   parent: {fileID: 302417465}
   children: []
   ChildCount: 0
@@ -7369,9 +7369,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
-  isInitialized: 0
-  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
-  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
+  isInitialized: 1
+  normalTextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
+  hoverTextColor: {r: 1, g: .617647052, b: .617647052, a: 1}
 --- !u!1 &470913239
 GameObject:
   m_ObjectHideFlags: 0
@@ -8090,10 +8090,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 195.083984
-    y: 127.309975
-    width: 230.475021
-    height: 59.2650032
+    x: 183.071991
+    y: 175.099976
+    width: 216.300018
+    height: 55.6200027
   parent: {fileID: 437681295}
   children:
   - {fileID: 172333930}
@@ -8667,10 +8667,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 126.599976
-    y: 100.969971
-    width: 526.800049
-    height: 263.400024
+    x: 118.799988
+    y: 94.7599792
+    width: 494.400024
+    height: 247.200012
   parent: {fileID: 931791364}
   children:
   - {fileID: 246998729}
@@ -11371,10 +11371,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 357.600006
-    y: 286.709991
-    width: 178.800003
-    height: 45.2699966
+    x: 292.799988
+    y: 234.839996
+    width: 146.400009
+    height: 37.079998
   parent: {fileID: 1974104217}
   children: []
   ChildCount: 0
@@ -11430,7 +11430,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 18
+    m_FontSize: 14
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -12108,10 +12108,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 357.600006
-    y: 173.534988
-    width: 178.800003
-    height: 45.2699966
+    x: 292.799988
+    y: 142.139999
+    width: 146.400009
+    height: 37.079998
   parent: {fileID: 1974104217}
   children: []
   ChildCount: 0
@@ -12167,7 +12167,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 18
+    m_FontSize: 14
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -13046,10 +13046,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 195.083984
-    y: 142.126221
-    width: 230.475021
-    height: 41.4855003
+    x: 183.071991
+    y: 189.004974
+    width: 216.300018
+    height: 38.9340019
   parent: {fileID: 520547854}
   children: []
   ChildCount: 0
@@ -13115,9 +13115,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
-  isInitialized: 0
-  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
-  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
+  isInitialized: 1
+  normalTextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
+  hoverTextColor: {r: 1, g: .617647052, b: .617647052, a: 1}
 --- !u!1 &771201736
 GameObject:
   m_ObjectHideFlags: 0
@@ -15259,7 +15259,7 @@ Transform:
   - {fileID: 302417466}
   - {fileID: 1852923064}
   m_Father: {fileID: 1774546689}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!114 &891592285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15275,7 +15275,7 @@ MonoBehaviour:
   Visible: 1
   Enabled: 1
   ShowBackground: 1
-  RelativePosition: {x: 0, y: .25}
+  RelativePosition: {x: 0, y: 0}
   AbsolutePosition: {x: 0, y: 0}
   RelativeSize: {x: 1, y: .25}
   RelativeSizeBasedOnScreen: 0
@@ -15288,10 +15288,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 126.599976
-    y: 186.574982
-    width: 526.800049
-    height: 59.2650032
+    x: 118.799988
+    y: 119.47998
+    width: 494.400024
+    height: 55.6200027
   parent: {fileID: 1774546690}
   children:
   - {fileID: 262448735}
@@ -15362,9 +15362,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
-  isInitialized: 0
-  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
-  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
+  isInitialized: 1
+  normalTextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
+  hoverTextColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &891592286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15376,7 +15376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d66afb27d6d9a694c9123ac64d2066a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerClass: 1
+  playerClass: 0
 --- !u!1 &892051066
 GameObject:
   m_ObjectHideFlags: 0
@@ -15562,10 +15562,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 390
-    y: 100.969971
-    width: 131.700012
-    height: 26.3400021
+    x: 366
+    y: 94.7599792
+    width: 123.600006
+    height: 24.7200012
   parent: {fileID: 246998729}
   children: []
   ChildCount: 0
@@ -15633,9 +15633,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
-  isInitialized: 0
-  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
-  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
+  isInitialized: 1
+  normalTextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
+  hoverTextColor: {r: 1, g: .551470578, b: .551470578, a: 1}
 --- !u!114 &893137507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15991,8 +15991,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 780
-    height: 439
+    width: 732
+    height: 412
   parent: {fileID: 0}
   children:
   - {fileID: 537064885}
@@ -16514,10 +16514,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 258.299988
-    y: 100.969971
-    width: 131.700012
-    height: 26.3400021
+    x: 242.399994
+    y: 94.7599792
+    width: 123.600006
+    height: 24.7200012
   parent: {fileID: 246998729}
   children: []
   ChildCount: 0
@@ -16585,9 +16585,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
-  isInitialized: 0
-  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
-  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
+  isInitialized: 1
+  normalTextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
+  hoverTextColor: {r: 1, g: .551470578, b: .551470578, a: 1}
 --- !u!114 &954563702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16800,10 +16800,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 126.599976
-    y: 100.969971
-    width: 131.700012
-    height: 26.3400021
+    x: 118.799988
+    y: 94.7599792
+    width: 123.600006
+    height: 24.7200012
   parent: {fileID: 246998729}
   children: []
   ChildCount: 0
@@ -16871,9 +16871,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
-  isInitialized: 0
-  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
-  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
+  isInitialized: 1
+  normalTextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
+  hoverTextColor: {r: 1, g: .551470578, b: .551470578, a: 1}
 --- !u!114 &984513048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25724,10 +25724,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 3.89999986
-    y: 399.490021
-    width: 655.199951
-    height: 35.1200027
+    x: 3.65999985
+    y: 374.919983
+    width: 614.880005
+    height: 32.9600029
   parent: {fileID: 2110167300}
   children: []
   ChildCount: 0
@@ -25783,7 +25783,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 14
+    m_FontSize: 13
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -25795,9 +25795,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
-  isInitialized: 0
-  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
-  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
+  isInitialized: 1
+  normalTextColor: {r: 1, g: 1, b: 1, a: 1}
+  hoverTextColor: {r: 1, g: .514705896, b: .514705896, a: 1}
 --- !u!1 &1670425825
 GameObject:
   m_ObjectHideFlags: 0
@@ -27798,8 +27798,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 437681294}
   - {fileID: 891592284}
+  - {fileID: 437681294}
   m_Father: {fileID: 537064884}
   m_RootOrder: 1
 --- !u!114 &1774546690
@@ -27830,14 +27830,14 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 126.599976
-    y: 127.309975
-    width: 526.800049
-    height: 237.060013
+    x: 118.799988
+    y: 119.47998
+    width: 494.400024
+    height: 222.480011
   parent: {fileID: 537064885}
   children:
-  - {fileID: 437681295}
   - {fileID: 891592285}
+  - {fileID: 437681295}
   ChildCount: 2
   ShowBox: 1
   content: 
@@ -28633,10 +28633,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 422.924988
-    y: 186.574982
-    width: 230.475021
-    height: 59.2650032
+    x: 396.899994
+    y: 119.47998
+    width: 216.300018
+    height: 55.6200027
   parent: {fileID: 891592285}
   children: []
   ChildCount: 0
@@ -29159,10 +29159,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 126.599976
-    y: 127.309975
-    width: 65.8500061
-    height: 59.2650032
+    x: 118.799988
+    y: 175.099976
+    width: 61.8000031
+    height: 55.6200027
   parent: {fileID: 437681295}
   children: []
   ChildCount: 0
@@ -29228,8 +29228,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 894
-    height: 503
+    width: 732
+    height: 412
   parent: {fileID: 0}
   children:
   - {fileID: 1974104217}
@@ -29912,10 +29912,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 335.25
-    y: 150.899994
-    width: 223.5
-    height: 201.199997
+    x: 274.5
+    y: 123.599998
+    width: 183
+    height: 164.800003
   parent: {fileID: 1906325896}
   children:
   - {fileID: 691127879}
@@ -30348,10 +30348,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 195.083984
-    y: 187.760284
-    width: 230.475021
-    height: 17.779501
+    x: 183.071991
+    y: 120.592377
+    width: 216.300018
+    height: 16.6860008
   parent: {fileID: 302417465}
   children: []
   ChildCount: 0
@@ -30416,9 +30416,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
-  isInitialized: 0
-  normalTextColor: {r: 0, g: 0, b: 0, a: 0}
-  hoverTextColor: {r: 0, g: 0, b: 0, a: 0}
+  isInitialized: 1
+  normalTextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
+  hoverTextColor: {r: 1, g: .617647052, b: .617647052, a: 1}
 --- !u!1 &2007248088
 GameObject:
   m_ObjectHideFlags: 0
@@ -31065,10 +31065,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 422.924988
-    y: 127.309975
-    width: 230.475021
-    height: 59.2650032
+    x: 396.899994
+    y: 175.099976
+    width: 216.300018
+    height: 55.6200027
   parent: {fileID: 437681295}
   children: []
   ChildCount: 0
@@ -31846,9 +31846,9 @@ MonoBehaviour:
   absoluteRect:
     serializedVersion: 2
     x: 0
-    y: 395.100006
-    width: 780
-    height: 43.9000015
+    y: 370.799988
+    width: 732
+    height: 41.2000008
   parent: {fileID: 931791364}
   children:
   - {fileID: 1666083299}
