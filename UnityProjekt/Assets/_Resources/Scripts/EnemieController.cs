@@ -351,7 +351,7 @@ public class EnemieController : HitAble {
 			{
 				for (int i = 0; i < targets.Length; i++)
 				{
-					if (Physics2D.Raycast(transform.position, targets[i].bounds.center, findTargetDistance, findTargetLayer))
+					if (Physics2D.Raycast(transform.position, targets[i].bounds.center, findTargetDistance, findTargetLayer).transform == targets[i].transform)
 					{
 						target = targets[i].transform;
 						GameEventHandler.TriggerFoundTarget(transform, target);

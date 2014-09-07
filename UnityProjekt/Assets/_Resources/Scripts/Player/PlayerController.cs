@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [System.Serializable]
-public class PlayerController : MonoBehaviour
+public class PlayerController : HitAble
 {
 
 	public PlayerUI playerUI;
@@ -357,7 +357,7 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	public void Damage(float damage)
+	public override void Damage(float damage)
 	{
 		if (!PlayerClass.damageImune)
 		{
@@ -441,7 +441,7 @@ public class PlayerController : MonoBehaviour
 			jumping = false;
 		}
 
-        if (Grounded && !jumping && InputController.GetDown(System.String.Format("{0}{1}", PlayerID(), JumpInput)) && PlayerClass.Jump(Grounded))
+		if (Grounded && !jumping && InputController.GetDown(System.String.Format("{0}{1}", PlayerID(), JumpInput)) && PlayerClass.Jump(Grounded))
 		{
 			Jump();
 			jumping = true;
@@ -463,15 +463,15 @@ public class PlayerController : MonoBehaviour
 		{
 			return true;
 		}
-        if (InputController.GetDown(System.String.Format("{0}{1}", PlayerID(), Skill2Input)) && UseSkill(1))
+		if (InputController.GetDown(System.String.Format("{0}{1}", PlayerID(), Skill2Input)) && UseSkill(1))
 		{
 			return true;
 		}
-        if (InputController.GetDown(System.String.Format("{0}{1}", PlayerID(), Skill3Input)) && UseSkill(2))
+		if (InputController.GetDown(System.String.Format("{0}{1}", PlayerID(), Skill3Input)) && UseSkill(2))
 		{
 			return true;
 		}
-        if (InputController.GetDown(System.String.Format("{0}{1}", PlayerID(), Skill4Input)) && UseSkill(3))
+		if (InputController.GetDown(System.String.Format("{0}{1}", PlayerID(), Skill4Input)) && UseSkill(3))
 		{
 			return true;
 		}

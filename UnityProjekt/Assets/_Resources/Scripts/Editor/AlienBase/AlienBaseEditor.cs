@@ -60,6 +60,7 @@ public class AlienBaseEditor : Editor
         currentStateIndex = 0;
 
         myTarget.UpdateBaseTime = EditorGUILayout.FloatField("Performance: UpdateBaseTime", myTarget.UpdateBaseTime);
+        myTarget.UpdateGrowingPartsTime = EditorGUILayout.FloatField("Performance: UpdateGrowingPartsTime", myTarget.UpdateGrowingPartsTime);
 
         GUILayout.Space(5);
 

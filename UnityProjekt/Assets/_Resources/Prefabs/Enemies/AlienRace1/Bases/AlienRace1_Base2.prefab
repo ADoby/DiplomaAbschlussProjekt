@@ -2527,8 +2527,10 @@ MonoBehaviour:
   HealthBaseScript: {fileID: 11400074}
   useHealthAsTime: 1
   ShowTestInEditor: 0
-  UpdateBaseTime: 1
+  UpdateBaseTime: .100000001
   UpdateBaseTimer: 0
+  UpdateGrowingPartsTime: .5
+  UpdateGrowingPartsTimer: 0
 --- !u!114 &11400078
 MonoBehaviour:
   m_ObjectHideFlags: 1

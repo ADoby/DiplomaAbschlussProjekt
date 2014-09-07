@@ -106,11 +106,11 @@ public class AlienBaseState
         }
     }
 
-    public void Update()
+    public void Update(float deltaTime)
     {
         if (spawning)
         {
-            spawnTimer -= Time.deltaTime;
+            spawnTimer -= deltaTime;
             if (spawnTimer <= 0f)
             {
                 Spawn();

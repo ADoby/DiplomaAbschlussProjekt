@@ -1510,11 +1510,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400002, guid: 75392a64c8d6b184294f1688f21cc159, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.47593713
+      value: 3.26015759
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 75392a64c8d6b184294f1688f21cc159, type: 2}
       propertyPath: m_LocalPosition.y
-      value: .0749276876
+      value: .618534684
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 75392a64c8d6b184294f1688f21cc159, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2327,10 +2327,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 299.200012
-    y: 193.660004
-    width: 149.600006
-    height: 37.8899994
+    x: 357.600006
+    y: 231.380005
+    width: 178.800003
+    height: 45.2699966
   parent: {fileID: 1974104217}
   children: []
   ChildCount: 0
@@ -2386,7 +2386,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 15
+    m_FontSize: 18
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -11371,10 +11371,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 299.200012
-    y: 239.970001
-    width: 149.600006
-    height: 37.8899994
+    x: 357.600006
+    y: 286.709991
+    width: 178.800003
+    height: 45.2699966
   parent: {fileID: 1974104217}
   children: []
   ChildCount: 0
@@ -11430,7 +11430,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 15
+    m_FontSize: 18
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -12108,10 +12108,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 299.200012
-    y: 145.244995
-    width: 149.600006
-    height: 37.8899994
+    x: 357.600006
+    y: 173.534988
+    width: 178.800003
+    height: 45.2699966
   parent: {fileID: 1974104217}
   children: []
   ChildCount: 0
@@ -12167,7 +12167,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 15
+    m_FontSize: 18
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -14510,7 +14510,7 @@ Transform:
   m_PrefabInternal: {fileID: 113803837}
   m_GameObject: {fileID: 835652679}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.47593713, y: .0749276876, z: .138407707}
+  m_LocalPosition: {x: 3.26015759, y: .618534684, z: .138407707}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 458638421}
@@ -14588,6 +14588,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2705c821e92885742b5404bca07d1b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sendFurther: 0
+  reciever: {fileID: 0}
+  usedCollider: {fileID: 0}
+  SpawnPool: 1
+  SpawnPoolName: Blood
   playerUI: {fileID: 0}
   PlayerId: 0
   Name: Player1
@@ -29223,8 +29228,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 748
-    height: 421
+    width: 894
+    height: 503
   parent: {fileID: 0}
   children:
   - {fileID: 1974104217}
@@ -29907,10 +29912,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 280.5
-    y: 126.299995
-    width: 187
-    height: 168.400009
+    x: 335.25
+    y: 150.899994
+    width: 223.5
+    height: 201.199997
   parent: {fileID: 1906325896}
   children:
   - {fileID: 691127879}
