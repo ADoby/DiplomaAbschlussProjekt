@@ -111,14 +111,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolName: Gold
-  amount: 10
-  amountPerDifficulty: .25
   worldCollider: {fileID: 5800000}
   waitTime: 3
-  maxSpeed: 10
+  maxSpeed: 80
+  currentSpeed: 0
+  SpeedChange: 10
   gravity: 3
   flyToPlayer: 0
   disableColliderOnFlight: 1
+  amount: 10
+  amountPerDifficulty: .25
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

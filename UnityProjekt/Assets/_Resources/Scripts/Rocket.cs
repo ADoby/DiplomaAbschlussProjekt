@@ -358,6 +358,9 @@ public class Rocket : MonoBehaviour {
 
 		foreach (var item in collider)
 		{
+            if (!item || !item.hitAble)
+                continue;
+
 			float distanceToTarget = Vector2.Distance(item.transform.position, transform.position);
 
 			float damageMult = (ExplosionRange - distanceToTarget);

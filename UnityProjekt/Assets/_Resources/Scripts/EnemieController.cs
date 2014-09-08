@@ -167,7 +167,7 @@ public class EnemieController : HitAble {
         //Min of Health or Damage
         //This should fix health going under 0
         damage.amount = Mathf.Min(damage.amount, Health);
-        Health -= Health;
+        Health -= damage.amount;
         GameEventHandler.TriggerDamageDone(damage.other.GetComponent<PlayerController>(), damage);
 
 		healthBar.UpdateBar(Health, MaxHealth);
@@ -285,7 +285,7 @@ public class EnemieController : HitAble {
 				lockTimer -= Time.deltaTime;
 				if (lockTimer <= 0)
 				{
-                    target.GetComponent<PlayerController>().Damage(
+                    target.GetComponent<HitAble>().Damage(
                         new Damage()
                         {
                             amount = MyDamage + GameManager.Instance.CurrentDifficulty * DamagePerDifficulty,
@@ -304,8 +304,23 @@ public class EnemieController : HitAble {
 		{
 			if (attackTimer <= 0)
 			{
-				Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, attackDistance, findTargetLayer);
+				//Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, attackDistance, findTargetLayer);
 
+                Transform nearestPlayer = EntitySpawnManager.Instance.GetNearestPlayer(transform.position, attackDistance);
+                if (nearestPlayer)
+                {
+                    lockTimer = lockTime;
+                    targetLocked = true;
+
+                    if (anim)
+                    {
+                        anim.SetTrigger("Attack");
+                    }
+
+                    target = nearestPlayer;
+                }
+
+                /*
 				foreach (var item in collider)
 				{
 					if (item.gameObject.GetComponent<PlayerController>())
@@ -322,7 +337,7 @@ public class EnemieController : HitAble {
 						break;
 					}
 				}
-
+                */
 			}
 		}
 	}

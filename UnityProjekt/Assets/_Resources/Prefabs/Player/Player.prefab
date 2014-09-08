@@ -1877,6 +1877,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2705c821e92885742b5404bca07d1b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sendFurther: 0
+  reciever: {fileID: 0}
+  usedCollider: {fileID: 0}
+  SpawnPool: 1
+  SpawnPoolName: Blood
   playerUI: {fileID: 0}
   PlayerId: 0
   Name: Player1
@@ -1890,7 +1895,7 @@ MonoBehaviour:
   NeededExperience: 200
   NeededExperiencePerLevel: 50
   NeededExperienceMultPerLevel: 1.10000002
-  ExperiencePerDamageDone: .5
+  ExperiencePerDamageDone: 2
   MinUpMotionForExtraJump: .200000003
   JumpInput: _JUMP
   Skill1Input: _SKILL1

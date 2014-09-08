@@ -2327,10 +2327,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 292.799988
-    y: 189.520004
-    width: 146.400009
-    height: 37.079998
+    x: 198.300003
+    y: 169.632004
+    width: 264.399994
+    height: 36.8279991
   parent: {fileID: 1974104217}
   children: []
   ChildCount: 0
@@ -2570,6 +2570,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 215802337}
+  - 114: {fileID: 215802336}
   m_Layer: 0
   m_Name: MenuBG
   m_TagString: Untagged
@@ -2577,6 +2578,38 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &215802336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 215802335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0574d3a91d73c4419a47b8db5de59b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layer:
+  - enabled: 1
+    transform: {fileID: 186138966}
+    Difference: {x: 0, y: 0, z: 0}
+    Movement: 1
+    Speed: 1
+  - enabled: 1
+    transform: {fileID: 917795507}
+    Difference: {x: 0, y: 0, z: 0}
+    Movement: 6
+    Speed: 2
+  - enabled: 1
+    transform: {fileID: 1305964682}
+    Difference: {x: 0, y: 0, z: 0}
+    Movement: 4
+    Speed: 4
+  - enabled: 1
+    transform: {fileID: 1926516572}
+    Difference: {x: 0, y: 0, z: 0}
+    Movement: 1
+    Speed: 8
 --- !u!4 &215802337
 Transform:
   m_ObjectHideFlags: 0
@@ -11371,10 +11404,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 292.799988
-    y: 234.839996
-    width: 146.400009
-    height: 37.079998
+    x: 198.300003
+    y: 214.643997
+    width: 264.399994
+    height: 36.8279991
   parent: {fileID: 1974104217}
   children: []
   ChildCount: 0
@@ -12108,10 +12141,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 292.799988
-    y: 142.139999
-    width: 146.400009
-    height: 37.079998
+    x: 198.300003
+    y: 122.574005
+    width: 264.399994
+    height: 36.8279991
   parent: {fileID: 1974104217}
   children: []
   ChildCount: 0
@@ -14606,7 +14639,7 @@ MonoBehaviour:
   NeededExperience: 200
   NeededExperiencePerLevel: 50
   NeededExperienceMultPerLevel: 1.10000002
-  ExperiencePerDamageDone: .5
+  ExperiencePerDamageDone: 2
   MinUpMotionForExtraJump: .200000003
   JumpInput: _JUMP
   Skill1Input: _SKILL1
@@ -15903,7 +15936,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 917795506}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.01189089, y: -1.63934314, z: 0}
+  m_LocalPosition: {x: 2.53063965, y: -.796630859, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 215802337}
@@ -21703,9 +21736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelSpawnPoint: {fileID: 2030013934}
-  ParallaxLayer:
-  - transform: {fileID: 796260168}
-    movement: {x: .5, y: .5}
+  ParallaxLayer: []
   NeededLevelDamage: 2e+06
 --- !u!114 &1372128248
 MonoBehaviour:
@@ -29228,8 +29259,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 732
-    height: 412
+    width: 661
+    height: 372
   parent: {fileID: 0}
   children:
   - {fileID: 1974104217}
@@ -29516,7 +29547,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1926516571}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.13269472, y: 7.77033854, z: 0}
+  m_LocalPosition: {x: -.11730957, y: 6.2557373, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 215802337}
@@ -29898,10 +29929,10 @@ MonoBehaviour:
   identifier: 42af0f8f-7f1f-4556-8fe6-ec033b7c29e1
   Visible: 1
   Enabled: 1
-  ShowBackground: 0
+  ShowBackground: 1
   RelativePosition: {x: .5, y: .5}
   AbsolutePosition: {x: 0, y: 0}
-  RelativeSize: {x: .25, y: .400000006}
+  RelativeSize: {x: .5, y: .439999998}
   RelativeSizeBasedOnScreen: 0
   RelativeWidthBasedOnHeight: 0
   AbsoluteSize: {x: 0, y: 0}
@@ -29912,10 +29943,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 274.5
-    y: 123.599998
-    width: 183
-    height: 164.800003
+    x: 165.25
+    y: 104.160004
+    width: 330.5
+    height: 163.679993
   parent: {fileID: 1906325896}
   children:
   - {fileID: 691127879}

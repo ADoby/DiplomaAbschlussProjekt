@@ -2,7 +2,7 @@
 using System.Collections;
 
 [System.Serializable]
-public class ParallaxLayer
+public class LevelParallaxLayer
 {
     public Transform transform;
     public Vector2 movement;
@@ -12,7 +12,7 @@ public class LevelController : MonoBehaviour {
 
     public Transform LevelSpawnPoint;
 
-    public ParallaxLayer[] ParallaxLayer;
+    public LevelParallaxLayer[] ParallaxLayer;
 
     public float NeededLevelDamage = 20000f;
 

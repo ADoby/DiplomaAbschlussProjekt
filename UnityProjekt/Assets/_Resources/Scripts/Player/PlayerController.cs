@@ -28,6 +28,14 @@ public class PlayerController : HitAble
 		}
 	}
 
+    public Vector3 TargetingPosition
+    {
+        get
+        {
+            return transform.position + transform.up;
+        }
+    }
+
 	#region Public Members
 	public int PlayerId = 0;
 	public string Name = "Player1";

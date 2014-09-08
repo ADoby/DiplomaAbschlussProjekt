@@ -141,15 +141,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolName: RandomItem50
-  itemType: 3
   worldCollider: {fileID: 5800000}
   waitTime: 3
+  maxSpeed: 80
   currentSpeed: 0
-  SpeedChange: 1
-  maxSpeed: 6
+  SpeedChange: 10
   gravity: 3
   flyToPlayer: 0
   disableColliderOnFlight: 1
+  itemType: 3
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

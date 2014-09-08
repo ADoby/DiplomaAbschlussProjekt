@@ -120,7 +120,9 @@ public class EnemieBase : HitAble {
     {
         base.Damage(damage);
 
-        wantedHealth = Mathf.Clamp(wantedHealth - damage.amount, 0f, MaxHealth);
+        damage.amount = Mathf.Min(damage.amount, wantedHealth);
+        wantedHealth -= damage.amount;
+        GameEventHandler.TriggerDamageDone(damage.other.GetComponent<PlayerController>(), damage);
 
         if (wantedHealth <= 0)
         {
