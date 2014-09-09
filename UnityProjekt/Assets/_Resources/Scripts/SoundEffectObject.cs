@@ -8,6 +8,10 @@ public class SoundEffectObject : MonoBehaviour {
 
     public void PlayOneShot(SoundEffect effect)
     {
+        if (effect == null)
+            return;
+        if (!effect.clip)
+            return;
         audio.pitch = effect.Pitch;
         audio.volume = effect.volumeScale;
         audio.PlayOneShot(effect.clip);

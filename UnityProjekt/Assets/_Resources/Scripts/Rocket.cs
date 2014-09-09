@@ -142,13 +142,16 @@ public class Rocket : MonoBehaviour {
 
 	public void UpdateTarget()
 	{
+        if (target && !target.TargetTransform)
+            target = null;
+
 		FindNewTargetTimer += Time.deltaTime;
 		UpdateTargetTimer += Time.deltaTime;
 		if (UpdateTargetTimer >= UpdateTargetTime)
 		{
 			if (target)
 			{
-                if (target.ColliderIsOneOfYours(Physics2D.Raycast(transform.position, (target.ColliderCenter - transform.position), MaxSightRange, sightLayer).collider))
+                if (!target.ColliderIsOneOfYours(Physics2D.Raycast(transform.position, (target.ColliderCenter - transform.position), MaxSightRange, sightLayer).collider))
 				{
 					//target out of sight;
 					target = null;
@@ -200,10 +203,10 @@ public class Rocket : MonoBehaviour {
 		Vector3 addToTargetPos = Vector3.zero;
 		if (target != null)
 		{
-            if (Mathf.Abs(Vector3.Dot(Vector3.down, (target.ColliderCenter - transform.position).normalized)) < 0.7f)
+            if (Mathf.Abs(Vector3.Dot(Vector3.down, (target.ColliderCenter - transform.position).normalized)) < 0.6f)
             {
                 //So lang die Rakete unter, rechts oder links vom Target ist safe fly
-                addToTargetPos += transform.up * RightAndLeftFront() * 2.0f;
+                addToTargetPos += transform.up * RightAndLeftFront(2f) * 5.0f;
             }
 		}
 		else
@@ -360,11 +363,14 @@ public class Rocket : MonoBehaviour {
 
 	public void Explode()
 	{
+        if (!player || !player.transform)
+            return;
+
         HitAbleInfo[] HitAblesInRange = EntitySpawnManager.Instance.GetHitAbleInCircles(transform.position, HitAbleHitMask, ExplosionRange, true);
 
 		foreach (var item in HitAblesInRange)
 		{
-            if (item == null || !item.hitAble)
+            if (item == null || item.hitAble == null)
                 continue;
 
             float distance = 0f;

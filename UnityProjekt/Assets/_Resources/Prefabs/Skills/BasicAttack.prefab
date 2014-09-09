@@ -41,8 +41,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: BasicAttack
-  SkillCooldown: 1
+  SkillCooldown: 1.20000005
+  CooldownTimer: 0
   SkillRunTime: 0
+  SkillRunTimer: 0
+  skillRunning: 0
   PreventsMovement: 0
   PreventsDamage: 0
   PreventsUsingSkills: 0
@@ -51,7 +54,7 @@ MonoBehaviour:
   ShootingPosition: {x: .600000024, y: 1}
   CrouchShootingPosition: {x: .600000024, y: .5}
   KnockBack: {x: -20, y: 0}
-  DamageMult: 1
+  DamageMult: 2
   pierceAmount: 4
   force: 80
 --- !u!114 &11400002

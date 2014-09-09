@@ -11,7 +11,13 @@ public class EnemieController : HitAble {
 	public float StartMaxHealth = 100f;
 	public float MaxHealthPerDifficulty = 10f;
 	[SerializeField]
-	private float MaxHealth = 100f;
+	private float MaxHealth 
+    {
+        get
+        {
+            return StartMaxHealth + MaxHealthPerDifficulty * GameManager.Instance.CurrentDifficulty;
+        }
+    }
 	
 	public float FloorCheckDistance = 1.0f;
 	public float FloorCheckLength = 0.5f;
@@ -19,11 +25,24 @@ public class EnemieController : HitAble {
 	public float MyDamage = 5.0f;
 	public float DamagePerDifficulty = 2.0f;
 
+    public float StartHealthRegen = 2.0f;
+    public float HealthRegenPerDifficulty = 0.2f;
+    public float HealthRegen
+    {
+        get
+        {
+            return StartHealthRegen + HealthRegenPerDifficulty * GameManager.Instance.CurrentDifficulty;
+        }
+    }
+
 	[SerializeField]
 	private int direction = 1;
 	
 	public float maxSpeed = 2.0f;
+    public float MaxSpeedPerDifficulty = 0.2f;
+
 	public float speedChange = 2.0f;
+    public float SpeedChangePerDifficulty = 0.1f;
 
 	[SerializeField]
 	private float currentSpeed = 0.0f;
@@ -161,6 +180,12 @@ public class EnemieController : HitAble {
 		}
 	}
 
+    public void Heal(float amount)
+    {
+        Health = Mathf.Min(Health + StartHealthRegen + HealthRegenPerDifficulty * GameManager.Instance.CurrentDifficulty, MaxHealth);
+        healthBar.UpdateBar(Health, MaxHealth);
+    }
+
     public override void Damage(Damage damage)
 	{
 		base.Damage(damage);
@@ -200,7 +225,6 @@ public class EnemieController : HitAble {
 		{
 			direction = -1;
 		}
-		MaxHealth = StartMaxHealth + GameManager.Instance.CurrentDifficulty * MaxHealthPerDifficulty;
 		Health = MaxHealth;
 
 		healthBar.Reset();
@@ -213,6 +237,8 @@ public class EnemieController : HitAble {
 		if (GameManager.GamePaused)
 			return;
 
+        Heal(HealthRegen * Time.deltaTime);
+
 		randomJumpTimer -= Time.deltaTime;
 
 		findTargetTimer += Time.deltaTime;
@@ -222,8 +248,8 @@ public class EnemieController : HitAble {
 			findTargetTimer = 0;
 		}
 
-		float currentMaxSpeed = maxSpeed;
-		float currentSpeedChance = speedChange;
+        float currentMaxSpeed = maxSpeed + MaxSpeedPerDifficulty * GameManager.Instance.CurrentDifficulty;
+        float currentSpeedChance = speedChange + SpeedChangePerDifficulty * GameManager.Instance.CurrentDifficulty;
 		if (aggressive)
 		{
 			currentMaxSpeed *= 1.5f;

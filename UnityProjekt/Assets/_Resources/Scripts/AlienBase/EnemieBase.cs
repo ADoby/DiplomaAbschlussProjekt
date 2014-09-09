@@ -74,7 +74,7 @@ public class EnemieBase : HitAble {
     [SerializeField]
     public static float GrowingSpeed = 5f;
     [SerializeField]
-    public static int UpdateScaleEveryFrames = 5;
+    public static int UpdateScaleEveryFrames = 3;
 
     #endregion
 

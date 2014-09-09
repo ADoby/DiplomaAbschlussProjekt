@@ -297,7 +297,7 @@ Transform:
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400028}
   m_Father: {fileID: 400002}
@@ -310,7 +310,7 @@ Transform:
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400000}
   - {fileID: 400020}
@@ -329,7 +329,7 @@ Transform:
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -.0218024254, y: -.136262953, z: 0}
-  m_LocalScale: {x: .5, y: .5, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 400014}
   m_RootOrder: 0
@@ -341,7 +341,7 @@ Transform:
   m_GameObject: {fileID: 100006}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -.0599564314, y: -.0817575455, z: 0}
-  m_LocalScale: {x: .800000012, y: .800000012, z: .800000012}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 400002}
   m_RootOrder: 6
@@ -353,7 +353,7 @@ Transform:
   m_GameObject: {fileID: 100008}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -4.37113883e-08}
   m_LocalPosition: {x: .179867029, y: -.147164226, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 400002}
   m_RootOrder: 5
@@ -380,7 +380,7 @@ Transform:
   m_GameObject: {fileID: 100012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .321580291, y: -.0436047912, z: 0}
-  m_LocalScale: {x: .800000012, y: .800000012, z: .800000012}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 400002}
   m_RootOrder: 4
@@ -392,7 +392,7 @@ Transform:
   m_GameObject: {fileID: 100014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -.239823103, y: -.0763072968, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400004}
   m_Father: {fileID: 400002}
@@ -405,7 +405,7 @@ Transform:
   m_GameObject: {fileID: 100020}
   m_LocalRotation: {x: 0, y: 0, z: -.190608218, w: .981666207}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: .600000024, y: .600000024, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400022}
   m_Father: {fileID: 400002}
@@ -418,7 +418,7 @@ Transform:
   m_GameObject: {fileID: 100022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .100818962, y: 1.24654877, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .200000003, y: .200000003, z: 1}
   m_Children: []
   m_Father: {fileID: 400020}
   m_RootOrder: 0
@@ -430,7 +430,7 @@ Transform:
   m_GameObject: {fileID: 100026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .0861884952, y: 1.2131561, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .200000003, y: .200000003, z: 1}
   m_Children: []
   m_Father: {fileID: 400030}
   m_RootOrder: 0
@@ -442,7 +442,7 @@ Transform:
   m_GameObject: {fileID: 100028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .0899375603, y: 1.2132045, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .200000003, y: .200000003, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
   m_RootOrder: 0
@@ -454,7 +454,7 @@ Transform:
   m_GameObject: {fileID: 100030}
   m_LocalRotation: {x: 0, y: 0, z: .305936992, w: .952051759}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: .800000012, y: .800000012, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400026}
   m_Father: {fileID: 400002}
@@ -504,7 +504,7 @@ Transform:
   m_GameObject: {fileID: 100038}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: .0205904245, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .100000001, y: .100000001, z: .100000001}
   m_Children:
   - {fileID: 400036}
   m_Father: {fileID: 400010}
@@ -556,8 +556,8 @@ MonoBehaviour:
   - BaseState 1
   - BaseState 1
   - All
-  currentTime: 2.66666675
-  wantedScale: {x: 1, y: 1, z: 1}
+  currentTime: 1.33333337
+  wantedScale: {x: 0, y: 0, z: 0}
   UpdateScaleCounter: 0
 --- !u!114 &11400002
 MonoBehaviour:
@@ -624,7 +624,7 @@ MonoBehaviour:
   ShowTestInEditor: 0
   UpdateBaseTime: .100000001
   UpdateBaseTimer: 0
-  UpdateGrowingPartsTime: .5
+  UpdateGrowingPartsTime: .200000003
   UpdateGrowingPartsTimer: 0
 --- !u!114 &11400004
 MonoBehaviour:
@@ -649,8 +649,8 @@ MonoBehaviour:
   - BaseState 1
   - BaseState 1
   - All
-  currentTime: 1.33333337
-  wantedScale: {x: 1, y: 1, z: 1}
+  currentTime: 0
+  wantedScale: {x: 0, y: 0, z: 0}
   UpdateScaleCounter: 0
 --- !u!114 &11400006
 MonoBehaviour:
@@ -675,8 +675,8 @@ MonoBehaviour:
   - BaseState 1
   - BaseState 1
   - All
-  currentTime: 4
-  wantedScale: {x: .5, y: .5, z: 1}
+  currentTime: 2.66666675
+  wantedScale: {x: 0, y: 0, z: 0}
   UpdateScaleCounter: 0
 --- !u!114 &11400008
 MonoBehaviour:
@@ -701,8 +701,8 @@ MonoBehaviour:
   - BaseState 1
   - BaseState 1
   - All
-  currentTime: 2.66666675
-  wantedScale: {x: .800000012, y: .800000012, z: .800000012}
+  currentTime: 1.33333337
+  wantedScale: {x: 0, y: 0, z: 0}
   UpdateScaleCounter: 0
 --- !u!114 &11400010
 MonoBehaviour:
@@ -727,8 +727,8 @@ MonoBehaviour:
   - BaseState 1
   - BaseState 1
   - All
-  currentTime: 2.66666675
-  wantedScale: {x: 1, y: 1, z: 1}
+  currentTime: 1.33333337
+  wantedScale: {x: 0, y: 0, z: 0}
   UpdateScaleCounter: 0
 --- !u!114 &11400012
 MonoBehaviour:
@@ -753,8 +753,8 @@ MonoBehaviour:
   - BaseState 1
   - BaseState 1
   - All
-  currentTime: 2.66666675
-  wantedScale: {x: .800000012, y: .800000012, z: .800000012}
+  currentTime: 1.33333337
+  wantedScale: {x: 0, y: 0, z: 0}
   UpdateScaleCounter: 0
 --- !u!114 &11400014
 MonoBehaviour:
@@ -779,8 +779,8 @@ MonoBehaviour:
   - BaseState 1
   - BaseState 1
   - All
-  currentTime: 2.66666675
-  wantedScale: {x: 1, y: 1, z: 1}
+  currentTime: 1.33333337
+  wantedScale: {x: 0, y: 0, z: 0}
   UpdateScaleCounter: 0
 --- !u!114 &11400016
 MonoBehaviour:
@@ -805,8 +805,8 @@ MonoBehaviour:
   - BaseState 1
   - BaseState 1
   - All
-  currentTime: 2.66666675
-  wantedScale: {x: .600000024, y: .600000024, z: 1}
+  currentTime: 1.33333337
+  wantedScale: {x: 0, y: 0, z: 0}
   UpdateScaleCounter: 0
 --- !u!114 &11400018
 MonoBehaviour:
@@ -831,8 +831,8 @@ MonoBehaviour:
   - BaseState 1
   - BaseState 1
   - All
-  currentTime: 4
-  wantedScale: {x: 1, y: 1, z: 1}
+  currentTime: 2.66666675
+  wantedScale: {x: .200000003, y: .200000003, z: 1}
   UpdateScaleCounter: 0
 --- !u!114 &11400020
 MonoBehaviour:
@@ -857,8 +857,8 @@ MonoBehaviour:
   - BaseState 1
   - BaseState 1
   - All
-  currentTime: 4
-  wantedScale: {x: 1, y: 1, z: 1}
+  currentTime: 2.66666675
+  wantedScale: {x: .200000003, y: .200000003, z: 1}
   UpdateScaleCounter: 0
 --- !u!114 &11400022
 MonoBehaviour:
@@ -883,8 +883,8 @@ MonoBehaviour:
   - BaseState 1
   - BaseState 1
   - All
-  currentTime: 4
-  wantedScale: {x: 1, y: 1, z: 1}
+  currentTime: 2.66666675
+  wantedScale: {x: .200000003, y: .200000003, z: 1}
   UpdateScaleCounter: 0
 --- !u!114 &11400024
 MonoBehaviour:
@@ -909,8 +909,8 @@ MonoBehaviour:
   - BaseState 1
   - BaseState 1
   - All
-  currentTime: 2.66666675
-  wantedScale: {x: .800000012, y: .800000012, z: 1}
+  currentTime: 1.33333337
+  wantedScale: {x: 0, y: 0, z: 0}
   UpdateScaleCounter: 0
 --- !u!114 &11400026
 MonoBehaviour:
@@ -974,7 +974,7 @@ MonoBehaviour:
     spawnInfos:
     - poolName: RandomItem25
       weight: 1
-  HealthRegenEveryFrames: 10
+  HealthRegenEveryFrames: 5
   HealthRegenFrameCounter: 0
 --- !u!114 &11400032
 MonoBehaviour:
@@ -1017,8 +1017,8 @@ MonoBehaviour:
   - BaseState 1
   - BaseState 1
   - All
-  currentTime: 2.99487209
-  wantedScale: {x: 1, y: 1, z: 1}
+  currentTime: 1.02564108
+  wantedScale: {x: .100000001, y: .100000001, z: .100000001}
   UpdateScaleCounter: 0
 --- !u!114 &11400036
 MonoBehaviour:

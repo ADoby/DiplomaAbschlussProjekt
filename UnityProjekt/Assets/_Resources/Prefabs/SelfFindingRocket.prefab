@@ -120,11 +120,11 @@ MonoBehaviour:
   targetPos: {x: 0, y: 0, z: 0}
   MaxSightRange: 20
   wantedRotation: {x: 0, y: 0, z: 0, w: 0}
-  RotateSpeed: 10
-  MaxMovementAngle: 50
+  RotateSpeed: 14
+  MaxMovementAngle: 40
   MaxMovementSpeed: 8000
   ExplosionRange: 2
-  force: 0
+  force: 3
   upOrDown: 0
   rightOrLeft: 0
   currentSpeed: 0
@@ -137,9 +137,9 @@ MonoBehaviour:
   savedVelocity: {x: 0, y: 0, z: 0}
   LifeTime: 10
   LifeTimer: 0
-  UpdateTargetTime: 1
+  UpdateTargetTime: .5
   UpdateTargetTimer: 0
-  FindNewTargetTime: 1
+  FindNewTargetTime: .5
   FindNewTargetTimer: 0
   UpdateRandomTime: .100000001
   UpdateRandomTimer: 0

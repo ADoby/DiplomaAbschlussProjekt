@@ -41,7 +41,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: FastAttack
-  SkillCooldown: .25
+  SkillCooldown: .200000003
   CooldownTimer: 0
   SkillRunTime: 0
   SkillRunTimer: 0
@@ -54,9 +54,9 @@ MonoBehaviour:
   ShootingPosition: {x: .600000024, y: 1}
   CrouchShootingPosition: {x: .600000024, y: .5}
   KnockBack: {x: -1, y: 0}
-  DamageMult: .600000024
+  DamageMult: 1
   pierceAmount: 0
-  force: 0
+  force: .5
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -133,7 +133,7 @@ MonoBehaviour:
   GravityMultiply: 2
   playerWidth: 1
   playerHeight: 2
-  footHeight: .150000006
+  footHeight: .100000001
   MaxJumpCount: 1
   currentJumpNumber: 0
   playerTransform: {fileID: 0}

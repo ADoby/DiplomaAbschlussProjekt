@@ -73,26 +73,48 @@ public class ThrowingWeapon : MonoBehaviour {
         rigidbody2D.angularVelocity = rigidbody2D.velocity.magnitude * 90f;
     }
 
-    public float distance = 5f;
+    public float ExplosionRange = 5f;
     public float force = 1.0f;
 
     public HitAbleType HitAbleHitMask;
     public void Explode()
     {
-        HitAbleInfo[] collider = EntitySpawnManager.Instance.GetHitAbleInCircles(transform.position, HitAbleHitMask, distance, true, false);
-        for (int i = 0; i < collider.Length; i++)
+        HitAbleInfo[] HitAblesInRange = EntitySpawnManager.Instance.GetHitAbleInCircles(transform.position, HitAbleHitMask, ExplosionRange, true);
+        //HitAbleInfo[] collider = EntitySpawnManager.Instance.GetHitAbleInCircles(transform.position, HitAbleHitMask, distance, true, false);
+        for (int i = 0; i < HitAblesInRange.Length; i++)
         {
-            float distanceToTarget = Vector2.Distance(collider[i].Transform.position, transform.position);
+            HitAbleInfo item = HitAblesInRange[i];
 
-            collider[i].hitAble.Damage(new Damage()
+            if (item == null || item.hitAble == null)
+                continue;
+
+            float distance = 0f;
+            distance = item.distance;
+
+            float damageMult = (ExplosionRange - distance);
+
+            item.hitAble.Damage(new Damage()
+            {
+                type = DamageType.EXPLOSION,
+                amount = damageMult * damage,
+                DamageFromAPlayer = true,
+                player = player,
+                other = player.transform
+            });
+            item.hitAble.Hit(item.ColliderCenter, (item.ColliderCenter - transform.position), force);
+
+            /*
+            Debug.Log("Distance: " + HitAblesInRange[i].distance);
+            HitAblesInRange[i].hitAble.Damage(new Damage()
             {
                 DamageFromAPlayer = true,
                 player = player,
-                amount = distance - distanceToTarget,
-                type = DamageType.RANGED,
+                amount = Mathf.Min(distance - HitAblesInRange[i].distance, 0.0f),
+                type = DamageType.EXPLOSION,
                 other = player.transform
             });
-            collider[i].hitAble.Hit(collider[i].Transform.position, (collider[i].Transform.position - transform.position), force);
+            HitAblesInRange[i].hitAble.Hit(HitAblesInRange[i].ColliderCenter, (HitAblesInRange[i].ColliderCenter - transform.position), force);
+             * */
         }
 
         AudioEffectController.Instance.PlayOneShot(explosion, transform.position);

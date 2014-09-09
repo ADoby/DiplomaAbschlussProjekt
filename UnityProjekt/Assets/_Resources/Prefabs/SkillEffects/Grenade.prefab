@@ -145,7 +145,7 @@ MonoBehaviour:
     minPitch: .800000012
     maxPitch: 1.20000005
     pitch: 1
-  distance: 5
+  ExplosionRange: 5
   force: 5
   HitAbleHitMask: -1
 --- !u!114 &11400002

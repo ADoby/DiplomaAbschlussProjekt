@@ -1752,7 +1752,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_Mass: 1
-  m_LinearDrag: 1
+  m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
   m_FixedAngle: 1
@@ -1880,7 +1880,8 @@ MonoBehaviour:
   hitAbleType: 2
   sendFurther: 0
   reciever: {fileID: 0}
-  usedCollider: {fileID: 0}
+  usedCollider:
+  - {fileID: 0}
   SpawnPool: 1
   SpawnPoolName: Blood
   playerUI: {fileID: 0}
@@ -1919,19 +1920,22 @@ MonoBehaviour:
   _skillPreventsMovement: 0
   _skillOverridesMovement: 0
   _skillPreventsSkillUsement: 0
-  CheckPointCooldown: 1
+  CheckPointCooldown: 20
   checkPointTimer: 0
   BackToCheckPointCooldown: 0
   backToCheckPointTimer: 0
   SpotlightTransform: {fileID: 400000}
   LastSave: 
   ClimbStrength: 6
-  WalkUPStrength: 1
   MaxSpeedMult: 0
   SpeedUpMult: 15
-  DirectionChangeMult: .400000006
+  DirectionChangeMult: .300000012
   WalkingDirection: 0
-  StoppingSpeedMult: 1.5
+  LinearDamping: .200000003
+  DynamicDamping: 10
+  FlyingMoveMult: .600000024
+  LinFriction: 50
+  StickToGroundForce: 20
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

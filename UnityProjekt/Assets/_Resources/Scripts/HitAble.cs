@@ -82,7 +82,8 @@ public class HitAble : MonoBehaviour {
 
     public bool ColliderIsOneOfYours(Collider2D targetCollider)
     {
-        
+        if (!targetCollider)
+            return false;
         for (int i = 0; i < usedCollider.Length; i++)
         {
             if (targetCollider == usedCollider[i])
@@ -96,6 +97,8 @@ public class HitAble : MonoBehaviour {
     {
         get
         {
+            if (!MainCollider)
+                return null;
             if (!targetTransform)
                 targetTransform = MainCollider.transform;
 

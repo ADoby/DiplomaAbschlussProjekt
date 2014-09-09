@@ -339,9 +339,9 @@ public class PlayerController : HitAble
 				_animator.SetBool("Crouching", false);
 			}
 
-			_animator.SetFloat("SpeedY", _currentVelocity.y);
+			_animator.SetFloat("SpeedY", rigidbody2D.velocity.y);
 
-			_animator.SetFloat("Speed", Mathf.Abs(_currentVelocity.x));
+            _animator.SetFloat("Speed", Mathf.Abs(rigidbody2D.velocity.x));
 
 
 		}
@@ -411,7 +411,7 @@ public class PlayerController : HitAble
 
 		TryJump();
 
-		Gravity();
+        Gravity();
 	}
 
 
@@ -456,7 +456,7 @@ public class PlayerController : HitAble
 			return true;
 		}
 
-		if (jumping && InputController.GetDown(PlayerID() + JumpInput))
+        if (jumping && InputController.GetDown(System.String.Format("{0}{1}", PlayerID(), JumpInput)))
 		{
 			_currentVelocity.y += PlayerClass.GetAttributeValue(AttributeType.MOREJUMPPOWER) * Time.fixedDeltaTime;
 			return true;
@@ -488,8 +488,6 @@ public class PlayerController : HitAble
 
 	public float ClimbStrength = 6f;
 
-	public float WalkUPStrength = 1f;
-
 	public float MaxSpeedMult = 0f;
 
 	public float SpeedUpMult = 4.0f;
@@ -497,7 +495,12 @@ public class PlayerController : HitAble
 
 	public float WalkingDirection = 0f;
 
-	public float StoppingSpeedMult = 1.0f;
+	public float LinearDamping = 1.0f;
+    public float DynamicDamping = 1.0f;
+
+    public float FlyingMoveMult = 0.8f;
+
+    public float LinFriction = 2.0f;
 
 	private void Move()
 	{
@@ -507,7 +510,6 @@ public class PlayerController : HitAble
 
 		float MoveMentChange = PlayerClass.GetAttributeValue(AttributeType.MAXMOVESPEED) * SpeedUpMult;
 		float MaxSpeed = PlayerClass.GetAttributeValue(AttributeType.MAXMOVESPEED);
-
 
 		if (WalkingDirection < 0 && inputDirection > 0)
 			WalkingDirection = 0;
@@ -520,9 +522,13 @@ public class PlayerController : HitAble
 
 		MaxSpeed *= MaxSpeedMult;
 
+        float LinDamp = LinearDamping;
+        float DynDamp = DynamicDamping;
+
 		if (Grounded)
-		{            
-			RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.down, 1f, GroundCheckLayer);
+		{
+            RaycastHit2D hit = Physics2D.Raycast(transform.position - transform.right * PlayerClass.playerWidth * Half, Vector3.down, 1f, GroundCheckLayer);
+            RaycastHit2D hit2 = Physics2D.Raycast(transform.position + transform.right * PlayerClass.playerWidth * Half, Vector3.down, 1f, GroundCheckLayer);
 
 			if (hit)
 			{
@@ -531,18 +537,36 @@ public class PlayerController : HitAble
 
 				if (groundNormal.x > 0 && groundNormal.x < 1f)
 				{
-					groundNormal.y *= 1f / groundNormal.x;
-					groundNormal.x = 1f;
-				}
-				
-
-				if (hit.normal.x * inputDirection < 0)
-				{
-					//When we run uphill slow down maxSpeed, because walking uphill is hard
-					//maxSpeedMult = Mathf.Clamp(Mathf.Clamp(groundNormal.x - 0.3f, 0f, 1f) * 5f, 0f, 1f);
+					//groundNormal.y *= 1f / groundNormal.x;
+					//groundNormal.x = 1f;
 				}
 			}
-		}
+            if (hit2)
+            {
+                groundNormal.x += Mathf.Abs(hit2.normal.y);
+                groundNormal.y += -Mathf.Abs(hit2.normal.x) * inputDirection;
+
+                if (groundNormal.x > 0 && groundNormal.x < 1f)
+                {
+                    //groundNormal.y *= 1f / groundNormal.x;
+                    //groundNormal.x = 1f;
+                }
+            }
+
+            if (hit && hit2)
+            {
+                groundNormal.x /= 2f;
+                groundNormal.y /= 2f;
+            }
+        }
+        else
+        {
+            //In Air
+            MaxSpeed *= FlyingMoveMult;
+            MoveMentChange *= FlyingMoveMult;
+            LinDamp *= FlyingMoveMult;
+            DynDamp *= FlyingMoveMult;
+        }
 
 
 		Vector3 startPoint = transform.position + transform.right * PlayerClass.playerWidth * Half * inputDirection +
@@ -551,44 +575,54 @@ public class PlayerController : HitAble
 							transform.right * 0.2f * inputDirection;
 
 		//Climbing ?
-		if (Physics2D.OverlapArea(startPoint, endPoint, GroundCheckLayer))
-		{
-			if (!CheckUp())
-			{
-				//_currentVelocity.y += WalkUPStrength * walkDirection;
-				//groundNormal.y = WalkUPStrength * walkDirection;
-				if(!Grounded)
-					_currentVelocity.y = ClimbStrength;
-			}
-			
-		}
+        if (InputController.GetDown(System.String.Format("{0}{1}", PlayerID(), JumpInput)) && !CheckUp() && !Grounded)
+        {
+            if (Physics2D.OverlapArea(startPoint, endPoint, GroundCheckLayer))
+            {
+                _currentVelocity.y = ClimbStrength;
+            }
+        }
+		
 
 		Vector2 change = groundNormal * _currentInput.x * Time.fixedDeltaTime * MoveMentChange;
 
+        /*
 		if (Mathf.Abs((_currentVelocity + change).x) > MaxSpeed)
 		{
 			float clampMagnitude = 1f - Mathf.Clamp(
 				Mathf.Abs((_currentVelocity + change).x) - MaxSpeed, 0f, 1f);
 			change = Vector2.ClampMagnitude(change, clampMagnitude);
 		}
+        */
 
 		_currentVelocity += change;
 
-		if (inputDirection == 0)
-		{
+        //Dynamic Damping (Speed Limit)
+        _currentVelocity.x -= Time.fixedDeltaTime * _currentVelocity.x * DynDamp; // / PlayerClass.GetAttributeValue(AttributeType.MAXMOVESPEED)
+
+        //Linear Damping (Friction)
+        float SlowDownXValue = MaxSpeed * LinDamp;
+        if (Grounded && !jumping)
+        {
+            if (((_currentVelocity.x > 0 && (inputDirection < 0 || inputDirection == 0)) 
+                || (_currentVelocity.x < 0 && (inputDirection > 0 || inputDirection == 0))) 
+                && Mathf.Abs(_currentVelocity.x) > 0f)
+            {
+                //Only do linFriction when the physic is running in other direction than player wants
+                SlowDownXValue += LinFriction;
+            }
+                
         }
-			float SlowDownXValue = walkDirection * Time.fixedDeltaTime * (PlayerClass.GetAttributeValue(AttributeType.MAXMOVESPEED) * StoppingSpeedMult);
-			if (Mathf.Abs(_currentVelocity.x) - Mathf.Abs(SlowDownXValue) <= 0)
-			{
-				_currentVelocity.x = 0;
-			}
-			else
-			{
-				_currentVelocity.x -= SlowDownXValue;
-			}
-		
-		
-		
+
+        SlowDownXValue *= Time.fixedDeltaTime;
+		if (Mathf.Abs(_currentVelocity.x) - SlowDownXValue <= 0)
+		{
+			_currentVelocity.x = 0;
+		}
+		else
+		{
+			_currentVelocity.x -= walkDirection * SlowDownXValue;
+		}
 	}
 
 	private void Jump()
@@ -606,8 +640,16 @@ public class PlayerController : HitAble
 		return result;
 	}
 
+    public float StickToGroundForce = 30f;
+
 	private void Gravity()
 	{
+        if (Grounded && !jumping)
+        {
+            _currentVelocity.y = -Time.fixedDeltaTime * StickToGroundForce;
+            return;
+        }
+            
 		_currentVelocity += Physics2D.gravity * PlayerClass.GravityMultiply * Time.fixedDeltaTime;
 	}
 

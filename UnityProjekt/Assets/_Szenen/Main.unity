@@ -645,7 +645,7 @@ MonoBehaviour:
   BoxStyle:
     m_Name: box
     m_Normal:
-      m_Background: {fileID: 11001, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11001, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .799999952, g: .799999952, b: .799999952, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
@@ -805,13 +805,13 @@ MonoBehaviour:
       m_Background: {fileID: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_OnNormal:
-      m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .90196079, g: .90196079, b: .90196079, a: 1}
     m_OnHover:
-      m_Background: {fileID: 11004, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11004, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_OnActive:
-      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_OnFocused:
       m_Background: {fileID: 0}
@@ -1104,7 +1104,7 @@ MonoBehaviour:
   BoxStyle:
     m_Name: box
     m_Normal:
-      m_Background: {fileID: 11001, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11001, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .799999952, g: .799999952, b: .799999952, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
@@ -2327,10 +2327,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 242.699997
-    y: 207.480011
-    width: 323.600006
-    height: 45.0449982
+    x: 187.5
+    y: 160.511993
+    width: 250
+    height: 34.8479996
   parent: {fileID: 1974104217}
   children: []
   ChildCount: 0
@@ -2386,7 +2386,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 18
+    m_FontSize: 13
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -2824,7 +2824,7 @@ MonoBehaviour:
   BoxStyle:
     m_Name: box
     m_Normal:
-      m_Background: {fileID: 11001, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11001, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .799999952, g: .799999952, b: .799999952, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
@@ -3456,13 +3456,13 @@ MonoBehaviour:
       m_Background: {fileID: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_OnNormal:
-      m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .90196079, g: .90196079, b: .90196079, a: 1}
     m_OnHover:
-      m_Background: {fileID: 11004, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11004, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_OnActive:
-      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_OnFocused:
       m_Background: {fileID: 0}
@@ -3603,13 +3603,13 @@ MonoBehaviour:
       m_Background: {fileID: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_OnNormal:
-      m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .90196079, g: .90196079, b: .90196079, a: 1}
     m_OnHover:
-      m_Background: {fileID: 11004, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11004, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_OnActive:
-      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_OnFocused:
       m_Background: {fileID: 0}
@@ -4597,7 +4597,7 @@ MonoBehaviour:
   BoxStyle:
     m_Name: box
     m_Normal:
-      m_Background: {fileID: 11001, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11001, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .799999952, g: .799999952, b: .799999952, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
@@ -4941,7 +4941,7 @@ MonoBehaviour:
   BoxStyle:
     m_Name: box
     m_Normal:
-      m_Background: {fileID: 11001, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11001, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .799999952, g: .799999952, b: .799999952, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
@@ -5693,7 +5693,7 @@ MonoBehaviour:
   BoxStyle:
     m_Name: box
     m_Normal:
-      m_Background: {fileID: 11001, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11001, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .799999952, g: .799999952, b: .799999952, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
@@ -5940,13 +5940,13 @@ MonoBehaviour:
       m_Background: {fileID: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_OnNormal:
-      m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .90196079, g: .90196079, b: .90196079, a: 1}
     m_OnHover:
-      m_Background: {fileID: 11004, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11004, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_OnActive:
-      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_OnFocused:
       m_Background: {fileID: 0}
@@ -6412,7 +6412,7 @@ MonoBehaviour:
   BoxStyle:
     m_Name: box
     m_Normal:
-      m_Background: {fileID: 11001, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11001, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .799999952, g: .799999952, b: .799999952, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
@@ -8111,7 +8111,7 @@ MonoBehaviour:
   BoxStyle:
     m_Name: box
     m_Normal:
-      m_Background: {fileID: 11001, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11001, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .799999952, g: .799999952, b: .799999952, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
@@ -8770,7 +8770,7 @@ PolygonCollider2D:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 545890867}
   m_Enabled: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: f821e9a0e56e5184f96da63f490da413, type: 2}
   m_IsTrigger: 0
   m_Poly:
     m_Paths:
@@ -11104,10 +11104,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 242.699997
-    y: 262.535004
-    width: 323.600006
-    height: 45.0449982
+    x: 187.5
+    y: 203.104004
+    width: 250
+    height: 34.8479996
   parent: {fileID: 1974104217}
   children: []
   ChildCount: 0
@@ -11163,7 +11163,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 18
+    m_FontSize: 13
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -11841,10 +11841,10 @@ MonoBehaviour:
   VerticalAlignment: 0
   absoluteRect:
     serializedVersion: 2
-    x: 242.699997
-    y: 149.922501
-    width: 323.600006
-    height: 45.0449982
+    x: 187.5
+    y: 115.983994
+    width: 250
+    height: 34.8479996
   parent: {fileID: 1974104217}
   children: []
   ChildCount: 0
@@ -11900,7 +11900,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 56ffa574476b25d418bedbcfbe0d0265, type: 3}
-    m_FontSize: 18
+    m_FontSize: 13
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -12924,13 +12924,13 @@ MonoBehaviour:
       m_Background: {fileID: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_OnNormal:
-      m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .90196079, g: .90196079, b: .90196079, a: 1}
     m_OnHover:
-      m_Background: {fileID: 11004, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11004, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_OnActive:
-      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_OnFocused:
       m_Background: {fileID: 0}
@@ -13586,13 +13586,13 @@ MonoBehaviour:
       m_Background: {fileID: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_OnNormal:
-      m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .90196079, g: .90196079, b: .90196079, a: 1}
     m_OnHover:
-      m_Background: {fileID: 11004, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11004, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_OnActive:
-      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_OnFocused:
       m_Background: {fileID: 0}
@@ -13989,7 +13989,7 @@ MonoBehaviour:
   BoxStyle:
     m_Name: box
     m_Normal:
-      m_Background: {fileID: 11001, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11001, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .799999952, g: .799999952, b: .799999952, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
@@ -14277,7 +14277,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 113803837}
   m_GameObject: {fileID: 835652679}
   m_Mass: 1
-  m_LinearDrag: 1
+  m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
   m_FixedAngle: 1
@@ -14364,19 +14364,22 @@ MonoBehaviour:
   _skillPreventsMovement: 0
   _skillOverridesMovement: 0
   _skillPreventsSkillUsement: 0
-  CheckPointCooldown: 1
+  CheckPointCooldown: 20
   checkPointTimer: 0
   BackToCheckPointCooldown: 0
   backToCheckPointTimer: 0
   SpotlightTransform: {fileID: 1987215477}
   LastSave: 
   ClimbStrength: 6
-  WalkUPStrength: 1
   MaxSpeedMult: 0
   SpeedUpMult: 15
-  DirectionChangeMult: .400000006
+  DirectionChangeMult: .300000012
   WalkingDirection: 0
-  StoppingSpeedMult: 1.5
+  LinearDamping: .200000003
+  DynamicDamping: 10
+  FlyingMoveMult: .600000024
+  LinFriction: 50
+  StickToGroundForce: 20
 --- !u!1 &846884939
 GameObject:
   m_ObjectHideFlags: 0
@@ -14663,7 +14666,7 @@ MonoBehaviour:
   BoxStyle:
     m_Name: box
     m_Normal:
-      m_Background: {fileID: 11001, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11001, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .799999952, g: .799999952, b: .799999952, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
@@ -14858,13 +14861,13 @@ MonoBehaviour:
       m_Background: {fileID: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_OnNormal:
-      m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .90196079, g: .90196079, b: .90196079, a: 1}
     m_OnHover:
-      m_Background: {fileID: 11004, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11004, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_OnActive:
-      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_OnFocused:
       m_Background: {fileID: 0}
@@ -16394,7 +16397,7 @@ MonoBehaviour:
   BoxStyle:
     m_Name: box
     m_Normal:
-      m_Background: {fileID: 11001, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11001, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .799999952, g: .799999952, b: .799999952, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
@@ -18512,12 +18515,6 @@ MonoBehaviour:
     Id: 39ed4710-7555-4c00-bc7b-e60dcdfb4491
   - gameObject: {fileID: 1859161813}
     Id: 9a367b04-5406-4b67-b4a4-bdb3fd79fa5b
-  - gameObject: {fileID: 0}
-    Id: f3bfa4d1-65b1-4624-a84d-dd0bed0b4857
-  - gameObject: {fileID: 0}
-    Id: 4f2c02e2-7bdf-44cc-a57e-790fd7a50c94
-  - gameObject: {fileID: 0}
-    Id: eddab125-5559-427a-a279-f7e4d2f747a1
 --- !u!1 &1193012258
 GameObject:
   m_ObjectHideFlags: 0
@@ -19581,13 +19578,13 @@ MonoBehaviour:
       m_Background: {fileID: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_OnNormal:
-      m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .90196079, g: .90196079, b: .90196079, a: 1}
     m_OnHover:
-      m_Background: {fileID: 11004, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11004, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_OnActive:
-      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_OnFocused:
       m_Background: {fileID: 0}
@@ -19881,13 +19878,13 @@ MonoBehaviour:
       m_Background: {fileID: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_OnNormal:
-      m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .90196079, g: .90196079, b: .90196079, a: 1}
     m_OnHover:
-      m_Background: {fileID: 11004, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11004, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_OnActive:
-      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_OnFocused:
       m_Background: {fileID: 0}
@@ -20983,13 +20980,13 @@ MonoBehaviour:
       m_Background: {fileID: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_OnNormal:
-      m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .90196079, g: .90196079, b: .90196079, a: 1}
     m_OnHover:
-      m_Background: {fileID: 11004, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11004, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_OnActive:
-      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_OnFocused:
       m_Background: {fileID: 0}
@@ -23155,7 +23152,7 @@ MonoBehaviour:
   BoxStyle:
     m_Name: box
     m_Normal:
-      m_Background: {fileID: 11001, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11001, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .799999952, g: .799999952, b: .799999952, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
@@ -23612,7 +23609,7 @@ MonoBehaviour:
   BoxStyle:
     m_Name: box
     m_Normal:
-      m_Background: {fileID: 11001, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11001, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .799999952, g: .799999952, b: .799999952, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
@@ -24132,7 +24129,7 @@ MonoBehaviour:
   BoxStyle:
     m_Name: box
     m_Normal:
-      m_Background: {fileID: 11001, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11001, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .799999952, g: .799999952, b: .799999952, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
@@ -24294,13 +24291,13 @@ MonoBehaviour:
       m_Background: {fileID: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_OnNormal:
-      m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .90196079, g: .90196079, b: .90196079, a: 1}
     m_OnHover:
-      m_Background: {fileID: 11004, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11004, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_OnActive:
-      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_OnFocused:
       m_Background: {fileID: 0}
@@ -27387,13 +27384,13 @@ MonoBehaviour:
       m_Background: {fileID: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_OnNormal:
-      m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .90196079, g: .90196079, b: .90196079, a: 1}
     m_OnHover:
-      m_Background: {fileID: 11004, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11004, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_OnActive:
-      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_OnFocused:
       m_Background: {fileID: 0}
@@ -28991,8 +28988,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 809
-    height: 455
+    width: 625
+    height: 352
   parent: {fileID: 0}
   children:
   - {fileID: 1974104217}
@@ -29675,10 +29672,10 @@ MonoBehaviour:
   VerticalAlignment: 1
   absoluteRect:
     serializedVersion: 2
-    x: 202.25
-    y: 127.400002
-    width: 404.5
-    height: 200.199997
+    x: 156.25
+    y: 98.5599976
+    width: 312.5
+    height: 154.880005
   parent: {fileID: 1906325896}
   children:
   - {fileID: 691127879}
@@ -29805,7 +29802,7 @@ MonoBehaviour:
   BoxStyle:
     m_Name: box
     m_Normal:
-      m_Background: {fileID: 11001, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11001, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .799999952, g: .799999952, b: .799999952, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
@@ -30984,13 +30981,13 @@ MonoBehaviour:
       m_Background: {fileID: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_OnNormal:
-      m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .90196079, g: .90196079, b: .90196079, a: 1}
     m_OnHover:
-      m_Background: {fileID: 11004, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11004, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_OnActive:
-      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_OnFocused:
       m_Background: {fileID: 0}
@@ -31300,13 +31297,13 @@ MonoBehaviour:
       m_Background: {fileID: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_OnNormal:
-      m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .90196079, g: .90196079, b: .90196079, a: 1}
     m_OnHover:
-      m_Background: {fileID: 11004, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11004, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_OnActive:
-      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 3}
+      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_OnFocused:
       m_Background: {fileID: 0}
