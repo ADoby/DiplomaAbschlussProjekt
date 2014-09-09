@@ -6,7 +6,7 @@ public class GameEventHandler : MonoBehaviour {
     public delegate void DamageEvent(PlayerController player, Damage damage);
     public static event DamageEvent OnDamageDone;
 
-    public delegate void EnemieEvent(Transform sender, Transform target);
+    public delegate void EnemieEvent(Transform sender, HitAbleInfo target);
     public static event EnemieEvent FoundTarget;
 
     public delegate void EnemieControllerEvent(EnemieController enemie);
@@ -53,7 +53,7 @@ public class GameEventHandler : MonoBehaviour {
         }
     }
 
-    public static void TriggerFoundTarget(Transform sender, Transform target)
+    public static void TriggerFoundTarget(Transform sender, HitAbleInfo target)
     {
         if (FoundTarget != null)
         {

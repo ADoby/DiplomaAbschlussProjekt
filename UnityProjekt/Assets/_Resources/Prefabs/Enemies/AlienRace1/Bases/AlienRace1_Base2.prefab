@@ -1386,7 +1386,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100100}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 39.1074715, y: -22.1059952, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400110}
@@ -2384,9 +2384,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff1488c501b42045a94719cd4656a4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitAbleType: 1
   sendFurther: 0
   reciever: {fileID: 0}
-  usedCollider: {fileID: 6000000}
+  usedCollider:
+  - {fileID: 6000000}
   SpawnPool: 1
   SpawnPoolName: Blood
   healthBar: {fileID: 11400072}
@@ -2446,9 +2448,6 @@ MonoBehaviour:
     startTime: 0
     endTime: 8
     healthBonus: 0
-    mask:
-      serializedVersion: 2
-      m_Bits: 0
   - attacking: 0
     spawning: 1
     spawnInfos:
@@ -2462,15 +2461,12 @@ MonoBehaviour:
     startTime: 8
     endTime: 10
     healthBonus: 0
-    mask:
-      serializedVersion: 2
-      m_Bits: 512
   BaseStateList:
   - BaseState 1
   - SpawnState 1
   - All
   currentState: 0
-  currentTime: 10
+  currentTime: 0
   parts:
   - {fileID: 11400086}
   - {fileID: 11400080}
@@ -2680,9 +2676,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2da6b0ddacc96fc4eae861859261d69c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitAbleType: 1
   sendFurther: 1
   reciever: {fileID: 11400074}
-  usedCollider: {fileID: 0}
+  usedCollider:
+  - {fileID: 6000000}
   SpawnPool: 0
   SpawnPoolName: Blood
 --- !u!114 &11400092
@@ -2743,7 +2741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 9e79e4ac-9489-47e0-8c7b-b51ed5c92f77
+  _id: 735236d7-e3d2-4746-b2aa-9dcf41d333e0
   classId: 22bf0cc2-175e-467b-9ca8-c242ae9c637d
 --- !u!114 &11400098
 MonoBehaviour:
@@ -2757,7 +2755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: e834cb9e-02f0-468e-bd73-c999635063e0
+  _id: 5ff52974-a3f1-44b4-9ee7-169710fe6706
   classId: ff9a9043-6937-4fdd-bd31-dd3c0b6fceb9
 --- !u!114 &11400146
 MonoBehaviour:
@@ -2794,7 +2792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: f4491ef2-2e60-4706-a95c-45a9947b5b18
+  _id: d5604c99-59e7-4e57-acff-a69aceebcf72
   classId: cfac2648-4373-4a87-8387-ce9154a49436
   StoreAllComponents: 1
   Components: []

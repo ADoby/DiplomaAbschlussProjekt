@@ -38,6 +38,9 @@ public class EnemieBase : HitAble {
             UpdateHealthBar(true);
         }
 
+        //DeleteHere
+        EntitySpawnManager.AddHitAble(this);
+
         RaycastHit2D hit = Physics2D.Raycast(transform.position + transform.up, -transform.up, 2f, GroundLayer);
 
         if (hit)

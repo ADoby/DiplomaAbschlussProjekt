@@ -147,6 +147,7 @@ MonoBehaviour:
     pitch: 1
   distance: 5
   force: 5
+  HitAbleHitMask: -1
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

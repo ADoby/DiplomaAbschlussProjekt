@@ -364,7 +364,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 38.7234001, y: -20.7617416, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -580,9 +580,6 @@ MonoBehaviour:
     startTime: 0
     endTime: 3
     healthBonus: 0
-    mask:
-      serializedVersion: 2
-      m_Bits: 0
   - attacking: 0
     spawning: 1
     spawnInfos:
@@ -594,15 +591,12 @@ MonoBehaviour:
     startTime: 3
     endTime: 4
     healthBonus: 0
-    mask:
-      serializedVersion: 2
-      m_Bits: 512
   BaseStateList:
   - BaseState 1
   - BaseState 1
   - All
   currentState: 0
-  currentTime: 4
+  currentTime: 0
   parts:
   - {fileID: 11400004}
   - {fileID: 11400000}
@@ -945,9 +939,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff1488c501b42045a94719cd4656a4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitAbleType: 1
   sendFurther: 0
   reciever: {fileID: 0}
-  usedCollider: {fileID: 6000000}
+  usedCollider:
+  - {fileID: 6000000}
   SpawnPool: 1
   SpawnPoolName: Blood
   healthBar: {fileID: 11400026}
@@ -991,9 +987,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02a2d6144636d864fb0221b0295bc11b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitAbleType: 1
   sendFurther: 1
   reciever: {fileID: 11400028}
-  usedCollider: {fileID: 0}
+  usedCollider:
+  - {fileID: 6000000}
   SpawnPool: 0
   SpawnPoolName: Blood
 --- !u!114 &11400034
@@ -1034,7 +1032,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 05315aae-6184-4ab7-a09c-578b84f613f7
+  _id: 10a2d2a5-4321-4b10-b7b3-55d379b0bfa2
   classId: 2200fdc5-1e69-4fb6-8cfd-b68a22e443b2
   StoreAllComponents: 1
   Components: []
@@ -1050,7 +1048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: efeadd1c-198c-43f6-900a-3339b6f5762c
+  _id: 0bd701ce-6c10-44cb-92bf-9b3dd01640bd
   classId: 68c3ed9e-397c-4609-a922-57ed3d37b211
 --- !u!114 &11400040
 MonoBehaviour:
@@ -1064,7 +1062,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 3f3c1c3a-766a-4166-8f55-b3b03857b289
+  _id: 3a44ab18-90f9-49d7-9ce2-36b2bfeaf454
   classId: ce29fbcf-f885-4303-808f-45dc8984ffe8
 --- !u!212 &21200000
 SpriteRenderer:

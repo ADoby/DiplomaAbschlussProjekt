@@ -242,7 +242,7 @@ public class AlienBaseEditor : Editor
 
             state.Range = EditorGUILayout.FloatField("Range:", state.Range);
 
-            state.mask = LayerMaskField("Mask:", state.mask, false);
+            //state.HitAbleFindMask = LayerMaskField("Mask:", state.HitAbleFindMask, false);
 
             SpawnInfo deleteInfo = null;
 

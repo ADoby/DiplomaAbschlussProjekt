@@ -67,8 +67,6 @@ public class AlienBaseState
     public float healthBonus = 0.0f;
     private float timer = 0.0f;
 
-    public LayerMask mask;
-
     public Transform BaseTransform { get; set; }
 
     public float currentTime
@@ -90,7 +88,7 @@ public class AlienBaseState
 
     public void Spawn()
     {
-        if (Physics2D.OverlapCircle(BaseTransform.position, Range, mask))
+        if (EntitySpawnManager.Instance.GetNearestPlayers(BaseTransform.position, false, Range) != null)
         {
             var rnd = Random.value;
             foreach (var item in spawnInfos)

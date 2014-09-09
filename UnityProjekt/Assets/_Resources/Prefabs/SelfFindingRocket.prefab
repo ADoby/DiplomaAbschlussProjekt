@@ -66,7 +66,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_Mass: 1
-  m_LinearDrag: 12
+  m_LinearDrag: 15
   m_AngularDrag: .0500000007
   m_GravityScale: 0
   m_FixedAngle: 0
@@ -107,9 +107,6 @@ MonoBehaviour:
     pitch: 1
   hitEffektPoolName: GrenadeExplosion
   poolName: SelfFindingRocket
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 33792
   sightLayer:
     serializedVersion: 2
     m_Bits: 37888
@@ -123,10 +120,10 @@ MonoBehaviour:
   targetPos: {x: 0, y: 0, z: 0}
   MaxSightRange: 20
   wantedRotation: {x: 0, y: 0, z: 0, w: 0}
-  RotateSpeed: 6
-  MaxMovementAngle: 60
-  MaxMovementSpeed: 5000
-  ExplosionRange: 5
+  RotateSpeed: 10
+  MaxMovementAngle: 50
+  MaxMovementSpeed: 8000
+  ExplosionRange: 2
   force: 0
   upOrDown: 0
   rightOrLeft: 0
@@ -135,15 +132,19 @@ MonoBehaviour:
   TargetChangeSpeed: 10
   MinDistanceForMaxSpeed: 1
   exploded: 0
+  HitAbleFindMask: 1
+  HitAbleHitMask: -1
   savedVelocity: {x: 0, y: 0, z: 0}
   LifeTime: 10
   LifeTimer: 0
   UpdateTargetTime: 1
   UpdateTargetTimer: 0
+  FindNewTargetTime: 1
+  FindNewTargetTimer: 0
   UpdateRandomTime: .100000001
   UpdateRandomTimer: 0
-  RightLeftAmount: 1
-  UpDownAmount: 1
+  RightLeftAmount: 2
+  UpDownAmount: 2
   distance: 0
 --- !u!212 &21200000
 SpriteRenderer:

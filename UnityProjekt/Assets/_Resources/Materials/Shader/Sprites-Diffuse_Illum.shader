@@ -26,6 +26,7 @@ Shader "Sprites/Diffuse_Illum"
 		Blend One OneMinusSrcAlpha
 
 		CGPROGRAM
+		#pragma target 3.0
 		#pragma surface surf Lambert vertex:vert alphatest:_Cutoff
         #include "UnityCG.cginc"
 		sampler2D _MainTex;

@@ -143,9 +143,9 @@ MonoBehaviour:
   poolName: RandomItem50
   worldCollider: {fileID: 5800000}
   waitTime: 3
-  maxSpeed: 80
+  maxSpeed: 150
   currentSpeed: 0
-  SpeedChange: 10
+  SpeedChange: 20
   gravity: 3
   flyToPlayer: 0
   disableColliderOnFlight: 1

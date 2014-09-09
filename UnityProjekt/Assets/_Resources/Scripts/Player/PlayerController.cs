@@ -576,6 +576,7 @@ public class PlayerController : HitAble
 
 		if (inputDirection == 0)
 		{
+        }
 			float SlowDownXValue = walkDirection * Time.fixedDeltaTime * (PlayerClass.GetAttributeValue(AttributeType.MAXMOVESPEED) * StoppingSpeedMult);
 			if (Mathf.Abs(_currentVelocity.x) - Mathf.Abs(SlowDownXValue) <= 0)
 			{
@@ -585,7 +586,7 @@ public class PlayerController : HitAble
 			{
 				_currentVelocity.x -= SlowDownXValue;
 			}
-		}
+		
 		
 		
 	}

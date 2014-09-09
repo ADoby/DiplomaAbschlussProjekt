@@ -28,7 +28,7 @@ public class EnemieController : HitAble {
 	[SerializeField]
 	private float currentSpeed = 0.0f;
 
-	public Transform target = null;
+    public HitAbleInfo target = null;
 
 	public float findTargetDistance = 20.0f;
 	public float distanceToTarget = 1.0f;
@@ -36,7 +36,10 @@ public class EnemieController : HitAble {
 	public float findTargetTime = 1.0f;
 	public float findTargetTimer = 0f;
 
-	public LayerMask findTargetLayer;
+	public HitAbleType FindHitAbleMask;
+    public HitAbleType AttackHitAbleMask;
+
+    public LayerMask RaycastTargetMask;
 
 	public string poolName = "";
 
@@ -215,7 +218,7 @@ public class EnemieController : HitAble {
 		findTargetTimer += Time.deltaTime;
 		if (findTargetTimer > findTargetTime)
 		{
-			findTarget();
+			SearchForNewTarget();
 			findTargetTimer = 0;
 		}
 
@@ -227,13 +230,20 @@ public class EnemieController : HitAble {
 			currentSpeedChance *= 1.5f;
 		}
 
-		if (target)
+		if (target != null)
 		{
-			targetPos = target.position;
-			if (Vector3.Distance(target.position, transform.position) > findTargetDistance)
-			{
-				target = null;
-			}
+            if (target.Transform == null)
+            {
+                target = null;
+            }
+            else
+            {
+                targetPos = target.Transform.position;
+                if (Vector3.Distance(target.Transform.position, transform.position) > findTargetDistance)
+                {
+                    target = null;
+                }
+            }
 		}
 		else
 		{
@@ -268,24 +278,23 @@ public class EnemieController : HitAble {
 	void TryAttack()
 	{
 		attackTimer -= Time.deltaTime;
-		if (!target)
+		if (target == null)
 		{
 			targetLocked = false;
 		}
 		if (targetLocked)
 		{
-			if (Vector3.Distance(target.position, transform.position) > attackDistance)
+			if (Vector3.Distance(target.Transform.position, transform.position) > attackDistance)
 			{
 				targetLocked = false;
 
 			}
 			else
 			{
-
 				lockTimer -= Time.deltaTime;
 				if (lockTimer <= 0)
 				{
-                    target.GetComponent<HitAble>().Damage(
+                    target.hitAble.Damage(
                         new Damage()
                         {
                             amount = MyDamage + GameManager.Instance.CurrentDifficulty * DamagePerDifficulty,
@@ -295,7 +304,6 @@ public class EnemieController : HitAble {
 					//Effekt
 
 					targetLocked = false;
-
 				}
 			}
 			attackTimer = attackTime;
@@ -304,10 +312,8 @@ public class EnemieController : HitAble {
 		{
 			if (attackTimer <= 0)
 			{
-				//Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, attackDistance, findTargetLayer);
-
-                Transform nearestPlayer = EntitySpawnManager.Instance.GetNearestPlayer(transform.position, attackDistance);
-                if (nearestPlayer)
+                HitAbleInfo nearestHitAble = EntitySpawnManager.Instance.GetNearestHitAbles(transform.position, AttackHitAbleMask, true, attackDistance);
+                if (nearestHitAble.Transform)
                 {
                     lockTimer = lockTime;
                     targetLocked = true;
@@ -317,27 +323,8 @@ public class EnemieController : HitAble {
                         anim.SetTrigger("Attack");
                     }
 
-                    target = nearestPlayer;
+                    target = nearestHitAble;
                 }
-
-                /*
-				foreach (var item in collider)
-				{
-					if (item.gameObject.GetComponent<PlayerController>())
-					{
-						lockTimer = lockTime;
-						targetLocked = true;
-
-						if (anim)
-						{
-							anim.SetTrigger("Attack");
-						}
-
-						target = item.transform;
-						break;
-					}
-				}
-                */
 			}
 		}
 	}
@@ -352,39 +339,35 @@ public class EnemieController : HitAble {
 		rigidbody2D.velocity = new Vector2(currentSpeed, rigidbody2D.velocity.y);
 	}
 
-	public void OnFoundTarget(Transform sender, Transform newTarget)
+	public void OnFoundTarget(Transform sender, HitAbleInfo newTarget)
 	{
-		if (!target && newTarget && transform)
+		if (target == null && newTarget != null && transform)
 		{
-			if (Vector3.Distance(newTarget.position, transform.position) > findTargetDistance)
+            if (Vector3.Distance(sender.position, transform.position) > findTargetDistance)
 			{
 				target = newTarget;
 			}
 			else
 			{
-				target = sender;
+                target = new HitAbleInfo() { Transform = sender };
 				//Follow the sender, maybe we will find one then
 			}
 		}
 	}
 
-	void findTarget()
+	void SearchForNewTarget()
 	{
-		if (!target)
+		if (target == null)
 		{
-			Collider2D[] targets = Physics2D.OverlapCircleAll(transform.position, findTargetDistance, findTargetLayer);
-			if (targets.Length != 0)
-			{
-				for (int i = 0; i < targets.Length; i++)
-				{
-					if (Physics2D.Raycast(transform.position, targets[i].bounds.center, findTargetDistance, findTargetLayer).transform == targets[i].transform)
-					{
-						target = targets[i].transform;
-						GameEventHandler.TriggerFoundTarget(transform, target);
-					}
-				}
-				
-			}
+            HitAbleInfo[] playersInRange = EntitySpawnManager.Instance.GetPlayersInCircles(transform.position, findTargetDistance, true, true);
+            for (int i = 0; i < playersInRange.Length; i++)
+            {
+                if (playersInRange[i].hitAble.ColliderIsOneOfYours(Physics2D.Raycast(transform.position, playersInRange[i].hitAble.ColliderCenter - transform.position, findTargetDistance, RaycastTargetMask).collider))
+                {
+                    target = playersInRange[i];
+                    GameEventHandler.TriggerFoundTarget(transform, target);
+                }
+            }
 		}
 	}
 

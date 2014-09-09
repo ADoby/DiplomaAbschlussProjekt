@@ -76,13 +76,13 @@ public class ThrowingWeapon : MonoBehaviour {
     public float distance = 5f;
     public float force = 1.0f;
 
+    public HitAbleType HitAbleHitMask;
     public void Explode()
     {
-        HitAbleInfo[] collider = EntitySpawnManager.Instance.GetHitAbleInCircle(transform.position, distance);
-        //Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, distance);
+        HitAbleInfo[] collider = EntitySpawnManager.Instance.GetHitAbleInCircles(transform.position, HitAbleHitMask, distance, true, false);
         for (int i = 0; i < collider.Length; i++)
         {
-            float distanceToTarget = Vector2.Distance(collider[i].transform.position, transform.position);
+            float distanceToTarget = Vector2.Distance(collider[i].Transform.position, transform.position);
 
             collider[i].hitAble.Damage(new Damage()
             {
@@ -92,7 +92,7 @@ public class ThrowingWeapon : MonoBehaviour {
                 type = DamageType.RANGED,
                 other = player.transform
             });
-            collider[i].hitAble.Hit(collider[i].transform.position, (collider[i].transform.position - transform.position), force);
+            collider[i].hitAble.Hit(collider[i].Transform.position, (collider[i].Transform.position - transform.position), force);
         }
 
         AudioEffectController.Instance.PlayOneShot(explosion, transform.position);

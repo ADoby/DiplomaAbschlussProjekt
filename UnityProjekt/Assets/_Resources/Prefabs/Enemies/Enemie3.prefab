@@ -208,9 +208,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ba754dcbb440d47be634101a76a826, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitAbleType: 1
   sendFurther: 0
   reciever: {fileID: 0}
-  usedCollider: {fileID: 6000000}
+  usedCollider:
+  - {fileID: 6000000}
   SpawnPool: 1
   SpawnPoolName: Blood
   healthBar: {fileID: 11400002}
@@ -226,14 +228,18 @@ MonoBehaviour:
   maxSpeed: 4
   speedChange: 10
   currentSpeed: 0
-  target: {fileID: 0}
+  target:
+    hitAble: {fileID: 0}
+    distance: 0
   findTargetDistance: 10
   distanceToTarget: 0
   findTargetTime: 1
   findTargetTimer: 0
-  findTargetLayer:
+  FindHitAbleMask: 2
+  AttackHitAbleMask: 6
+  RaycastTargetMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 4608
   poolName: Enemie3
   gravityMult: 3
   lastVelocity: {x: 0, y: 0}

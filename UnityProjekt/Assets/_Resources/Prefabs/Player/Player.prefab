@@ -1877,6 +1877,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2705c821e92885742b5404bca07d1b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitAbleType: 2
   sendFurther: 0
   reciever: {fileID: 0}
   usedCollider: {fileID: 0}
@@ -1904,7 +1905,7 @@ MonoBehaviour:
   Skill4Input: _SKILL4
   GroundCheckLayer:
     serializedVersion: 2
-    m_Bits: 4294447327
+    m_Bits: 4294447304
   _animator: {fileID: 9500000}
   jumping: 0
   Level: 0
