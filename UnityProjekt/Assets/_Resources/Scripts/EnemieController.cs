@@ -4,20 +4,6 @@ using System.Collections;
 [System.Serializable]
 public class EnemieController : HitAble {
 
-	public HealthBar healthBar;
-
-	[SerializeField]
-	private float Health = 100f;
-	public float StartMaxHealth = 100f;
-	public float MaxHealthPerDifficulty = 10f;
-	[SerializeField]
-	private float MaxHealth 
-    {
-        get
-        {
-            return StartMaxHealth + MaxHealthPerDifficulty * GameManager.Instance.CurrentDifficulty;
-        }
-    }
 	
 	public float FloorCheckDistance = 1.0f;
 	public float FloorCheckLength = 0.5f;
@@ -25,21 +11,20 @@ public class EnemieController : HitAble {
 	public float MyDamage = 5.0f;
 	public float DamagePerDifficulty = 2.0f;
 
-    public float StartHealthRegen = 2.0f;
-    public float HealthRegenPerDifficulty = 0.2f;
-    public float HealthRegen
-    {
-        get
-        {
-            return StartHealthRegen + HealthRegenPerDifficulty * GameManager.Instance.CurrentDifficulty;
-        }
-    }
 
 	[SerializeField]
 	private int direction = 1;
 	
 	public float maxSpeed = 2.0f;
     public float MaxSpeedPerDifficulty = 0.2f;
+    public float MaxMaxSpeed = 5f;
+    public float CurrentMaxSpeed
+    {
+        get
+        {
+            return Mathf.Min(maxSpeed + MaxSpeedPerDifficulty * GameManager.Instance.CurrentDifficulty, MaxMaxSpeed);
+        }
+    }
 
 	public float speedChange = 2.0f;
     public float SpeedChangePerDifficulty = 0.1f;
@@ -60,15 +45,10 @@ public class EnemieController : HitAble {
 
     public LayerMask RaycastTargetMask;
 
-	public string poolName = "";
-
 	public float gravityMult = 3.0f;
 
 	public Vector2 lastVelocity = Vector2.zero;
 
-	public SpawnInfos[] Drops;
-
-	public bool aggressive = false;
 
 	[SerializeField]
 	private float turnTimer = 0f;
@@ -178,56 +158,15 @@ public class EnemieController : HitAble {
 		{
 			go.rigidbody2D.velocity = new Vector3(Random.Range(-4, 4), Random.Range(10, 20), 0);
 		}
-	}
-
-    public void Heal(float amount)
-    {
-        Health = Mathf.Min(Health + StartHealthRegen + HealthRegenPerDifficulty * GameManager.Instance.CurrentDifficulty, MaxHealth);
-        healthBar.UpdateBar(Health, MaxHealth);
-    }
-
-    public override void Damage(Damage damage)
-	{
-		base.Damage(damage);
-
-		aggressive = true;
-
-        //Min of Health or Damage
-        //This should fix health going under 0
-        damage.amount = Mathf.Min(damage.amount, Health);
-        Health -= damage.amount;
-        GameEventHandler.TriggerDamageDone(damage.other.GetComponent<PlayerController>(), damage);
-
-		healthBar.UpdateBar(Health, MaxHealth);
-		if (Health <= 0)
-		{
-			for (int i = 0; i < Drops.Length; i++)
-			{
-				if (Drops[i].WantsToSpawn)
-				{
-					for (int a = 0; a < Drops[i].Amount; a++)
-					{
-						EntitySpawnManager.Spawn(Drops[i].Next().poolName, transform.position, Quaternion.identity, queue: true);
-					}
-				}
-			}
-
-
-			//TODO Sterbe
-			EntitySpawnManager.Despawn(poolName, gameObject, true);
-			GameEventHandler.TriggerEnemieDied(this);
-		}
-	}
+	}   
 
 	public void Reset()
 	{
+        base.Reset();
 		if (CheckFloorRight())
 		{
 			direction = -1;
 		}
-		Health = MaxHealth;
-
-		healthBar.Reset();
 
 		targetPos = transform.position;
 	}
@@ -236,8 +175,6 @@ public class EnemieController : HitAble {
 	void Update () {
 		if (GameManager.GamePaused)
 			return;
-
-        Heal(HealthRegen * Time.deltaTime);
 
 		randomJumpTimer -= Time.deltaTime;
 
@@ -248,9 +185,9 @@ public class EnemieController : HitAble {
 			findTargetTimer = 0;
 		}
 
-        float currentMaxSpeed = maxSpeed + MaxSpeedPerDifficulty * GameManager.Instance.CurrentDifficulty;
+        float currentMaxSpeed = CurrentMaxSpeed;
         float currentSpeedChance = speedChange + SpeedChangePerDifficulty * GameManager.Instance.CurrentDifficulty;
-		if (aggressive)
+		if (GotHit)
 		{
 			currentMaxSpeed *= 1.5f;
 			currentSpeedChance *= 1.5f;
@@ -355,12 +292,14 @@ public class EnemieController : HitAble {
 		}
 	}
 
+    public float GravityScale = 2.0f;
+
 	void FixedUpdate()
 	{
 		if (GameManager.GamePaused)
 			return;
 
-		rigidbody2D.velocity += Physics2D.gravity * Time.fixedDeltaTime;
+        rigidbody2D.velocity += Physics2D.gravity * Time.fixedDeltaTime * GravityScale;
 
 		rigidbody2D.velocity = new Vector2(currentSpeed, rigidbody2D.velocity.y);
 	}

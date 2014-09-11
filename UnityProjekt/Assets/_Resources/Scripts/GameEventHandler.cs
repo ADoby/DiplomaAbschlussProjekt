@@ -9,9 +9,9 @@ public class GameEventHandler : MonoBehaviour {
     public delegate void EnemieEvent(Transform sender, HitAbleInfo target);
     public static event EnemieEvent FoundTarget;
 
-    public delegate void EnemieControllerEvent(EnemieController enemie);
-    public static event EnemieControllerEvent EnemieDied;
-    public static event EnemieControllerEvent EnemieSpawned;
+    public delegate void EntityControllerEvent(HitAble entity);
+    public static event EntityControllerEvent EntityDied;
+    public static event EntityControllerEvent EntitySpawned;
 
     public delegate void GameEvent();
     public static event GameEvent OnPause;
@@ -91,19 +91,19 @@ public class GameEventHandler : MonoBehaviour {
         }
     }
 
-    public static void TriggerEnemieDied(EnemieController enemie)
+    public static void TriggerEntityDied(HitAble entity)
     {
-        if (EnemieDied != null)
+        if (EntityDied != null)
         {
-            EnemieDied(enemie);
+            EntityDied(entity);
         }
     }
 
-    public static void TriggerEnemieSpawned(EnemieController enemie)
+    public static void TriggerEnemieSpawned(HitAble entity)
     {
-        if (EnemieSpawned != null)
+        if (EntitySpawned != null)
         {
-            EnemieSpawned(enemie);
+            EntitySpawned(entity);
         }
     }
 

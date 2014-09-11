@@ -16,21 +16,25 @@ public class OnEnemieDeathSpawnBase : MonoBehaviour
 
     void OnEnable()
     {
-        GameEventHandler.EnemieDied += OnEnemieDied;
+        GameEventHandler.EntityDied -= OnEntityDied;
+        GameEventHandler.EntityDied += OnEntityDied;
     }
 
     void OnDisable()
     {
-        GameEventHandler.EnemieDied -= OnEnemieDied;
+        GameEventHandler.EntityDied -= OnEntityDied;
     }
 
     void OnDestroy()
     {
-        GameEventHandler.EnemieDied -= OnEnemieDied;
+        GameEventHandler.EntityDied -= OnEntityDied;
     }
 
-    public void OnEnemieDied(EnemieController enemie)
+    public void OnEntityDied(HitAble entity)
     {
+        if (entity.hitAbleType != HitAbleType.ALIEN)
+            return;
+
         if (Random.value < spawnChance)
         {
             var rnd = Random.value;
@@ -38,7 +42,7 @@ public class OnEnemieDeathSpawnBase : MonoBehaviour
             {
                 if (rnd < basePoolNames[i].weight)
                 {
-                    TrySpawning(basePoolNames[i].poolName, enemie.transform.position);
+                    TrySpawning(basePoolNames[i].poolName, entity.transform.position);
                     return;
                 }
                 rnd -= basePoolNames[i].weight;

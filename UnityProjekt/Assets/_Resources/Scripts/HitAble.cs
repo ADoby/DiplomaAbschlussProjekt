@@ -1,16 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Linq;
+
 #if (UNITY_EDITOR)
 using UnityEditor;
 #endif
+
 [System.Flags]
 public enum HitAbleType : int
 {
     ALIEN = (1 << 0),
-    PLAYER = (1 << 1),
-    PROPS = (1 << 2)
+    ALIENBASE = (1 << 1),
+    PLAYER = (1 << 2),
+    PROPS = (1 << 3)
 }
+
 #if (UNITY_EDITOR)
 public class EnumFlagsAttribute : PropertyAttribute
 {
@@ -35,8 +39,12 @@ public class HitAbleCustomDrawer : PropertyDrawer
     }
 }
 #endif
+
 [System.Serializable]
-public class HitAble : MonoBehaviour {
+public class HitAble : MonoBehaviour
+{
+    #region Type
+    public HitAbleType hitAbleType;
 
     public static bool CheckForBitInMask(int bit, int mask)
     {
@@ -44,13 +52,56 @@ public class HitAble : MonoBehaviour {
     }
     public static bool CheckForBitInMask(HitAbleType bit, HitAbleType mask)
     {
-        return ((mask & bit) != 0);
+        return CheckForBitInMask((int)bit, (int)mask);
+    }
+    #endregion
+
+    #region Health
+
+    public HealthBar healthBar;
+
+    public float CurrentHealth = 100f;
+    public float StartMaxHealth = 100f;
+    public float MaxHealthPerDifficulty = 10f;
+    public float MaxHealth
+    {
+        get
+        {
+            return StartMaxHealth + MaxHealthPerDifficulty * GameManager.Instance.CurrentDifficulty;
+        }
+    }
+    public float ProzentHealth()
+    {
+        return CurrentHealth / MaxHealth;
     }
 
-    public HitAbleType hitAbleType;
+    public float StartHealthRegen = 2.0f;
+    public float HealthRegenPerDifficulty = 0.2f;
+    public float HealthRegen
+    {
+        get
+        {
+            return StartHealthRegen + HealthRegenPerDifficulty * GameManager.Instance.CurrentDifficulty;
+        }
+    }
+
+    #endregion
+
+    public string poolName = "";
+
+    //Effect on death
+    public bool HitEffect = true;
+    public string HitEffectPoolName = "Blood";
 
     public bool sendFurther = false;
     public HitAble reciever;
+
+    public bool IsDead = false;
+    public bool GotHit = false;
+
+    public SpawnInfos[] Drops;
+
+    #region Collider
 
     public Collider2D[] usedCollider;
 
@@ -80,6 +131,14 @@ public class HitAble : MonoBehaviour {
         }
     }
 
+    public Vector3 ColliderCenter
+    {
+        get
+        {
+            return MainCollider.bounds.center;
+        }
+    } 
+
     public bool ColliderIsOneOfYours(Collider2D targetCollider)
     {
         if (!targetCollider)
@@ -91,6 +150,8 @@ public class HitAble : MonoBehaviour {
         }
         return false;
     }
+
+    #endregion
 
     private Transform targetTransform;
     public Transform TargetTransform
@@ -105,21 +166,8 @@ public class HitAble : MonoBehaviour {
             return targetTransform;
         }
     }
-    public Vector3 ColliderCenter
-    {
-        get
-        {
-            return MainCollider.bounds.center;
-        }
-    } 
-    
 
-    //public Vector3
-
-    public bool SpawnPool = true;
-    public string SpawnPoolName = "Blood";
-
-    void Start()
+    public virtual void Start()
     {
         if (!MainCollider)
         {
@@ -130,18 +178,40 @@ public class HitAble : MonoBehaviour {
         }
     }
 
+    public virtual void Reset()
+    {
+        CurrentHealth = MaxHealth;
+        healthBar.UpdateBar(CurrentHealth, MaxHealth, true);
+        IsDead = false;
+        GotHit = false;
+    }
+
+    public virtual void Update()
+    {
+        if (GameManager.GamePaused || IsDead || sendFurther)
+            return;
+
+        Heal(HealthRegen * Time.deltaTime);
+    }
+
     public virtual void Hit(Vector3 HitPosition, Vector3 HitDirection, float forceAmount = 0f)
     {
-        if (sendFurther && reciever)
-            reciever.Hit(HitPosition, HitDirection, forceAmount);
+        if (IsDead)
+            return;
 
-        if (SpawnPool)
+        if (sendFurther && reciever)
+        {
+            reciever.Hit(HitPosition, HitDirection, forceAmount);
+            return;
+        }
+
+        if (HitEffect)
         {
             int layermask = 1 << gameObject.layer;
             RaycastHit2D hit = Physics2D.RaycastAll(HitPosition - HitDirection, HitDirection, HitDirection.magnitude * 2f, layermask).FirstOrDefault(o => o.collider == collider2D);
             if (hit)
             {
-                EntitySpawnManager.Spawn(SpawnPoolName, HitPosition, Quaternion.FromToRotation(Vector3.back, hit.normal), countEntity:false, forceDirectSpawn:true);
+                EntitySpawnManager.Spawn(HitEffectPoolName, HitPosition, Quaternion.FromToRotation(Vector3.back, hit.normal), countEntity:false, forceDirectSpawn:true);
                 if (forceAmount != 0)
                 {
                     Force(HitPosition, HitDirection.normalized, forceAmount);
@@ -152,19 +222,82 @@ public class HitAble : MonoBehaviour {
         
     }
 
+    public virtual void Die()
+    {
+        for (int i = 0; i < Drops.Length; i++)
+        {
+            if (Drops[i].WantsToSpawn)
+            {
+                for (int a = 0; a < Drops[i].Amount; a++)
+                {
+                    EntitySpawnManager.Spawn(Drops[i].Next().poolName, transform.position, Quaternion.identity, queue: true);
+                }
+            }
+        }
+
+        EntitySpawnManager.Despawn(poolName, gameObject, true);
+        GameEventHandler.TriggerEntityDied(this);
+    }
+
+    public virtual void Heal(float amount)
+    {
+        if (IsDead)
+            return;
+
+        if (sendFurther && reciever)
+        {
+            reciever.Heal(amount);
+            return;
+        }
+
+        CurrentHealth = Mathf.Min(CurrentHealth + amount, MaxHealth);
+        healthBar.UpdateBar(CurrentHealth, MaxHealth);
+    }
+
+    public void HealFull()
+    {
+        CurrentHealth = MaxHealth;
+        healthBar.UpdateBar(CurrentHealth, MaxHealth, true);
+    }
+
     public virtual void Damage(Damage damage)
     {
+        if (IsDead)
+            return;
+
+        GotHit = true;
+
         if (sendFurther && reciever)
+        {
             reciever.Damage(damage);
+            return;
+        }
+
+        damage.amount = Mathf.Min(damage.amount, CurrentHealth);
+        CurrentHealth -= damage.amount;
+        GameEventHandler.TriggerDamageDone(damage.other.GetComponent<PlayerController>(), damage);
+        healthBar.UpdateBar(CurrentHealth, MaxHealth);
+
+        if (CurrentHealth <= 0)
+        {
+            IsDead = true;
+            Die();
+        }
     }
 
     public void RecieveForce(Vector3 position, Vector3 direction, float amount)
     {
+        if (IsDead)
+            return;
+
         Force(position, direction, amount);
     }
 
     protected virtual void Force(Vector3 position, Vector3 direction, float amount)
     {
+        if (IsDead)
+            return;
+
         if (sendFurther && reciever)
             reciever.RecieveForce(position, direction, amount);
 

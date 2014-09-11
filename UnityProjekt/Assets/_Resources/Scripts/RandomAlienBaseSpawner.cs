@@ -17,6 +17,14 @@ public class RandomAlienBaseSpawner : MonoBehaviour {
     public float maxCD = 20f;
     public float timer = 0f;
 
+    public bool ActivateSpawner = false;
+
+    [ContextMenu("SpawnOne")]
+    public void SpawnOne()
+    {
+        TrySpawn();
+    }
+
     public Vector2 Distances;
 
     void Start()
@@ -26,7 +34,7 @@ public class RandomAlienBaseSpawner : MonoBehaviour {
 
     void Update()
     {
-        if (GameManager.GamePaused)
+        if (GameManager.GamePaused || !ActivateSpawner)
             return;
 
         timer -= Time.deltaTime;

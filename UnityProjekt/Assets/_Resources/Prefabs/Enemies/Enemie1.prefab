@@ -209,40 +209,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitAbleType: 1
-  sendFurther: 0
-  reciever: {fileID: 0}
-  usedCollider:
-  - {fileID: 6000000}
-  SpawnPool: 1
-  SpawnPoolName: Blood
   healthBar: {fileID: 11400002}
-  Health: 100
+  CurrentHealth: 100
   StartMaxHealth: 100
   MaxHealthPerDifficulty: 50
-  MaxHealth: 100
-  FloorCheckDistance: 1
-  FloorCheckLength: .100000001
-  MyDamage: 40
-  DamagePerDifficulty: 10
-  direction: 1
-  maxSpeed: 3
-  speedChange: 5
-  currentSpeed: 0
-  target:
-    hitAble: {fileID: 0}
-    distance: 0
-  findTargetDistance: 25
-  distanceToTarget: 0
-  findTargetTime: 1
-  findTargetTimer: 0
-  FindHitAbleMask: 2
-  AttackHitAbleMask: 6
-  RaycastTargetMask:
-    serializedVersion: 2
-    m_Bits: 4608
+  StartHealthRegen: 2
+  HealthRegenPerDifficulty: .200000003
   poolName: Enemie1
-  gravityMult: 3
-  lastVelocity: {x: 0, y: 0}
+  HitEffect: 1
+  HitEffectPoolName: Blood
+  sendFurther: 0
+  reciever: {fileID: 0}
+  IsDead: 0
+  GotHit: 0
   Drops:
   - chance: 1
     minAmount: 5
@@ -256,7 +235,33 @@ MonoBehaviour:
     spawnInfos:
     - poolName: RandomItem25
       weight: 1
-  aggressive: 0
+  usedCollider:
+  - {fileID: 6000000}
+  FloorCheckDistance: 1
+  FloorCheckLength: .100000001
+  MyDamage: 40
+  DamagePerDifficulty: 10
+  direction: 1
+  maxSpeed: 1
+  MaxSpeedPerDifficulty: .200000003
+  MaxMaxSpeed: 7
+  speedChange: 1
+  SpeedChangePerDifficulty: .100000001
+  currentSpeed: 0
+  target:
+    hitAble: {fileID: 0}
+    distance: 0
+  findTargetDistance: 25
+  distanceToTarget: 0
+  findTargetTime: 1
+  findTargetTimer: 0
+  FindHitAbleMask: 4
+  AttackHitAbleMask: 12
+  RaycastTargetMask:
+    serializedVersion: 2
+    m_Bits: 4608
+  gravityMult: 4
+  lastVelocity: {x: 0, y: 0}
   turnTimer: 0
   MinTurnTime: .5
   MaxTurnTime: 1
@@ -281,6 +286,7 @@ MonoBehaviour:
   randomJumpMinTime: 1
   randomJumpMaxTime: 3
   targetPos: {x: 0, y: 0, z: 0}
+  GravityScale: 2
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

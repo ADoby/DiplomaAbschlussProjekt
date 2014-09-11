@@ -376,20 +376,63 @@ public class GameManager : MonoBehaviour {
         CurrentLevelDamage = LastLevelDamage;
     }
 
+    public void BackButtonClicked(UIRect sender)
+    {
+        RemoveAllPlayers();
+        SelectSlot(0);
+    }
+
+    public void RemoveAllPlayers()
+    {
+        for (int i = 0; i < Players.Length; i++)
+        {
+            RemovePlayer(Players[i]);
+
+            slotButtons[i].Text = "Slot " + (i + 1);
+            slotButtons[i].ButtonStyle.normal.textColor = Color.white;
+        }
+    }
+
 	public void SelectSlot(int id)
 	{
-		slotButtons[currentPlayerSelectingClass].Text = "Slot " + (currentPlayerSelectingClass + 1);
-		slotButtons[currentPlayerSelectingClass].ButtonStyle.normal.textColor = Color.white;
+        if (id < 0 || id >= MaxPlayers)
+            return;
 
-		RemovePlayer(Players[id]);
+        if (Players[currentPlayerSelectingClass] == null)
+        {
+            slotButtons[currentPlayerSelectingClass].Text = "Slot " + (currentPlayerSelectingClass + 1);
+            slotButtons[currentPlayerSelectingClass].ButtonStyle.normal.textColor = Color.white;
+        }
+        else
+        {
+            slotButtons[currentPlayerSelectingClass].Text = "Selected: " + Players[currentPlayerSelectingClass].PlayerClass.name.Replace("(Clone)", "");
+            slotButtons[currentPlayerSelectingClass].ButtonStyle.normal.textColor = Color.green;
+        }
 
-		currentPlayerSelectingClass = id;
+        if(id == currentPlayerSelectingClass)
+            RemovePlayer(Players[id]);
 
-        slotButtons[currentPlayerSelectingClass].Text = "Player " + (currentPlayerSelectingClass + 1) + " Select";
+        currentPlayerSelectingClass = id;
+
+        if (Players[currentPlayerSelectingClass] != null)
+        {
+            slotButtons[currentPlayerSelectingClass].Text = "Player " + (currentPlayerSelectingClass + 1) + " Select\nClick again to delete";
+        }
+        else
+        {
+            slotButtons[currentPlayerSelectingClass].Text = "Player " + (currentPlayerSelectingClass + 1) + " Select";
+        }
+
         slotButtons[currentPlayerSelectingClass].ButtonStyle.normal.textColor = Color.red;
 
         UpdateReadyButton();
+        UpdateSelectedClassUI();
 	}
+
+    public void UpdateSelectedClassUI()
+    {
+        //TODO: PlayerClass UI mit Informationen über die selektierte Klasse
+    }
 
     private void UpdateReadyButton()
     {
@@ -403,10 +446,12 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    public int MaxPlayers = 2;
+
     private void SelectNextPlayerSlot()
     {
         currentPlayerSelectingClass = -1;
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < MaxPlayers; i++)
         {
             if (Players[i] == null)
             {
@@ -419,6 +464,8 @@ public class GameManager : MonoBehaviour {
 
     public void SelectClass(int id)
     {
+        RemovePlayer(Players[currentPlayerSelectingClass]);
+
         GameObject newPlayer = (GameObject)Object.Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
         EntitySpawnManager.AddHitAble(newPlayer.GetComponent<HitAble>());
 
@@ -440,12 +487,13 @@ public class GameManager : MonoBehaviour {
         playerClass.transform.parent = newPlayer.transform;
         Players[currentPlayerSelectingClass].PlayerClass = playerClass;
 
-        slotButtons[currentPlayerSelectingClass].Text = "Selected: " + Players[currentPlayerSelectingClass].PlayerClass.name.Replace("(Clone)", "");
+        slotButtons[currentPlayerSelectingClass].Text = "Selected: " + Players[currentPlayerSelectingClass].PlayerClass.name.Replace("(Clone)", "") + "\nClick to delete";
         slotButtons[currentPlayerSelectingClass].ButtonStyle.normal.textColor = Color.green;
 
         UpdateReadyButton();
+        UpdateSelectedClassUI();
 
-        SelectNextPlayerSlot();
+        //SelectNextPlayerSlot();
     }
 
 	public static Vector3 GetLevelSpawnPoint()

@@ -156,7 +156,7 @@ public class PlayerController : HitAble
 		GameEventHandler.OnPause += OnPause;
 		GameEventHandler.OnResume += OnResume;
 
-		GameEventHandler.EnemieDied += OnEnemieDied;
+		GameEventHandler.EntityDied += OnEntityDied;
 	}
 
 	public void UnListen()
@@ -194,7 +194,7 @@ public class PlayerController : HitAble
 	}
 
 	// Update is called once per frame
-	void Update () {
+	public override void Update () {
 		if (GameManager.GamePaused)
 			return;
 
@@ -257,95 +257,125 @@ public class PlayerController : HitAble
 		return System.String.Format("{0}", (PlayerId + 1));
 	}
 
-	void FixedUpdate()
-	{
-		if (GameManager.GamePaused)
-			return;
+    #region FixedUpdate
 
-		_currentVelocity = rigidbody2D.velocity;
+    void FixedUpdate()
+    {
+        if (GameManager.GamePaused)
+            return;
 
-		PlayerClass.FixedUpdateClass();
+        _currentVelocity = rigidbody2D.velocity;
 
-		if (CanMove)
-		{
-			Moving();
-		}
+        PlayerClass.FixedUpdateClass();
 
-		if(MovedBySkill)
-		{
-			//Add Velocity from skill in player look direction
-			_currentVelocity = PlayerClass.overrideVelocity * transform.localScale.x;
-		}
+        if (CanMove)
+        {
+            Moving();
+        }
 
-		UpdateLookDirection();
+        if (MovedBySkill)
+        {
+            //Add Velocity from skill in player look direction
+            _currentVelocity = PlayerClass.overrideVelocity * transform.localScale.x;
+        }
 
-		UpdateAnimator();
+        UpdateLookDirection();
 
-		rigidbody2D.velocity = _currentVelocity;
-	}
+        UpdateAnimator();
+
+        rigidbody2D.velocity = _currentVelocity;
+    }
+
+    private void Moving()
+    {
+        Move();
+
+        Grounded = CheckGround();
+        if (CheckUp() && Grounded)
+        {
+            //Squashed (Dead?)
+        }
+
+        TryJump();
+
+        Gravity();
+    }
+
+    private void Gravity()
+    {
+        if (Grounded && !jumping)
+        {
+            _currentVelocity.y = -Time.fixedDeltaTime * StickToGroundForce;
+            return;
+        }
+
+        _currentVelocity += Physics2D.gravity * PlayerClass.GravityMultiply * Time.fixedDeltaTime;
+    }
+
+    private void UpdateLookDirection()
+    {
+        float lookDirection = (InputController.GetValue(System.String.Format("{0}_LOOKRIGHT", PlayerID())) - InputController.GetValue(System.String.Format("{0}_LOOKLEFT", PlayerID())));
+
+        if (lookDirection == 0)
+        {
+            if (_currentInput.x < -0.05f && transform.localScale.x == 1)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else if (_currentInput.x > 0.05f && transform.localScale.x == -1)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+        }
+        else
+        {
+            if (lookDirection < 0)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+        }
+
+        if (SpotlightTransform)
+        {
+            SpotlightTransform.localRotation = Quaternion.Euler(new Vector3(SpotlightTransform.localRotation.eulerAngles.x,
+            transform.localScale.x * 90, SpotlightTransform.localRotation.eulerAngles.z));
+        }
+
+    }
+
+    #endregion
 
 	public void StopPlayer()
 	{
 		rigidbody2D.velocity = Vector2.zero;
 	}
 
-	private void UpdateLookDirection()
-	{
-		float lookDirection = (InputController.GetValue(System.String.Format("{0}_LOOKRIGHT", PlayerID())) - InputController.GetValue(System.String.Format("{0}_LOOKLEFT", PlayerID())));
+    private void UpdateAnimator()
+    {
+        if (_animator)
+        {
+            if (Grounded)
+            {
+                _animator.SetBool("Crouching", Crouching);
+            }
+            else
+            {
+                _animator.SetBool("Crouching", false);
+            }
 
-		if (lookDirection == 0)
-		{
-			if (_currentInput.x < -0.05f && transform.localScale.x == 1)
-			{
-				transform.localScale = new Vector3(-1, 1, 1);
-			}
-			else if (_currentInput.x > 0.05f && transform.localScale.x == -1)
-			{
-				transform.localScale = new Vector3(1, 1, 1);
-			}
-		}
-		else
-		{
-			if (lookDirection < 0)
-			{
-				transform.localScale = new Vector3(-1, 1, 1);
-			}
-			else
-			{
-				transform.localScale = new Vector3(1, 1, 1);
-			}
-		}
-
-		
-
-		if (SpotlightTransform)
-		{
-			SpotlightTransform.localRotation = Quaternion.Euler(new Vector3(SpotlightTransform.localRotation.eulerAngles.x,
-			transform.localScale.x * 90, SpotlightTransform.localRotation.eulerAngles.z));
-		}
-		
-	}
-
-	private void UpdateAnimator()
-	{
-		if (_animator)
-		{
-			if(Grounded)
-			{
-				_animator.SetBool("Crouching", Crouching);
-			}
-			else
-			{
-				_animator.SetBool("Crouching", false);
-			}
-
-			_animator.SetFloat("SpeedY", rigidbody2D.velocity.y);
+            _animator.SetFloat("SpeedY", rigidbody2D.velocity.y);
 
             _animator.SetFloat("Speed", Mathf.Abs(rigidbody2D.velocity.x));
 
 
-		}
-	}
+        }
+    }
+
+	
 
 	public void LevelUp()
 	{
@@ -365,25 +395,31 @@ public class PlayerController : HitAble
 		}
 	}
 
+    #region HitAble
+    
     public override void Damage(Damage damage)
-	{
-		if (!PlayerClass.damageImune)
-		{
-			PlayerClass.OnPlayerGetsDamage(ref damage);
-			if (PlayerClass.CurrentHealth - damage.amount <= 0)
-				PlayerClass.OnPlayerLethalDamage(ref damage);
+    {
+        if (!PlayerClass.damageImune)
+        {
+            PlayerClass.OnPlayerGetsDamage(ref damage);
+            if (PlayerClass.CurrentHealth - damage.amount <= 0)
+                PlayerClass.OnPlayerLethalDamage(ref damage);
 
-			PlayerClass.CurrentHealth -= damage.amount;
-			PlayerClass.OnPlayerDamaged(damage);
-		}
-		
-		if (PlayerClass.CurrentHealth <= 0)
-		{
-			PlayerClass.OnPlayerDied();
-			//Dead
-			GameEventHandler.TriggerResetToCheckpoint();
-		}
-	}
+            PlayerClass.CurrentHealth -= damage.amount;
+            PlayerClass.OnPlayerDamaged(damage);
+        }
+
+        if (PlayerClass.CurrentHealth <= 0)
+        {
+            PlayerClass.OnPlayerDied();
+            //Dead
+            GameEventHandler.TriggerResetToCheckpoint();
+        }
+    }
+
+    #endregion
+
+   
 
     public void DamageDone(PlayerController player, Damage damage)
 	{
@@ -399,20 +435,7 @@ public class PlayerController : HitAble
 		}
 	}
 
-	private void Moving()
-	{
-		Move();
-
-		Grounded = CheckGround();
-		if (CheckUp() && Grounded)
-		{
-			//Squashed (Dead?)
-		}
-
-		TryJump();
-
-        Gravity();
-	}
+	
 
 
 	//new One with AREA
@@ -486,61 +509,62 @@ public class PlayerController : HitAble
 		return false;
 	}
 
-	public float ClimbStrength = 6f;
+    #region Move
+    public float ClimbStrength = 6f;
 
-	public float MaxSpeedMult = 0f;
+    public float MaxSpeedMult = 0f;
 
-	public float SpeedUpMult = 4.0f;
-	public float DirectionChangeMult = 1.0f;
+    public float SpeedUpMult = 4.0f;
+    public float DirectionChangeMult = 1.0f;
 
-	public float WalkingDirection = 0f;
+    public float WalkingDirection = 0f;
 
-	public float LinearDamping = 1.0f;
+    public float LinearDamping = 1.0f;
     public float DynamicDamping = 1.0f;
 
     public float FlyingMoveMult = 0.8f;
 
     public float LinFriction = 2.0f;
 
-	private void Move()
-	{
-		groundNormal = Vector2.right;
-		int inputDirection = (int)Mathf.Clamp(_currentInput.x * 1000, -1, 1);
-		int walkDirection = (int)Mathf.Clamp(_currentVelocity.x * 1000, -1, 1);
+    private void Move()
+    {
+        groundNormal = Vector2.right;
+        int inputDirection = (int)Mathf.Clamp(_currentInput.x * 1000, -1, 1);
+        int walkDirection = (int)Mathf.Clamp(_currentVelocity.x * 1000, -1, 1);
 
-		float MoveMentChange = PlayerClass.GetAttributeValue(AttributeType.MAXMOVESPEED) * SpeedUpMult;
-		float MaxSpeed = PlayerClass.GetAttributeValue(AttributeType.MAXMOVESPEED);
+        float MoveMentChange = PlayerClass.GetAttributeValue(AttributeType.MAXMOVESPEED) * SpeedUpMult;
+        float MaxSpeed = PlayerClass.GetAttributeValue(AttributeType.MAXMOVESPEED);
 
-		if (WalkingDirection < 0 && inputDirection > 0)
-			WalkingDirection = 0;
-		if (WalkingDirection > 0 && inputDirection < 0)
-			WalkingDirection = 0;
+        if (WalkingDirection < 0 && inputDirection > 0)
+            WalkingDirection = 0;
+        if (WalkingDirection > 0 && inputDirection < 0)
+            WalkingDirection = 0;
 
-		WalkingDirection = Mathf.Lerp(WalkingDirection, (float)inputDirection, Time.deltaTime * (DirectionChangeMult * MaxSpeed));
+        WalkingDirection = Mathf.Lerp(WalkingDirection, (float)inputDirection, Time.deltaTime * (DirectionChangeMult * MaxSpeed));
 
-		MaxSpeedMult = Mathf.Abs(WalkingDirection);
+        MaxSpeedMult = Mathf.Abs(WalkingDirection);
 
-		MaxSpeed *= MaxSpeedMult;
+        MaxSpeed *= MaxSpeedMult;
 
         float LinDamp = LinearDamping;
         float DynDamp = DynamicDamping;
 
-		if (Grounded)
-		{
+        if (Grounded)
+        {
             RaycastHit2D hit = Physics2D.Raycast(transform.position - transform.right * PlayerClass.playerWidth * Half, Vector3.down, 1f, GroundCheckLayer);
             RaycastHit2D hit2 = Physics2D.Raycast(transform.position + transform.right * PlayerClass.playerWidth * Half, Vector3.down, 1f, GroundCheckLayer);
 
-			if (hit)
-			{
-				groundNormal.x = Mathf.Abs(hit.normal.y);
-				groundNormal.y = -Mathf.Abs(hit.normal.x) * inputDirection;
+            if (hit)
+            {
+                groundNormal.x = Mathf.Abs(hit.normal.y);
+                groundNormal.y = -Mathf.Abs(hit.normal.x) * inputDirection;
 
-				if (groundNormal.x > 0 && groundNormal.x < 1f)
-				{
-					//groundNormal.y *= 1f / groundNormal.x;
-					//groundNormal.x = 1f;
-				}
-			}
+                if (groundNormal.x > 0 && groundNormal.x < 1f)
+                {
+                    //groundNormal.y *= 1f / groundNormal.x;
+                    //groundNormal.x = 1f;
+                }
+            }
             if (hit2)
             {
                 groundNormal.x += Mathf.Abs(hit2.normal.y);
@@ -569,12 +593,12 @@ public class PlayerController : HitAble
         }
 
 
-		Vector3 startPoint = transform.position + transform.right * PlayerClass.playerWidth * Half * inputDirection +
-								Vector3.up * PlayerClass.playerHeight;
-		Vector3 endPoint = transform.position + transform.right * PlayerClass.playerWidth * Half * inputDirection +
-							transform.right * 0.2f * inputDirection;
+        Vector3 startPoint = transform.position + transform.right * PlayerClass.playerWidth * Half * inputDirection +
+                                Vector3.up * PlayerClass.playerHeight;
+        Vector3 endPoint = transform.position + transform.right * PlayerClass.playerWidth * Half * inputDirection +
+                            transform.right * 0.2f * inputDirection;
 
-		//Climbing ?
+        //Climbing ?
         if (InputController.GetDown(System.String.Format("{0}{1}", PlayerID(), JumpInput)) && !CheckUp() && !Grounded)
         {
             if (Physics2D.OverlapArea(startPoint, endPoint, GroundCheckLayer))
@@ -582,9 +606,9 @@ public class PlayerController : HitAble
                 _currentVelocity.y = ClimbStrength;
             }
         }
-		
 
-		Vector2 change = groundNormal * _currentInput.x * Time.fixedDeltaTime * MoveMentChange;
+
+        Vector2 change = groundNormal * _currentInput.x * Time.fixedDeltaTime * MoveMentChange;
 
         /*
 		if (Mathf.Abs((_currentVelocity + change).x) > MaxSpeed)
@@ -595,7 +619,7 @@ public class PlayerController : HitAble
 		}
         */
 
-		_currentVelocity += change;
+        _currentVelocity += change;
 
         //Dynamic Damping (Speed Limit)
         _currentVelocity.x -= Time.fixedDeltaTime * _currentVelocity.x * DynDamp; // / PlayerClass.GetAttributeValue(AttributeType.MAXMOVESPEED)
@@ -604,26 +628,29 @@ public class PlayerController : HitAble
         float SlowDownXValue = MaxSpeed * LinDamp;
         if (Grounded && !jumping)
         {
-            if (((_currentVelocity.x > 0 && (inputDirection < 0 || inputDirection == 0)) 
-                || (_currentVelocity.x < 0 && (inputDirection > 0 || inputDirection == 0))) 
+            if (((_currentVelocity.x > 0 && (inputDirection < 0 || inputDirection == 0))
+                || (_currentVelocity.x < 0 && (inputDirection > 0 || inputDirection == 0)))
                 && Mathf.Abs(_currentVelocity.x) > 0f)
             {
                 //Only do linFriction when the physic is running in other direction than player wants
                 SlowDownXValue += LinFriction;
             }
-                
+
         }
 
         SlowDownXValue *= Time.fixedDeltaTime;
-		if (Mathf.Abs(_currentVelocity.x) - SlowDownXValue <= 0)
-		{
-			_currentVelocity.x = 0;
-		}
-		else
-		{
-			_currentVelocity.x -= walkDirection * SlowDownXValue;
-		}
-	}
+        if (Mathf.Abs(_currentVelocity.x) - SlowDownXValue <= 0)
+        {
+            _currentVelocity.x = 0;
+        }
+        else
+        {
+            _currentVelocity.x -= walkDirection * SlowDownXValue;
+        }
+    }
+    #endregion
+
+    
 
 	private void Jump()
 	{
@@ -641,17 +668,6 @@ public class PlayerController : HitAble
 	}
 
     public float StickToGroundForce = 30f;
-
-	private void Gravity()
-	{
-        if (Grounded && !jumping)
-        {
-            _currentVelocity.y = -Time.fixedDeltaTime * StickToGroundForce;
-            return;
-        }
-            
-		_currentVelocity += Physics2D.gravity * PlayerClass.GravityMultiply * Time.fixedDeltaTime;
-	}
 
 	public void AddMoney(int amount)
 	{
@@ -699,7 +715,7 @@ public class PlayerController : HitAble
 		_skillMakesImune--;
 	}
 
-	public void OnEnemieDied(EnemieController sender)
+	public void OnEntityDied(HitAble sender)
 	{
 		PlayerClass.OnPlayerKilledEntity();
 	}

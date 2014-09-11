@@ -60,14 +60,19 @@
             }
         }
 
+        public PlayerController player;
+
         public void RocketSpawned(GameObject go)
         {
-            go.GetComponent<Rocket>().Impulse(Vector3.up * 10.0f);
+            go.GetComponent<Rocket>().Impulse(Vector3.up * 5.0f);
+            go.GetComponent<Rocket>().player = player;
+            go.GetComponent<Rocket>().damage = RocketDamage;
         }
 
         private void SpawnRocket(PlayerClass playerClass)
         {
-            EntitySpawnManager.Spawn(RocketPoolName, playerClass.playerTransform.position + Vector3.up*2f, Quaternion.identity, callBack:RocketSpawned);
+            player = playerClass.playerControl;
+            EntitySpawnManager.Spawn(RocketPoolName, playerClass.playerTransform.position + Vector3.up * 2f, Quaternion.FromToRotation(Vector3.up, Vector3.left), callBack: RocketSpawned, queue: true, countEntity: false);
         }
     }
 
