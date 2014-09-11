@@ -3,73 +3,14 @@ using UnityEngine;
 using System.Collections;
 
 [System.Serializable]
-public class EnemieBase : HitAble {
-
-    public HealthBar healthBar;
-
-    public float CurrentHealth;
-    public float wantedHealth = 1;
-    public float MaxHealth = 100;
-
-    public float MaxHealthPerDifficulty = 30f;
-
-    public string poolName = "EnemieBase1";
-
-    public float HealthRegenPerSec = 2f;
-    public float HealthRegenPerSecPerDifficulty = 1f;
-
-    public bool isAlive = false;
-
-    public bool StartFull = false, RestartFull = false;
+public class EnemieBase : HitAble
+{
+    public bool StartFullHealth = false;
+    public bool ResetFullHealth = false;
 
     public LayerMask GroundLayer;
 
-    public float HealthChangeSpeed = 10f;
-
-    public SpawnInfos[] Drops;
-
-    void Start()
-    {
-        Reset();
-        if (StartFull)
-        {
-            CurrentHealth = MaxHealth + GameManager.Instance.CurrentDifficulty * MaxHealthPerDifficulty;
-            wantedHealth = CurrentHealth;
-            UpdateHealthBar(true);
-        }
-
-        //DeleteHere
-        EntitySpawnManager.AddHitAble(this);
-
-        RaycastHit2D hit = Physics2D.Raycast(transform.position + transform.up, -transform.up, 2f, GroundLayer);
-
-        if (hit)
-        {
-            transform.localRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
-        }
-    }
-
-    public void Reset()
-    {
-        isAlive = true;
-        if (RestartFull)
-        {
-            CurrentHealth = MaxHealth + GameManager.Instance.CurrentDifficulty * MaxHealthPerDifficulty;
-        }
-        else
-        {
-            CurrentHealth = 0;
-        }
-        
-        wantedHealth = CurrentHealth;
-
-        UpdateHealthBar(true);
-    }
-
-    #region performance
-
-    public int HealthRegenEveryFrames = 5;
-    public int HealthRegenFrameCounter = 0;
+    #region Performance_Values
 
     [SerializeField]
     public static float GrowingSpeed = 5f;
@@ -78,87 +19,38 @@ public class EnemieBase : HitAble {
 
     #endregion
 
-    void Update()
-    {
-        if (GameManager.GamePaused)
-            return;
+    public bool Debug = false;
 
-        if (isAlive)
+    public override void Start()
+    {
+        base.Start();
+        healthBar.UpdateBar(true);
+
+        if (StartFullHealth)
         {
-            HealthRegenFrameCounter++;
-            if (HealthRegenFrameCounter == HealthRegenEveryFrames)
-            {
-                HealthRegenFrameCounter = 0;
-                Heal((HealthRegenPerSec + GameManager.Instance.CurrentDifficulty * HealthRegenPerSecPerDifficulty) * Time.deltaTime * HealthRegenEveryFrames);
-            }
+            HealFull();
         }
 
-        CurrentHealth = Mathf.Lerp(CurrentHealth, wantedHealth, Time.deltaTime * HealthChangeSpeed);
-        UpdateHealthBar();
+        if (Debug && EntitySpawnManager.ContainsHitAble(this))
+            EntitySpawnManager.AddHitAble(this);
 
-        if (!isAlive && ProzentHealth() <= 0.01f)
+        //Correct Positioning based on floor normal
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + transform.up, -transform.up, 2f, GroundLayer);
+        if (hit)
         {
-            Die();
-        }
-    }
-
-    public float ProzentHealth()
-    {
-        return CurrentHealth/MaxHealth;
-    }
-
-    public void UpdateHealthBar(bool instant = false)
-    {
-        healthBar.UpdateBar(CurrentHealth, MaxHealth, instant);
-    }
-
-    public void SetHealth(float value)
-    {
-        CurrentHealth = Mathf.Clamp(value, 0f, MaxHealth);
-        wantedHealth = CurrentHealth;
-        UpdateHealthBar(true);
-    }
-
-    public override void Damage(Damage damage)
-    {
-        base.Damage(damage);
-
-        damage.amount = Mathf.Min(damage.amount, wantedHealth);
-        wantedHealth -= damage.amount;
-        GameEventHandler.TriggerDamageDone(damage.other.GetComponent<PlayerController>(), damage);
-
-        if (wantedHealth <= 0)
-        {
-            isAlive = false;
+            transform.localRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
         }
     }
 
-    public void Heal(float amount)
+    public override void Reset()
     {
-        wantedHealth = Mathf.Clamp(wantedHealth + amount, 0f, MaxHealth);
-    }
+        base.Reset();
 
-    public void Die()
-    {
-        
-        for (int i = 0; i < Drops.Length; i++)
+        CurrentHealth = 0f;
+        if (ResetFullHealth)
         {
-            if (Drops[i].WantsToSpawn)
-            {
-                for (int a = 0; a < Drops[i].Amount; a++)
-                {
-                    string pool = Drops[i].Next().poolName;
-                    EntitySpawnManager.Spawn(pool, transform.position, Quaternion.identity, queue: true);
-                }
-            }
+            HealFull();
         }
-
-        EntitySpawnManager.Despawn(poolName, gameObject, true);
     }
 
-    public void HealFull()
-    {
-        isAlive = true;
-        SetHealth(MaxHealth);
-    }
 }

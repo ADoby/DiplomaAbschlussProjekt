@@ -2384,28 +2384,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff1488c501b42045a94719cd4656a4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitAbleType: 1
-  sendFurther: 0
-  reciever: {fileID: 0}
-  usedCollider:
-  - {fileID: 6000000}
-  SpawnPool: 1
-  SpawnPoolName: Blood
+  hitAbleType: 2
   healthBar: {fileID: 11400072}
   CurrentHealth: 0
-  wantedHealth: 1
-  MaxHealth: 500
-  MaxHealthPerDifficulty: 300
+  StartMaxHealth: 200
+  MaxHealthPerDifficulty: 40
+  StartHealthRegen: 10
+  HealthRegenPerDifficulty: .400000006
   poolName: AlienRace1_Base2
-  HealthRegenPerSec: 10
-  HealthRegenPerSecPerDifficulty: .5
-  isAlive: 0
-  StartFull: 0
-  RestartFull: 0
-  GroundLayer:
-    serializedVersion: 2
-    m_Bits: 4096
-  HealthChangeSpeed: 10
+  HitEffect: 1
+  HitEffectPoolName: Blood
+  sendFurther: 0
+  reciever: {fileID: 0}
+  IsDead: 0
+  GotHit: 0
   Drops:
   - chance: 1
     minAmount: 4
@@ -2425,8 +2417,14 @@ MonoBehaviour:
     spawnInfos:
     - poolName: RandomItem50
       weight: 1
-  HealthRegenEveryFrames: 5
-  HealthRegenFrameCounter: 0
+  usedCollider:
+  - {fileID: 6000000}
+  StartFullHealth: 0
+  ResetFullHealth: 0
+  GroundLayer:
+    serializedVersion: 2
+    m_Bits: 4096
+  Debug: 0
 --- !u!114 &11400076
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2446,19 +2444,19 @@ MonoBehaviour:
     Range: 10
     Name: BaseState 1
     startTime: 0
-    endTime: 8
+    endTime: 7
     healthBonus: 0
   - attacking: 0
     spawning: 1
     spawnInfos:
     - poolName: Enemie1
-      weight: .5
+      weight: 2
     - poolName: Enemie2
       weight: 10
-    spawnCooldown: 10
+    spawnCooldown: 5
     Range: 20
     Name: SpawnState 1
-    startTime: 8
+    startTime: 7
     endTime: 10
     healthBonus: 0
   BaseStateList:
@@ -2676,13 +2674,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2da6b0ddacc96fc4eae861859261d69c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitAbleType: 1
+  hitAbleType: 2
+  healthBar: {fileID: 0}
+  CurrentHealth: 100
+  StartMaxHealth: 100
+  MaxHealthPerDifficulty: 10
+  StartHealthRegen: 2
+  HealthRegenPerDifficulty: .200000003
+  poolName: 
+  HitEffect: 1
+  HitEffectPoolName: Blood
   sendFurther: 1
   reciever: {fileID: 11400074}
+  IsDead: 0
+  GotHit: 0
+  Drops: []
   usedCollider:
   - {fileID: 6000000}
-  SpawnPool: 0
-  SpawnPoolName: Blood
 --- !u!114 &11400092
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2741,7 +2749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 735236d7-e3d2-4746-b2aa-9dcf41d333e0
+  _id: 2b54ff1a-eca6-4255-b4fa-81290c9ad8f2
   classId: 22bf0cc2-175e-467b-9ca8-c242ae9c637d
 --- !u!114 &11400098
 MonoBehaviour:
@@ -2755,7 +2763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 5ff52974-a3f1-44b4-9ee7-169710fe6706
+  _id: c3f6aab1-f230-47aa-ace4-f7ed70f4b756
   classId: ff9a9043-6937-4fdd-bd31-dd3c0b6fceb9
 --- !u!114 &11400146
 MonoBehaviour:
@@ -2792,7 +2800,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: d5604c99-59e7-4e57-acff-a69aceebcf72
+  _id: ead4d9ae-8cde-4377-847b-7af6c24025e5
   classId: cfac2648-4373-4a87-8387-ce9154a49436
   StoreAllComponents: 1
   Components: []

@@ -65,10 +65,10 @@ MonoBehaviour:
     Value: 1
     ValuePerLevel: 0
     valueMultiply: 1
-    ValuePerSkillPoint: .0500000007
+    ValuePerSkillPoint: .0250000004
     MinValue: 0
     MaxValue: 4
-    MaxSkillUps: 20
+    MaxSkillUps: 50
     currentSkillUps: 0
   - Name: Damage
     Value: 10

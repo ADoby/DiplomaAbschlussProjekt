@@ -939,28 +939,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff1488c501b42045a94719cd4656a4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitAbleType: 1
-  sendFurther: 0
-  reciever: {fileID: 0}
-  usedCollider:
-  - {fileID: 6000000}
-  SpawnPool: 1
-  SpawnPoolName: Blood
+  hitAbleType: 2
   healthBar: {fileID: 11400026}
   CurrentHealth: 0
-  wantedHealth: 1
-  MaxHealth: 200
-  MaxHealthPerDifficulty: 100
+  StartMaxHealth: 40
+  MaxHealthPerDifficulty: 20
+  StartHealthRegen: 5
+  HealthRegenPerDifficulty: .400000006
   poolName: AlienRace1_Base1
-  HealthRegenPerSec: 5
-  HealthRegenPerSecPerDifficulty: .5
-  isAlive: 0
-  StartFull: 0
-  RestartFull: 0
-  GroundLayer:
-    serializedVersion: 2
-    m_Bits: 4096
-  HealthChangeSpeed: 10
+  HitEffect: 1
+  HitEffectPoolName: Blood
+  sendFurther: 0
+  reciever: {fileID: 0}
+  IsDead: 0
+  GotHit: 0
   Drops:
   - chance: 1
     minAmount: 0
@@ -974,8 +966,14 @@ MonoBehaviour:
     spawnInfos:
     - poolName: RandomItem25
       weight: 1
-  HealthRegenEveryFrames: 5
-  HealthRegenFrameCounter: 0
+  usedCollider:
+  - {fileID: 6000000}
+  StartFullHealth: 0
+  ResetFullHealth: 0
+  GroundLayer:
+    serializedVersion: 2
+    m_Bits: 4096
+  Debug: 0
 --- !u!114 &11400032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -987,13 +985,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02a2d6144636d864fb0221b0295bc11b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitAbleType: 1
+  hitAbleType: 2
+  healthBar: {fileID: 0}
+  CurrentHealth: 100
+  StartMaxHealth: 100
+  MaxHealthPerDifficulty: 10
+  StartHealthRegen: 2
+  HealthRegenPerDifficulty: .200000003
+  poolName: 
+  HitEffect: 1
+  HitEffectPoolName: Blood
   sendFurther: 1
   reciever: {fileID: 11400028}
+  IsDead: 0
+  GotHit: 0
+  Drops: []
   usedCollider:
   - {fileID: 6000000}
-  SpawnPool: 0
-  SpawnPoolName: Blood
 --- !u!114 &11400034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1032,7 +1040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 10a2d2a5-4321-4b10-b7b3-55d379b0bfa2
+  _id: 40edaca9-d5e1-45ed-8c18-93226d8d99b7
   classId: 2200fdc5-1e69-4fb6-8cfd-b68a22e443b2
   StoreAllComponents: 1
   Components: []
@@ -1048,7 +1056,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 0bd701ce-6c10-44cb-92bf-9b3dd01640bd
+  _id: 771889ef-74ab-48a9-bd93-ba7c4b7fe40a
   classId: 68c3ed9e-397c-4609-a922-57ed3d37b211
 --- !u!114 &11400040
 MonoBehaviour:
@@ -1062,7 +1070,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 3a44ab18-90f9-49d7-9ce2-36b2bfeaf454
+  _id: 83ba8733-cdf0-4300-bb2d-c1abdbfc0e10
   classId: ce29fbcf-f885-4303-808f-45dc8984ffe8
 --- !u!212 &21200000
 SpriteRenderer:

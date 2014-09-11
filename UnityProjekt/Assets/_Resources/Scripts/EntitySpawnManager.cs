@@ -257,7 +257,7 @@ public class EntitySpawnManager : MonoBehaviour
     {
         if (GameManager.Instance.PlayerCount == 0)
             return null;
-
+        
         HitAbleInfo nearest = null;
 
         float nearestDistance = -1;
@@ -407,6 +407,18 @@ public class EntitySpawnManager : MonoBehaviour
     public static void AddHitAble(HitAble hitAble)
     {
         Instance.SpawnedHitAbles.Add(new HitAbleInfo { hitAble = hitAble });
+    }
+
+    public static bool ContainsHitAble(HitAble hitAble)
+    {
+        for (int i = 0; i < Instance.SpawnedHitAbles.Count; i++)
+        {
+            if(Instance.SpawnedHitAbles[i].hitAble == hitAble)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static void RemoveHitAble(HitAble hitAble)

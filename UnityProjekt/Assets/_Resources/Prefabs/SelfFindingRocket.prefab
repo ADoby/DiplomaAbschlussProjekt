@@ -132,7 +132,7 @@ MonoBehaviour:
   TargetChangeSpeed: 10
   MinDistanceForMaxSpeed: 1
   exploded: 0
-  HitAbleFindMask: 1
+  HitAbleFindMask: 3
   HitAbleHitMask: -1
   savedVelocity: {x: 0, y: 0, z: 0}
   LifeTime: 10
